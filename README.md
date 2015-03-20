@@ -22,6 +22,15 @@ http://www.qq.com/404/
 ## 使用多说评论(Update with DUOSHUO comment module):
 link: http://dev.duoshuo.com/threads/541d3b2b40b5abcd2e4df0e9
 
+将通用代码粘贴到`hexo\themes\modernist\layout\_partial\comment.ejs`里面，如下：
+
+```
+<% if (config.disqus_shortname && page.comments){ %>
+<section id="comment">
+  #你的通用代码
+<% } %>
+```
+
 
 ## 遇到错误：(ERRORs)
 1. `highlight = hexo-config("highlight.enable")`  
