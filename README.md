@@ -12,15 +12,16 @@
 https://disqus.com/websites/?utm_source=hexojs&utm_medium=Disqus-Footer
 
 
-
-
 ## 404 Page
 创建404.html，位于root/source文件夹下。copy以下代码，调用腾讯404寻找走失儿童。
 404 代码位于: 
 http://www.qq.com/404/
 
-
 ## 生成自动update博客scirpt
+
+## 使用多说评论(Update with DUOSHUO comment module):
+link: http://dev.duoshuo.com/threads/541d3b2b40b5abcd2e4df0e9
+
 
 ## 遇到错误：(ERRORs)
 1. `highlight = hexo-config("highlight.enable")`  
