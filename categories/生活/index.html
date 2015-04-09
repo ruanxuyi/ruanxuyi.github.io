@@ -1,10 +1,10 @@
 
- <!DOCTYPE HTML>
+  <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   
-    <title>categories | 来自威斯星星大学的一个小猩猩</title>
+    <title>来自威斯星星大学的一个小猩猩</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="阮先生">
@@ -13,12 +13,12 @@
     
     <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://www.xuyiruan.com/categories/index.html">
+<meta property="og:title" content="来自威斯星星大学的一个小猩猩">
+<meta property="og:url" content="http://www.xuyiruan.com/categories/生活/index.html">
 <meta property="og:site_name" content="来自威斯星星大学的一个小猩猩">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="来自威斯星星大学的一个小猩猩">
 <meta name="twitter:description">
 
 
@@ -76,17 +76,31 @@
 </div>
       </header>
       <div id="container">
-          
+        
+
 <div class="archive-title" >
-<h2 class="category-icon">分类</h2>
-
-<a data-src="/categories/生活/" href="#生活" title="生活">生活<sup>1</sup></a>
-
+  <h2 class="category-icon">生活</h2>
+  
 </div>
-<div id="main" class="archive-part">
-<div class="all-list-box"></div>
-</div>
+<div id="main" class="archive-part clearfix">
+  <div id="archive-page">
 
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/04/09/talk_about_life/" title="浅谈人生 (Talk about life)" itemprop="url">
+  
+
+    <time datetime="2015-04-09T18:44:26.000Z" itemprop="datePublished">04-09-2015</time>
+
+
+    <h1 itemprop="name">浅谈人生 (Talk about life)</h1>
+
+  </a>
+</section>
+
+
+  </div>
+</div>
 
       </div>
       <footer><div id="footer" >
@@ -189,24 +203,6 @@ $(document).ready(function(){
 
 
 
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var list    = $('.archive-title a'),
-      box     = $('.all-list-box'),
-      first   = $('.archive-title a:first-of-type');
-      box.load(first.attr('data-src').toString()+' #archive-page');
-      first.addClass('current');
-  list.each(function(){
-    $(this).click(function(){
-      var listSrc=$(this).attr('data-src').toString()+' #archive-page';
-      box.load(listSrc);
-      list.removeClass('current');
-      $(this).addClass('current');
-     });  
-    });
-  }); 
-</script>
 
 
 
