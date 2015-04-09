@@ -41,3 +41,15 @@ Solution: Run `npm install hexo-renderer-stylus --save`
 Solution: `npm install hexo-deployer-git --save` and   
 In version 3, your should use `git` instead of `github`.
 
+## 更改footer信息
+位于 `hexo\themes\modernist\layout\_partial\footer.ejs`
+
+## 添加google analytics
+
+google_analytics:
+```
+  enable: true 
+  id: UA-61663668-1 ## e.g. UA-46321946-2 your google analytics ID.
+  site: www.xuyiruan.com ## e.g. wuchong.me your google analytics site or set the value as auto.
+```
+
