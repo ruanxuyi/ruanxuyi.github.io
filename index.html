@@ -84,6 +84,121 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/06/11/sniffencrption/" title="Encrption (WPA2/PSK) on Recon(sniff.py) Project" itemprop="url">Encrption (WPA2/PSK) on Recon(sniff.py) Project</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
+		
+  <p class="article-time">
+    <time datetime="2015-06-11T23:12:16.000Z" itemprop="datePublished"> 发表于 06-11-2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="Encrption_(WPA2/PSK)_on_Recon(sniff-py)_Project">Encrption (WPA2/PSK) on Recon(sniff.py) Project</h2><h3 id="useful_info:">useful info:</h3><p>connect to the paradrop server:</p>
+<pre><code>ssh pd@paradrop<span class="class">.wings</span><span class="class">.cs</span><span class="class">.wisc</span><span class="class">.edu</span>
+</code></pre><h3 id="connect_to_the_router:">connect to the router:</h3><ol>
+<li>SSID: ParadropXX</li>
+<li>Password: paradroprocks</li>
+</ol>
+<h3 id="ssh_into_the_paradrop_router:">ssh into the paradrop router:</h3><pre><code><span class="title">ssh</span> root<span class="variable">@halo32</span>   
+</code></pre><p>passowrd: 699.tmp</p>
+<h3 id="create_shoot_through_front_end_page-">create <code>shoot</code> through front end page.</h3><ol>
+<li><code>ifconfig br-lan</code> </li>
+<li>get <code>inet addr:</code> for example: <code>192.168.60.1</code></li>
+<li>open browswer go to  <code>192.168.60.1</code></li>
+<li>set up an <code>app</code> as <code>recon</code></li>
+</ol>
+<h3 id="log_into_the_shoot">log into the <code>shoot</code></h3><ul>
+<li>run command line check:  <pre><code>python etc/pd/lib/internal/fc/chutestorage.py -ls </code></pre></li>
+<li>output from terminal:</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">lxc:<span class="number">64</span>c22813-ab61-<span class="number">4</span>c87-<span class="number">9</span>ff6-cac4a03b690f</span><br><span class="line">  state:    running</span><br><span class="line">  <span class="keyword">struct</span>:   &#123;<span class="string">'net'</span>: &#123;<span class="string">'wan'</span>: &#123;<span class="string">'type'</span>: <span class="string">'wan'</span>, <span class="string">'intfName'</span>: <span class="string">'eth0'</span>, <span class="string">'ipaddr'</span>: <span class="string">'10.100.10.1'</span>, <span class="string">'netmask'</span>: <span class="string">'255.255.255.0'</span>&#125;, <span class="string">'passthroughInterfaces'</span>: [], <span class="string">'wlanPassthrough'</span>: <span class="string">'True'</span>, <span class="string">'radioid'</span>: <span class="number">1</span>&#125;, <span class="string">'disk'</span>: &#123;<span class="string">'size'</span>: <span class="number">123456</span>&#125;, <span class="string">'cmds'</span>: &#123;<span class="string">'firewall'</span>: &#123;<span class="string">'post'</span>: [<span class="string">'iptables -t nat -I PREROUTING -i tun0 -p tcp -m tcp --dport 6555 -j DNAT --to-destination 10.100.10.1:22'</span>, <span class="string">'iptables -I FORWARD -i tun0 -s 10.6.0.0/24 -d 10.100.10.1 -j ACCEPT'</span>, <span class="string">'iptables -I FORWARD -o tun0 -s 10.100.10.1 -d 10.6.0.0/24 -j ACCEPT'</span>]&#125;&#125;&#125;</span><br><span class="line">  runtime:  [&#123;<span class="string">'program'</span>: <span class="string">'echo'</span>, <span class="string">'name'</span>: <span class="string">'sniff args'</span>, <span class="string">'args'</span>: <span class="string">'python /root/recon/sniff.py -i moni1 -t 5 --phy phy1 &gt; /root/sniff_args'</span>&#125;, &#123;<span class="string">'program'</span>: <span class="string">'bash /root/recon/sniff_start.sh'</span>, <span class="string">'name'</span>: <span class="string">'startSniff'</span>, <span class="string">'args'</span>: <span class="string">''</span>&#125;, &#123;<span class="string">'cron'</span>: <span class="string">'*/1 * * * *'</span>, <span class="string">'program'</span>: <span class="string">'bash /root/recon/sniff_start.sh'</span>, <span class="string">'name'</span>: <span class="string">'Check sniff is running'</span>, <span class="string">'args'</span>: <span class="string">''</span>&#125;]</span><br><span class="line">  traffic:  []</span><br><span class="line">  resource: &#123;<span class="string">'lan'</span>: &#123;<span class="string">'down'</span>: <span class="number">25000</span>, <span class="string">'up'</span>: <span class="number">25000</span>&#125;, <span class="string">'cpu'</span>: <span class="string">'@resource.cpu.MAX'</span>, <span class="string">'memory'</span>: <span class="string">'@resource.memory.MAX'</span>&#125;</span><br><span class="line">  files:  [&#123;<span class="string">'path'</span>: <span class="string">'/root'</span>, <span class="string">'sha1'</span>: <span class="string">'None'</span>, <span class="string">'todo'</span>: <span class="string">'EXTRACT'</span>, <span class="string">'name'</span>: <span class="string">'sniff'</span>, <span class="string">'location'</span>: <span class="string">'@paradrop.server(sniff/sniff.tar.gz)'</span>&#125;]</span><br><span class="line">  radioid:  <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>Userful Infomation:<br><strong>UUID</strong> - 64c22813-ab61-4c87-9ff6-cac4a03b690f<br><strong>ipaddr</strong> - 10.100.10.1 &lt;- this is the address for the shoot(app) you just created. ssh into it.</p>
+<pre><code><span class="title">ssh</span> root@<span class="number">10.100.10.1</span>
+</code></pre><p>User/Pass: root  </p>
+<h3 id="check_if_sniff_is_still_running:">check if sniff is still running:</h3><pre><code>screen -<span class="keyword">ls</span>
+</code></pre><p>output from terminal:</p>
+<pre><code>There are screens on:
+    <span class="number">53</span><span class="class">.sniff</span>    (Detached)
+    <span class="number">28</span><span class="class">.lxcserver</span>    (Detached)
+<span class="number">2</span> Sockets <span class="keyword">in</span> /tmp/screens/S-root.
+</code></pre><h3 id="stop_stiff:">stop stiff:</h3><pre><code>bash /root/recon/sniff_disable<span class="class">.sh</span>
+bash /root/recon/sniff_kill<span class="class">.sh</span> 
+</code></pre><p>check if stiff stop:</p>
+<pre><code>screen -<span class="keyword">ls</span>
+</code></pre><p>output from terminal:</p>
+<pre><code>There is <span class="tag">a</span> screen on:
+    <span class="number">28</span><span class="class">.lxcserver</span>    (Detached)
+<span class="number">1</span> Socket <span class="keyword">in</span> /tmp/screens/S-root. 
+</code></pre><h3 id="restart_stiff:">restart stiff:</h3><pre><code>bash <span class="regexp">/root/</span>recon<span class="regexp">/sniff_restart.sh</span>
+</code></pre><p><code>screen -ls</code> output from terminal:</p>
+<pre><code>There are screens on:
+    <span class="number">782</span><span class="class">.sniff</span>   (Detached)
+    <span class="number">28</span><span class="class">.lxcserver</span>    (Detached)
+<span class="number">2</span> Sockets <span class="keyword">in</span> /tmp/screens/S-root.
+</code></pre><h3 id="goal:">goal:</h3><p>now I am in side the shoot, I need to use <code>sniff</code> to run <code>hostapd</code> to create a access point for the app, so that the SSID created should have encryption ablility (WPA2/PSK).   </p>
+<p><strong>BackGround Info:</strong><br><em>Recon</em>:  Recon is the project name for the retail analytics that we are doing. Our initial deployment is in the UW Bookstore on state street.</p>
+<p><a href="http://wirelessathome.wings.cs.wisc.edu/redmine/projects/paradrop/wiki/Recon" target="_blank" rel="external">http://wirelessathome.wings.cs.wisc.edu/redmine/projects/paradrop/wiki/Recon</a></p>
+<p><em>Sniff</em>: </p>
+<p>TODO:  </p>
+<ol>
+<li>read through <code>_modeCreateSSID</code> on sniff.py  </li>
+<li>read through <code>.config</code> file, see where encrption comes in  </li>
+<li>write <code>test.py</code> file to test the <code>hostapd</code> funcion, if AP comes up without encrption first.</li>
+<li>update <code>test.py</code> to make encrption enable</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/work/">work</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/paradrop/">paradrop</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/06/11/sniffencrption/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/06/11/sniffencrption/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/06/08/endOfJunior/" title="回首大三下" itemprop="url">回首大三下</a>
   </h1>
   <p class="article-author">By
@@ -366,6 +481,10 @@
 		<ul>
 		
 		  
+			<li><a href="/categories/work/" title="work">work<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/生活/" title="生活">生活<sup>2</sup></a></li>
 		  
 		
@@ -380,6 +499,10 @@
 		
 			
 				<li><a href="/tags/杂文/" title="杂文">杂文<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/paradrop/" title="paradrop">paradrop<sup>1</sup></a></li>
 			
 		
 			
