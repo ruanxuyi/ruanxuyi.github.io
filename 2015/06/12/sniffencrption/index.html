@@ -20,7 +20,7 @@ Password: paradroprocks
 ssh into t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Encrption (WPA2/PSK) on Recon(sniff.py) Project">
-<meta property="og:url" content="http://www.xuyiruan.com/2015/06/11/sniffencrption/index.html">
+<meta property="og:url" content="http://www.xuyiruan.com/2015/06/12/sniffencrption/index.html">
 <meta property="og:site_name" content="来自威斯星星大学的一个小猩猩">
 <meta property="og:description" content="Encrption (WPA2/PSK) on Recon(sniff.py) Projectuseful info:connect to the paradrop server:
 ssh pd@paradrop.wings.cs.wisc.edu
@@ -100,14 +100,14 @@ ssh into t">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/06/11/sniffencrption/" title="Encrption (WPA2/PSK) on Recon(sniff.py) Project" itemprop="url">Encrption (WPA2/PSK) on Recon(sniff.py) Project</a>
+      <a href="/2015/06/12/sniffencrption/" title="Encrption (WPA2/PSK) on Recon(sniff.py) Project" itemprop="url">Encrption (WPA2/PSK) on Recon(sniff.py) Project</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
 		
   <p class="article-time">
-    <time datetime="2015-06-11T23:12:16.000Z" itemprop="datePublished"> 发表于 06-11-2015</time>
+    <time datetime="2015-06-12T17:12:35.000Z" itemprop="datePublished"> 发表于 06-12-2015</time>
     
   </p>
 </header>
@@ -116,7 +116,7 @@ ssh into t">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Encrption_(WPA2/PSK)_on_Recon(sniff-py)_Project"><span class="toc-number">1.</span> <span class="toc-text">Encrption (WPA2/PSK) on Recon(sniff.py) Project</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#useful_info:"><span class="toc-number">1.1.</span> <span class="toc-text">useful info:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#connect_to_the_router:"><span class="toc-number">1.2.</span> <span class="toc-text">connect to the router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh_into_the_paradrop_router:"><span class="toc-number">1.3.</span> <span class="toc-text">ssh into the paradrop router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#create_shoot_through_front_end_page-"><span class="toc-number">1.4.</span> <span class="toc-text">create shoot through front end page.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#log_into_the_shoot"><span class="toc-number">1.5.</span> <span class="toc-text">log into the shoot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#check_if_sniff_is_still_running:"><span class="toc-number">1.6.</span> <span class="toc-text">check if sniff is still running:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stop_stiff:"><span class="toc-number">1.7.</span> <span class="toc-text">stop stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#restart_stiff:"><span class="toc-number">1.8.</span> <span class="toc-text">restart stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal:"><span class="toc-number">1.9.</span> <span class="toc-text">goal:</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Encrption_(WPA2/PSK)_on_Recon(sniff-py)_Project"><span class="toc-number">1.</span> <span class="toc-text">Encrption (WPA2/PSK) on Recon(sniff.py) Project</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#useful_info:"><span class="toc-number">1.1.</span> <span class="toc-text">useful info:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#connect_to_the_router:"><span class="toc-number">1.2.</span> <span class="toc-text">connect to the router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh_into_the_paradrop32_router:"><span class="toc-number">1.3.</span> <span class="toc-text">ssh into the paradrop32 router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#create_shoot_through_front_end_page-"><span class="toc-number">1.4.</span> <span class="toc-text">create shoot through front end page.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#log_into_the_shoot"><span class="toc-number">1.5.</span> <span class="toc-text">log into the shoot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#check_if_sniff_is_still_running:"><span class="toc-number">1.6.</span> <span class="toc-text">check if sniff is still running:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stop_stiff:"><span class="toc-number">1.7.</span> <span class="toc-text">stop stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#restart_stiff:"><span class="toc-number">1.8.</span> <span class="toc-text">restart stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal:"><span class="toc-number">1.9.</span> <span class="toc-text">goal:</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -126,8 +126,10 @@ ssh into t">
 <li>SSID: ParadropXX</li>
 <li>Password: paradroprocks</li>
 </ol>
-<h3 id="ssh_into_the_paradrop_router:">ssh into the paradrop router:</h3><pre><code><span class="title">ssh</span> root<span class="variable">@halo32</span>   
-</code></pre><p>passowrd: 699.tmp</p>
+<h3 id="ssh_into_the_paradrop32_router:">ssh into the paradrop32 router:</h3><pre><code><span class="title">ssh</span> root<span class="variable">@halo32</span>   
+</code></pre><p>passowrd: 699.tmp<br>receive public ip: </p>
+<pre><code>curl ipecho.<span class="winutils">net</span>/plain ; <span class="keyword">echo</span>
+</code></pre><p>public ip: 216.26.112.63</p>
 <h3 id="create_shoot_through_front_end_page-">create <code>shoot</code> through front end page.</h3><ol>
 <li><code>ifconfig br-lan</code> </li>
 <li>get <code>inet addr:</code> for example: <code>192.168.60.1</code></li>
@@ -195,7 +197,7 @@ bash /root/recon/sniff_kill<span class="class">.sh</span>
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.xuyiruan.com/2015/06/11/sniffencrption/" data-title="Encrption (WPA2/PSK) on Recon(sniff.py) Project | 来自威斯星星大学的一个小猩猩" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.xuyiruan.com/2015/06/12/sniffencrption/" data-title="Encrption (WPA2/PSK) on Recon(sniff.py) Project | 来自威斯星星大学的一个小猩猩" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -221,7 +223,7 @@ bash /root/recon/sniff_kill<span class="class">.sh</span>
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/06/11/sniffencrption/" data-title="Encrption (WPA2/PSK) on Recon(sniff.py) Project" data-url="http://www.xuyiruan.com/2015/06/11/sniffencrption/"></div>
+	<div class="ds-thread" data-thread-key="2015/06/12/sniffencrption/" data-title="Encrption (WPA2/PSK) on Recon(sniff.py) Project" data-url="http://www.xuyiruan.com/2015/06/12/sniffencrption/"></div>
 </section>
 
 
@@ -231,7 +233,7 @@ bash /root/recon/sniff_kill<span class="class">.sh</span>
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Encrption_(WPA2/PSK)_on_Recon(sniff-py)_Project"><span class="toc-number">1.</span> <span class="toc-text">Encrption (WPA2/PSK) on Recon(sniff.py) Project</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#useful_info:"><span class="toc-number">1.1.</span> <span class="toc-text">useful info:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#connect_to_the_router:"><span class="toc-number">1.2.</span> <span class="toc-text">connect to the router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh_into_the_paradrop_router:"><span class="toc-number">1.3.</span> <span class="toc-text">ssh into the paradrop router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#create_shoot_through_front_end_page-"><span class="toc-number">1.4.</span> <span class="toc-text">create shoot through front end page.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#log_into_the_shoot"><span class="toc-number">1.5.</span> <span class="toc-text">log into the shoot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#check_if_sniff_is_still_running:"><span class="toc-number">1.6.</span> <span class="toc-text">check if sniff is still running:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stop_stiff:"><span class="toc-number">1.7.</span> <span class="toc-text">stop stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#restart_stiff:"><span class="toc-number">1.8.</span> <span class="toc-text">restart stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal:"><span class="toc-number">1.9.</span> <span class="toc-text">goal:</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Encrption_(WPA2/PSK)_on_Recon(sniff-py)_Project"><span class="toc-number">1.</span> <span class="toc-text">Encrption (WPA2/PSK) on Recon(sniff.py) Project</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#useful_info:"><span class="toc-number">1.1.</span> <span class="toc-text">useful info:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#connect_to_the_router:"><span class="toc-number">1.2.</span> <span class="toc-text">connect to the router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh_into_the_paradrop32_router:"><span class="toc-number">1.3.</span> <span class="toc-text">ssh into the paradrop32 router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#create_shoot_through_front_end_page-"><span class="toc-number">1.4.</span> <span class="toc-text">create shoot through front end page.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#log_into_the_shoot"><span class="toc-number">1.5.</span> <span class="toc-text">log into the shoot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#check_if_sniff_is_still_running:"><span class="toc-number">1.6.</span> <span class="toc-text">check if sniff is still running:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stop_stiff:"><span class="toc-number">1.7.</span> <span class="toc-text">stop stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#restart_stiff:"><span class="toc-number">1.8.</span> <span class="toc-text">restart stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#goal:"><span class="toc-number">1.9.</span> <span class="toc-text">goal:</span></a></li></ol></li></ol>
  
   </div>
 
