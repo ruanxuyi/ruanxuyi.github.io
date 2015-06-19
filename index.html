@@ -84,6 +84,157 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/06/19/sniffencrption_2/" title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2" itemprop="url">Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
+		
+  <p class="article-time">
+    <time datetime="2015-06-19T20:39:30.000Z" itemprop="datePublished"> 发表于 06-19-2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="List_of_files:"><strong>List of files:</strong></h2><h3 id="server_side:">server side:</h3><p><code>dbapi_recon.py</code> - manage the format of the POST<br><code>dbapi_tool.py</code> - take command line from terminal and put parameters into a JSON package  </p>
+<h3 id="router_side:">router side:</h3><p><code>sniff.py</code> - receive pacakge from dbapi_server, and extracts the parameters (ssid, chan, pw, etc.)<br><code>iw.py</code> - the file actual set up necessary configuration for a wireless network, and run commnad through command line and startHostapd to create AP. </p>
+<p>inside <code>sniff.py</code>, add folloiwng:</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">pw = modeData.<span class="function"><span class="title">get</span><span class="params">(<span class="string">'password'</span>, None)</span></span></span><br><span class="line">....</span><br><span class="line">res = iw.<span class="function"><span class="title">startHostapd</span><span class="params">(<span class="string">'wlan0'</span>, ssid, chan, pw)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="Diagram:"><strong>Diagram:</strong></h2><p><code>dbapi_tool</code> —- send JSON message to —&gt; <code>dbapi server</code> &lt;—-receive/send JSON package——&gt; <code>sniff.py</code>  </p>
+<p>package: JSON object.  </p>
+<p><code>moni1</code> - interface to monitor wifi traffic:</p>
+<pre><code><span class="tag">Interface</span> <span class="tag">moni1</span>
+    <span class="tag">ifindex</span> 9361
+    <span class="tag">wdev</span> 0<span class="tag">x100002490</span>
+    <span class="tag">addr</span> 04<span class="pseudo">:f0</span><span class="pseudo">:21</span><span class="pseudo">:10</span><span class="pseudo">:c0</span><span class="pseudo">:d8</span>
+    <span class="tag">type</span> <span class="tag">monitor</span>
+</code></pre><h2 id="Useful_commands:"><strong>Useful commands: </strong></h2><pre><code>python services/pddb<span class="class">.py</span> -f whois -<span class="tag">a</span> halo32
+</code></pre><p>Output indicates which group belong to:</p>
+<pre><code>Calling whois((&lt;services.pdsql.PDSql instance at <span class="number">0x45b4d40</span>&gt;, <span class="string">'halo32'</span>))
+-- <span class="string">AP:</span> halo32 (<span class="string">WN855702 :</span>: f2ff1c8d-bec8-<span class="number">4</span>a08-aedc-ab72861fa694) <span class="string">IP:</span> <span class="number">10.6</span><span class="number">.0</span><span class="number">.206</span> <span class="string">LOC:</span> WiNGS Lab, Madison WI
+<span class="label"> OWNER:</span> <span class="string">CS :</span> test (<span class="number">9520</span>f0c5-b884-<span class="number">11e4</span>-a360-<span class="number">00265511043</span>e) <span class="string">GROUP:</span> Test
+<span class="label"> RECON:</span> <span class="string">rid:</span> <span class="number">40</span>, <span class="string">reconid:</span> <span class="number">10</span>, <span class="string">GROUP:</span> Test
+</code></pre><p>show the difference of the modification: </p>
+<pre><code><span class="title">svn</span> diff dbapi/dbapi_recon.py
+</code></pre><h2 id="Thought_Process:"><strong>Thought Process:</strong></h2><p>Modify code on <code>xuyi@paradrop.wings.wisc.edu</code>  </p>
+<p>inside <code>/home/xuyi/paradrop/trunk/recon/dbapi_tool.py</code> add password option in</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createWifi</span><span class="params">(dbh, baseUrl, token, group, ssid, chan, pw)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">        Creates a wifi network on the group APs provided.</span><br><span class="line">        Arguments:</span><br><span class="line">            @ssid : The SSID to set each device to</span><br><span class="line">            @chan : The channel, can be string like '36+1' for HT40+</span><br><span class="line">            @pw : The password for Wi-Fi</span><br><span class="line">    """</span></span><br><span class="line">    url = <span class="string">'%s/wifi/%s/create'</span> % (baseUrl, urlEncodeMe(group, <span class="string">""</span>))</span><br><span class="line">    out.info(<span class="string">'-- %s Creating WiFi: %s\n'</span> % (logPrefix(), url))</span><br><span class="line"></span><br><span class="line">    msg = &#123;<span class="string">"sessionToken"</span>:token&#125;</span><br><span class="line">    msg[<span class="string">'ssid'</span>] = ssid</span><br><span class="line">    msg[<span class="string">'channel'</span>] = chan</span><br><span class="line">    msg[<span class="string">'pw'</span>] = pw</span><br><span class="line">    </span><br><span class="line">    res = pdweb.post(url, json2str(msg), <span class="keyword">None</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">not</span> pdweb.isOK(res)):</span><br><span class="line">        out.warn(<span class="string">'** Failed: %s\n'</span> % str(res))</span><br><span class="line">        exit()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        out.info(<span class="string">'-- %s\n'</span> % pdweb.data(res))</span><br></pre></td></tr></table></figure>
+<p>Run command with <code>dbapi_tool</code> to tell the <code>sniff.py</code> in router to setup a AP with password</p>
+<pre><code>python recon/dbapi_tool<span class="class">.py</span> -g Test -f createWifi -<span class="tag">a</span> testRXY -<span class="tag">a</span> <span class="number">36</span> -<span class="tag">a</span> paradroprocks
+</code></pre><p>send JSON package (ssid, chan, pw) through dbapi server to sniff.py inside halo32.   </p>
+<p>Output from  <code>iw dev wlan0 scan</code> for <code>halo32</code> without password</p>
+<pre><code>BSS <span class="number">04</span>:<span class="string">f0:</span><span class="number">21</span>:<span class="number">10</span>:<span class="string">c0:</span>d8(on wlan0)
+<span class="label">    TSF:</span> <span class="number">234855172</span> usec (<span class="number">0</span>d, <span class="number">00</span>:<span class="number">03</span>:<span class="number">54</span>)
+<span class="label">    freq:</span> <span class="number">5180</span>
+    beacon <span class="string">interval:</span> <span class="number">100</span> TUs
+<span class="label">    capability:</span> ESS (<span class="number">0x0001</span>)
+<span class="label">    signal:</span> -<span class="number">38.00</span> dBm
+    last <span class="string">seen:</span> <span class="number">1052</span> ms ago
+    Information elements from Probe Response <span class="string">frame:</span>
+<span class="label">    SSID:</span> testRXY40
+    Supported <span class="string">rates:</span> <span class="number">6.0</span>* <span class="number">9.0</span> <span class="number">12.0</span>* <span class="number">18.0</span> <span class="number">24.0</span>* <span class="number">36.0</span> <span class="number">48.0</span> <span class="number">54.0</span> 
+    DS Parameter <span class="string">set:</span> channel <span class="number">36</span>
+    Extended <span class="string">capabilities:</span> <span class="number">6</span>
+</code></pre><p><strong>Problems:  </strong>  </p>
+<ol>
+<li><p>does not have encryption - inside halo32<br> change code </p>
+ <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">pw = modeData.<span class="function"><span class="title">get</span><span class="params">(<span class="string">'password'</span>, None)</span></span></span><br></pre></td></tr></table></figure>
+<p> to </p>
+ <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">pw = modeData.<span class="function"><span class="title">get</span><span class="params">(<span class="string">'pw'</span>, None)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>One more thing that struggle me so long:  </strong><br>since you modify the sniff.py code, you might restart the sniff program to reflect the update on sniff!!  </p>
+<p>What I found so far: Password lost either when packed or when received.  </p>
+<p><strong>Message in queue:</strong><br>peek message in queue on the dbapi server: </p>
+<pre><code>curl <span class="string">http:</span><span class="comment">//paradrop.wings.cs.wisc.edu:10330/v1/recon/peek/Test</span>
+</code></pre><p>indicate that password was not packed into the JSON package.</p>
+<pre><code>f<span class="number">2</span>ff<span class="number">1</span>c<span class="number">8</span>d-bec<span class="number">8</span><span class="number">-4</span>a<span class="number">08</span>-aedc-ab<span class="number">72861</span>fa<span class="number">694</span> :  <span class="number">40</span> : {<span class="string">"data"</span>:{<span class="string">"ssid"</span>:<span class="string">"test40"</span>,<span class="string">"channel"</span>:<span class="number">36</span>},<span class="string">"mode"</span>:<span class="string">"__WIFI_CREATE"</span>} <span class="comment">(1 seconds old)</span>
+</code></pre><ol>
+<li><p>SSID name not correct. </p>
+</li>
+<li><p>if no password indicate, will the AP create sucessfully.</p>
+</li>
+</ol>
+<p>POST and GET</p>
+<p>Also need to change file in <code>~/paradrop/trunk/recon/dbapi/dbapi_recon.py</code></p>
+<p><strong>question</strong>: will JSON package sent <code>None</code> in string or None?<br>one <code>pw = modeData.get(&#39;pw&#39;, None)</code> will <code>pw</code> get <code>None</code> or string(None)</p>
+<p>that does not matter, since code in <code>if(len(pw) &lt; 8):</code> will catch it and turn it into <code>None</code>.<br>As to answer the question: yes, the pw will remain the value <code>None</code></p>
+<h2 id="Current_modified_files:"><strong>Current modified files: </strong></h2><h3 id="server_side:-1">server side:</h3><p><code>dbapi_recon.py</code> @ <code>~/paradrop/trunk/recon/dbapi/dbapi_recon.py</code> manage the format of POST.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">def POST_wifiCreate(self, request, groupid):</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    <span class="comment"># check for format</span></span><br><span class="line">    token, ssid, chan, pw = pdutils.explode(body, <span class="string">"sessionToken"</span>, <span class="string">"ssid"</span>, <span class="string">"channel"</span>, <span class="string">"pw"</span>)</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    <span class="comment"># create wifi without password if not in correct format</span></span><br><span class="line">    <span class="keyword">if</span>(pw is not None):</span><br><span class="line">        <span class="keyword">if</span>(len(pw) &lt; <span class="number">8</span>):</span><br><span class="line">            out.err(<span class="string">"!!%s Password at least 8 characters!\n"</span> % logPrefix(ip))</span><br><span class="line">            pw = None</span><br><span class="line">    <span class="comment"># Add a message for each ap</span></span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    self.pollResponder.addMessage(ap, sniffconfig.setConfig(sniffconfig.WIFI_CREATE, ssid=s, channel=chan, pw=pw), lambda x: x)</span><br><span class="line">    <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
+<p><code>dbapi_tool.py</code> @ <code>/home/xuyi/paradrop/trunk/recon/dbapi_tool.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createWifi</span><span class="params">(dbh, baseUrl, token, group, ssid, chan, pw=None)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    msg[<span class="string">'pw'</span>] = pw</span><br></pre></td></tr></table></figure>
+<h3 id="router_side:-1">router side:</h3><p><code>iw.py</code> @ <code>lib/internal/utils/iw.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">startHostapd</span><span class="params">(iface, ssid, channel, key=None)</span>:</span></span><br><span class="line"> ...</span><br><span class="line"> <span class="comment"># set up WPA2 encryption</span></span><br><span class="line">    <span class="keyword">if</span>(key <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>):</span><br><span class="line">        wpa=<span class="number">3</span></span><br><span class="line">        mode=<span class="string">'WPA-PSK'</span></span><br><span class="line">        wpa_pw = <span class="string">'TKIP CCMP'</span></span><br><span class="line">        rsn_pw = <span class="string">'CCMP'</span></span><br><span class="line">        opts.append(<span class="string">'wpa=%s'</span> % wpa)</span><br><span class="line">        opts.append(<span class="string">'wpa_passphrase=%s'</span> % key)</span><br><span class="line">        opts.append(<span class="string">'wpa_key_mgmt=%s'</span> % mode)</span><br><span class="line">        opts.append(<span class="string">'wpa_pairwise=%s'</span> % wpa_pw)</span><br><span class="line">        opts.append(<span class="string">'rsn_pairwise=%s'</span> % rsn_pw)</span><br></pre></td></tr></table></figure>
+<p><code>sniff.py</code> @ <code>root/recon/sniff.py</code></p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">def _modeCreateSSID(self, modeData, completed):</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    pw = modeData.get(<span class="string">'pw'</span>, None)</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    res = iw.startHostapd(<span class="string">'wlan0'</span>, ssid, chan, pw)</span><br></pre></td></tr></table></figure>
+<h2 id="Commit_the_changes:"><strong>Commit the changes:</strong></h2><h3 id="push_updates_to_server:">push updates to server:</h3><p>1.Check the status of all files:</p>
+<pre><code><span class="title">svn</span> status
+</code></pre><p>Outputs:</p>
+<pre><code>xuyi<span class="variable">@paradrop</span><span class="symbol">:~/paradrop/trunk</span><span class="variable">$ </span>svn status
+?       envsetup.sh
+<span class="constant">M </span>      recon/dbapi_tool.py
+<span class="constant">M </span>      dbapi/dbapi_recon.py
+</code></pre><p>2.commit and push: </p>
+<pre><code>svn <span class="keyword">ci</span> -<span class="keyword">m</span> <span class="string">"XR: added password support to SSID startup"</span>
+</code></pre><p>Outputs: </p>
+<pre><code>xuyi<span class="variable">@paradrop</span><span class="symbol">:~/paradrop/trunk</span><span class="variable">$ </span>svn ci -m <span class="string">"Xuyi: added password support to SSID startup"</span>
+<span class="constant">Sending </span>       trunk/dbapi/dbapi_recon.py
+<span class="constant">Sending </span>       trunk/recon/dbapi_tool.py
+<span class="constant">Transmitting </span>file data ..
+<span class="constant">Committed </span>revision <span class="number">1585</span>.
+</code></pre><h2 id="TODO:"><strong>TODO:</strong></h2><ol>
+<li>Push the change from router</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/work/">work</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/paradrop/">paradrop</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/06/19/sniffencrption_2/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/06/19/sniffencrption_2/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/06/15/sniffencrption/" title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project" itemprop="url">Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project</a>
   </h1>
   <p class="article-author">By
@@ -576,7 +727,7 @@ nl80211 driver <span class="keyword">initialization</span> failed.
 		<ul>
 		
 		  
-			<li><a href="/categories/work/" title="work">work<sup>1</sup></a></li>
+			<li><a href="/categories/work/" title="work">work<sup>2</sup></a></li>
 		  
 		
 		  
@@ -597,7 +748,7 @@ nl80211 driver <span class="keyword">initialization</span> failed.
 			
 		
 			
-				<li><a href="/tags/paradrop/" title="paradrop">paradrop<sup>1</sup></a></li>
+				<li><a href="/tags/paradrop/" title="paradrop">paradrop<sup>2</sup></a></li>
 			
 		
 			
