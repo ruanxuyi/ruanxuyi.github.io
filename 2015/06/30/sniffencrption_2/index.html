@@ -15,7 +15,7 @@
 router side:sniff.py - receive pacakge">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2">
-<meta property="og:url" content="http://www.xuyiruan.com/2015/06/19/sniffencrption_2/index.html">
+<meta property="og:url" content="http://www.xuyiruan.com/2015/06/30/sniffencrption_2/index.html">
 <meta property="og:site_name" content="来自威斯星星大学的一个小猩猩">
 <meta property="og:description" content="List of files:server side:dbapi_recon.py - manage the format of the POSTdbapi_tool.py - take command line from terminal and put parameters into a JSON package  
 router side:sniff.py - receive pacakge">
@@ -85,14 +85,14 @@ router side:sniff.py - receive pacakge">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/06/19/sniffencrption_2/" title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2" itemprop="url">Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2</a>
+      <a href="/2015/06/30/sniffencrption_2/" title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2" itemprop="url">Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
 		
   <p class="article-time">
-    <time datetime="2015-06-19T20:39:30.000Z" itemprop="datePublished"> 发表于 06-19-2015</time>
+    <time datetime="2015-06-30T20:35:21.000Z" itemprop="datePublished"> 发表于 06-30-2015</time>
     
   </p>
 </header>
@@ -127,7 +127,7 @@ router side:sniff.py - receive pacakge">
 <pre><code><span class="title">svn</span> diff dbapi/dbapi_recon.py
 </code></pre><h2 id="Thought_Process:"><strong>Thought Process:</strong></h2><p>Modify code on <code>xuyi@paradrop.wings.wisc.edu</code>  </p>
 <p>inside <code>/home/xuyi/paradrop/trunk/recon/dbapi_tool.py</code> add password option in</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createWifi</span><span class="params">(dbh, baseUrl, token, group, ssid, chan, pw)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">        Creates a wifi network on the group APs provided.</span><br><span class="line">        Arguments:</span><br><span class="line">            @ssid : The SSID to set each device to</span><br><span class="line">            @chan : The channel, can be string like '36+1' for HT40+</span><br><span class="line">            @pw : The password for Wi-Fi</span><br><span class="line">    """</span></span><br><span class="line">    url = <span class="string">'%s/wifi/%s/create'</span> % (baseUrl, urlEncodeMe(group, <span class="string">""</span>))</span><br><span class="line">    out.info(<span class="string">'-- %s Creating WiFi: %s\n'</span> % (logPrefix(), url))</span><br><span class="line"></span><br><span class="line">    msg = &#123;<span class="string">"sessionToken"</span>:token&#125;</span><br><span class="line">    msg[<span class="string">'ssid'</span>] = ssid</span><br><span class="line">    msg[<span class="string">'channel'</span>] = chan</span><br><span class="line">    msg[<span class="string">'pw'</span>] = pw</span><br><span class="line">    </span><br><span class="line">    res = pdweb.post(url, json2str(msg), <span class="keyword">None</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">not</span> pdweb.isOK(res)):</span><br><span class="line">        out.warn(<span class="string">'** Failed: %s\n'</span> % str(res))</span><br><span class="line">        exit()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        out.info(<span class="string">'-- %s\n'</span> % pdweb.data(res))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createWifi</span><span class="params">(dbh, baseUrl, token, group, ssid, chan, pw)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">        Creates a wifi network on the group APs provided.</span><br><span class="line">        Arguments:</span><br><span class="line">            @ssid : The SSID to set each device to</span><br><span class="line">            @chan : The channel, can be string like '36+1' for HT40+</span><br><span class="line">            @pw : The password for Wi-Fi</span><br><span class="line">    """</span></span><br><span class="line">    url = <span class="string">'%s/wifi/%s/create'</span> % (baseUrl, urlEncodeMe(group, <span class="string">""</span>))</span><br><span class="line">    out.info(<span class="string">'-- %s Creating WiFi: %s\n'</span> % (logPrefix(), url))</span><br><span class="line"></span><br><span class="line">    msg = &#123;<span class="string">"sessionToken"</span>:token&#125;</span><br><span class="line">    msg[<span class="string">'ssid'</span>] = ssid</span><br><span class="line">    msg[<span class="string">'channel'</span>] = chan	</span><br><span class="line">    msg[<span class="string">'pw'</span>] = pw</span><br><span class="line">    </span><br><span class="line">    res = pdweb.post(url, json2str(msg), <span class="keyword">None</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">not</span> pdweb.isOK(res)):</span><br><span class="line">        out.warn(<span class="string">'** Failed: %s\n'</span> % str(res))</span><br><span class="line">        exit()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        out.info(<span class="string">'-- %s\n'</span> % pdweb.data(res))</span><br></pre></td></tr></table></figure>
 <p>Run command with <code>dbapi_tool</code> to tell the <code>sniff.py</code> in router to setup a AP with password</p>
 <pre><code>python recon/dbapi_tool<span class="class">.py</span> -g Test -f createWifi -<span class="tag">a</span> testRXY -<span class="tag">a</span> <span class="number">36</span> -<span class="tag">a</span> paradroprocks
 </code></pre><p>send JSON package (ssid, chan, pw) through dbapi server to sniff.py inside halo32.   </p>
@@ -216,7 +216,7 @@ router side:sniff.py - receive pacakge">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.xuyiruan.com/2015/06/19/sniffencrption_2/" data-title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2 | 来自威斯星星大学的一个小猩猩" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.xuyiruan.com/2015/06/30/sniffencrption_2/" data-title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2 | 来自威斯星星大学的一个小猩猩" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -230,18 +230,18 @@ router side:sniff.py - receive pacakge">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/06/24/grep_function/" title="">
+ <a href="/2015/07/02/loc_node_white_list/" title="loc_node white list implementation">
   <strong>上一篇：</strong><br/>
   <span>
-  (no title)</span>
+  loc_node white list implementation</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/06/15/sniffencrption/"  title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project">
+<a href="/2015/06/24/serverApConfig/"  title="Store AP config in dbapi server">
  <strong>下一篇：</strong><br/> 
- <span>Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project
+ <span>Store AP config in dbapi server
 </span>
 </a>
 </div>
@@ -250,7 +250,7 @@ router side:sniff.py - receive pacakge">
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/06/19/sniffencrption_2/" data-title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2" data-url="http://www.xuyiruan.com/2015/06/19/sniffencrption_2/"></div>
+	<div class="ds-thread" data-thread-key="2015/06/30/sniffencrption_2/" data-title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2" data-url="http://www.xuyiruan.com/2015/06/30/sniffencrption_2/"></div>
 </section>
 
 
@@ -309,6 +309,12 @@ router side:sniff.py - receive pacakge">
   <div class="linkslist">
   <p class="asidetitle">友情链接</p>
     <ul>
+        
+          <li>
+            
+            	<a href="http://www.winniebabe.com" target="_blank" title="Winnie Babe的小窝">Winnie Babe的小窝</a>
+            
+          </li>
         
           <li>
             

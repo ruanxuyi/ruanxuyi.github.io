@@ -17,7 +17,7 @@ end-to-end dbapi testing
 Objective:Create a white list filter for specfic MAC address to allow localization data to pass to loc instance from loc_node.look at code in loc_node to see poetential">
 <meta property="og:type" content="article">
 <meta property="og:title" content="loc_node white list implementation">
-<meta property="og:url" content="http://www.xuyiruan.com/2015/06/28/loc_node_white_list/index.html">
+<meta property="og:url" content="http://www.xuyiruan.com/2015/07/02/loc_node_white_list/index.html">
 <meta property="og:site_name" content="来自威斯星星大学的一个小猩猩">
 <meta property="og:description" content="TODO:
 end-to-end dbapi testing
@@ -92,14 +92,14 @@ Objective:Create a white list filter for specfic MAC address to allow localizati
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/06/28/loc_node_white_list/" title="loc_node white list implementation" itemprop="url">loc_node white list implementation</a>
+      <a href="/2015/07/02/loc_node_white_list/" title="loc_node white list implementation" itemprop="url">loc_node white list implementation</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
 		
   <p class="article-time">
-    <time datetime="2015-06-28T20:01:00.000Z" itemprop="datePublished"> 发表于 06-28-2015</time>
+    <time datetime="2015-07-02T19:35:06.000Z" itemprop="datePublished"> 发表于 07-02-2015</time>
     
   </p>
 </header>
@@ -155,13 +155,24 @@ Objective:Create a white list filter for specfic MAC address to allow localizati
 <p><strong>0.Run dbapi:</strong>  </p>
 <p>In some cases you might want to test the FULL end to end system which would include the dbapi, in this case you can run dbapi as follows:</p>
 <p><code>python dbapi/dbapi_server.py -s DBAPI_RECON_SNIFF_DISABLE_DB:True -s LOC_SERVER_URL:http://localhost</code></p>
+<p>If you deceide to run the test  on <strong>paradrop.wings</strong>, make sure you change the <code>LOC_SERVER_PORT</code> for <code>loc_sever</code>, <code>loc_node</code>, and <code>loc</code> first so that it will not interference with current <code>loc_node</code> for PROD (current PROD version of the loc_server runs on 10400). To change port for <code>local_server</code>, append command line: <code>-s LOC_SERVER_PORT:PORT_NUM</code></p>
 <p><strong>1.Run <code>loc_server</code>:</strong>  </p>
-<p><code>python loc_server.py -s LOC_SERVER_DISABLE_DB:True</code></p>
-<p><strong>2.Run <code>loc_node</code>:</strong>  </p>
-<p><code>python loc_node.py -g &quot;Test&quot; --id 0 -s LOC_SERVER_URL:http://localhost -s LOC_NODE_URL:http://localhost</code></p>
-<p><strong>3.Run two instanc of <code>loc</code>:</strong>  </p>
-<p>Instance 0:<br><code>python loc.py --id 0 -g &quot;Test&quot; --guarantee 8 -s LOC_SERVER_URL:http://localhost -s LOC_URL:http://localhost</code></p>
-<p>Instance 1:<br><code>python loc.py --id 1 -g &quot;Test&quot; --guarantee 8 -s LOC_SERVER_URL:http://localhost -s LOC_URL:http://localhost</code></p>
+<p>On local machine:</p>
+<pre><code>python loc_server<span class="class">.py</span> -s LOC_SERVER_DISABLE_DB:True
+</code></pre><p>On <code>paradrop.wings</code>: (change to port other than 10400)</p>
+<pre><code>python loc_server.py <span class="operator">-s</span> LOC_SERVER_DISABLE_DB:True <span class="operator">-s</span> LOC_SERVER_PORT:<span class="number">11400</span>
+</code></pre><p><strong>2.Run <code>loc_node</code>:</strong>  </p>
+<p>On local machine:</p>
+<pre><code>python loc_node.py -g <span class="string">"Test"</span> --id <span class="number">0</span> -s <span class="constant">LOC_SERVER_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span> -s <span class="constant">LOC_NODE_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span>
+</code></pre><p>On <code>paradrop.wings</code>: </p>
+<pre><code>python loc_node.py -g <span class="string">"Test"</span> --id <span class="number">0</span> -s <span class="constant">LOC_SERVER_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span> -s <span class="constant">LOC_NODE_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span> -s <span class="constant">LOC_SERVER_PORT</span><span class="symbol">:</span><span class="number">11400</span>
+</code></pre><p><strong>3.Run two instanc of <code>loc</code>:</strong>  </p>
+<p>On local machine:</p>
+<p>Instance 0:<br>    python loc.py —id 0 -g “Test” —guarantee 8 -s LOC_SERVER_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a></p>
+<p>Instance 1:<br>    python loc.py —id 1 -g “Test” —guarantee 8 -s LOC_SERVER_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a></p>
+<p>OR</p>
+<p>On <code>paradrop.wings</code>: </p>
+<p>python loc.py —id 0 -g “Test” —guarantee 8 -s LOC_SERVER_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_SERVER_PORT:11400</p>
 <p><strong>The loc_test</strong>  </p>
 <p>If testing <strong>directly with loc_node</strong> (ie. loc_test bypasses dbapi and sends the raw data directly to loc_node)</p>
 <p><code>python loc_test.py -g &quot;Test&quot; -t 5 -ep 0.10 -np 0.10 -mp &quot;10-0.85-0.99-0.5&quot; -u &quot;http://localhost:10500/v1/data&quot;</code></p>
@@ -174,6 +185,8 @@ Objective:Create a white list filter for specfic MAC address to allow localizati
 <h2 id="Potential_Solution">Potential Solution</h2><p>inside the <code>loc_node.py</code>, utilize the  <code>def filterData(self, d):</code> function.</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="title">WHITELIST_MAC</span> = [<span class="string">'2a:e3:5a:8b:38:cf'</span>, <span class="string">'94:81:90:f9:2f:fc'</span>, <span class="string">'71:b7:4b:54:8e:ec'</span>, <span class="string">'8a:1a:27:0c:55:f6'</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filterData</span><span class="params">(self, d)</span>:</span></span><br><span class="line">    <span class="string">"""Filter some data, if we return true here then skip this data"""</span></span><br><span class="line">	....</span><br><span class="line">	<span class="keyword">if</span> d[<span class="number">2</span>] <span class="keyword">not</span> <span class="keyword">in</span> WHITELIST_MAC:</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    	</span><br><span class="line">    retur <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">def setupArgParse():</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    p.add_argument(<span class="string">'--whitelist'</span>, <span class="string">'-wl'</span>, help=<span class="string">'create MAC white list. usage: -wl "mac0" -wl "mac1"... '</span>, type=str, action=<span class="string">'append'</span>, required=False)</span><br><span class="line">    <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Main function</span></span><br><span class="line"><span class="keyword">if</span>(__name__ == <span class="string">"__main__"</span>):</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(args.whitelist):</span><br><span class="line">        WHITELIST_MAC = args.whitelist</span><br><span class="line">    <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
 <h2 id="Errors_encoutered:">Errors encoutered:</h2><p>x86_64-linux-gnu-gcc: internal compiler error: Killed (program cc1)</p>
 <p>Please submit a full bug report,</p>
 <p>with preprocessed source if appropriate.</p>
@@ -211,7 +224,7 @@ Objective:Create a white list filter for specfic MAC address to allow localizati
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.xuyiruan.com/2015/06/28/loc_node_white_list/" data-title="loc_node white list implementation | 来自威斯星星大学的一个小猩猩" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.xuyiruan.com/2015/07/02/loc_node_white_list/" data-title="loc_node white list implementation | 来自威斯星星大学的一个小猩猩" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -224,11 +237,19 @@ Objective:Create a white list filter for specfic MAC address to allow localizati
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/07/11/mysql-basic/" title="mysql_basic">
+  <strong>上一篇：</strong><br/>
+  <span>
+  mysql_basic</span>
+</a>
+</div>
+
 
 <div class="next">
-<a href="/2015/06/24/serverApConfig/"  title="Store AP config in dbapi server">
+<a href="/2015/06/30/sniffencrption_2/"  title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2">
  <strong>下一篇：</strong><br/> 
- <span>Store AP config in dbapi server
+ <span>Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2
 </span>
 </a>
 </div>
@@ -237,7 +258,7 @@ Objective:Create a white list filter for specfic MAC address to allow localizati
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/06/28/loc_node_white_list/" data-title="loc_node white list implementation" data-url="http://www.xuyiruan.com/2015/06/28/loc_node_white_list/"></div>
+	<div class="ds-thread" data-thread-key="2015/07/02/loc_node_white_list/" data-title="loc_node white list implementation" data-url="http://www.xuyiruan.com/2015/07/02/loc_node_white_list/"></div>
 </section>
 
 
@@ -296,6 +317,12 @@ Objective:Create a white list filter for specfic MAC address to allow localizati
   <div class="linkslist">
   <p class="asidetitle">友情链接</p>
     <ul>
+        
+          <li>
+            
+            	<a href="http://www.winniebabe.com" target="_blank" title="Winnie Babe的小窝">Winnie Babe的小窝</a>
+            
+          </li>
         
           <li>
             

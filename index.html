@@ -84,14 +84,157 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/06/28/loc_node_white_list/" title="loc_node white list implementation" itemprop="url">loc_node white list implementation</a>
+      <a href="/2015/07/11/grep-intro/" title="grep_intro" itemprop="url">grep_intro</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
 		
   <p class="article-time">
-    <time datetime="2015-06-28T20:01:00.000Z" itemprop="datePublished"> 发表于 06-28-2015</time>
+    <time datetime="2015-07-11T19:53:42.000Z" itemprop="datePublished"> 发表于 07-11-2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>Introduction</p>
+<h2 id="Usage:">Usage:</h2><h3 id="Search_location_of_files:">Search location of files:</h3><p>grep file named <code>sniff.py</code> in current directory:</p>
+<p><code>grep -rl &quot;sniff.py&quot; .</code></p>
+<p><code>-r</code> - (or <code>--recursive</code>)indicates search recursivly<br><code>-l</code> - (or <code>--files-with-matches</code>) only print files name of matching files </p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/07/11/grep-intro/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/07/11/grep-intro/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/11/mysql-basic/" title="mysql_basic" itemprop="url">mysql_basic</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-11T19:52:15.000Z" itemprop="datePublished"> 发表于 07-11-2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="MySQL_on_Ubuntu">MySQL on Ubuntu</h1><h2 id="How_to_install_MySQL_on_Ubuntu_and_CentOS">How to install MySQL on Ubuntu and CentOS</h2><p>Ubuntu:  </p>
+<pre><code>sudo apt-get <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span></span>
+</code></pre><p>CentOS:  </p>
+<pre><code>sudo yum <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span> 
+/etc/init.d/mysqld <span class="keyword">start</span></span>
+</code></pre><h2 id="Access_MySQL_shell">Access MySQL shell</h2><p>Command into termainl:  </p>
+<pre><code><span class="title">mysql</span> -u root -p
+</code></pre><p>After entering the <code>root</code> password, you will able to build your MySQL statmase. </p>
+<p><strong>Two points to keep in mind:</strong>  </p>
+<ol>
+<li>All MySQL commands end with <strong>semicolon(;)</strong>  </li>
+<li>MySQL commands ususally written in uppsercase. Database, tables, usernames, or text are in lowercase. </li>
+</ol>
+<h2 id="Create_and_Delete_a_MySQL_Database">Create and Delete a MySQL Database</h2><p>Show current databases:</p>
+<pre><code><span class="operator"><span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>;</span>
+</code></pre><p>Your screen should look like this: </p>
+<pre><code><span class="header">mysql&gt; SHOW DATABASES;
++--------------------+</span>
+<span class="header">| Database           |
++--------------------+</span>
+| information<span class="emphasis">_schema |
+| RZwpDatabase       |
+| XRwpDatabase       |
+| mysql              |
+| performance_</span>schema |
+<span class="header">| phpmyadmin         |
++--------------------+</span>
+6 rows in set (0.00 sec)
+</code></pre><p>Creating a database:</p>
+<pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> databaseName;</span>
+</code></pre><p>Delete a database: </p>
+<pre><code><span class="operator"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> databseName;</span>
+</code></pre><h2 id="Access_a_MySQL_Database">Access a MySQL Database</h2><p>Let’s open up the database we just created <code>events</code>: </p>
+<pre><code><span class="operator"><span class="keyword">USE</span> <span class="keyword">events</span>;</span>
+</code></pre><p>Create a MySQL Table: </p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/07/11/mysql-basic/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/07/11/mysql-basic/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/02/loc_node_white_list/" title="loc_node white list implementation" itemprop="url">loc_node white list implementation</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-02T19:35:06.000Z" itemprop="datePublished"> 发表于 07-02-2015</time>
     
   </p>
 </header>
@@ -140,13 +283,24 @@
 <p><strong>0.Run dbapi:</strong>  </p>
 <p>In some cases you might want to test the FULL end to end system which would include the dbapi, in this case you can run dbapi as follows:</p>
 <p><code>python dbapi/dbapi_server.py -s DBAPI_RECON_SNIFF_DISABLE_DB:True -s LOC_SERVER_URL:http://localhost</code></p>
+<p>If you deceide to run the test  on <strong>paradrop.wings</strong>, make sure you change the <code>LOC_SERVER_PORT</code> for <code>loc_sever</code>, <code>loc_node</code>, and <code>loc</code> first so that it will not interference with current <code>loc_node</code> for PROD (current PROD version of the loc_server runs on 10400). To change port for <code>local_server</code>, append command line: <code>-s LOC_SERVER_PORT:PORT_NUM</code></p>
 <p><strong>1.Run <code>loc_server</code>:</strong>  </p>
-<p><code>python loc_server.py -s LOC_SERVER_DISABLE_DB:True</code></p>
-<p><strong>2.Run <code>loc_node</code>:</strong>  </p>
-<p><code>python loc_node.py -g &quot;Test&quot; --id 0 -s LOC_SERVER_URL:http://localhost -s LOC_NODE_URL:http://localhost</code></p>
-<p><strong>3.Run two instanc of <code>loc</code>:</strong>  </p>
-<p>Instance 0:<br><code>python loc.py --id 0 -g &quot;Test&quot; --guarantee 8 -s LOC_SERVER_URL:http://localhost -s LOC_URL:http://localhost</code></p>
-<p>Instance 1:<br><code>python loc.py --id 1 -g &quot;Test&quot; --guarantee 8 -s LOC_SERVER_URL:http://localhost -s LOC_URL:http://localhost</code></p>
+<p>On local machine:</p>
+<pre><code>python loc_server<span class="class">.py</span> -s LOC_SERVER_DISABLE_DB:True
+</code></pre><p>On <code>paradrop.wings</code>: (change to port other than 10400)</p>
+<pre><code>python loc_server.py <span class="operator">-s</span> LOC_SERVER_DISABLE_DB:True <span class="operator">-s</span> LOC_SERVER_PORT:<span class="number">11400</span>
+</code></pre><p><strong>2.Run <code>loc_node</code>:</strong>  </p>
+<p>On local machine:</p>
+<pre><code>python loc_node.py -g <span class="string">"Test"</span> --id <span class="number">0</span> -s <span class="constant">LOC_SERVER_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span> -s <span class="constant">LOC_NODE_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span>
+</code></pre><p>On <code>paradrop.wings</code>: </p>
+<pre><code>python loc_node.py -g <span class="string">"Test"</span> --id <span class="number">0</span> -s <span class="constant">LOC_SERVER_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span> -s <span class="constant">LOC_NODE_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span> -s <span class="constant">LOC_SERVER_PORT</span><span class="symbol">:</span><span class="number">11400</span>
+</code></pre><p><strong>3.Run two instanc of <code>loc</code>:</strong>  </p>
+<p>On local machine:</p>
+<p>Instance 0:<br>    python loc.py —id 0 -g “Test” —guarantee 8 -s LOC_SERVER_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a></p>
+<p>Instance 1:<br>    python loc.py —id 1 -g “Test” —guarantee 8 -s LOC_SERVER_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a></p>
+<p>OR</p>
+<p>On <code>paradrop.wings</code>: </p>
+<p>python loc.py —id 0 -g “Test” —guarantee 8 -s LOC_SERVER_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_SERVER_PORT:11400</p>
 <p><strong>The loc_test</strong>  </p>
 <p>If testing <strong>directly with loc_node</strong> (ie. loc_test bypasses dbapi and sends the raw data directly to loc_node)</p>
 <p><code>python loc_test.py -g &quot;Test&quot; -t 5 -ep 0.10 -np 0.10 -mp &quot;10-0.85-0.99-0.5&quot; -u &quot;http://localhost:10500/v1/data&quot;</code></p>
@@ -159,6 +313,8 @@
 <h2 id="Potential_Solution">Potential Solution</h2><p>inside the <code>loc_node.py</code>, utilize the  <code>def filterData(self, d):</code> function.</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="title">WHITELIST_MAC</span> = [<span class="string">'2a:e3:5a:8b:38:cf'</span>, <span class="string">'94:81:90:f9:2f:fc'</span>, <span class="string">'71:b7:4b:54:8e:ec'</span>, <span class="string">'8a:1a:27:0c:55:f6'</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filterData</span><span class="params">(self, d)</span>:</span></span><br><span class="line">    <span class="string">"""Filter some data, if we return true here then skip this data"""</span></span><br><span class="line">	....</span><br><span class="line">	<span class="keyword">if</span> d[<span class="number">2</span>] <span class="keyword">not</span> <span class="keyword">in</span> WHITELIST_MAC:</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    	</span><br><span class="line">    retur <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">def setupArgParse():</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    p.add_argument(<span class="string">'--whitelist'</span>, <span class="string">'-wl'</span>, help=<span class="string">'create MAC white list. usage: -wl "mac0" -wl "mac1"... '</span>, type=str, action=<span class="string">'append'</span>, required=False)</span><br><span class="line">    <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Main function</span></span><br><span class="line"><span class="keyword">if</span>(__name__ == <span class="string">"__main__"</span>):</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(args.whitelist):</span><br><span class="line">        WHITELIST_MAC = args.whitelist</span><br><span class="line">    <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
 <h2 id="Errors_encoutered:">Errors encoutered:</h2><p>x86_64-linux-gnu-gcc: internal compiler error: Killed (program cc1)</p>
 <p>Please submit a full bug report,</p>
 <p>with preprocessed source if appropriate.</p>
@@ -203,7 +359,7 @@
 <div class="comments-count">
 	
 	  	<span></span>
-		<a href="/2015/06/28/loc_node_white_list/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/06/28/loc_node_white_list/" data-count-type="comments">&nbsp;</a>
+		<a href="/2015/07/02/loc_node_white_list/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/07/02/loc_node_white_list/" data-count-type="comments">&nbsp;</a>
 	
 </div>
 
@@ -223,148 +379,14 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/06/24/serverApConfig/" title="Store AP config in dbapi server" itemprop="url">Store AP config in dbapi server</a>
+      <a href="/2015/06/30/sniffencrption_2/" title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2" itemprop="url">Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
 		
   <p class="article-time">
-    <time datetime="2015-06-24T21:37:47.000Z" itemprop="datePublished"> 发表于 06-24-2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="Objective:">Objective:</h2><p>At this stage, we send command from dbapi server (<code>dbapi_tool.py</code>) to create AP (with <code>createWiFi</code> function) on the router side (<code>sniff.py</code>). If we store this AP configuration (<code>hostapd.conf</code>) into database, so that everytime sniff.py initialiate, it check if AP config file exists in server, if exists, automatically start <code>hostapd</code> with the correcponding config retrict from the server to create an AP. Other wise, do not create the AP. </p>
-<h2 id="Instruction:">Instruction:</h2><ol>
-<li><p>sniff.py during init needs to look for AP settings from the database and start an AP if they exist</p>
-</li>
-<li><p>dbapi_recon.py the POST_createWifi() command needs to now push the AP settings into the database for configuration. If you are not comfortable writing this code I can do it</p>
-</li>
-<li><p>dbapi_recon.py the POST_destroyWiFi() command needs to remove these settings from the database configuration, again I can write this but not until next week probably.</p>
-</li>
-</ol>
-<p>To start, I would recommend that you change the sniff.py file so that during init it looks for the AP settings and it sets up hostapd if they are found. We can manually change the database configuration to have these extra settings without changing the dbapi_recon.py file, so this would be the easiest thing to do first.</p>
-<h2 id="Thought_Process:">Thought Process:</h2><p>Inside <code>sniff.py</code> file,  </p>
-<p><code>_getConfigSettings(self)</code> function get the configure files from dbapi server.</p>
-<p><code>_setConfig(cfg)</code> read the config file (from dbapi server) and do the reqiured configuration for sniff instance. </p>
-<p><code>cfg</code> - configuration object is a <strong>dictionary</strong> with configure information. </p>
-<h2 id="Modify_files:">Modify files:</h2><p><code>sniff.py</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_setConfig</span><span class="params">(self, cfg)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">            Takes a config object returned from the dbapi and sets the proper flags.</span><br><span class="line">        """</span></span><br><span class="line"></span><br><span class="line">		...</span><br><span class="line">		</span><br><span class="line">        <span class="comment"># set up Wifi access point</span></span><br><span class="line">        <span class="comment"># ?? completed ??</span></span><br><span class="line">        ap = cfg.get(<span class="string">'ap'</span>, <span class="keyword">None</span>)</span><br><span class="line">        <span class="keyword">if</span> (ap):</span><br><span class="line">            self._modeCreateSSID(ap, completed)</span><br><span class="line">		...</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<h2 id="Question:">Question:</h2><p><code>_modeCreateSSID(ap, completed)</code> ?? completed ??</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/work/">work</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/paradrop/">paradrop</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/06/24/serverApConfig/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/06/24/serverApConfig/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/06/24/grep_function/" title="" itemprop="url"></a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
-		
-  <p class="article-time">
-    <time datetime="2015-06-24T20:49:59.000Z" itemprop="datePublished"> 发表于 06-24-2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="Introduction">Introduction</h2><h2 id="Usage:">Usage:</h2><h3 id="Search_location_of_files:">Search location of files:</h3><p>grep file named <code>sniff.py</code> in current directory:</p>
-<p><code>grep -rl &quot;sniff.py&quot; .</code></p>
-<p><code>-r</code> - (or <code>--recursive</code>)indicates search recursivly<br><code>-l</code> - (or <code>--files-with-matches</code>) only print files name of matching files </p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/06/24/grep_function/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/06/24/grep_function/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/06/19/sniffencrption_2/" title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2" itemprop="url">Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
-		
-  <p class="article-time">
-    <time datetime="2015-06-19T20:39:30.000Z" itemprop="datePublished"> 发表于 06-19-2015</time>
+    <time datetime="2015-06-30T20:35:21.000Z" itemprop="datePublished"> 发表于 06-30-2015</time>
     
   </p>
 </header>
@@ -392,7 +414,7 @@
 <pre><code><span class="title">svn</span> diff dbapi/dbapi_recon.py
 </code></pre><h2 id="Thought_Process:"><strong>Thought Process:</strong></h2><p>Modify code on <code>xuyi@paradrop.wings.wisc.edu</code>  </p>
 <p>inside <code>/home/xuyi/paradrop/trunk/recon/dbapi_tool.py</code> add password option in</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createWifi</span><span class="params">(dbh, baseUrl, token, group, ssid, chan, pw)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">        Creates a wifi network on the group APs provided.</span><br><span class="line">        Arguments:</span><br><span class="line">            @ssid : The SSID to set each device to</span><br><span class="line">            @chan : The channel, can be string like '36+1' for HT40+</span><br><span class="line">            @pw : The password for Wi-Fi</span><br><span class="line">    """</span></span><br><span class="line">    url = <span class="string">'%s/wifi/%s/create'</span> % (baseUrl, urlEncodeMe(group, <span class="string">""</span>))</span><br><span class="line">    out.info(<span class="string">'-- %s Creating WiFi: %s\n'</span> % (logPrefix(), url))</span><br><span class="line"></span><br><span class="line">    msg = &#123;<span class="string">"sessionToken"</span>:token&#125;</span><br><span class="line">    msg[<span class="string">'ssid'</span>] = ssid</span><br><span class="line">    msg[<span class="string">'channel'</span>] = chan</span><br><span class="line">    msg[<span class="string">'pw'</span>] = pw</span><br><span class="line">    </span><br><span class="line">    res = pdweb.post(url, json2str(msg), <span class="keyword">None</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">not</span> pdweb.isOK(res)):</span><br><span class="line">        out.warn(<span class="string">'** Failed: %s\n'</span> % str(res))</span><br><span class="line">        exit()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        out.info(<span class="string">'-- %s\n'</span> % pdweb.data(res))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createWifi</span><span class="params">(dbh, baseUrl, token, group, ssid, chan, pw)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">        Creates a wifi network on the group APs provided.</span><br><span class="line">        Arguments:</span><br><span class="line">            @ssid : The SSID to set each device to</span><br><span class="line">            @chan : The channel, can be string like '36+1' for HT40+</span><br><span class="line">            @pw : The password for Wi-Fi</span><br><span class="line">    """</span></span><br><span class="line">    url = <span class="string">'%s/wifi/%s/create'</span> % (baseUrl, urlEncodeMe(group, <span class="string">""</span>))</span><br><span class="line">    out.info(<span class="string">'-- %s Creating WiFi: %s\n'</span> % (logPrefix(), url))</span><br><span class="line"></span><br><span class="line">    msg = &#123;<span class="string">"sessionToken"</span>:token&#125;</span><br><span class="line">    msg[<span class="string">'ssid'</span>] = ssid</span><br><span class="line">    msg[<span class="string">'channel'</span>] = chan	</span><br><span class="line">    msg[<span class="string">'pw'</span>] = pw</span><br><span class="line">    </span><br><span class="line">    res = pdweb.post(url, json2str(msg), <span class="keyword">None</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">not</span> pdweb.isOK(res)):</span><br><span class="line">        out.warn(<span class="string">'** Failed: %s\n'</span> % str(res))</span><br><span class="line">        exit()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        out.info(<span class="string">'-- %s\n'</span> % pdweb.data(res))</span><br></pre></td></tr></table></figure>
 <p>Run command with <code>dbapi_tool</code> to tell the <code>sniff.py</code> in router to setup a AP with password</p>
 <pre><code>python recon/dbapi_tool<span class="class">.py</span> -g Test -f createWifi -<span class="tag">a</span> testRXY -<span class="tag">a</span> <span class="number">36</span> -<span class="tag">a</span> paradroprocks
 </code></pre><p>send JSON package (ssid, chan, pw) through dbapi server to sniff.py inside halo32.   </p>
@@ -488,7 +510,86 @@
 <div class="comments-count">
 	
 	  	<span></span>
-		<a href="/2015/06/19/sniffencrption_2/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/06/19/sniffencrption_2/" data-count-type="comments">&nbsp;</a>
+		<a href="/2015/06/30/sniffencrption_2/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/06/30/sniffencrption_2/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/06/24/serverApConfig/" title="Store AP config in dbapi server" itemprop="url">Store AP config in dbapi server</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
+		
+  <p class="article-time">
+    <time datetime="2015-06-24T21:37:47.000Z" itemprop="datePublished"> 发表于 06-24-2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="Objective:">Objective:</h2><p>At this stage, we send command from dbapi server (<code>dbapi_tool.py</code>) to create AP (with <code>createWiFi</code> function) on the router side (<code>sniff.py</code>). If we store this AP configuration (<code>hostapd.conf</code>) into database, so that everytime sniff.py initialiate, it check if AP config file exists in server, if exists, automatically start <code>hostapd</code> with the correcponding config retrict from the server to create an AP. Other wise, do not create the AP. </p>
+<h2 id="Instruction:">Instruction:</h2><ol>
+<li><p>sniff.py during init needs to look for AP settings from the database and start an AP if they exist</p>
+</li>
+<li><p>dbapi_recon.py the POST_createWifi() command needs to now push the AP settings into the database for configuration. If you are not comfortable writing this code I can do it</p>
+</li>
+<li><p>dbapi_recon.py the POST_destroyWiFi() command needs to remove these settings from the database configuration, again I can write this but not until next week probably.</p>
+</li>
+</ol>
+<p>To start, I would recommend that you change the sniff.py file so that during init it looks for the AP settings and it sets up hostapd if they are found. We can manually change the database configuration to have these extra settings without changing the dbapi_recon.py file, so this would be the easiest thing to do first.</p>
+<h2 id="Thought_Process:">Thought Process:</h2><p>Inside <code>sniff.py</code> file,  </p>
+<p><code>_getConfigSettings(self)</code> function get the configure files from dbapi server.</p>
+<p><code>_setConfig(cfg)</code> read the config file (from dbapi server) and do the reqiured configuration for sniff instance. </p>
+<p><code>cfg</code> - configuration object is a <strong>dictionary</strong> with configure information. </p>
+<h2 id="Modify_files:">Modify files:</h2><p><code>sniff.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_setConfig</span><span class="params">(self, cfg)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">            Takes a config object returned from the dbapi and sets the proper flags.</span><br><span class="line">        """</span></span><br><span class="line"></span><br><span class="line">		...</span><br><span class="line">		</span><br><span class="line">        <span class="comment"># set up Wifi access point</span></span><br><span class="line">        <span class="comment"># ?? completed ??</span></span><br><span class="line">        ap = cfg.get(<span class="string">'ap'</span>, <span class="keyword">None</span>)</span><br><span class="line">        <span class="keyword">if</span> (ap):</span><br><span class="line">            self._modeCreateSSID(ap, completed)</span><br><span class="line">		...</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<h2 id="Question:">Question:</h2><p><code>_modeCreateSSID(ap, completed)</code> ?? completed ??</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/work/">work</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/paradrop/">paradrop</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/06/24/serverApConfig/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/06/24/serverApConfig/" data-count-type="comments">&nbsp;</a>
 	
 </div>
 
@@ -796,80 +897,6 @@ nl80211 driver <span class="keyword">initialization</span> failed.
 
    
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/12/talk_about_life/" title="浅谈人生 (Talk about life)" itemprop="url">浅谈人生 (Talk about life)</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-13T03:48:56.000Z" itemprop="datePublished"> 发表于 04-12-2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="浅谈人生_(Talk_about_life)"><strong>浅谈人生 (Talk about life)</strong></h1><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/badger.jpg" alt="摄于海南三亚" style="width: 600px;"></p>
-<p>大半夜的你还不睡觉你在干什么！哈哈哈。难得今天这么有精神，外面下着小雨，还伴着电闪雷鸣，麦迪逊的冬天开始悄悄的离去。</p>
-<h3 id="大学已经过了三年："><strong>大学已经过了三年：</strong></h3><p>对了，你还没说你这么晚在干什么！说起来也惭愧，大学三年了，完全没有仔细想过当初为什么自己选择了计算机工程(Computer Engineering)，虽然父母督促我工程太累了，选个别的吧。我毅然坚定的选择了计算机工程(当时的我一度以为计算机工程就是帮别人修修电脑🙈)。大二的时候，听说计算机工程的学生只要多修两门课就能拿到计算机科学(Computer Science)的双学位，我一开始还不太相信，后来一看真是这么简单。也没多想，感觉双学位毕业🎓，毕业工作也稳稳的了。</p>
-<p>现在回想起来，当时真的是not too young, but still too naive!由于工程的课程难度本身就不简单，现在又要加上CS的课程，简直就是像大锅饭一样，左右不可兼得。虽然GPA保持的还算凑活，可是我学的很不开心呀！完全没有一点方向感，感觉每天就是活在渊源不断作业的里，美味的QQ吃的都不开心了。</p>
-<h3 id="招聘会："><strong>招聘会：</strong></h3><p>大三这年去了大大小小的招聘会，虽然自己的简历并说不上太优秀，可是至少我的Resume的各方面(GPA, Course projects)还是拿的出手的，再说了，哥怎么也是准备本科双学位的人(🐶)。公司没理由在第一轮刷掉我吧。跟我想的一样，大家(什么Amazon, Microsoft呀)都觉得我挺不错的，开始联系我，进行技术面试。我是条双学位的狗，interviewer看我挺阳光开朗的，小伙子不错，来，给你出个简单的reverse linked list的题。结果我还是再三的提示下才勉强写了出来。</p>
-<p>这样下去可真不是办法，难道大学四年真的要白忙活了？大三结束了连一个internship都捞不到，还想怎么在美利坚大国混下去！我必须在工程和CS两边做个抉择。</p>
-<h3 id="无法抉择："><strong>无法抉择：</strong></h3><p>今天晚上是历史性的一刻。一直无法割舍自己白学了三年Engineering课程的假象，觉得如果就这么放弃了Engineering, 好不甘心！google Computer Science然后又跟Computer Engineering 有关的方向。然后走火入魔的找到了Computer Architecture. 发现UW-Madison 住着好几只Architecture世界级的大神级人物(David Wood, Mark Hill, etc)，然后又开始新一轮疯狂的google有关Architecture的资料，还专门建了个文件夹，放了好多资料，准备最后一年大干一场。(Naive!)</p>
-<p>看看表，两点了，虽然还是没有最后定下人生的目标，赶紧刷牙洗洗睡了。可这事没定下来，内心不安啊。虽然computer architecture可以说是CS和CE的结合区域。可是我真的喜欢吗？我真的擅长这方面的细节的研究吗？就当我全神贯注地在思考计算机有关领域我到底应该往哪走的一瞬间，宝贝女友走进了我的脑海里，给我指明了人生的方向。我定下了人生的第一个勇敢的目标：软件。</p>
-<h3 id="爱情的力量："><strong>爱情的力量：</strong></h3><p>女友是做教育方面的，这一刻看起来，她变成了我人生的导师。放弃硬件的路，勇敢的选择软件／网页方向，是有原因的。首先我觉得自己还是更喜欢接触新鲜的事物，更享受完成一个小型项目/程序的那种喜悦感。另外如果我选择硬件，感觉以后和女友的connect就越来越少。相反如果我选择软件方面作为职业目标，可以把自己大学学过的cs有关的内容真正用到，跟自己人生的另一半的结合。女友一直有很多很棒的点子💡，她提供灵感，我用技术帮她实现，一下子人生好像充起了满满的希望。</p>
-<p>当然，Engineering 的课程还是要好好的上的，CS选课的时候就更明白这门课对自己的理想／目标会有多少的支持。时间分配上，要对自己的理想和目标上分配更多的时间。人生一世，既然没办法做好所有的事情，那就想办法努力完成一个目标。</p>
-<h3 id="2015年4月9日凌晨2点35-_定下人生目标："><strong>2015年4月9日凌晨2点35. 定下人生目标：</strong></h3><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/plan.jpg" alt="myPlan" style="width: 600px;"></p>
-<h3 id="后面的路，不会一帆风顺，但我并不害怕，因为有了目标，有了你，我就知道该往哪走，我们的船还能继续前行。">后面的路，不会一帆风顺，但我并不害怕，因为有了目标，有了你，我就知道该往哪走，我们的船还能继续前行。</h3><p>P.S. 明天ResSprot Webmaster面试,展现不一样的你。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/杂文/">杂文</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/12/talk_about_life/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/12/talk_about_life/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
     <article class="post-expand photo" itemprop="articleBody"> 
         <header class="article-info clearfix">
   <h1 itemprop="name">
@@ -986,6 +1013,64 @@ nl80211 driver <span class="keyword">initialization</span> failed.
 
 
 
+   
+    
+    <article class="post-expand [object Object]" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/12/video/" title="[object Object]" itemprop="url">[object Object]</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-13T03:48:56.000Z" itemprop="datePublished"> 发表于 04-12-2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="视频测试">视频测试</h2><iframe height="498" width="800" src="http://player.youku.com/embed/XOTMxMDQyNjMy" frameborder="0" allowfullscreen></iframe>
+
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/12/video/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/12/video/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  </nav>
 
 </div>
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
@@ -1035,6 +1120,12 @@ nl80211 driver <span class="keyword">initialization</span> failed.
   <div class="linkslist">
   <p class="asidetitle">友情链接</p>
     <ul>
+        
+          <li>
+            
+            	<a href="http://www.winniebabe.com" target="_blank" title="Winnie Babe的小窝">Winnie Babe的小窝</a>
+            
+          </li>
         
           <li>
             

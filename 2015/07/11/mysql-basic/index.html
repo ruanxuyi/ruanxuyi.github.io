@@ -4,28 +4,37 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>来自威斯星星大学的一个小猩猩</title>
+    <title>mysql_basic | 来自威斯星星大学的一个小猩猩</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="阮先生">
     
 
     
-    <meta name="description" content="IntroductionUsage:Search location of files:grep file named sniff.py in current directory:
-grep -rl &amp;quot;sniff.py&amp;quot; .
--r - (or --recursive)indicates search recursivly-l - (or --files-with-matches)">
+    <meta name="description" content="MySQL on UbuntuHow to install MySQL on Ubuntu and CentOSUbuntu:  
+sudo apt-get install mysql-server
+CentOS:  
+sudo yum install mysql-server 
+/etc/init.d/mysqld start
+Access MySQL shellCommand into ter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="来自威斯星星大学的一个小猩猩">
-<meta property="og:url" content="http://www.xuyiruan.com/2015/06/24/grep_function/index.html">
+<meta property="og:title" content="mysql_basic">
+<meta property="og:url" content="http://www.xuyiruan.com/2015/07/11/mysql-basic/index.html">
 <meta property="og:site_name" content="来自威斯星星大学的一个小猩猩">
-<meta property="og:description" content="IntroductionUsage:Search location of files:grep file named sniff.py in current directory:
-grep -rl &amp;quot;sniff.py&amp;quot; .
--r - (or --recursive)indicates search recursivly-l - (or --files-with-matches)">
+<meta property="og:description" content="MySQL on UbuntuHow to install MySQL on Ubuntu and CentOSUbuntu:  
+sudo apt-get install mysql-server
+CentOS:  
+sudo yum install mysql-server 
+/etc/init.d/mysqld start
+Access MySQL shellCommand into ter">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="来自威斯星星大学的一个小猩猩">
-<meta name="twitter:description" content="IntroductionUsage:Search location of files:grep file named sniff.py in current directory:
-grep -rl &amp;quot;sniff.py&amp;quot; .
--r - (or --recursive)indicates search recursivly-l - (or --files-with-matches)">
+<meta name="twitter:title" content="mysql_basic">
+<meta name="twitter:description" content="MySQL on UbuntuHow to install MySQL on Ubuntu and CentOSUbuntu:  
+sudo apt-get install mysql-server
+CentOS:  
+sudo yum install mysql-server 
+/etc/init.d/mysqld start
+Access MySQL shellCommand into ter">
 
 
     
@@ -88,14 +97,14 @@ grep -rl &amp;quot;sniff.py&amp;quot; .
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/06/24/grep_function/" title="" itemprop="url"></a>
+      <a href="/2015/07/11/mysql-basic/" title="mysql_basic" itemprop="url">mysql_basic</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
 		
   <p class="article-time">
-    <time datetime="2015-06-24T20:49:59.000Z" itemprop="datePublished"> 发表于 06-24-2015</time>
+    <time datetime="2015-07-11T19:52:15.000Z" itemprop="datePublished"> 发表于 07-11-2015</time>
     
   </p>
 </header>
@@ -104,13 +113,45 @@ grep -rl &amp;quot;sniff.py&amp;quot; .
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage:"><span class="toc-number">2.</span> <span class="toc-text">Usage:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Search_location_of_files:"><span class="toc-number">2.1.</span> <span class="toc-text">Search location of files:</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL_on_Ubuntu"><span class="toc-number">1.</span> <span class="toc-text">MySQL on Ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#How_to_install_MySQL_on_Ubuntu_and_CentOS"><span class="toc-number">1.1.</span> <span class="toc-text">How to install MySQL on Ubuntu and CentOS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Access_MySQL_shell"><span class="toc-number">1.2.</span> <span class="toc-text">Access MySQL shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create_and_Delete_a_MySQL_Database"><span class="toc-number">1.3.</span> <span class="toc-text">Create and Delete a MySQL Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Access_a_MySQL_Database"><span class="toc-number">1.4.</span> <span class="toc-text">Access a MySQL Database</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="Introduction">Introduction</h2><h2 id="Usage:">Usage:</h2><h3 id="Search_location_of_files:">Search location of files:</h3><p>grep file named <code>sniff.py</code> in current directory:</p>
-<p><code>grep -rl &quot;sniff.py&quot; .</code></p>
-<p><code>-r</code> - (or <code>--recursive</code>)indicates search recursivly<br><code>-l</code> - (or <code>--files-with-matches</code>) only print files name of matching files </p>
+		<h1 id="MySQL_on_Ubuntu">MySQL on Ubuntu</h1><h2 id="How_to_install_MySQL_on_Ubuntu_and_CentOS">How to install MySQL on Ubuntu and CentOS</h2><p>Ubuntu:  </p>
+<pre><code>sudo apt-get <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span></span>
+</code></pre><p>CentOS:  </p>
+<pre><code>sudo yum <span class="operator"><span class="keyword">install</span> mysql-<span class="keyword">server</span> 
+/etc/init.d/mysqld <span class="keyword">start</span></span>
+</code></pre><h2 id="Access_MySQL_shell">Access MySQL shell</h2><p>Command into termainl:  </p>
+<pre><code><span class="title">mysql</span> -u root -p
+</code></pre><p>After entering the <code>root</code> password, you will able to build your MySQL statmase. </p>
+<p><strong>Two points to keep in mind:</strong>  </p>
+<ol>
+<li>All MySQL commands end with <strong>semicolon(;)</strong>  </li>
+<li>MySQL commands ususally written in uppsercase. Database, tables, usernames, or text are in lowercase. </li>
+</ol>
+<h2 id="Create_and_Delete_a_MySQL_Database">Create and Delete a MySQL Database</h2><p>Show current databases:</p>
+<pre><code><span class="operator"><span class="keyword">SHOW</span> <span class="keyword">DATABASES</span>;</span>
+</code></pre><p>Your screen should look like this: </p>
+<pre><code><span class="header">mysql&gt; SHOW DATABASES;
++--------------------+</span>
+<span class="header">| Database           |
++--------------------+</span>
+| information<span class="emphasis">_schema |
+| RZwpDatabase       |
+| XRwpDatabase       |
+| mysql              |
+| performance_</span>schema |
+<span class="header">| phpmyadmin         |
++--------------------+</span>
+6 rows in set (0.00 sec)
+</code></pre><p>Creating a database:</p>
+<pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> databaseName;</span>
+</code></pre><p>Delete a database: </p>
+<pre><code><span class="operator"><span class="keyword">DROP</span> <span class="keyword">DATABASE</span> databseName;</span>
+</code></pre><h2 id="Access_a_MySQL_Database">Access a MySQL Database</h2><p>Let’s open up the database we just created <code>events</code>: </p>
+<pre><code><span class="operator"><span class="keyword">USE</span> <span class="keyword">events</span>;</span>
+</code></pre><p>Create a MySQL Table: </p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -123,7 +164,7 @@ grep -rl &amp;quot;sniff.py&amp;quot; .
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.xuyiruan.com/2015/06/24/grep_function/" data-title="来自威斯星星大学的一个小猩猩" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.xuyiruan.com/2015/07/11/mysql-basic/" data-title="mysql_basic | 来自威斯星星大学的一个小猩猩" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -137,18 +178,18 @@ grep -rl &amp;quot;sniff.py&amp;quot; .
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/06/24/serverApConfig/" title="Store AP config in dbapi server">
+ <a href="/2015/07/11/grep-intro/" title="grep_intro">
   <strong>上一篇：</strong><br/>
   <span>
-  Store AP config in dbapi server</span>
+  grep_intro</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/06/19/sniffencrption_2/"  title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2">
+<a href="/2015/07/02/loc_node_white_list/"  title="loc_node white list implementation">
  <strong>下一篇：</strong><br/> 
- <span>Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project Part2
+ <span>loc_node white list implementation
 </span>
 </a>
 </div>
@@ -157,7 +198,7 @@ grep -rl &amp;quot;sniff.py&amp;quot; .
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/06/24/grep_function/" data-title="" data-url="http://www.xuyiruan.com/2015/06/24/grep_function/"></div>
+	<div class="ds-thread" data-thread-key="2015/07/11/mysql-basic/" data-title="mysql_basic" data-url="http://www.xuyiruan.com/2015/07/11/mysql-basic/"></div>
 </section>
 
 
@@ -167,7 +208,7 @@ grep -rl &amp;quot;sniff.py&amp;quot; .
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage:"><span class="toc-number">2.</span> <span class="toc-text">Usage:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Search_location_of_files:"><span class="toc-number">2.1.</span> <span class="toc-text">Search location of files:</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL_on_Ubuntu"><span class="toc-number">1.</span> <span class="toc-text">MySQL on Ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#How_to_install_MySQL_on_Ubuntu_and_CentOS"><span class="toc-number">1.1.</span> <span class="toc-text">How to install MySQL on Ubuntu and CentOS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Access_MySQL_shell"><span class="toc-number">1.2.</span> <span class="toc-text">Access MySQL shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create_and_Delete_a_MySQL_Database"><span class="toc-number">1.3.</span> <span class="toc-text">Create and Delete a MySQL Database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Access_a_MySQL_Database"><span class="toc-number">1.4.</span> <span class="toc-text">Access a MySQL Database</span></a></li></ol></li></ol>
  
   </div>
 
@@ -216,6 +257,12 @@ grep -rl &amp;quot;sniff.py&amp;quot; .
   <div class="linkslist">
   <p class="asidetitle">友情链接</p>
     <ul>
+        
+          <li>
+            
+            	<a href="http://www.winniebabe.com" target="_blank" title="Winnie Babe的小窝">Winnie Babe的小窝</a>
+            
+          </li>
         
           <li>
             
