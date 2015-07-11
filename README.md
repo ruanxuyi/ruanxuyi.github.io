@@ -53,3 +53,28 @@ google_analytics:
   site: www.xuyiruan.com ## e.g. wuchong.me your google analytics site or set the value as auto.
 ```
 
+
+## Preview Drafts
+
+[See details here:](https://hexo.io/zh-cn/docs/drafts.html)
+
+### Creating
+
+    hexo new draft <title>
+
+Files will be saved in `source/_drafts` folder.
+
+### Previewing
+
+ Run hexo server with `-d` or `--drafts` flag.
+
+    hexo server --drafts
+### Publishing
+
+Once your draft is done, you can publish it with `hexo publish` command.
+
+    hexo publish [layout] <filename>
+
+Files will be moved to `source/_posts` folder and applied with the `layout` you specified in the command.
+
+
