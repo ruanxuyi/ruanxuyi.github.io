@@ -1,0 +1,516 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>ubuntu_snappy_apu | 来自威斯星星大学的一个小猩猩</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="阮先生">
+    
+
+    
+    <meta name="description" content="Todo:
+flash img into SD card
+Boot system with SD card and see if everything goes well
+figure out how to ssh into the system - either through ethernet or serial
+fix driver issue for wan port(it works)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu_snappy_apu">
+<meta property="og:url" content="http://www.xuyiruan.com/2015/07/13/ubuntu-snappy-apu/index.html">
+<meta property="og:site_name" content="来自威斯星星大学的一个小猩猩">
+<meta property="og:description" content="Todo:
+flash img into SD card
+Boot system with SD card and see if everything goes well
+figure out how to ssh into the system - either through ethernet or serial
+fix driver issue for wan port(it works)">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/work.ubuntu15.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu_snappy_apu">
+<meta name="twitter:description" content="Todo:
+flash img into SD card
+Boot system with SD card and see if everything goes well
+figure out how to ssh into the system - either through ethernet or serial
+fix driver issue for wan port(it works)">
+
+
+    
+    <link rel="alternative" href="/atom.xml" title="来自威斯星星大学的一个小猩猩" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/logo.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/sushi.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/sushi.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/sushi.png" alt="来自威斯星星大学的一个小猩猩" title="来自威斯星星大学的一个小猩猩"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="来自威斯星星大学的一个小猩猩">来自威斯星星大学的一个小猩猩</a></h1>
+				<h2 class="blog-motto">沉下心 多读书 多思考 少吃QQ 多睡觉</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.xuyiruan.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/13/ubuntu-snappy-apu/" title="ubuntu_snappy_apu" itemprop="url">ubuntu_snappy_apu</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-13T18:20:18.000Z" itemprop="datePublished"> 发表于 07-13-2015</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Todo:"><span class="toc-number">1.</span> <span class="toc-text">Todo:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Objective:"><span class="toc-number">2.</span> <span class="toc-text">Objective:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Writing_the_-img_file_to_the_SD_card"><span class="toc-number">3.</span> <span class="toc-text">Writing the .img file to the SD card</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Testing_through_Terminal"><span class="toc-number">4.</span> <span class="toc-text">Testing through Terminal</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Log_into_the_snappy_ubuntu_core"><span class="toc-number">5.</span> <span class="toc-text">Log into the snappy ubuntu core</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Current_issues:"><span class="toc-number">6.</span> <span class="toc-text">Current issues:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Test_wireless_function"><span class="toc-number">7.</span> <span class="toc-text">Test wireless function</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hello_Snappy_Ubuntu"><span class="toc-number">8.</span> <span class="toc-text">Hello Snappy Ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#snappy_info"><span class="toc-number">8.1.</span> <span class="toc-text">snappy info</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#check_version_of_current_installed_components"><span class="toc-number">8.2.</span> <span class="toc-text">check version of current installed components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#check_update_for_system"><span class="toc-number">8.3.</span> <span class="toc-text">check update for system</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#search_for_package"><span class="toc-number">8.4.</span> <span class="toc-text">search for package</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#install_packeage"><span class="toc-number">8.5.</span> <span class="toc-text">install packeage</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">9.</span> <span class="toc-text">Reference</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="Todo:">Todo:</h1><ol>
+<li><del>flash img into SD card</del></li>
+<li><del>Boot system with SD card and see if everything goes well</del></li>
+<li><del>figure out how to ssh into the system - either through ethernet or serial</del></li>
+<li><del>fix driver issue for wan port(it works)</del></li>
+<li><del>fix the driver issues for wirless card(it works)</del></li>
+</ol>
+<h1 id="Objective:">Objective:</h1><p>Paradrop 2.0 will be deployed on the newest Ubuntu 15.04. The following task will try to deploy Ubuntu snappy on the paradrop router.</p>
+<h1 id="Writing_the_-img_file_to_the_SD_card">Writing the .img file to the SD card</h1><p>Run the following command from terminal to verify the path of SD card: </p>
+<pre><code>diskutil <span class="type">list</span>
+</code></pre><p>The output shows all the disks current mounted on the system. Look for the path of your SD card by <code>size</code> and <code>NAME</code></p>
+<pre><code>/dev/disk3
+<span class="comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+0:     FDisk_partition_scheme                        <span class="keyword">*</span>8.0 GB     disk3
+1:                 DOS_FAT_32 RPISDCARD               8.0 GB     disk3s1    
+</code></pre><p>In this case <code>dev/disk3</code> is the path for my SD card. </p>
+<p>Unmount the current partition on the SD card in order to sucessfully use <code>dd</code> to write.</p>
+<pre><code>diskutil unmount <span class="regexp">/dev/</span>disk3s1
+</code></pre><p>Use <code>dd</code> command to write image file (Note the <code>r</code> added to rdisk3 which drastically improves write performance) to the disk. <code>if</code>(input file), <code>of</code> (output file), <code>bs</code> (block size in byte). Determine the best <code>bs</code> for your SD card, use <a href="http://jingyan.baidu.com/article/d45ad148e203f969552b800a.html" target="_blank" rel="external">link</a> for detail.</p>
+<pre><code>sudo <span class="tag">dd</span> <span class="keyword">if</span>=ubuntu-<span class="number">15.04</span>-snappy-amd64-generic<span class="class">.img</span> of=/dev/rdisk3 bs=<span class="number">1</span>m
+</code></pre><p>Different SD card take different time to finish the process. use <code>CTRL+T</code> to see the current status of <code>dd</code>.</p>
+<h1 id="Testing_through_Terminal">Testing through Terminal</h1><p>If you would like to ssh into the system through <strong>serial</strong>, please use 9600 baud rate. (baud rate 115200 will not work)</p>
+<p>Connect the serial output through USB and start Putty section with buad of 9600. Plug in SD card into the router and plug in power. The Ubunta should automatically boot and run. </p>
+<h1 id="Log_into_the_snappy_ubuntu_core">Log into the snappy ubuntu core</h1><p>login: ubuntu<br>password: ubuntu  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/work.ubuntu15.jpg" alt="Snappy Ubuntu Core" style="width:600px;"></p>
+<h1 id="Current_issues:">Current issues:</h1><p><a href="http://pcengines.info/forums/?page=post&amp;id=E25612E9-84F0-4DCF-A876-1E92FD1D065C" target="_blank" rel="external">http://pcengines.info/forums/?page=post&amp;id=E25612E9-84F0-4DCF-A876-1E92FD1D065C</a></p>
+<p><a href="https://forum.pfsense.org/index.php?topic=74301.0" target="_blank" rel="external">https://forum.pfsense.org/index.php?topic=74301.0</a></p>
+<p><strong>SSH with serial:  </strong><br>    9600 VS 115200?<br>    <del>read dales’s comments - it is about how to ssh into through serial, which i have doon</del><br>    <del>read dales’s post on that. 115200? ~~<br>    ~~ubuntu startup scripts?  - not need to worry about it now since i am able to ssh into through serial.</del>  </p>
+<p><strong>SHH with network router:  </strong><br>    fix the wireless driver. - wireless driver was acutually working.        </p>
+<h1 id="Test_wireless_function">Test wireless function</h1><p>To bring wirelss wlan0 up, try following commands: </p>
+<pre><code><span class="title">sudo</span> ifconfig wlan0 up
+</code></pre><p>Test wireless function with <code>scan</code></p>
+<pre><code>sudo iw <span class="built_in">dev</span> wlan0 <span class="built_in">scan</span>
+</code></pre><h1 id="Hello_Snappy_Ubuntu">Hello Snappy Ubuntu</h1><h2 id="snappy_info">snappy info</h2><pre><code>(amd64)ubuntu<span class="annotation">@localhost</span>:~$ snappy info
+<span class="string">release:</span> ubuntu-core<span class="regexp">/15.04/</span>stable
+<span class="string">architecture:</span> amd64
+<span class="string">frameworks:</span> webdm
+<span class="string">apps:</span> 
+</code></pre><h2 id="check_version_of_current_installed_components">check version of current installed components</h2><p>flag (*) indicates the version of components currently running on. </p>
+<pre><code>ubuntu<span class="comment">@localhost:~$ snappy list -v</span>
+Name          Date       Version Developer 
+ubuntu-core   2015-06-11 3       ubuntu<span class="keyword">*</span>   
+webdm         2015-06-11 0.9     <span class="keyword">*</span>         
+generic-amd64 2015-06-11 1.1.1             
+generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>         
+</code></pre><h2 id="check_update_for_system">check update for system</h2><pre><code>snappy <span class="type">list</span> -uv
+</code></pre><h2 id="search_for_package">search for package</h2><pre><code><span class="title">sudo</span> snappy search docker
+</code></pre><h2 id="install_packeage">install packeage</h2><pre><code>snappy <span class="keyword">install</span> docker
+</code></pre><h1 id="Reference">Reference</h1><p><a href="http://raspberrypi.stackexchange.com/questions/4144/writing-img-file-to-sd-card-from-a-mac" target="_blank" rel="external">Write image into SD card</a></p>
+<p><a href="http://jingyan.baidu.com/article/d45ad148e203f969552b800a.html" target="_blank" rel="external">DD command detail</a></p>
+<p><a href="http://store.netgate.com/WLE200NX-80211nabg-miniPCIe-Card-P1763.aspx" target="_blank" rel="external">WLE200NX</a></p>
+<p><a href="https://help.ubuntu.com/community/WifiDocs/Driver/Atheros?highlight=%28%28WifiDocs%7CDriver%7CAtheros%29%29" target="_blank" rel="external">madwifi</a></p>
+<p><a href="https://developer.ubuntu.com/en/snappy/guides/" target="_blank" rel="external">Snappy Inernal</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.xuyiruan.com/2015/07/13/ubuntu-snappy-apu/" data-title="ubuntu_snappy_apu | 来自威斯星星大学的一个小猩猩" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/07/02/loc_node_white_list/"  title="loc_node white list implementation">
+ <strong>下一篇：</strong><br/> 
+ <span>loc_node white list implementation
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/07/13/ubuntu-snappy-apu/" data-title="ubuntu_snappy_apu" data-url="http://www.xuyiruan.com/2015/07/13/ubuntu-snappy-apu/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Todo:"><span class="toc-number">1.</span> <span class="toc-text">Todo:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Objective:"><span class="toc-number">2.</span> <span class="toc-text">Objective:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Writing_the_-img_file_to_the_SD_card"><span class="toc-number">3.</span> <span class="toc-text">Writing the .img file to the SD card</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Testing_through_Terminal"><span class="toc-number">4.</span> <span class="toc-text">Testing through Terminal</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Log_into_the_snappy_ubuntu_core"><span class="toc-number">5.</span> <span class="toc-text">Log into the snappy ubuntu core</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Current_issues:"><span class="toc-number">6.</span> <span class="toc-text">Current issues:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Test_wireless_function"><span class="toc-number">7.</span> <span class="toc-text">Test wireless function</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hello_Snappy_Ubuntu"><span class="toc-number">8.</span> <span class="toc-text">Hello Snappy Ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#snappy_info"><span class="toc-number">8.1.</span> <span class="toc-text">snappy info</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#check_version_of_current_installed_components"><span class="toc-number">8.2.</span> <span class="toc-text">check version of current installed components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#check_update_for_system"><span class="toc-number">8.3.</span> <span class="toc-text">check update for system</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#search_for_package"><span class="toc-number">8.4.</span> <span class="toc-text">search for package</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#install_packeage"><span class="toc-number">8.5.</span> <span class="toc-text">install packeage</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-number">9.</span> <span class="toc-text">Reference</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/work/" title="work">work<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活/" title="生活">生活<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/paradrop/" title="paradrop">paradrop<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/杂文/" title="杂文">杂文<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/图片/" title="图片">图片<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.winniebabe.com" target="_blank" title="Winnie Babe的小窝">Winnie Babe的小窝</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://suncuss.me" target="_blank" title="孙老板&#39;s Blog">孙老板&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 写代码, 学知识, 为了和你一起活着 <br/>
+			尝美食, 游世界, 为了给你更好的生活</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> © 2015 
+		
+		<a href="http://www.xuyiruan.com/about" target="_blank" title="阮先生">阮先生</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"xruan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-61663668-1', 'www.xuyiruan.com');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+  </body>
+</html>

@@ -84,6 +84,111 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/07/13/ubuntu-snappy-apu/" title="ubuntu_snappy_apu" itemprop="url">ubuntu_snappy_apu</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-13T18:20:18.000Z" itemprop="datePublished"> 发表于 07-13-2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Todo:">Todo:</h1><ol>
+<li><del>flash img into SD card</del></li>
+<li><del>Boot system with SD card and see if everything goes well</del></li>
+<li><del>figure out how to ssh into the system - either through ethernet or serial</del></li>
+<li><del>fix driver issue for wan port(it works)</del></li>
+<li><del>fix the driver issues for wirless card(it works)</del></li>
+</ol>
+<h1 id="Objective:">Objective:</h1><p>Paradrop 2.0 will be deployed on the newest Ubuntu 15.04. The following task will try to deploy Ubuntu snappy on the paradrop router.</p>
+<h1 id="Writing_the_-img_file_to_the_SD_card">Writing the .img file to the SD card</h1><p>Run the following command from terminal to verify the path of SD card: </p>
+<pre><code>diskutil <span class="type">list</span>
+</code></pre><p>The output shows all the disks current mounted on the system. Look for the path of your SD card by <code>size</code> and <code>NAME</code></p>
+<pre><code>/dev/disk3
+<span class="comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+0:     FDisk_partition_scheme                        <span class="keyword">*</span>8.0 GB     disk3
+1:                 DOS_FAT_32 RPISDCARD               8.0 GB     disk3s1    
+</code></pre><p>In this case <code>dev/disk3</code> is the path for my SD card. </p>
+<p>Unmount the current partition on the SD card in order to sucessfully use <code>dd</code> to write.</p>
+<pre><code>diskutil unmount <span class="regexp">/dev/</span>disk3s1
+</code></pre><p>Use <code>dd</code> command to write image file (Note the <code>r</code> added to rdisk3 which drastically improves write performance) to the disk. <code>if</code>(input file), <code>of</code> (output file), <code>bs</code> (block size in byte). Determine the best <code>bs</code> for your SD card, use <a href="http://jingyan.baidu.com/article/d45ad148e203f969552b800a.html" target="_blank" rel="external">link</a> for detail.</p>
+<pre><code>sudo <span class="tag">dd</span> <span class="keyword">if</span>=ubuntu-<span class="number">15.04</span>-snappy-amd64-generic<span class="class">.img</span> of=/dev/rdisk3 bs=<span class="number">1</span>m
+</code></pre><p>Different SD card take different time to finish the process. use <code>CTRL+T</code> to see the current status of <code>dd</code>.</p>
+<h1 id="Testing_through_Terminal">Testing through Terminal</h1><p>If you would like to ssh into the system through <strong>serial</strong>, please use 9600 baud rate. (baud rate 115200 will not work)</p>
+<p>Connect the serial output through USB and start Putty section with buad of 9600. Plug in SD card into the router and plug in power. The Ubunta should automatically boot and run. </p>
+<h1 id="Log_into_the_snappy_ubuntu_core">Log into the snappy ubuntu core</h1><p>login: ubuntu<br>password: ubuntu  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/work.ubuntu15.jpg" alt="Snappy Ubuntu Core" style="width:600px;"></p>
+<h1 id="Current_issues:">Current issues:</h1><p><a href="http://pcengines.info/forums/?page=post&amp;id=E25612E9-84F0-4DCF-A876-1E92FD1D065C" target="_blank" rel="external">http://pcengines.info/forums/?page=post&amp;id=E25612E9-84F0-4DCF-A876-1E92FD1D065C</a></p>
+<p><a href="https://forum.pfsense.org/index.php?topic=74301.0" target="_blank" rel="external">https://forum.pfsense.org/index.php?topic=74301.0</a></p>
+<p><strong>SSH with serial:  </strong><br>    9600 VS 115200?<br>    <del>read dales’s comments - it is about how to ssh into through serial, which i have doon</del><br>    <del>read dales’s post on that. 115200? ~~<br>    ~~ubuntu startup scripts?  - not need to worry about it now since i am able to ssh into through serial.</del>  </p>
+<p><strong>SHH with network router:  </strong><br>    fix the wireless driver. - wireless driver was acutually working.        </p>
+<h1 id="Test_wireless_function">Test wireless function</h1><p>To bring wirelss wlan0 up, try following commands: </p>
+<pre><code><span class="title">sudo</span> ifconfig wlan0 up
+</code></pre><p>Test wireless function with <code>scan</code></p>
+<pre><code>sudo iw <span class="built_in">dev</span> wlan0 <span class="built_in">scan</span>
+</code></pre><h1 id="Hello_Snappy_Ubuntu">Hello Snappy Ubuntu</h1><h2 id="snappy_info">snappy info</h2><pre><code>(amd64)ubuntu<span class="annotation">@localhost</span>:~$ snappy info
+<span class="string">release:</span> ubuntu-core<span class="regexp">/15.04/</span>stable
+<span class="string">architecture:</span> amd64
+<span class="string">frameworks:</span> webdm
+<span class="string">apps:</span> 
+</code></pre><h2 id="check_version_of_current_installed_components">check version of current installed components</h2><p>flag (*) indicates the version of components currently running on. </p>
+<pre><code>ubuntu<span class="comment">@localhost:~$ snappy list -v</span>
+Name          Date       Version Developer 
+ubuntu-core   2015-06-11 3       ubuntu<span class="keyword">*</span>   
+webdm         2015-06-11 0.9     <span class="keyword">*</span>         
+generic-amd64 2015-06-11 1.1.1             
+generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>         
+</code></pre><h2 id="check_update_for_system">check update for system</h2><pre><code>snappy <span class="type">list</span> -uv
+</code></pre><h2 id="search_for_package">search for package</h2><pre><code><span class="title">sudo</span> snappy search docker
+</code></pre><h2 id="install_packeage">install packeage</h2><pre><code>snappy <span class="keyword">install</span> docker
+</code></pre><h1 id="Reference">Reference</h1><p><a href="http://raspberrypi.stackexchange.com/questions/4144/writing-img-file-to-sd-card-from-a-mac" target="_blank" rel="external">Write image into SD card</a></p>
+<p><a href="http://jingyan.baidu.com/article/d45ad148e203f969552b800a.html" target="_blank" rel="external">DD command detail</a></p>
+<p><a href="http://store.netgate.com/WLE200NX-80211nabg-miniPCIe-Card-P1763.aspx" target="_blank" rel="external">WLE200NX</a></p>
+<p><a href="https://help.ubuntu.com/community/WifiDocs/Driver/Atheros?highlight=%28%28WifiDocs%7CDriver%7CAtheros%29%29" target="_blank" rel="external">madwifi</a></p>
+<p><a href="https://developer.ubuntu.com/en/snappy/guides/" target="_blank" rel="external">Snappy Inernal</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/07/13/ubuntu-snappy-apu/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/07/13/ubuntu-snappy-apu/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/07/02/loc_node_white_list/" title="loc_node white list implementation" itemprop="url">loc_node white list implementation</a>
   </h1>
   <p class="article-author">By
@@ -984,8 +1089,6 @@ nl80211 driver <span class="keyword">initialization</span> failed.
 		
 			
 				<li><a href="/tags/图片/" title="图片">图片<sup>1</sup></a></li>
-			
-		
 			
 		
 		</ul>
