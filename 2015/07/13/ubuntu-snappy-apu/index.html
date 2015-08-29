@@ -133,7 +133,7 @@ fix driver issue for wan port(it works)">
 </code></pre><p>In this case <code>dev/disk3</code> is the path for my SD card. </p>
 <p>Unmount the current partition on the SD card in order to sucessfully use <code>dd</code> to write.</p>
 <pre><code>diskutil unmount <span class="regexp">/dev/</span>disk3s1
-</code></pre><p>Use <code>dd</code> command to write image file (Note the <code>r</code> added to rdisk3 which drastically improves write performance) to the disk. <code>if</code>(input file), <code>of</code> (output file), <code>bs</code> (block size in byte). Determine the best <code>bs</code> for your SD card, use <a href="http://jingyan.baidu.com/article/d45ad148e203f969552b800a.html" target="_blank" rel="external">link</a> for detail.</p>
+</code></pre><p>Use <code>dd</code> command to write image file (Note the <code>r</code> added to rdisk3 which drastically improves write performance) to the disk. <code>if</code> (input file), <code>of</code> (output file), <code>bs</code> (block size in byte). Determine the best <code>bs</code> for your SD card, use <a href="http://jingyan.baidu.com/article/d45ad148e203f969552b800a.html" target="_blank" rel="external">link</a> for detail.</p>
 <pre><code>sudo <span class="tag">dd</span> <span class="keyword">if</span>=ubuntu-<span class="number">15.04</span>-snappy-amd64-generic<span class="class">.img</span> of=/dev/rdisk3 bs=<span class="number">1</span>m
 </code></pre><p>Different SD card take different time to finish the process. use <code>CTRL+T</code> to see the current status of <code>dd</code>.</p>
 <h1 id="Testing_through_Terminal">Testing through Terminal</h1><p>If you would like to ssh into the system through <strong>serial</strong>, please use 9600 baud rate. (baud rate 115200 will not work)</p>
@@ -193,14 +193,14 @@ generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>
 	
 <nav class="article-nav clearfix">
  
-
-<div class="next">
-<a href="/2015/07/02/loc_node_white_list/"  title="loc_node white list implementation">
- <strong>下一篇：</strong><br/> 
- <span>loc_node white list implementation
-</span>
+ <div class="prev" >
+ <a href="/2015/08/29/endOfJunior/" title="回首大三下">
+  <strong>上一篇：</strong><br/>
+  <span>
+  回首大三下</span>
 </a>
 </div>
+
 
 </nav>
 
@@ -237,6 +237,8 @@ generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>
 			<li><a href="/categories/生活/" title="生活">生活<sup>2</sup></a></li>
 		  
 		
+		  
+		
 		</ul>
 </div>
 
@@ -256,6 +258,8 @@ generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>
 		
 			
 				<li><a href="/tags/图片/" title="图片">图片<sup>1</sup></a></li>
+			
+		
 			
 		
 		</ul>
