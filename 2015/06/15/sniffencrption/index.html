@@ -1,0 +1,643 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project | 来自威斯星星大学的一个小猩猩</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="阮先生">
+    
+
+    
+    <meta name="description" content="Configure Encrption (WPA2/PSK) on Recon(sniff.py)
+Useful info:connect to the paradrop server:   
+ssh pd@paradrop.wings.cs.wisc.edu
+IMPORTANT: once the paradrop system(router) hock up into the internet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project">
+<meta property="og:url" content="http://www.xuyiruan.com/2015/06/15/sniffencrption/index.html">
+<meta property="og:site_name" content="来自威斯星星大学的一个小猩猩">
+<meta property="og:description" content="Configure Encrption (WPA2/PSK) on Recon(sniff.py)
+Useful info:connect to the paradrop server:   
+ssh pd@paradrop.wings.cs.wisc.edu
+IMPORTANT: once the paradrop system(router) hock up into the internet">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/sniffs.IMG_1793.jpg">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/sniffs.IMG_1832.JPG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project">
+<meta name="twitter:description" content="Configure Encrption (WPA2/PSK) on Recon(sniff.py)
+Useful info:connect to the paradrop server:   
+ssh pd@paradrop.wings.cs.wisc.edu
+IMPORTANT: once the paradrop system(router) hock up into the internet">
+
+
+    
+    <link rel="alternative" href="/atom.xml" title="来自威斯星星大学的一个小猩猩" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/logo.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/sushi.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/sushi.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/sushi.png" alt="来自威斯星星大学的一个小猩猩" title="来自威斯星星大学的一个小猩猩"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="来自威斯星星大学的一个小猩猩">来自威斯星星大学的一个小猩猩</a></h1>
+				<h2 class="blog-motto">沉下心 多读书 多思考 少吃QQ 多睡觉</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.xuyiruan.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/06/15/sniffencrption/" title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project" itemprop="url">Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
+		
+  <p class="article-time">
+    <time datetime="2015-06-15T23:28:52.000Z" itemprop="datePublished"> 发表于 06-15-2015</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Configure_Encrption_(WPA2/PSK)_on_Recon(sniff-py)"><span class="toc-number">1.</span> <span class="toc-text">Configure Encrption (WPA2/PSK) on Recon(sniff.py)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Useful_info:"><span class="toc-number">1.1.</span> <span class="toc-text">Useful info:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Connect_to_the_router:"><span class="toc-number">1.2.</span> <span class="toc-text">Connect to the router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ssh_into_the_paradrop_router:"><span class="toc-number">1.3.</span> <span class="toc-text">Ssh into the paradrop router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_shoot_through_front_end_page-"><span class="toc-number">1.4.</span> <span class="toc-text">Create shoot through front end page.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Log_into_the_shoot"><span class="toc-number">1.5.</span> <span class="toc-text">Log into the shoot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Check_if_sniff_is_still_running:"><span class="toc-number">1.6.</span> <span class="toc-text">Check if sniff is still running:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stop_stiff:"><span class="toc-number">1.7.</span> <span class="toc-text">Stop stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Restart_stiff:"><span class="toc-number">1.8.</span> <span class="toc-text">Restart stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Goals:"><span class="toc-number">1.9.</span> <span class="toc-text">Goals:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vim_up/down/left/right_and_delete_issues:"><span class="toc-number">1.9.1.</span> <span class="toc-text">Vim up/down/left/right and delete issues:</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="Configure_Encrption_(WPA2/PSK)_on_Recon(sniff-py)">Configure Encrption (WPA2/PSK) on Recon(sniff.py)</h2><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/sniffs.IMG_1793.jpg" alt="MySummerResearch" style="width:600px;"></p>
+<h3 id="Useful_info:">Useful info:</h3><p><strong>connect to the paradrop server: </strong>  </p>
+<pre><code>ssh pd@paradrop<span class="class">.wings</span><span class="class">.cs</span><span class="class">.wisc</span><span class="class">.edu</span>
+</code></pre><p>IMPORTANT: once the paradrop system(router) hock up into the internet, it automatically VPN to the paradrop server, which parapdrop server can get access to all the haloxxx routers that are onlined.</p>
+<p><strong>List all network interfaces for wireless hardware:</strong>  </p>
+<pre><code><span class="title">iw</span> dev
+</code></pre><p>Outputs:</p>
+<pre><code><span class="tag">phy</span><span class="id">#1</span>
+<span class="tag">Interface</span> <span class="tag">moni1</span>
+    <span class="tag">ifindex</span> 4481
+    <span class="tag">wdev</span> 0<span class="tag">x100001180</span>
+    <span class="tag">addr</span> 04<span class="pseudo">:f0</span><span class="pseudo">:21</span><span class="pseudo">:10</span><span class="pseudo">:c0</span><span class="pseudo">:d8</span>
+    <span class="tag">type</span> <span class="tag">monitor</span>
+<span class="tag">Interface</span> <span class="tag">wlan0</span>
+    <span class="tag">ifindex</span> 4439
+    <span class="tag">wdev</span> 0<span class="tag">x100001156</span>
+    <span class="tag">addr</span> 04<span class="pseudo">:f0</span><span class="pseudo">:21</span><span class="pseudo">:10</span><span class="pseudo">:c0</span><span class="pseudo">:d8</span>
+    <span class="tag">ssid</span> <span class="tag">testRS</span>
+    <span class="tag">type</span> <span class="tag">AP</span>
+    <span class="tag">channel</span> 36 (5180 <span class="tag">MHz</span>), <span class="tag">width</span>: 20 <span class="tag">MHz</span> (<span class="tag">no</span> <span class="tag">HT</span>), <span class="tag">center1</span>: 5180 <span class="tag">MHz</span>
+</code></pre><p><strong>Configure a network interface:</strong>  </p>
+<pre><code>ifconfig
+</code></pre><p><strong>Scan all the SSIDs within nearby:</strong>  </p>
+<pre><code>iw <span class="built_in">dev</span> wlan0 <span class="built_in">scan</span>
+</code></pre><h3 id="Connect_to_the_router:">Connect to the router:</h3><ol>
+<li>SSID: ParadropXX</li>
+<li>Password: paradroprocks</li>
+</ol>
+<h3 id="Ssh_into_the_paradrop_router:">Ssh into the paradrop router:</h3><pre><code><span class="title">ssh</span> root<span class="variable">@halo32</span>   
+</code></pre><p>passowrd: 699.tmp<br>public ip: 216.26.112.63</p>
+<h3 id="Create_shoot_through_front_end_page-">Create <code>shoot</code> through front end page.</h3><ol>
+<li><code>ifconfig br-lan</code> </li>
+<li>get <code>inet addr:</code> for example: <code>192.168.60.1</code></li>
+<li>open browswer go to  <code>192.168.60.1</code></li>
+<li>set up an <code>app</code> as <code>recon</code></li>
+</ol>
+<h3 id="Log_into_the_shoot">Log into the <code>shoot</code></h3><ul>
+<li>run command line check:  <pre><code>python etc/pd/lib/internal/fc/chutestorage.py -ls </code></pre></li>
+<li>output from terminal:</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">lxc:<span class="number">64</span>c22813-ab61-<span class="number">4</span>c87-<span class="number">9</span>ff6-cac4a03b690f</span><br><span class="line">  state:    running</span><br><span class="line">  <span class="keyword">struct</span>:   &#123;<span class="string">'net'</span>: &#123;<span class="string">'wan'</span>: &#123;<span class="string">'type'</span>: <span class="string">'wan'</span>, <span class="string">'intfName'</span>: <span class="string">'eth0'</span>, <span class="string">'ipaddr'</span>: <span class="string">'10.100.10.1'</span>, <span class="string">'netmask'</span>: <span class="string">'255.255.255.0'</span>&#125;, <span class="string">'passthroughInterfaces'</span>: [], <span class="string">'wlanPassthrough'</span>: <span class="string">'True'</span>, <span class="string">'radioid'</span>: <span class="number">1</span>&#125;, <span class="string">'disk'</span>: &#123;<span class="string">'size'</span>: <span class="number">123456</span>&#125;, <span class="string">'cmds'</span>: &#123;<span class="string">'firewall'</span>: &#123;<span class="string">'post'</span>: [<span class="string">'iptables -t nat -I PREROUTING -i tun0 -p tcp -m tcp --dport 6555 -j DNAT --to-destination 10.100.10.1:22'</span>, <span class="string">'iptables -I FORWARD -i tun0 -s 10.6.0.0/24 -d 10.100.10.1 -j ACCEPT'</span>, <span class="string">'iptables -I FORWARD -o tun0 -s 10.100.10.1 -d 10.6.0.0/24 -j ACCEPT'</span>]&#125;&#125;&#125;</span><br><span class="line">  runtime:  [&#123;<span class="string">'program'</span>: <span class="string">'echo'</span>, <span class="string">'name'</span>: <span class="string">'sniff args'</span>, <span class="string">'args'</span>: <span class="string">'python /root/recon/sniff.py -i moni1 -t 5 --phy phy1 &gt; /root/sniff_args'</span>&#125;, &#123;<span class="string">'program'</span>: <span class="string">'bash /root/recon/sniff_start.sh'</span>, <span class="string">'name'</span>: <span class="string">'startSniff'</span>, <span class="string">'args'</span>: <span class="string">''</span>&#125;, &#123;<span class="string">'cron'</span>: <span class="string">'*/1 * * * *'</span>, <span class="string">'program'</span>: <span class="string">'bash /root/recon/sniff_start.sh'</span>, <span class="string">'name'</span>: <span class="string">'Check sniff is running'</span>, <span class="string">'args'</span>: <span class="string">''</span>&#125;]</span><br><span class="line">  traffic:  []</span><br><span class="line">  resource: &#123;<span class="string">'lan'</span>: &#123;<span class="string">'down'</span>: <span class="number">25000</span>, <span class="string">'up'</span>: <span class="number">25000</span>&#125;, <span class="string">'cpu'</span>: <span class="string">'@resource.cpu.MAX'</span>, <span class="string">'memory'</span>: <span class="string">'@resource.memory.MAX'</span>&#125;</span><br><span class="line">  files:  [&#123;<span class="string">'path'</span>: <span class="string">'/root'</span>, <span class="string">'sha1'</span>: <span class="string">'None'</span>, <span class="string">'todo'</span>: <span class="string">'EXTRACT'</span>, <span class="string">'name'</span>: <span class="string">'sniff'</span>, <span class="string">'location'</span>: <span class="string">'@paradrop.server(sniff/sniff.tar.gz)'</span>&#125;]</span><br><span class="line">  radioid:  <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>Userful Infomation:<br><strong>UUID</strong> - 64c22813-ab61-4c87-9ff6-cac4a03b690f<br><strong>ipaddr</strong> - 10.100.10.1 &lt;- this is the address for the shoot(app) you just created. ssh into it.</p>
+<pre><code><span class="title">ssh</span> root@<span class="number">10.100.10.1</span>
+</code></pre><p>User/Pass: root  </p>
+<h3 id="Check_if_sniff_is_still_running:">Check if sniff is still running:</h3><pre><code>screen -<span class="keyword">ls</span>
+</code></pre><p>output from terminal:</p>
+<pre><code>There are screens on:
+    <span class="number">53</span><span class="class">.sniff</span>    (Detached)
+    <span class="number">28</span><span class="class">.lxcserver</span>    (Detached)
+<span class="number">2</span> Sockets <span class="keyword">in</span> /tmp/screens/S-root.
+</code></pre><h3 id="Stop_stiff:">Stop stiff:</h3><pre><code>bash /root/recon/sniff_disable<span class="class">.sh</span>
+bash /root/recon/sniff_kill<span class="class">.sh</span> 
+</code></pre><p>check if stiff stop:</p>
+<pre><code>screen -<span class="keyword">ls</span>
+</code></pre><p>output from terminal:</p>
+<pre><code>There is <span class="tag">a</span> screen on:
+    <span class="number">28</span><span class="class">.lxcserver</span>    (Detached)
+<span class="number">1</span> Socket <span class="keyword">in</span> /tmp/screens/S-root. 
+</code></pre><h3 id="Restart_stiff:">Restart stiff:</h3><pre><code>bash <span class="regexp">/root/</span>recon<span class="regexp">/sniff_restart.sh</span>
+</code></pre><p><code>screen -ls</code> output from terminal:</p>
+<pre><code>There are screens on:
+    <span class="number">782</span><span class="class">.sniff</span>   (Detached)
+    <span class="number">28</span><span class="class">.lxcserver</span>    (Detached)
+<span class="number">2</span> Sockets <span class="keyword">in</span> /tmp/screens/S-root.
+</code></pre><h3 id="Goals:">Goals:</h3><p>now I am inside the shoot, I need to use <code>sniff</code> to run <code>hostapd</code> to create a new access point for the app, so that the SSID created should be encrypted in (WPA2/PSK).   </p>
+<p><strong>BackGround Info:</strong><br><em>Recon</em>:  Recon is the project name for the retail analytics that we are doing. Our initial deployment is in the UW Bookstore on state street.</p>
+<p><a href="http://wirelessathome.wings.cs.wisc.edu/redmine/projects/paradrop/wiki/Recon" target="_blank" rel="external">http://wirelessathome.wings.cs.wisc.edu/redmine/projects/paradrop/wiki/Recon</a></p>
+<p><em>Sniff</em>: </p>
+<h4 id="Vim_up/down/left/right_and_delete_issues:">Vim up/down/left/right and delete issues:</h4><p>vim $HOME/.vimrc, add following lines into the file:</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> backspace=<span class="number">2</span> <span class="string">" make backspace work like most other apps</span><br><span class="line"></span><span class="keyword">set</span> nocompatible "must <span class="keyword">be</span> <span class="keyword">first</span> <span class="built_in">line</span></span><br></pre></td></tr></table></figure>
+<p>Sample $HOME/.vimrc file:</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> nocompatible " must be the first <span class="keyword">line</span></span><br><span class="line">filetype <span class="keyword">on</span></span><br><span class="line">filetype indent <span class="keyword">on</span></span><br><span class="line">filetype <span class="keyword">plugin</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">set</span> laststatus=2</span><br><span class="line"><span class="keyword">set</span> statusline=%&lt;%f\%<span class="keyword">h</span>%<span class="keyword">m</span>%r%=%-20.(<span class="keyword">line</span>=%<span class="keyword">l</span>\ \ col=%c%V\ \ totlin=%<span class="keyword">L</span>%)\ \ \%<span class="keyword">h</span>%<span class="keyword">m</span>%r%=   %-40(bytval=0x%B,%<span class="keyword">n</span>%Y%)\%P</span><br><span class="line"><span class="keyword">set</span> ofu=syntaxcomplete#Complete</span><br><span class="line"><span class="keyword">set</span> backspace=2 " make backspace work like most other apps</span><br></pre></td></tr></table></figure>
+<p><strong><code>_modeCreateSSID</code> inside  <code>trunk/recon/app/sniff.py</code></strong>  </p>
+<ol>
+<li>insdie the <code>_modeCreateSSID</code>, calling lots of functions inside the <code>iw</code> library to set up configuration. </li>
+<li>res = iw.startHostapd(‘wlan0’, ssid, chan)</li>
+</ol>
+<p><strong><code>startHostapd</code> inside <code>trunk/lib/internal/utils/iw.py</code></strong>  </p>
+<ol>
+<li>create a <code>hostapd.conf</code> file with infomaiton from the parameters (iface, ssid, channel).    </li>
+<li>start the hostAPD service that create AP with <code>hostapd.conf</code> @<code>tmp/hostapd.conf</code> configuration.</li>
+</ol>
+<p><strong> WPA/PSK: </strong><br>For WPA-PSK,<br>either <strong>wpa_psk</strong> or wpa_passphrase must be set and <strong>wpa_key_mgmt</strong> must include <strong>WPA-PSK</strong>. Instead of wpa_psk / wpa_passphrase, wpa_psk_radius might suffice.</p>
+<p><strong>add below information: </strong><br>wpa_passphrase=parashootrocks<br>wpa_key_mgmt=WPA-PSK<br>wpa=2</p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">startHostapd</span><span class="params">(iface, ssid, channel, key, mode, wpa=<span class="number">2</span>)</span>:</span>
+    .....
+    opts.append(<span class="string">'wpa=%s'</span> % wpa)
+    opts.append(<span class="string">'wpa_passphrase=%s'</span> % key)
+    opts.append(<span class="string">'wpa_key_mgmt=%s'</span> % mode)
+</code></pre><p>Question to solve:<br><strong>1. encrption seems not setting up probabaly  </strong>  </p>
+<pre><code>~ # hostapd -B /tmp/hostapd.conf
+Configuration <span class="keyword">file</span>: /tmp/hostapd.conf
+Line <span class="number">5</span>: Invalid PSK <span class="string">'paradroprocks'</span>.
+<span class="number">1</span> errors found <span class="keyword">in</span> configuration <span class="keyword">file</span> <span class="string">'/tmp/hostapd.conf'</span>
+Failed <span class="keyword">to</span> <span class="keyword">set</span> up <span class="keyword">interface</span> <span class="keyword">with</span> /tmp/hostapd.conf
+Failed <span class="keyword">to</span> initialize <span class="keyword">interface</span>
+</code></pre><ul>
+<li>did not enable wpa in the first place, inside config file <code>wpa=3</code> will fix.  </li>
+</ul>
+<p><strong>2. how to set up wlan0 in side the shoot</strong>  </p>
+<ul>
+<li>correctly start up with <code>startAP.py</code> will fix.  </li>
+</ul>
+<p><strong>3. the <code>self._phy</code> </strong>  </p>
+<ul>
+<li>it is just the index for physical connection (phy1, phy0, etc)  </li>
+</ul>
+<p>TODO:  </p>
+<ol>
+<li><del>read through <code>_modeCreateSSID</code> on <code>sniff.py</code></del>  </li>
+<li><del>read through <code>.config</code> file, see where encrption comes in</del>   </li>
+<li><del>useful files to read: <code>trunk/recon/app/sniff.py</code>, <code>hostapd.conf</code>, and <code>trunk/lib/internal/utils/iw.py</code></del>   </li>
+<li><del>write <code>startAP.py</code> file to test the <code>hostapd</code> funcion, if AP comes up without encrption first.</del>  </li>
+<li><del>update <code>startAP.py</code> to make encrption enable</del>  </li>
+<li>~~fix the error for <strong>hostapd v2.2</strong> ~~</li>
+</ol>
+<p><strong>How to configure WPA:  </strong><br>inside <code>lib/internal/utils/iw.py</code>:  </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">startHostapd</span><span class="params">(iface, ssid, channel, key, mode, wpa=<span class="number">2</span>)</span>:</span></span><br><span class="line">    ..... <span class="comment"># `wpa = 2` indicates WPA2 encrption</span></span><br><span class="line">    opts.append(<span class="string">'wpa_passphrase=%s'</span> % key)</span><br><span class="line">    opts.append(<span class="string">'wpa_key_mgmt=%s'</span> % mode)</span><br></pre></td></tr></table></figure>
+<p><code>startAP.py</code> </p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">import <span class="tag">time</span></span><br><span class="line">from lib<span class="class">.internal</span><span class="class">.utils</span> import iw</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">'Start setting AP connection: '</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">getIwDevList</span><span class="params">()</span></span></span><br><span class="line">iw.<span class="function"><span class="title">createDev</span><span class="params">(<span class="string">'phy1'</span>, <span class="string">'wlan0'</span>, <span class="string">'__ap'</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">setDevIP</span><span class="params">(<span class="string">'wlan0'</span>, <span class="string">'10.200.200.1'</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">bringUp</span><span class="params">(<span class="string">'wlan0'</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">killallDnsmasq</span><span class="params">()</span></span></span><br><span class="line">iw.<span class="function"><span class="title">startDnsmasq</span><span class="params">(<span class="string">'recon'</span>, <span class="string">'wlan0'</span>, <span class="string">'10.200.200.1'</span>, <span class="string">'10.200.200.10'</span>, <span class="string">'10.200.200.100'</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">enableNAT</span><span class="params">(<span class="string">'wlan0'</span>, <span class="string">'eth0'</span>, <span class="string">'10.200.200.1'</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">startHostapd</span><span class="params">(<span class="string">'wlan0'</span>, <span class="string">'testRS'</span>, <span class="string">'36'</span>, <span class="string">'paradroprocks'</span>, <span class="string">'WPA-PSK'</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">'Success!'</span>)</span></span></span><br><span class="line">while True:</span><br><span class="line">    <span class="tag">time</span>.<span class="function"><span class="title">sleep</span><span class="params">(<span class="number">1</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p><code>stopAP.py</code>:</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">import <span class="tag">time</span></span><br><span class="line">from lib<span class="class">.internal</span><span class="class">.utils</span> import iw</span><br><span class="line">from lib<span class="class">.paradrop</span> import out</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">'Start Deleting AP'</span>)</span></span></span><br><span class="line">res = iw.<span class="function"><span class="title">disableNAT</span><span class="params">(<span class="string">'wlan0'</span>, <span class="string">'eth0'</span>, <span class="string">'10.200.200.1'</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">if</span><span class="params">(res)</span></span>:</span><br><span class="line">    <span class="function"><span class="title">print</span><span class="params">(<span class="string">'err@disableNAT'</span>)</span></span></span><br><span class="line"></span><br><span class="line">res = iw.<span class="function"><span class="title">killHostapd</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="title">if</span><span class="params">(res)</span></span>:</span><br><span class="line">    out.<span class="function"><span class="title">err</span><span class="params">(<span class="string">'!! %s Unable to kill hostapd: %s\n'</span> % (logPrefix()</span></span>, <span class="function"><span class="title">str</span><span class="params">(res)</span></span>))</span><br><span class="line"></span><br><span class="line">res = iw.<span class="function"><span class="title">killallDnsmasq</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="title">if</span><span class="params">(res)</span></span>:</span><br><span class="line">    <span class="function"><span class="title">print</span><span class="params">(<span class="string">'err@killallDnsmasq'</span>)</span></span></span><br><span class="line"></span><br><span class="line">res = iw.<span class="function"><span class="title">startDefaultDnsmasq</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="title">if</span><span class="params">(res)</span></span>:</span><br><span class="line">    out.<span class="function"><span class="title">err</span><span class="params">(<span class="string">'!! %s Unable to start dnsmasq: %s\n'</span> % (logPrefix()</span></span>, <span class="function"><span class="title">str</span><span class="params">(res)</span></span>))</span><br><span class="line"></span><br><span class="line">res = iw.<span class="function"><span class="title">deleteDev</span><span class="params">(<span class="string">'wlan0'</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">if</span><span class="params">(res)</span></span>:</span><br><span class="line">    <span class="function"><span class="title">print</span><span class="params">(<span class="string">'err@deleteDev'</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">'Success deleting AP'</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p><code>iw.getIwDevList()</code> - extract necessary value of info. (<code>ifindex</code>, <code>wdev</code>, <code>addr</code>, <code>type</code>) into <code>ret</code>, which is a return value. inside the <code>sniff.py</code> <code>iw.getiwDevList</code> simplely Check if wlan0 already exists. checking method</p>
+<p><code>iw.createDev(&#39;phy1&#39;, &#39;wlan0&#39;, &#39;__ap&#39;)</code> - create <code>wlan0</code> which has a AP type</p>
+<p><code>iw.setDevIP(&#39;wlan0&#39;, &#39;10.200.200.1&#39;)</code> - set up ip, mask for <code>wlan0</code></p>
+<p><code>iw.bringUp(&#39;wlan0&#39;)</code> -  use <code>ifconfig</code> to bring up <code>wlan0</code></p>
+<p><code>iw.killallDnsmasq()</code> - reset DNS </p>
+<p><code>iw.startDnsmasq(&#39;recon&#39;, &#39;wlan0&#39;, &#39;10.200.200.1&#39;, &#39;10.200.200.10&#39;, &#39;10.200.200.100&#39;)</code> - set up dns with parameter</p>
+<p><code>iw.enableNAT(&#39;wlan0&#39;, &#39;eth0&#39;, &#39;10.200.200.1&#39;)</code> - setup NAT</p>
+<p><strong>Issues for hostapd v2.2:  </strong>  </p>
+<pre><code>Configuration <span class="keyword">file</span>: /tmp/hostapd.conf
+nl80211: Could <span class="keyword">not</span> configure driver mode
+nl80211 driver <span class="keyword">initialization</span> failed.
+</code></pre><p>Just fixed: SSID can not start probably because I did not destroy the <code>wlan0</code> probably, now use scripts <code>stopAP.py</code>.<br>it works pefect. (inside <code>sniff.py</code> file, method <code>_modeDestroySSID</code> does the same thing.)</p>
+<p><strong>Final review on steps to set encrption on sniff</strong>  </p>
+<ol>
+<li>inside <code>sniff.py</code>, modify the line for <code>iw.startHostapd</code> to specific key to add:</li>
+</ol>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">&lt;pre&gt;&lt;code&gt;iw.<span class="function"><span class="title">startHostapd</span><span class="params">(<span class="string">'wlan0'</span>, <span class="string">'testRS'</span>, <span class="string">'36'</span>, <span class="string">'paradroprocks'</span>)</span></span>&lt;/code&gt;&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>inside <code>iw.py</code>, modeify the indterface for <code>startHostapd</code> to enable WPA2 encryption.</li>
+</ol>
+<figure class="highlight processing"><table><tr><td class="code"><pre><span class="line">&lt;pre&gt;&lt;code&gt;</span><br><span class="line">def startHostapd(iface, ssid, channel, <span class="variable">key</span>, wpa=<span class="number">3</span>, mode=<span class="string">'WPA-PSK'</span>):</span><br><span class="line">    ....</span><br><span class="line">    </span><br><span class="line">    # <span class="built_in">set</span> up WPA2 encryption</span><br><span class="line">    wpa_pw = <span class="string">'TKIP CCMP'</span></span><br><span class="line">    rsn_pw = <span class="string">'CCMP'</span></span><br><span class="line">    opts.<span class="built_in">append</span>(<span class="string">'wpa=%s'</span> % wpa)</span><br><span class="line">    opts.<span class="built_in">append</span>(<span class="string">'wpa_passphrase=%s'</span> % <span class="variable">key</span>)</span><br><span class="line">    opts.<span class="built_in">append</span>(<span class="string">'wpa_key_mgmt=%s'</span> % mode)</span><br><span class="line">    opts.<span class="built_in">append</span>(<span class="string">'wpa_pairwise=%s'</span> % wpa_pw)</span><br><span class="line">    opts.<span class="built_in">append</span>(<span class="string">'rsn_pairwise=%s'</span> % rsn_pw)</span><br><span class="line">&lt;/code&gt;&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>test files: <code>startAP.py</code> and <code>stopAP.py</code></li>
+</ol>
+<p>P.S. All of these babes are going to install in Union South next week!!</p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/sniffs.IMG_1832.JPG" alt="MySummerResearch" style="width:600px;"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Work/">Work</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ParadropLab/">ParadropLab</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.xuyiruan.com/2015/06/15/sniffencrption/" data-title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project | 来自威斯星星大学的一个小猩猩" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/06/24/serverApConfig/" title="Store AP config in dbapi server">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Store AP config in dbapi server</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/06/08/endOfJunior/"  title="回首大三下">
+ <strong>下一篇：</strong><br/> 
+ <span>回首大三下
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/06/15/sniffencrption/" data-title="Configure Encrption (WPA2/PSK) on Recon(sniff.py) Project" data-url="http://www.xuyiruan.com/2015/06/15/sniffencrption/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Configure_Encrption_(WPA2/PSK)_on_Recon(sniff-py)"><span class="toc-number">1.</span> <span class="toc-text">Configure Encrption (WPA2/PSK) on Recon(sniff.py)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Useful_info:"><span class="toc-number">1.1.</span> <span class="toc-text">Useful info:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Connect_to_the_router:"><span class="toc-number">1.2.</span> <span class="toc-text">Connect to the router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ssh_into_the_paradrop_router:"><span class="toc-number">1.3.</span> <span class="toc-text">Ssh into the paradrop router:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_shoot_through_front_end_page-"><span class="toc-number">1.4.</span> <span class="toc-text">Create shoot through front end page.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Log_into_the_shoot"><span class="toc-number">1.5.</span> <span class="toc-text">Log into the shoot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Check_if_sniff_is_still_running:"><span class="toc-number">1.6.</span> <span class="toc-text">Check if sniff is still running:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stop_stiff:"><span class="toc-number">1.7.</span> <span class="toc-text">Stop stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Restart_stiff:"><span class="toc-number">1.8.</span> <span class="toc-text">Restart stiff:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Goals:"><span class="toc-number">1.9.</span> <span class="toc-text">Goals:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vim_up/down/left/right_and_delete_issues:"><span class="toc-number">1.9.1.</span> <span class="toc-text">Vim up/down/left/right and delete issues:</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/RandomThought/" title="RandomThought">RandomThought<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Work/" title="Work">Work<sup>5</sup></a></li>
+		  
+		
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/ParadropLab/" title="ParadropLab">ParadropLab<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/UbuntuSnappy/" title="UbuntuSnappy">UbuntuSnappy<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Photography/" title="Photography">Photography<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android-Development-ece454/" title="Android Development, ece454">Android Development, ece454<sup>1</sup></a></li>
+			
+		
+			
+		
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.winniebabe.com" target="_blank" title="Winnie Babe的小窝">Winnie Babe的小窝</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://suncuss.me" target="_blank" title="孙老板&#39;s Blog">孙老板&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 写代码, 学知识, 为了和你一起活着 <br/>
+			尝美食, 游世界, 为了给你更好的生活</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> © 2015 
+		
+		<a href="http://www.xuyiruan.com/about" target="_blank" title="阮先生">阮先生</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"xruan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-61663668-1', 'www.xuyiruan.com');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+  </body>
+</html>
