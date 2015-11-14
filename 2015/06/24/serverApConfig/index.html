@@ -69,7 +69,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'always',
+    sidebar: 'post',
     motion: true
   };
 </script>
@@ -269,6 +269,7 @@
 </li>
 </ol>
 <p>To start, I would recommend that you change the sniff.py file so that during init it looks for the AP settings and it sets up hostapd if they are found. We can manually change the database configuration to have these extra settings without changing the dbapi_recon.py file, so this would be the easiest thing to do first.</p>
+<a id="more"></a>
 <h2 id="Thought_Process:">Thought Process:</h2><p>Inside <code>sniff.py</code> file,  </p>
 <p><code>_getConfigSettings(self)</code> function get the configure files from dbapi server.</p>
 <p><code>_setConfig(cfg)</code> read the config file (from dbapi server) and do the reqiured configuration for sniff instance. </p>
@@ -375,7 +376,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

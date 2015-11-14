@@ -79,7 +79,7 @@ Objective:Create a white list filter for specfic MAC address to allow localizati
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'always',
+    sidebar: 'post',
     motion: true
   };
 </script>
@@ -279,8 +279,8 @@ Objective:Create a white list filter for specfic MAC address to allow localizati
 <li><code>/home/xuyi/paradrop/trunk/scripts/recon_loc.conf</code> - configuration file to create specific <code>loc</code> instances follow by <code>loc_node</code></li>
 <li><code>/home/xuyi/paradrop/trunk/backend/loc/loc_node.py</code> - receive raw data (RSSI data) forward by <code>dbapi</code> and filter the  raw data by last digit of the associated MAC address. ex. (0-7) goes to <code>loc1</code> and (8-F) goes to <code>loc2</code>. We need to add new function to filter specific MAC by creating a white list.  </li>
 <li><code>/home/xuyi/paradrop/trunk/backend/loc/loc.py</code> - the sever that process and compute the raw data from <code>loc_node</code> then sent computed data back to <code>dbapi_server</code> and store there.</li>
-<li></li>
 </ol>
+<a id="more"></a>
 <h2 id="Study_Notes:">Study Notes:</h2><p>1.in side the <code>loc_node.py</code> file, function <code>generateMacMap</code> generates a dictionary <code>macMap</code> that map <code>last char of MAC</code> to <code>loc id number</code></p>
 <p>2.<code>macMap</code> takes <code>char</code> and returns <code>loc id number</code></p>
 <p>3.<code>locData</code> is a dictionary where key(might be <code>number</code>) -&gt; value (might be <code>data</code>)</p>
@@ -384,8 +384,8 @@ Objective:Create a white list filter for specfic MAC address to allow localizati
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/13/ubuntu-snappy-apu/" rel="prev" title="ubuntu_snappy_apu">
-                ubuntu_snappy_apu <i class="fa fa-chevron-right"></i>
+              <a href="/2015/07/13/ubuntu-snappy-apu/" rel="prev" title="Ubuntu Snappy">
+                Ubuntu Snappy <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -458,7 +458,7 @@ Objective:Create a white list filter for specfic MAC address to allow localizati
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

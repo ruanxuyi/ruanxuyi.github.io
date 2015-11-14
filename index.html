@@ -69,7 +69,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'always',
+    sidebar: 'post',
     motion: true
   };
 </script>
@@ -213,120 +213,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/10/shareperference/" itemprop="url">
-                  Untitled
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            Posted on
-            <time itemprop="dateCreated" datetime="2015-10-11T03:55:43+00:00" content="10-11-2015">
-              10-11-2015
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/10/shareperference/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/10/shareperference/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><code>getSharedPreferences(String name, int mode)</code></p>
-<p>takes following parameters:   </p>
-<ol>
-<li>String name: each name corresponding to one unique SharedPreferences instance. Within each the instance, you can stores various <key, value=""> pairs. </key,></li>
-<li>int mode: operating mode: 0 for MODE_PRIVATE, etc</li>
-<li>getSharedPreferences() is used when you need multiple preferences. If ONLY one preference is needed, use <code>getPreference()</code> instead.</li>
-</ol>
-<h2 id="Read_from_the_sharePerference:">Read from the sharePerference:</h2><ol>
-<li>get the corresponding sharedPerference instance</li>
-<li>use ｀getString(key, “ “)｀ the ｀key｀ to find the ｀value｀ from that specific instance</li>
-</ol>
-<h2 id="Write_to_the_sharePerference:">Write to the sharePerference:</h2><ol>
-<li>get the corresponding sharedPerference instance.</li>
-<li>Call edit() to get a SharedPreferences.Editor: </li>
-</ol>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">SharedPreferences<span class="class">.Editor</span> mEditor = mPrefs.<span class="function"><span class="title">edit</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<p>All changes you make in an editor are batched, and not copied back to the original SharedPreferences until you call <code>commit()</code> or <code>apply()</code></p>
-<ol>
-<li>mEditor.clear()</li>
-</ol>
-<ol>
-<li>mEditor.putString(key, value)</li>
-</ol>
-<p>Add values with methods such as putBoolean() and putString()</p>
-<p>NOT need to call commit()????</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2015/09/14/my_first_android_app/" itemprop="url">
-                  My first android app - StopWatch
+                  StopWatch - Andriod
                 </a>
               
             
@@ -368,54 +256,14 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="Description:"><strong>Description:</strong></h2><p>This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of <code>Runnerable</code>, <code>Multli-threads application</code>,<code>Handler</code>, as well as <code>OnClickListener</code></p>
-<h3 id="key_components:"><strong>key components:</strong></h3><p>When a new Handler Object is instantaited, a stand alone thread and a conressponding message queue is created. Handler object now can push/send either <code>Message Object</code> or <code>Runnable Object</code> into the message queue. Each Handler has its own seperate message queue, however, the Main UI thread is able to access and dequeue message/runnable from those queue from Handler. There are following two ways to send message/runnable to the queue: <code>Post</code> and <code>sendMessage()</code>.</p>
-<h2 id="TODO"><strong>TODO</strong></h2><p>~~pause then resume result in negative values ~~<br>~~handle zero appending for digits in millisecond ~~<br>~~stop pause from starting the count ~~</p>
-<h2 id="Related_Methods"><strong>Related Methods</strong></h2><p>I will briefly introduce the following methods below.</p>
-<h3 id="Runnerable:"><strong>Runnerable:</strong></h3><p>Runnerable is the most common API that can be used to implemented multi-threading development.</p>
-<h3 id="Handler:"><strong>Handler:</strong></h3><p>Handler - communicate from other threads with main UI-thread.</p>
-<p>Handler push either message or runnerable to the queue by following two methods:</p>
-<ol>
-<li>Post()<br><code>post(Runable)</code>,<br><code>postAtTime(Runnable,long)</code>,<br><code>postDelayed(Runnable, long)</code>  - handle runnable after specfic time.</li>
-</ol>
-<p>For the method <code>Post()</code> in handler, it passes a Runnable object to the message queue. Within the Runnable object, <strong>override</strong> the <code>run()</code> method. Usually, operations done on UI thread goes into the <code>run()</code> method.</p>
-<ol>
-<li>sendMessage()  </li>
-</ol>
-<p>SendMessage() is the other approach to communicate with the main UI thread. Since I am mainly using post() to send runnable to the message queue, therefore will not go into detail in this post.</p>
-<h3 id="OnclickListener"><strong>OnclickListener</strong></h3><p>Setup the buttons: </p>
-<p>Define button/message object to connect elements in UI layout.</p>
-<pre><code>startBtn = (Button)findViewById(R.<span class="property">id</span>.ui_startBtn);
-</code></pre><p>Set up Button detection when Buttons click</p>
-<pre><code>startBtn.setOnClickListener(ClickDetect);
-</code></pre><p>Once button clicked, it goes to the function below. </p>
-<pre><code><span class="keyword">private</span> OnClickListener ClickDetect = <span class="keyword">new</span> OnClickListener(){
-    <span class="annotation">@Override</span>
-    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span>
-    </span>{
-        <span class="comment">// check which button is pushed</span>
-        <span class="keyword">if</span>(v.getId() == startBtn.getId())
-        {
-            startTime = System.currentTimeMillis();
-            <span class="keyword">handler</span>.removeCallbacks(updateTimer);
-            <span class="keyword">handler</span>.postDelayed(updateTimer, <span class="number">1</span>);
-            <span class="comment">// reset all the record</span>
-            count = <span class="number">0</span>;
-            pausedStart = <span class="number">0</span>;
-            pausedEnd = <span class="number">0</span>;
-            <span class="comment">// make button invisible after click</span>
-            startBtn.setVisibility(View.INVISIBLE);
-        }
-</code></pre><p>Attach the code for the this stopwatch applications. Hope you enjoy your first android app as well!</p>
-<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp1.png" alt="stopWatch UI" style="width:600px;"></p>
-<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp2.png" alt="running app" style="width:600px"></p>
-<h3 id="Codes"><strong> Codes </strong></h3><p><a href="https://github.com/ruanxuyi/ece454minilab2" target="_blank" rel="external">Click here for Code!</a></p>
-<h3 id="Reference:"><strong>Reference: </strong></h3><p><a href="http://www.cnblogs.com/plokmju/p/android_handler.html" target="_blank" rel="external">Android—多线程之Handler</a><br><a href="http://guess740111.blogspot.com/2013/10/android-button-onclicklistener.html" target="_blank" rel="external">Android Button OnClickListener 使用方法(一)</a><br><a href="http://developer.51cto.com/art/201203/321042.htm" target="_blank" rel="external">Java中Runnable和Thread的区别</a><br><a href="http://www.cnblogs.com/plokmju/p/android_Handler.html" target="_blank" rel="external">Android—多线程之Handler</a><br><a href="http://cooking-java.blogspot.com/2010/04/android-timer.html" target="_blank" rel="external">Android學習筆記 - 計時器(Timer)</a><br><a href="http://gengbiao.me/android/android_定时器/" target="_blank" rel="external">Android 定时器 Handler与sleep(long)方法</a></p>
-
-            
-          </span>
+          <h2 id="Description:"><strong>Description:</strong></h2><p>This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of <code>Runnerable</code>, <code>Multli-threads application</code>,<code>Handler</code>, as well as <code>OnClickListener</code></p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp2.png" alt="running app" style="width:600px"/></p>
+<h3 id="Key_components:"><strong>Key components:</strong></h3><p>When a new Handler Object is instantaited, a stand alone thread and a conressponding message queue is created. Handler object now can push/send either <code>Message Object</code> or <code>Runnable Object</code> into the message queue. Each Handler has its own seperate message queue, however, the Main UI thread is able to access and dequeue message/runnable from those queue from Handler. There are following two ways to send message/runnable to the queue: <code>Post</code> and <code>sendMessage()</code>.</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/09/14/my_first_android_app/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -456,7 +304,7 @@
               
                 
                 <a class="post-title-link" href="/2015/07/13/ubuntu-snappy-apu/" itemprop="url">
-                  ubuntu_snappy_apu
+                  Ubuntu Snappy
                 </a>
               
             
@@ -513,16 +361,14 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <h1 id="Todo:">Todo:</h1><ol>
+          <h1 id="Description:">Description:</h1><p>Paradrop 2.0 will be deployed on the newest Ubuntu 15.04. The following task will try to deploy Ubuntu snappy on the paradrop router.</p>
+<h1 id="Todo:">Todo:</h1><ol>
 <li><del>flash img into SD card</del></li>
 <li><del>Boot system with SD card and see if everything goes well</del></li>
 <li><del>figure out how to ssh into the system - either through ethernet or serial</del></li>
 <li><del>fix driver issue for wan port(it works)</del></li>
 <li><del>fix the driver issues for wirless card(it works)</del></li>
 </ol>
-<h1 id="Objective:">Objective:</h1><p>Paradrop 2.0 will be deployed on the newest Ubuntu 15.04. The following task will try to deploy Ubuntu snappy on the paradrop router.</p>
 <h1 id="Writing_the_-img_file_to_the_SD_card">Writing the .img file to the SD card</h1><p>Run the following command from terminal to verify the path of SD card: </p>
 <pre><code>diskutil <span class="type">list</span>
 </code></pre><p>The output shows all the disks current mounted on the system. Look for the path of your SD card by <code>size</code> and <code>NAME</code></p>
@@ -533,44 +379,18 @@
 </code></pre><p>In this case <code>dev/disk3</code> is the path for my SD card. </p>
 <p>Unmount the current partition on the SD card in order to sucessfully use <code>dd</code> to write.</p>
 <pre><code>diskutil unmount <span class="regexp">/dev/</span>disk3s1
-</code></pre><p>Use <code>dd</code> command to write image file (Note the <code>r</code> added to rdisk3 which drastically improves write performance) to the disk. <code>if</code> (input file), <code>of</code> (output file), <code>bs</code> (block size in byte). Determine the best <code>bs</code> for your SD card, use <a href="http://jingyan.baidu.com/article/d45ad148e203f969552b800a.html" target="_blank" rel="external">link</a> for detail.</p>
+</code></pre><p>Use <code>dd</code> command to write image file (Note the <code>r</code> added to rdisk3 which drastically improves write performance) to the disk. <code>if</code> (input file), <code>of</code> (output file), <code>bs</code> (block size in byte). Determine the best <code>bs</code> for your SD card, use <a href="http://jingyan.baidu.com/article/d45ad148e203f969552b800a.html">link</a> for detail.</p>
 <pre><code>sudo <span class="tag">dd</span> <span class="keyword">if</span>=ubuntu-<span class="number">15.04</span>-snappy-amd64-generic<span class="class">.img</span> of=/dev/rdisk3 bs=<span class="number">1</span>m
 </code></pre><p>Different SD card take different time to finish the process. use <code>CTRL+T</code> to see the current status of <code>dd</code>.</p>
 <h1 id="Testing_through_Terminal">Testing through Terminal</h1><p>If you would like to ssh into the system through <strong>serial</strong>, please use 9600 baud rate. (baud rate 115200 will not work)</p>
 <p>Connect the serial output through USB and start Putty section with buad of 9600. Plug in SD card into the router and plug in power. The Ubunta should automatically boot and run. </p>
 <h1 id="Log_into_the_snappy_ubuntu_core">Log into the snappy ubuntu core</h1><p>login: ubuntu<br>password: ubuntu  </p>
-<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/work.ubuntu15.jpg" alt="Snappy Ubuntu Core" style="width:600px;"></p>
-<h1 id="Current_issues:">Current issues:</h1><p><a href="http://pcengines.info/forums/?page=post&amp;id=E25612E9-84F0-4DCF-A876-1E92FD1D065C" target="_blank" rel="external">http://pcengines.info/forums/?page=post&amp;id=E25612E9-84F0-4DCF-A876-1E92FD1D065C</a></p>
-<p><a href="https://forum.pfsense.org/index.php?topic=74301.0" target="_blank" rel="external">https://forum.pfsense.org/index.php?topic=74301.0</a></p>
-<p><strong>SSH with serial:  </strong><br>    9600 VS 115200?<br>    <del>read dales’s comments - it is about how to ssh into through serial, which i have doon</del><br>    <del>read dales’s post on that. 115200? ~~<br>    ~~ubuntu startup scripts?  - not need to worry about it now since i am able to ssh into through serial.</del>  </p>
-<p><strong>SHH with network router:  </strong><br>    fix the wireless driver. - wireless driver was acutually working.        </p>
-<h1 id="Test_wireless_function">Test wireless function</h1><p>To bring wirelss wlan0 up, try following commands: </p>
-<pre><code><span class="title">sudo</span> ifconfig wlan0 up
-</code></pre><p>Test wireless function with <code>scan</code></p>
-<pre><code>sudo iw <span class="built_in">dev</span> wlan0 <span class="built_in">scan</span>
-</code></pre><h1 id="Hello_Snappy_Ubuntu">Hello Snappy Ubuntu</h1><h2 id="snappy_info">snappy info</h2><pre><code>(amd64)ubuntu<span class="annotation">@localhost</span>:~$ snappy info
-<span class="string">release:</span> ubuntu-core<span class="regexp">/15.04/</span>stable
-<span class="string">architecture:</span> amd64
-<span class="string">frameworks:</span> webdm
-<span class="string">apps:</span> 
-</code></pre><h2 id="check_version_of_current_installed_components">check version of current installed components</h2><p>flag (*) indicates the version of components currently running on. </p>
-<pre><code>ubuntu<span class="comment">@localhost:~$ snappy list -v</span>
-Name          Date       Version Developer 
-ubuntu-core   2015-06-11 3       ubuntu<span class="keyword">*</span>   
-webdm         2015-06-11 0.9     <span class="keyword">*</span>         
-generic-amd64 2015-06-11 1.1.1             
-generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>         
-</code></pre><h2 id="check_update_for_system">check update for system</h2><pre><code>snappy <span class="type">list</span> -uv
-</code></pre><h2 id="search_for_package">search for package</h2><pre><code><span class="title">sudo</span> snappy search docker
-</code></pre><h2 id="install_packeage">install packeage</h2><pre><code>snappy <span class="keyword">install</span> docker
-</code></pre><h1 id="Reference">Reference</h1><p><a href="http://raspberrypi.stackexchange.com/questions/4144/writing-img-file-to-sd-card-from-a-mac" target="_blank" rel="external">Write image into SD card</a></p>
-<p><a href="http://jingyan.baidu.com/article/d45ad148e203f969552b800a.html" target="_blank" rel="external">DD command detail</a></p>
-<p><a href="http://store.netgate.com/WLE200NX-80211nabg-miniPCIe-Card-P1763.aspx" target="_blank" rel="external">WLE200NX</a></p>
-<p><a href="https://help.ubuntu.com/community/WifiDocs/Driver/Atheros?highlight=%28%28WifiDocs%7CDriver%7CAtheros%29%29" target="_blank" rel="external">madwifi</a></p>
-<p><a href="https://developer.ubuntu.com/en/snappy/guides/" target="_blank" rel="external">Snappy Inernal</a></p>
-
-            
-          </span>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/work.ubuntu15.jpg" alt="Snappy Ubuntu Core" style="width:600px;"/></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/13/ubuntu-snappy-apu/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -668,9 +488,7 @@ generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>
 
       
         
-          <span itemprop="articleBody">
-            
-              <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/work.loc_white_list.jpg" alt="Localization Project" style="width:600px;"></p>
+          <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/work.loc_white_list.jpg" alt="Localization Project" style="width:600px;"/></p>
 <h2 id="TODO:">TODO:</h2><ol>
 <li>end-to-end dbapi testing</li>
 </ol>
@@ -680,89 +498,12 @@ generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>
 <li><code>/home/xuyi/paradrop/trunk/scripts/recon_loc.conf</code> - configuration file to create specific <code>loc</code> instances follow by <code>loc_node</code></li>
 <li><code>/home/xuyi/paradrop/trunk/backend/loc/loc_node.py</code> - receive raw data (RSSI data) forward by <code>dbapi</code> and filter the  raw data by last digit of the associated MAC address. ex. (0-7) goes to <code>loc1</code> and (8-F) goes to <code>loc2</code>. We need to add new function to filter specific MAC by creating a white list.  </li>
 <li><code>/home/xuyi/paradrop/trunk/backend/loc/loc.py</code> - the sever that process and compute the raw data from <code>loc_node</code> then sent computed data back to <code>dbapi_server</code> and store there.</li>
-<li></li>
 </ol>
-<h2 id="Study_Notes:">Study Notes:</h2><p>1.in side the <code>loc_node.py</code> file, function <code>generateMacMap</code> generates a dictionary <code>macMap</code> that map <code>last char of MAC</code> to <code>loc id number</code></p>
-<p>2.<code>macMap</code> takes <code>char</code> and returns <code>loc id number</code></p>
-<p>3.<code>locData</code> is a dictionary where key(might be <code>number</code>) -&gt; value (might be <code>data</code>)</p>
-<p>4.<code>locMap</code> should be a dictonary of mapping from <code>loc number</code>: <code>data</code></p>
-<p><code>locMap</code> -&gt; {0:[data1, data2, data3…], 1:[data1, data2, data3..], 2:[d1, d2..] …}</p>
-<p>5.<code>determineLoc(macMap, d)</code> returns  <code>macMap[d[2][-1]]</code> which is a <code>loc id numnber</code>, </p>
-<p>6.Get MAC address: <code>d[2]</code></p>
-<p>7.Get the last char of MAC address: <code>d[2][-1]</code></p>
-<p>8.Use the last char of MAC to get its <code>loc id num</code>: <code>macMap[d[2][-1]]</code></p>
-<p>9.<code>defer_parseData</code> function inside <code>loc_node.py</code> is the method send <code>data</code> to specific <code>loc module</code>, have a white list filter MAC address here will be reasonable.</p>
-<p>10.<code>myLocData</code> = <code>locData</code>, <code>locData</code> stores the information of the current <code>loc</code> inlclude the number of loc modules is running. </p>
-<p>11.<code>genearteMacMap</code>‘s primary function is to divide 0-F 16 possibles of last char of the MAC address into number of group to do computation. That number determine by current number of running <code>loc module</code>(determine by <code>myLocData</code>)</p>
-<p>cat scripts/recon_loc.conf<br>python scripts/recon_locmgmt.py -g “State Street” —check</p>
-<p>svn status</p>
-<p>svn ci -m “DFW: added password support to SSID startup”</p>
-<h2 id="Questions:">Questions:</h2><ol>
-<li><p>Can I run command under xuyi@paradrop.wings? will that mess with the current system  - yes, run with diffrent port to not mess with the current PROD system.</p>
-</li>
-<li><p>what is the command to create <code>loc</code> and <code>loc_node</code> with configuration file <code>recon_loc.cnf</code> ?</p>
-</li>
-<li><p><code>locData</code>?? format ??  - <code>locData</code> stroes infomation about the current running <code>loc</code> instance, <code>len(locData.keys())</code> return the number of currnt running loc instance. </p>
-</li>
-<li><p>does d[2] detach the MAC adress from the data?  yes</p>
-</li>
-<li>How will the MAC address be imported to the WHITELIST?? </li>
-</ol>
-<h2 id="Testing:">Testing:</h2><p>open multiple tabs for running <code>loc_server</code>, <code>loc_node</code>,<code>loc</code>  </p>
-<p><a href="http://wirelessathome.wings.cs.wisc.edu/redmine/projects/paradrop/wiki/Recon_Localization" target="_blank" rel="external">detail wiki here</a></p>
-<p><strong>0.Run dbapi:</strong>  </p>
-<p>In some cases you might want to test the FULL end to end system which would include the dbapi, in this case you can run dbapi as follows:</p>
-<p><code>python dbapi/dbapi_server.py -s DBAPI_RECON_SNIFF_DISABLE_DB:True -s LOC_SERVER_URL:http://localhost</code></p>
-<p>If you deceide to run the test  on <strong>paradrop.wings</strong>, make sure you change the <code>LOC_SERVER_PORT</code> for <code>loc_sever</code>, <code>loc_node</code>, and <code>loc</code> first so that it will not interference with current <code>loc_node</code> for PROD (current PROD version of the loc_server runs on 10400). To change port for <code>local_server</code>, append command line: <code>-s LOC_SERVER_PORT:PORT_NUM</code></p>
-<p><strong>1.Run <code>loc_server</code>:</strong>  </p>
-<p>On local machine:</p>
-<pre><code>python loc_server<span class="class">.py</span> -s LOC_SERVER_DISABLE_DB:True
-</code></pre><p>On <code>paradrop.wings</code>: (change to port other than 10400)</p>
-<pre><code>python loc_server.py <span class="operator">-s</span> LOC_SERVER_DISABLE_DB:True <span class="operator">-s</span> LOC_SERVER_PORT:<span class="number">11400</span>
-</code></pre><p><strong>2.Run <code>loc_node</code>:</strong>  </p>
-<p>On local machine:</p>
-<pre><code>python loc_node.py -g <span class="string">"Test"</span> --id <span class="number">0</span> -s <span class="constant">LOC_SERVER_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span> -s <span class="constant">LOC_NODE_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span>
-</code></pre><p>On <code>paradrop.wings</code>: </p>
-<pre><code>python loc_node.py -g <span class="string">"Test"</span> --id <span class="number">0</span> -s <span class="constant">LOC_SERVER_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span> -s <span class="constant">LOC_NODE_URL</span><span class="symbol">:http</span><span class="symbol">://localhost</span> -s <span class="constant">LOC_SERVER_PORT</span><span class="symbol">:</span><span class="number">11400</span>
-</code></pre><p><strong>3.Run two instanc of <code>loc</code>:</strong>  </p>
-<p>On local machine:</p>
-<p>Instance 0:<br>    python loc.py —id 0 -g “Test” —guarantee 8 -s LOC_SERVER_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a></p>
-<p>Instance 1:<br>    python loc.py —id 1 -g “Test” —guarantee 8 -s LOC_SERVER_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a></p>
-<p>OR</p>
-<p>On <code>paradrop.wings</code>: </p>
-<p>python loc.py —id 0 -g “Test” —guarantee 8 -s LOC_SERVER_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_URL:<a href="http://localhost" target="_blank" rel="external">http://localhost</a> -s LOC_SERVER_PORT:11400</p>
-<p><strong>The loc_test</strong>  </p>
-<p>If testing <strong>directly with loc_node</strong> (ie. loc_test bypasses dbapi and sends the raw data directly to loc_node)</p>
-<p><code>python loc_test.py -g &quot;Test&quot; -t 5 -ep 0.10 -np 0.10 -mp &quot;10-0.85-0.99-0.5&quot; -u &quot;http://localhost:10500/v1/data&quot;</code></p>
-<p>If testing <strong>full end to end with dbapi</strong> which means loc_test acts like a true AP and sends its data only to dbapi</p>
-<p><code>python loc_test.py -g &quot;Test&quot; -t 5 -ep 0.10 -np 0.10 -mp &quot;10-0.85-0.99-0.5&quot; -u &quot;http://localhost:10330/v1/recon/data/set&quot;</code></p>
-<h2 id="Useful_Functions:">Useful Functions:</h2><h3 id="zip()">zip()</h3><p>listOfMac = [‘A’,’B’,’C’,’D’]<br>listOfNum = [1,2,3,4]<br>zip(listOfMac, listOfNum) = [(‘A’, 1), (‘B’, 2), (‘C’, 3), (‘D’, 4)]  </p>
-<h3 id="grep">grep</h3><p>grep file named <code>sniff.py</code> in current directory:</p>
-<p><code>grep -rl &quot;sniff.py&quot; .</code></p>
-<p><code>-r</code> - (or <code>--recursive</code>)indicates search recursivly<br><code>-l</code> - (or <code>--files-with-matches</code>) only print files name of matching files </p>
-<h2 id="Potential_Solution">Potential Solution</h2><p>inside the <code>loc_node.py</code>, utilize the  <code>def filterData(self, d):</code> function.</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="title">WHITELIST_MAC</span> = [<span class="string">'2a:e3:5a:8b:38:cf'</span>, <span class="string">'94:81:90:f9:2f:fc'</span>, <span class="string">'71:b7:4b:54:8e:ec'</span>, <span class="string">'8a:1a:27:0c:55:f6'</span>]</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">filterData</span><span class="params">(self, d)</span>:</span></span><br><span class="line">    <span class="string">"""Filter some data, if we return true here then skip this data"""</span></span><br><span class="line">	....</span><br><span class="line">	<span class="keyword">if</span> d[<span class="number">2</span>] <span class="keyword">not</span> <span class="keyword">in</span> WHITELIST_MAC:</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    	</span><br><span class="line">    retur <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">def setupArgParse():</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    p.add_argument(<span class="string">'--whitelist'</span>, <span class="string">'-wl'</span>, help=<span class="string">'create MAC white list. usage: -wl "mac0" -wl "mac1"... '</span>, type=str, action=<span class="string">'append'</span>, required=False)</span><br><span class="line">    <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Main function</span></span><br><span class="line"><span class="keyword">if</span>(__name__ == <span class="string">"__main__"</span>):</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(args.whitelist):</span><br><span class="line">        WHITELIST_MAC = args.whitelist</span><br><span class="line">    <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
-<h2 id="Errors_encoutered:">Errors encoutered:</h2><p>x86_64-linux-gnu-gcc: internal compiler error: Killed (program cc1)</p>
-<p>Please submit a full bug report,</p>
-<p>with preprocessed source if appropriate.</p>
-<p>See <a href="file:///usr/share/doc/gcc-4.8/README.Bugs" target="_blank" rel="external">file:///usr/share/doc/gcc-4.8/README.Bugs</a> for instructions.</p>
-<p>error: command ‘x86_64-linux-gnu-gcc’ failed with exit status 4</p>
-<hr>
-<p>Cleaning up…<br>Command /usr/bin/python -c “import setuptools, tokenize;<strong>file</strong>=’/tmp/pip<em>build<em>root/pandas/setup.py’;exec(compile(getattr(tokenize, ‘open’, open)(<strong>file</strong>).read().replace(‘\r\n’, ‘\n’), <strong>file</strong>, ‘exec’))” install —record /tmp/pip-6NVncg-record/install-record.txt —single-version-externally-managed —compile failed with error code 1 in /tmp/pip_build_root/pandas<br>Traceback (most recent call last):<br>  File “/usr/bin/pip”, line 9, in <module><br>    load_entry_point(‘pip==1.5.4’, ‘console_scripts’, ‘pip’)()<br>  File “/usr/lib/python2.7/dist-packages/pip/__init</module></em></em>.py”, line 235, in main<br>    return command.main(cmd_args)<br>  File “/usr/lib/python2.7/dist-packages/pip/basecommand.py”, line 161, in main<br>    text = ‘\n’.join(complete_log)<br>UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0xe2 in position 41: ordinal not in range(128)</p>
-<hr>
-<h3 id="Solutions:">Solutions:</h3><p><a href="http://stackoverflow.com/questions/24455238/lxml-installation-error-ubuntu-14-04-internal-compiler-error" target="_blank" rel="external">Solution from stackoverflow</a></p>
-<p>Possible solution (if you have no ability to increase memory on that machine) is to add swap file.</p>
-<p><code>sudo dd if=/dev/zero of=/swapfile bs=1024 count=524288</code><br><code>sudo chmod 600 /swapfile</code><br><code>sudo mkswap /swapfile</code><br><code>sudo swapon /swapfile</code><br>from <a href="https://github.com/pydata/pandas/issues/1880#issuecomment-9920484" target="_blank" rel="external">https://github.com/pydata/pandas/issues/1880#issuecomment-9920484</a></p>
-<p>This worked for me on smallest digital ocean machine</p>
-<h2 id="Schedule:">Schedule:</h2><p>1.white list for MAC address in <code>loc_node</code>  (finsih code on JUN 24th)<br>  white list for MAC address in <code>loc_node</code> (testsed on JUN 26th)</p>
-<p>2.The next thing we need to do is add the ability for the createWiFi command to store the AP configuration in our database and then when sniff.py download’s its settings it would start the AP during initialization if those settings are found in the database.</p>
-<p>So there are several things that need to change:</p>
-
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/02/loc_node_white_list/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -860,9 +601,7 @@ generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="List_of_files:"><strong>List of files:</strong></h2><h3 id="server_side:">server side:</h3><p><code>dbapi_recon.py</code> - manage the format of the POST<br><code>dbapi_tool.py</code> - take command line from terminal and put parameters into a JSON package  </p>
+          <h2 id="List_of_files:"><strong>List of files:</strong></h2><h3 id="server_side:">server side:</h3><p><code>dbapi_recon.py</code> - manage the format of the POST<br><code>dbapi_tool.py</code> - take command line from terminal and put parameters into a JSON package  </p>
 <h3 id="router_side:">router side:</h3><p><code>sniff.py</code> - receive pacakge from dbapi_server, and extracts the parameters (ssid, chan, pw, etc.)<br><code>iw.py</code> - the file actual set up necessary configuration for a wireless network, and run commnad through command line and startHostapd to create AP. </p>
 <p>inside <code>sniff.py</code>, add folloiwng:</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">pw = modeData.<span class="function"><span class="title">get</span><span class="params">(<span class="string">'password'</span>, None)</span></span></span><br><span class="line">....</span><br><span class="line">res = iw.<span class="function"><span class="title">startHostapd</span><span class="params">(<span class="string">'wlan0'</span>, ssid, chan, pw)</span></span></span><br></pre></td></tr></table></figure>
@@ -874,86 +613,12 @@ generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>
     <span class="tag">wdev</span> 0<span class="tag">x100002490</span>
     <span class="tag">addr</span> 04<span class="pseudo">:f0</span><span class="pseudo">:21</span><span class="pseudo">:10</span><span class="pseudo">:c0</span><span class="pseudo">:d8</span>
     <span class="tag">type</span> <span class="tag">monitor</span>
-</code></pre><h2 id="Useful_commands:"><strong>Useful commands: </strong></h2><pre><code>python services/pddb<span class="class">.py</span> -f whois -<span class="tag">a</span> halo32
-</code></pre><p>Output indicates which group belong to:</p>
-<pre><code>Calling whois((&lt;services.pdsql.PDSql instance at <span class="number">0x45b4d40</span>&gt;, <span class="string">'halo32'</span>))
--- <span class="string">AP:</span> halo32 (<span class="string">WN855702 :</span>: f2ff1c8d-bec8-<span class="number">4</span>a08-aedc-ab72861fa694) <span class="string">IP:</span> <span class="number">10.6</span><span class="number">.0</span><span class="number">.206</span> <span class="string">LOC:</span> WiNGS Lab, Madison WI
-<span class="label"> OWNER:</span> <span class="string">CS :</span> test (<span class="number">9520</span>f0c5-b884-<span class="number">11e4</span>-a360-<span class="number">00265511043</span>e) <span class="string">GROUP:</span> Test
-<span class="label"> RECON:</span> <span class="string">rid:</span> <span class="number">40</span>, <span class="string">reconid:</span> <span class="number">10</span>, <span class="string">GROUP:</span> Test
-</code></pre><p>show the difference of the modification: </p>
-<pre><code><span class="title">svn</span> diff dbapi/dbapi_recon.py
-</code></pre><h2 id="Thought_Process:"><strong>Thought Process:</strong></h2><p>Modify code on <code>xuyi@paradrop.wings.wisc.edu</code>  </p>
-<p>inside <code>/home/xuyi/paradrop/trunk/recon/dbapi_tool.py</code> add password option in</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createWifi</span><span class="params">(dbh, baseUrl, token, group, ssid, chan, pw)</span>:</span></span><br><span class="line">    <span class="string">"""</span><br><span class="line">        Creates a wifi network on the group APs provided.</span><br><span class="line">        Arguments:</span><br><span class="line">            @ssid : The SSID to set each device to</span><br><span class="line">            @chan : The channel, can be string like '36+1' for HT40+</span><br><span class="line">            @pw : The password for Wi-Fi</span><br><span class="line">    """</span></span><br><span class="line">    url = <span class="string">'%s/wifi/%s/create'</span> % (baseUrl, urlEncodeMe(group, <span class="string">""</span>))</span><br><span class="line">    out.info(<span class="string">'-- %s Creating WiFi: %s\n'</span> % (logPrefix(), url))</span><br><span class="line"></span><br><span class="line">    msg = &#123;<span class="string">"sessionToken"</span>:token&#125;</span><br><span class="line">    msg[<span class="string">'ssid'</span>] = ssid</span><br><span class="line">    msg[<span class="string">'channel'</span>] = chan	</span><br><span class="line">    msg[<span class="string">'pw'</span>] = pw</span><br><span class="line">    </span><br><span class="line">    res = pdweb.post(url, json2str(msg), <span class="keyword">None</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">not</span> pdweb.isOK(res)):</span><br><span class="line">        out.warn(<span class="string">'** Failed: %s\n'</span> % str(res))</span><br><span class="line">        exit()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        out.info(<span class="string">'-- %s\n'</span> % pdweb.data(res))</span><br></pre></td></tr></table></figure>
-<p>Run command with <code>dbapi_tool</code> to tell the <code>sniff.py</code> in router to setup a AP with password</p>
-<pre><code>python recon/dbapi_tool<span class="class">.py</span> -g Test -f createWifi -<span class="tag">a</span> testRXY -<span class="tag">a</span> <span class="number">36</span> -<span class="tag">a</span> paradroprocks
-</code></pre><p>send JSON package (ssid, chan, pw) through dbapi server to sniff.py inside halo32.   </p>
-<p>Output from  <code>iw dev wlan0 scan</code> for <code>halo32</code> without password</p>
-<pre><code>BSS <span class="number">04</span>:<span class="string">f0:</span><span class="number">21</span>:<span class="number">10</span>:<span class="string">c0:</span>d8(on wlan0)
-<span class="label">    TSF:</span> <span class="number">234855172</span> usec (<span class="number">0</span>d, <span class="number">00</span>:<span class="number">03</span>:<span class="number">54</span>)
-<span class="label">    freq:</span> <span class="number">5180</span>
-    beacon <span class="string">interval:</span> <span class="number">100</span> TUs
-<span class="label">    capability:</span> ESS (<span class="number">0x0001</span>)
-<span class="label">    signal:</span> -<span class="number">38.00</span> dBm
-    last <span class="string">seen:</span> <span class="number">1052</span> ms ago
-    Information elements from Probe Response <span class="string">frame:</span>
-<span class="label">    SSID:</span> testRXY40
-    Supported <span class="string">rates:</span> <span class="number">6.0</span>* <span class="number">9.0</span> <span class="number">12.0</span>* <span class="number">18.0</span> <span class="number">24.0</span>* <span class="number">36.0</span> <span class="number">48.0</span> <span class="number">54.0</span> 
-    DS Parameter <span class="string">set:</span> channel <span class="number">36</span>
-    Extended <span class="string">capabilities:</span> <span class="number">6</span>
-</code></pre><p><strong>Problems:  </strong>  </p>
-<ol>
-<li><p>does not have encryption - inside halo32<br> change code </p>
- <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">pw = modeData.<span class="function"><span class="title">get</span><span class="params">(<span class="string">'password'</span>, None)</span></span></span><br></pre></td></tr></table></figure>
-<p> to </p>
- <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">pw = modeData.<span class="function"><span class="title">get</span><span class="params">(<span class="string">'pw'</span>, None)</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>One more thing that struggle me so long:  </strong><br>since you modify the sniff.py code, you might restart the sniff program to reflect the update on sniff!!  </p>
-<p>What I found so far: Password lost either when packed or when received.  </p>
-<p><strong>Message in queue:</strong><br>peek message in queue on the dbapi server: </p>
-<pre><code>curl <span class="string">http:</span><span class="comment">//paradrop.wings.cs.wisc.edu:10330/v1/recon/peek/Test</span>
-</code></pre><p>indicate that password was not packed into the JSON package.</p>
-<pre><code>f<span class="number">2</span>ff<span class="number">1</span>c<span class="number">8</span>d-bec<span class="number">8</span><span class="number">-4</span>a<span class="number">08</span>-aedc-ab<span class="number">72861</span>fa<span class="number">694</span> :  <span class="number">40</span> : {<span class="string">"data"</span>:{<span class="string">"ssid"</span>:<span class="string">"test40"</span>,<span class="string">"channel"</span>:<span class="number">36</span>},<span class="string">"mode"</span>:<span class="string">"__WIFI_CREATE"</span>} <span class="comment">(1 seconds old)</span>
-</code></pre><ol>
-<li><p>SSID name not correct. </p>
-</li>
-<li><p>if no password indicate, will the AP create sucessfully.</p>
-</li>
-</ol>
-<p>POST and GET</p>
-<p>Also need to change file in <code>~/paradrop/trunk/recon/dbapi/dbapi_recon.py</code></p>
-<p><strong>question</strong>: will JSON package sent <code>None</code> in string or None?<br>one <code>pw = modeData.get(&#39;pw&#39;, None)</code> will <code>pw</code> get <code>None</code> or string(None)</p>
-<p>that does not matter, since code in <code>if(len(pw) &lt; 8):</code> will catch it and turn it into <code>None</code>.<br>As to answer the question: yes, the pw will remain the value <code>None</code></p>
-<h2 id="Current_modified_files:"><strong>Current modified files: </strong></h2><h3 id="server_side:-1">server side:</h3><p><code>dbapi_recon.py</code> @ <code>~/paradrop/trunk/recon/dbapi/dbapi_recon.py</code> manage the format of POST.</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">def POST_wifiCreate(self, request, groupid):</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    <span class="comment"># check for format</span></span><br><span class="line">    token, ssid, chan, pw = pdutils.explode(body, <span class="string">"sessionToken"</span>, <span class="string">"ssid"</span>, <span class="string">"channel"</span>, <span class="string">"pw"</span>)</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    <span class="comment"># create wifi without password if not in correct format</span></span><br><span class="line">    <span class="keyword">if</span>(pw is not None):</span><br><span class="line">        <span class="keyword">if</span>(len(pw) &lt; <span class="number">8</span>):</span><br><span class="line">            out.err(<span class="string">"!!%s Password at least 8 characters!\n"</span> % logPrefix(ip))</span><br><span class="line">            pw = None</span><br><span class="line">    <span class="comment"># Add a message for each ap</span></span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    self.pollResponder.addMessage(ap, sniffconfig.setConfig(sniffconfig.WIFI_CREATE, ssid=s, channel=chan, pw=pw), lambda x: x)</span><br><span class="line">    <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
-<p><code>dbapi_tool.py</code> @ <code>/home/xuyi/paradrop/trunk/recon/dbapi_tool.py</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createWifi</span><span class="params">(dbh, baseUrl, token, group, ssid, chan, pw=None)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    msg[<span class="string">'pw'</span>] = pw</span><br></pre></td></tr></table></figure>
-<h3 id="router_side:-1">router side:</h3><p><code>iw.py</code> @ <code>lib/internal/utils/iw.py</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">startHostapd</span><span class="params">(iface, ssid, channel, key=None)</span>:</span></span><br><span class="line"> ...</span><br><span class="line"> <span class="comment"># set up WPA2 encryption</span></span><br><span class="line">    <span class="keyword">if</span>(key <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>):</span><br><span class="line">        wpa=<span class="number">3</span></span><br><span class="line">        mode=<span class="string">'WPA-PSK'</span></span><br><span class="line">        wpa_pw = <span class="string">'TKIP CCMP'</span></span><br><span class="line">        rsn_pw = <span class="string">'CCMP'</span></span><br><span class="line">        opts.append(<span class="string">'wpa=%s'</span> % wpa)</span><br><span class="line">        opts.append(<span class="string">'wpa_passphrase=%s'</span> % key)</span><br><span class="line">        opts.append(<span class="string">'wpa_key_mgmt=%s'</span> % mode)</span><br><span class="line">        opts.append(<span class="string">'wpa_pairwise=%s'</span> % wpa_pw)</span><br><span class="line">        opts.append(<span class="string">'rsn_pairwise=%s'</span> % rsn_pw)</span><br></pre></td></tr></table></figure>
-<p><code>sniff.py</code> @ <code>root/recon/sniff.py</code></p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">def _modeCreateSSID(self, modeData, completed):</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    pw = modeData.get(<span class="string">'pw'</span>, None)</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    res = iw.startHostapd(<span class="string">'wlan0'</span>, ssid, chan, pw)</span><br></pre></td></tr></table></figure>
-<h2 id="Commit_the_changes:"><strong>Commit the changes:</strong></h2><h3 id="push_updates_to_server:">push updates to server:</h3><p>1.Check the status of all files:</p>
-<pre><code><span class="title">svn</span> status
-</code></pre><p>Outputs:</p>
-<pre><code>xuyi<span class="variable">@paradrop</span><span class="symbol">:~/paradrop/trunk</span><span class="variable">$ </span>svn status
-?       envsetup.sh
-<span class="constant">M </span>      recon/dbapi_tool.py
-<span class="constant">M </span>      dbapi/dbapi_recon.py
-</code></pre><p>2.commit and push: </p>
-<pre><code>svn <span class="keyword">ci</span> -<span class="keyword">m</span> <span class="string">"XR: added password support to SSID startup"</span>
-</code></pre><p>Outputs: </p>
-<pre><code>xuyi<span class="variable">@paradrop</span><span class="symbol">:~/paradrop/trunk</span><span class="variable">$ </span>svn ci -m <span class="string">"Xuyi: added password support to SSID startup"</span>
-<span class="constant">Sending </span>       trunk/dbapi/dbapi_recon.py
-<span class="constant">Sending </span>       trunk/recon/dbapi_tool.py
-<span class="constant">Transmitting </span>file data ..
-<span class="constant">Committed </span>revision <span class="number">1585</span>.
-</code></pre><h2 id="TODO:"><strong>TODO:</strong></h2><ol>
-<li>Push the change from router</li>
-</ol>
-
-            
-          </span>
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/30/sniffencrption_2/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1051,9 +716,7 @@ generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="Objective:">Objective:</h2><p>At this stage, we send command from dbapi server (<code>dbapi_tool.py</code>) to create AP (with <code>createWiFi</code> function) on the router side (<code>sniff.py</code>). If we store this AP configuration (<code>hostapd.conf</code>) into database, so that everytime sniff.py initialiate, it check if AP config file exists in server, if exists, automatically start <code>hostapd</code> with the correcponding config retrict from the server to create an AP. Other wise, do not create the AP. </p>
+          <h2 id="Objective:">Objective:</h2><p>At this stage, we send command from dbapi server (<code>dbapi_tool.py</code>) to create AP (with <code>createWiFi</code> function) on the router side (<code>sniff.py</code>). If we store this AP configuration (<code>hostapd.conf</code>) into database, so that everytime sniff.py initialiate, it check if AP config file exists in server, if exists, automatically start <code>hostapd</code> with the correcponding config retrict from the server to create an AP. Other wise, do not create the AP. </p>
 <h2 id="Instruction:">Instruction:</h2><ol>
 <li><p>sniff.py during init needs to look for AP settings from the database and start an AP if they exist</p>
 </li>
@@ -1063,16 +726,11 @@ generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>
 </li>
 </ol>
 <p>To start, I would recommend that you change the sniff.py file so that during init it looks for the AP settings and it sets up hostapd if they are found. We can manually change the database configuration to have these extra settings without changing the dbapi_recon.py file, so this would be the easiest thing to do first.</p>
-<h2 id="Thought_Process:">Thought Process:</h2><p>Inside <code>sniff.py</code> file,  </p>
-<p><code>_getConfigSettings(self)</code> function get the configure files from dbapi server.</p>
-<p><code>_setConfig(cfg)</code> read the config file (from dbapi server) and do the reqiured configuration for sniff instance. </p>
-<p><code>cfg</code> - configuration object is a <strong>dictionary</strong> with configure information. </p>
-<h2 id="Modify_files:">Modify files:</h2><p><code>sniff.py</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_setConfig</span><span class="params">(self, cfg)</span>:</span></span><br><span class="line">        <span class="string">"""</span><br><span class="line">            Takes a config object returned from the dbapi and sets the proper flags.</span><br><span class="line">        """</span></span><br><span class="line"></span><br><span class="line">		...</span><br><span class="line">		</span><br><span class="line">        <span class="comment"># set up Wifi access point</span></span><br><span class="line">        <span class="comment"># ?? completed ??</span></span><br><span class="line">        ap = cfg.get(<span class="string">'ap'</span>, <span class="keyword">None</span>)</span><br><span class="line">        <span class="keyword">if</span> (ap):</span><br><span class="line">            self._modeCreateSSID(ap, completed)</span><br><span class="line">		...</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<h2 id="Question:">Question:</h2><p><code>_modeCreateSSID(ap, completed)</code> ?? completed ??</p>
-
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/24/serverApConfig/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1170,9 +828,7 @@ generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="Configure_Encrption_(WPA2/PSK)_on_Recon(sniff-py)">Configure Encrption (WPA2/PSK) on Recon(sniff.py)</h2><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/sniffs.IMG_1793.jpg" alt="MySummerResearch" style="width:600px;"></p>
+          <h2 id="Configure_Encrption_(WPA2/PSK)_on_Recon(sniff-py)">Configure Encrption (WPA2/PSK) on Recon(sniff.py)</h2><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/sniffs.IMG_1793.jpg" alt="MySummerResearch" style="width:600px;"/></p>
 <h3 id="Useful_info:">Useful info:</h3><p><strong>connect to the paradrop server: </strong>  </p>
 <pre><code>ssh pd@paradrop<span class="class">.wings</span><span class="class">.cs</span><span class="class">.wisc</span><span class="class">.edu</span>
 </code></pre><p>IMPORTANT: once the paradrop system(router) hock up into the internet, it automatically VPN to the paradrop server, which parapdrop server can get access to all the haloxxx routers that are onlined.</p>
@@ -1196,133 +852,12 @@ generic-amd64 2015-07-14 1.4     <span class="keyword">*</span>
 <pre><code>ifconfig
 </code></pre><p><strong>Scan all the SSIDs within nearby:</strong>  </p>
 <pre><code>iw <span class="built_in">dev</span> wlan0 <span class="built_in">scan</span>
-</code></pre><h3 id="Connect_to_the_router:">Connect to the router:</h3><ol>
-<li>SSID: ParadropXX</li>
-<li>Password: paradroprocks</li>
-</ol>
-<h3 id="Ssh_into_the_paradrop_router:">Ssh into the paradrop router:</h3><pre><code><span class="title">ssh</span> root<span class="variable">@halo32</span>   
-</code></pre><p>passowrd: 699.tmp<br>public ip: 216.26.112.63</p>
-<h3 id="Create_shoot_through_front_end_page-">Create <code>shoot</code> through front end page.</h3><ol>
-<li><code>ifconfig br-lan</code> </li>
-<li>get <code>inet addr:</code> for example: <code>192.168.60.1</code></li>
-<li>open browswer go to  <code>192.168.60.1</code></li>
-<li>set up an <code>app</code> as <code>recon</code></li>
-</ol>
-<h3 id="Log_into_the_shoot">Log into the <code>shoot</code></h3><ul>
-<li>run command line check:  <pre><code>python etc/pd/lib/internal/fc/chutestorage.py -ls </code></pre></li>
-<li>output from terminal:</li>
-</ul>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line">lxc:<span class="number">64</span>c22813-ab61-<span class="number">4</span>c87-<span class="number">9</span>ff6-cac4a03b690f</span><br><span class="line">  state:    running</span><br><span class="line">  <span class="keyword">struct</span>:   &#123;<span class="string">'net'</span>: &#123;<span class="string">'wan'</span>: &#123;<span class="string">'type'</span>: <span class="string">'wan'</span>, <span class="string">'intfName'</span>: <span class="string">'eth0'</span>, <span class="string">'ipaddr'</span>: <span class="string">'10.100.10.1'</span>, <span class="string">'netmask'</span>: <span class="string">'255.255.255.0'</span>&#125;, <span class="string">'passthroughInterfaces'</span>: [], <span class="string">'wlanPassthrough'</span>: <span class="string">'True'</span>, <span class="string">'radioid'</span>: <span class="number">1</span>&#125;, <span class="string">'disk'</span>: &#123;<span class="string">'size'</span>: <span class="number">123456</span>&#125;, <span class="string">'cmds'</span>: &#123;<span class="string">'firewall'</span>: &#123;<span class="string">'post'</span>: [<span class="string">'iptables -t nat -I PREROUTING -i tun0 -p tcp -m tcp --dport 6555 -j DNAT --to-destination 10.100.10.1:22'</span>, <span class="string">'iptables -I FORWARD -i tun0 -s 10.6.0.0/24 -d 10.100.10.1 -j ACCEPT'</span>, <span class="string">'iptables -I FORWARD -o tun0 -s 10.100.10.1 -d 10.6.0.0/24 -j ACCEPT'</span>]&#125;&#125;&#125;</span><br><span class="line">  runtime:  [&#123;<span class="string">'program'</span>: <span class="string">'echo'</span>, <span class="string">'name'</span>: <span class="string">'sniff args'</span>, <span class="string">'args'</span>: <span class="string">'python /root/recon/sniff.py -i moni1 -t 5 --phy phy1 &gt; /root/sniff_args'</span>&#125;, &#123;<span class="string">'program'</span>: <span class="string">'bash /root/recon/sniff_start.sh'</span>, <span class="string">'name'</span>: <span class="string">'startSniff'</span>, <span class="string">'args'</span>: <span class="string">''</span>&#125;, &#123;<span class="string">'cron'</span>: <span class="string">'*/1 * * * *'</span>, <span class="string">'program'</span>: <span class="string">'bash /root/recon/sniff_start.sh'</span>, <span class="string">'name'</span>: <span class="string">'Check sniff is running'</span>, <span class="string">'args'</span>: <span class="string">''</span>&#125;]</span><br><span class="line">  traffic:  []</span><br><span class="line">  resource: &#123;<span class="string">'lan'</span>: &#123;<span class="string">'down'</span>: <span class="number">25000</span>, <span class="string">'up'</span>: <span class="number">25000</span>&#125;, <span class="string">'cpu'</span>: <span class="string">'@resource.cpu.MAX'</span>, <span class="string">'memory'</span>: <span class="string">'@resource.memory.MAX'</span>&#125;</span><br><span class="line">  files:  [&#123;<span class="string">'path'</span>: <span class="string">'/root'</span>, <span class="string">'sha1'</span>: <span class="string">'None'</span>, <span class="string">'todo'</span>: <span class="string">'EXTRACT'</span>, <span class="string">'name'</span>: <span class="string">'sniff'</span>, <span class="string">'location'</span>: <span class="string">'@paradrop.server(sniff/sniff.tar.gz)'</span>&#125;]</span><br><span class="line">  radioid:  <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>Userful Infomation:<br><strong>UUID</strong> - 64c22813-ab61-4c87-9ff6-cac4a03b690f<br><strong>ipaddr</strong> - 10.100.10.1 &lt;- this is the address for the shoot(app) you just created. ssh into it.</p>
-<pre><code><span class="title">ssh</span> root@<span class="number">10.100.10.1</span>
-</code></pre><p>User/Pass: root  </p>
-<h3 id="Check_if_sniff_is_still_running:">Check if sniff is still running:</h3><pre><code>screen -<span class="keyword">ls</span>
-</code></pre><p>output from terminal:</p>
-<pre><code>There are screens on:
-    <span class="number">53</span><span class="class">.sniff</span>    (Detached)
-    <span class="number">28</span><span class="class">.lxcserver</span>    (Detached)
-<span class="number">2</span> Sockets <span class="keyword">in</span> /tmp/screens/S-root.
-</code></pre><h3 id="Stop_stiff:">Stop stiff:</h3><pre><code>bash /root/recon/sniff_disable<span class="class">.sh</span>
-bash /root/recon/sniff_kill<span class="class">.sh</span> 
-</code></pre><p>check if stiff stop:</p>
-<pre><code>screen -<span class="keyword">ls</span>
-</code></pre><p>output from terminal:</p>
-<pre><code>There is <span class="tag">a</span> screen on:
-    <span class="number">28</span><span class="class">.lxcserver</span>    (Detached)
-<span class="number">1</span> Socket <span class="keyword">in</span> /tmp/screens/S-root. 
-</code></pre><h3 id="Restart_stiff:">Restart stiff:</h3><pre><code>bash <span class="regexp">/root/</span>recon<span class="regexp">/sniff_restart.sh</span>
-</code></pre><p><code>screen -ls</code> output from terminal:</p>
-<pre><code>There are screens on:
-    <span class="number">782</span><span class="class">.sniff</span>   (Detached)
-    <span class="number">28</span><span class="class">.lxcserver</span>    (Detached)
-<span class="number">2</span> Sockets <span class="keyword">in</span> /tmp/screens/S-root.
-</code></pre><h3 id="Goals:">Goals:</h3><p>now I am inside the shoot, I need to use <code>sniff</code> to run <code>hostapd</code> to create a new access point for the app, so that the SSID created should be encrypted in (WPA2/PSK).   </p>
-<p><strong>BackGround Info:</strong><br><em>Recon</em>:  Recon is the project name for the retail analytics that we are doing. Our initial deployment is in the UW Bookstore on state street.</p>
-<p><a href="http://wirelessathome.wings.cs.wisc.edu/redmine/projects/paradrop/wiki/Recon" target="_blank" rel="external">http://wirelessathome.wings.cs.wisc.edu/redmine/projects/paradrop/wiki/Recon</a></p>
-<p><em>Sniff</em>: </p>
-<h4 id="Vim_up/down/left/right_and_delete_issues:">Vim up/down/left/right and delete issues:</h4><p>vim $HOME/.vimrc, add following lines into the file:</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> backspace=<span class="number">2</span> <span class="string">" make backspace work like most other apps</span><br><span class="line"></span><span class="keyword">set</span> nocompatible "must <span class="keyword">be</span> <span class="keyword">first</span> <span class="built_in">line</span></span><br></pre></td></tr></table></figure>
-<p>Sample $HOME/.vimrc file:</p>
-<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> nocompatible " must be the first <span class="keyword">line</span></span><br><span class="line">filetype <span class="keyword">on</span></span><br><span class="line">filetype indent <span class="keyword">on</span></span><br><span class="line">filetype <span class="keyword">plugin</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">set</span> laststatus=2</span><br><span class="line"><span class="keyword">set</span> statusline=%&lt;%f\%<span class="keyword">h</span>%<span class="keyword">m</span>%r%=%-20.(<span class="keyword">line</span>=%<span class="keyword">l</span>\ \ col=%c%V\ \ totlin=%<span class="keyword">L</span>%)\ \ \%<span class="keyword">h</span>%<span class="keyword">m</span>%r%=   %-40(bytval=0x%B,%<span class="keyword">n</span>%Y%)\%P</span><br><span class="line"><span class="keyword">set</span> ofu=syntaxcomplete#Complete</span><br><span class="line"><span class="keyword">set</span> backspace=2 " make backspace work like most other apps</span><br></pre></td></tr></table></figure>
-<p><strong><code>_modeCreateSSID</code> inside  <code>trunk/recon/app/sniff.py</code></strong>  </p>
-<ol>
-<li>insdie the <code>_modeCreateSSID</code>, calling lots of functions inside the <code>iw</code> library to set up configuration. </li>
-<li>res = iw.startHostapd(‘wlan0’, ssid, chan)</li>
-</ol>
-<p><strong><code>startHostapd</code> inside <code>trunk/lib/internal/utils/iw.py</code></strong>  </p>
-<ol>
-<li>create a <code>hostapd.conf</code> file with infomaiton from the parameters (iface, ssid, channel).    </li>
-<li>start the hostAPD service that create AP with <code>hostapd.conf</code> @<code>tmp/hostapd.conf</code> configuration.</li>
-</ol>
-<p><strong> WPA/PSK: </strong><br>For WPA-PSK,<br>either <strong>wpa_psk</strong> or wpa_passphrase must be set and <strong>wpa_key_mgmt</strong> must include <strong>WPA-PSK</strong>. Instead of wpa_psk / wpa_passphrase, wpa_psk_radius might suffice.</p>
-<p><strong>add below information: </strong><br>wpa_passphrase=parashootrocks<br>wpa_key_mgmt=WPA-PSK<br>wpa=2</p>
-<pre><code><span class="function"><span class="keyword">def</span> <span class="title">startHostapd</span><span class="params">(iface, ssid, channel, key, mode, wpa=<span class="number">2</span>)</span>:</span>
-    .....
-    opts.append(<span class="string">'wpa=%s'</span> % wpa)
-    opts.append(<span class="string">'wpa_passphrase=%s'</span> % key)
-    opts.append(<span class="string">'wpa_key_mgmt=%s'</span> % mode)
-</code></pre><p>Question to solve:<br><strong>1. encrption seems not setting up probabaly  </strong>  </p>
-<pre><code>~ # hostapd -B /tmp/hostapd.conf
-Configuration <span class="keyword">file</span>: /tmp/hostapd.conf
-Line <span class="number">5</span>: Invalid PSK <span class="string">'paradroprocks'</span>.
-<span class="number">1</span> errors found <span class="keyword">in</span> configuration <span class="keyword">file</span> <span class="string">'/tmp/hostapd.conf'</span>
-Failed <span class="keyword">to</span> <span class="keyword">set</span> up <span class="keyword">interface</span> <span class="keyword">with</span> /tmp/hostapd.conf
-Failed <span class="keyword">to</span> initialize <span class="keyword">interface</span>
-</code></pre><ul>
-<li>did not enable wpa in the first place, inside config file <code>wpa=3</code> will fix.  </li>
-</ul>
-<p><strong>2. how to set up wlan0 in side the shoot</strong>  </p>
-<ul>
-<li>correctly start up with <code>startAP.py</code> will fix.  </li>
-</ul>
-<p><strong>3. the <code>self._phy</code> </strong>  </p>
-<ul>
-<li>it is just the index for physical connection (phy1, phy0, etc)  </li>
-</ul>
-<p>TODO:  </p>
-<ol>
-<li><del>read through <code>_modeCreateSSID</code> on <code>sniff.py</code></del>  </li>
-<li><del>read through <code>.config</code> file, see where encrption comes in</del>   </li>
-<li><del>useful files to read: <code>trunk/recon/app/sniff.py</code>, <code>hostapd.conf</code>, and <code>trunk/lib/internal/utils/iw.py</code></del>   </li>
-<li><del>write <code>startAP.py</code> file to test the <code>hostapd</code> funcion, if AP comes up without encrption first.</del>  </li>
-<li><del>update <code>startAP.py</code> to make encrption enable</del>  </li>
-<li>~~fix the error for <strong>hostapd v2.2</strong> ~~</li>
-</ol>
-<p><strong>How to configure WPA:  </strong><br>inside <code>lib/internal/utils/iw.py</code>:  </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">startHostapd</span><span class="params">(iface, ssid, channel, key, mode, wpa=<span class="number">2</span>)</span>:</span></span><br><span class="line">    ..... <span class="comment"># `wpa = 2` indicates WPA2 encrption</span></span><br><span class="line">    opts.append(<span class="string">'wpa_passphrase=%s'</span> % key)</span><br><span class="line">    opts.append(<span class="string">'wpa_key_mgmt=%s'</span> % mode)</span><br></pre></td></tr></table></figure>
-<p><code>startAP.py</code> </p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">import <span class="tag">time</span></span><br><span class="line">from lib<span class="class">.internal</span><span class="class">.utils</span> import iw</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">'Start setting AP connection: '</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">getIwDevList</span><span class="params">()</span></span></span><br><span class="line">iw.<span class="function"><span class="title">createDev</span><span class="params">(<span class="string">'phy1'</span>, <span class="string">'wlan0'</span>, <span class="string">'__ap'</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">setDevIP</span><span class="params">(<span class="string">'wlan0'</span>, <span class="string">'10.200.200.1'</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">bringUp</span><span class="params">(<span class="string">'wlan0'</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">killallDnsmasq</span><span class="params">()</span></span></span><br><span class="line">iw.<span class="function"><span class="title">startDnsmasq</span><span class="params">(<span class="string">'recon'</span>, <span class="string">'wlan0'</span>, <span class="string">'10.200.200.1'</span>, <span class="string">'10.200.200.10'</span>, <span class="string">'10.200.200.100'</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">enableNAT</span><span class="params">(<span class="string">'wlan0'</span>, <span class="string">'eth0'</span>, <span class="string">'10.200.200.1'</span>)</span></span></span><br><span class="line">iw.<span class="function"><span class="title">startHostapd</span><span class="params">(<span class="string">'wlan0'</span>, <span class="string">'testRS'</span>, <span class="string">'36'</span>, <span class="string">'paradroprocks'</span>, <span class="string">'WPA-PSK'</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">'Success!'</span>)</span></span></span><br><span class="line">while True:</span><br><span class="line">    <span class="tag">time</span>.<span class="function"><span class="title">sleep</span><span class="params">(<span class="number">1</span>)</span></span></span><br></pre></td></tr></table></figure>
-<p><code>stopAP.py</code>:</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">import <span class="tag">time</span></span><br><span class="line">from lib<span class="class">.internal</span><span class="class">.utils</span> import iw</span><br><span class="line">from lib<span class="class">.paradrop</span> import out</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">'Start Deleting AP'</span>)</span></span></span><br><span class="line">res = iw.<span class="function"><span class="title">disableNAT</span><span class="params">(<span class="string">'wlan0'</span>, <span class="string">'eth0'</span>, <span class="string">'10.200.200.1'</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">if</span><span class="params">(res)</span></span>:</span><br><span class="line">    <span class="function"><span class="title">print</span><span class="params">(<span class="string">'err@disableNAT'</span>)</span></span></span><br><span class="line"></span><br><span class="line">res = iw.<span class="function"><span class="title">killHostapd</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="title">if</span><span class="params">(res)</span></span>:</span><br><span class="line">    out.<span class="function"><span class="title">err</span><span class="params">(<span class="string">'!! %s Unable to kill hostapd: %s\n'</span> % (logPrefix()</span></span>, <span class="function"><span class="title">str</span><span class="params">(res)</span></span>))</span><br><span class="line"></span><br><span class="line">res = iw.<span class="function"><span class="title">killallDnsmasq</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="title">if</span><span class="params">(res)</span></span>:</span><br><span class="line">    <span class="function"><span class="title">print</span><span class="params">(<span class="string">'err@killallDnsmasq'</span>)</span></span></span><br><span class="line"></span><br><span class="line">res = iw.<span class="function"><span class="title">startDefaultDnsmasq</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="title">if</span><span class="params">(res)</span></span>:</span><br><span class="line">    out.<span class="function"><span class="title">err</span><span class="params">(<span class="string">'!! %s Unable to start dnsmasq: %s\n'</span> % (logPrefix()</span></span>, <span class="function"><span class="title">str</span><span class="params">(res)</span></span>))</span><br><span class="line"></span><br><span class="line">res = iw.<span class="function"><span class="title">deleteDev</span><span class="params">(<span class="string">'wlan0'</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">if</span><span class="params">(res)</span></span>:</span><br><span class="line">    <span class="function"><span class="title">print</span><span class="params">(<span class="string">'err@deleteDev'</span>)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">'Success deleting AP'</span>)</span></span></span><br></pre></td></tr></table></figure>
-<p><code>iw.getIwDevList()</code> - extract necessary value of info. (<code>ifindex</code>, <code>wdev</code>, <code>addr</code>, <code>type</code>) into <code>ret</code>, which is a return value. inside the <code>sniff.py</code> <code>iw.getiwDevList</code> simplely Check if wlan0 already exists. checking method</p>
-<p><code>iw.createDev(&#39;phy1&#39;, &#39;wlan0&#39;, &#39;__ap&#39;)</code> - create <code>wlan0</code> which has a AP type</p>
-<p><code>iw.setDevIP(&#39;wlan0&#39;, &#39;10.200.200.1&#39;)</code> - set up ip, mask for <code>wlan0</code></p>
-<p><code>iw.bringUp(&#39;wlan0&#39;)</code> -  use <code>ifconfig</code> to bring up <code>wlan0</code></p>
-<p><code>iw.killallDnsmasq()</code> - reset DNS </p>
-<p><code>iw.startDnsmasq(&#39;recon&#39;, &#39;wlan0&#39;, &#39;10.200.200.1&#39;, &#39;10.200.200.10&#39;, &#39;10.200.200.100&#39;)</code> - set up dns with parameter</p>
-<p><code>iw.enableNAT(&#39;wlan0&#39;, &#39;eth0&#39;, &#39;10.200.200.1&#39;)</code> - setup NAT</p>
-<p><strong>Issues for hostapd v2.2:  </strong>  </p>
-<pre><code>Configuration <span class="keyword">file</span>: /tmp/hostapd.conf
-nl80211: Could <span class="keyword">not</span> configure driver mode
-nl80211 driver <span class="keyword">initialization</span> failed.
-</code></pre><p>Just fixed: SSID can not start probably because I did not destroy the <code>wlan0</code> probably, now use scripts <code>stopAP.py</code>.<br>it works pefect. (inside <code>sniff.py</code> file, method <code>_modeDestroySSID</code> does the same thing.)</p>
-<p><strong>Final review on steps to set encrption on sniff</strong>  </p>
-<ol>
-<li>inside <code>sniff.py</code>, modify the line for <code>iw.startHostapd</code> to specific key to add:</li>
-</ol>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">&lt;pre&gt;&lt;code&gt;iw.<span class="function"><span class="title">startHostapd</span><span class="params">(<span class="string">'wlan0'</span>, <span class="string">'testRS'</span>, <span class="string">'36'</span>, <span class="string">'paradroprocks'</span>)</span></span>&lt;/code&gt;&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>inside <code>iw.py</code>, modeify the indterface for <code>startHostapd</code> to enable WPA2 encryption.</li>
-</ol>
-<figure class="highlight processing"><table><tr><td class="code"><pre><span class="line">&lt;pre&gt;&lt;code&gt;</span><br><span class="line">def startHostapd(iface, ssid, channel, <span class="variable">key</span>, wpa=<span class="number">3</span>, mode=<span class="string">'WPA-PSK'</span>):</span><br><span class="line">    ....</span><br><span class="line">    </span><br><span class="line">    # <span class="built_in">set</span> up WPA2 encryption</span><br><span class="line">    wpa_pw = <span class="string">'TKIP CCMP'</span></span><br><span class="line">    rsn_pw = <span class="string">'CCMP'</span></span><br><span class="line">    opts.<span class="built_in">append</span>(<span class="string">'wpa=%s'</span> % wpa)</span><br><span class="line">    opts.<span class="built_in">append</span>(<span class="string">'wpa_passphrase=%s'</span> % <span class="variable">key</span>)</span><br><span class="line">    opts.<span class="built_in">append</span>(<span class="string">'wpa_key_mgmt=%s'</span> % mode)</span><br><span class="line">    opts.<span class="built_in">append</span>(<span class="string">'wpa_pairwise=%s'</span> % wpa_pw)</span><br><span class="line">    opts.<span class="built_in">append</span>(<span class="string">'rsn_pairwise=%s'</span> % rsn_pw)</span><br><span class="line">&lt;/code&gt;&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>test files: <code>startAP.py</code> and <code>stopAP.py</code></li>
-</ol>
-<p>P.S. All of these babes are going to install in Union South next week!!</p>
-<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/sniffs.IMG_1832.JPG" alt="MySummerResearch" style="width:600px;"></p>
-
-            
-          </span>
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/15/sniffencrption/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1420,31 +955,16 @@ nl80211 driver <span class="keyword">initialization</span> failed.
 
       
         
-          <span itemprop="articleBody">
-            
-              <p>大三上学期收获不小，GPA成功破3.7。数了数钱包，短短4个月申请了接近10张的信用卡💳。这两天刚刚接到suman教授的回信，邀请我加入他的团队，summer research也有了着落～我的小美女还有1个月就要来美国读研了。感觉一切都慢慢街上了正轨。今年暑假上一门EPD397(学术写作课)，外加另外一门网课(音乐理论课)。大四两个学期每学期只需要14个学分就可以双学位顺利毕业。</p>
+          <p>大三上学期收获不小，GPA成功破3.7。数了数钱包，短短4个月申请了接近10张的信用卡💳。这两天刚刚接到suman教授的回信，邀请我加入他的团队，summer research也有了着落～我的小美女还有1个月就要来美国读研了。感觉一切都慢慢街上了正轨。今年暑假上一门EPD397(学术写作课)，外加另外一门网课(音乐理论课)。大四两个学期每学期只需要14个学分就可以双学位顺利毕业。</p>
 <p>大三下学期让我明白了什么是学习,我总结出自己人生的公式:<br><strong>喜欢,热爱的事情＋学习时心无旁念＝生活</strong>。</p>
 <p>不仅学习的效率也明显提升了，常旅客的学识方面慢慢跟上了前辈们的脚步。主流的信用卡，酒店，航空金卡积分都有了大概的了解，自己的视野一下子宽了许多。老爸经常爱说的一句话：“花小钱办大事” 感觉跟常旅客的精髓有一定的相似度。在跟前辈／同辈们的学期过程中懂得了常旅客的精神: 出门旅游，要自己玩的开心，住得开心，吃的开心，常旅客的精神就是最大利润回报，这里强调的是回报。我选择你们酒店，就是我看得起你，为了感谢我对你的忠诚，对于这些忠诚的客户，你们用免费住宿来回报我。</p>
 <h2 id="常旅客：">常旅客：</h2><p>熟悉和了解酒店／航空业的游戏规则，会让你的出行更加的舒适，方便。这几天知乎上讨论旅游出行怎么样才能最开心。一位朋友提到 💰钱💰 不应该放在旅行计划考虑的第一位，穷游会直接影响旅游的质量，和心情。他举例到，有时候因为想省钱，结果住到了很偏远的地方，交通去主要的景点的路费不说，来回就浪费了半天时间。虽然景点的附近酒店相对会更贵些，但是花多点钱，但是省下的是更多游览玩耍的时间。</p>
 <p>针对这个观点，我部分同意，因为穷游，少花钱，并不代表旅途的质量和欢乐会因此大打折扣。虽说时间就是金钱，金钱可能买给你方便，但是金钱不一定能给你买来快乐。2015年寒假，我和小女友去了趟海口。两个人都是学生，虽然父母也给了足够的资金，可是我和小女友都选择了穷游(现在回想起来，有点委屈小美女了～). 整趟下来人均包机票6天下来2000出头。现在回想起来，其实我家小美女很早就懂得了常旅客的精髓，花小钱办大事。第一天入住了一个中端酒店，一晚300多，300多在三亚来说已经是比较实惠的价格。当晚小美女打开团购发现附近的酒店有90多一晚的，一开始还不太敢相信，后来看了下还挺靠谱的，决定第二天去试一试。然后之后的5天都在那个酒店入住。再举一个例子，去海口少不了潜水，这也是我们两个的第一次潜水。在三亚潜水，通过正常渠道，没有个300-500你就别想玩。结果小美女团购上找到了个酒店来回接送+烧烤+潜水＝89人民币。当时也不敢相信自己的眼睛，其实我现在也还不敢回想，我们是怎么办到的。所以说并不是说穷游就会影响出行的质量，这两者之间的关系是非常微妙的。只要你有心，多找找，多看看，多比一比，出门旅行，很多费用其实是可以省下来的。那些费用没法避免费用，针对不同类型消费，使用不同的信用卡消费，使得积分最大利益化，使得旅游出行正回报，是旅行变成一种期待而不是一种负担。</p>
-<h2 id="学业：">学业：</h2><p>大三下也是够惊险的，一共5门课，14个学分，由于ECE340(电路设计)这门课第一次midterm考的太糟，最后勉强拿了个AB，也是这学期唯一的AB。虽然有些遗憾，错过了单学期GPA4.0的机会。不过也给我留下了发展的空间，争取大四下学期努力GPA4.0，给自己的大学生涯拼一把。CS540(人工智能)这门课老师是个人工智能的博士生，讲课非常有趣，并且对学生不离不弃。有几次project遇到bug抓破头脑也无法继续的时候，他总是很乐意伸出援手，牺牲自己的额外时间帮我们这群小屁孩debug，真心好老师，小哥名字叫做Scott Alfeld，真心给个好评👍 上学期GPA3.68这学期尤其重要，经过一番努力，GPA终于涨到了3.71，看到自己的GPA从3.6飞到3.7的那一刻，真的超级开心！后面两个学期好好珍惜学习的机会，真正会学习的人，学习的时候心无旁念，玩耍的时候激情的玩耍，劳逸结合，课上学习的内容课上就搞懂，课后及时巩固复习。想到初中数学老师的口头禅：打破沙锅问到底！现在回想起来还是非常有道理的。这几天作业比较多，爸爸刚好过来玩耍，那一天我3点睡觉，5点起床继续写作业，直到上课前的一个小时，我终于把作业写完，送了一口气。爸爸看到我学的这么辛苦，他心里好不是滋味，平时很少流露自己心里情感的父亲👨情不自禁的感慨道:“儿子，学习好辛苦u”。可是我想说：爸爸这点苦不算什么，学习过程虽然艰苦，但是学到东西都是自己的，我很开心！希望你不要为我担心，您辛辛苦苦一点点积攒起来的小金库，全都给了我，提供给我最棒的教育机会，我不会让你失望。当然学习的期间难免也会有遇到困难想自暴自弃的时候，非常感谢我的小美女👩，不依不饶的陪在我的身边，鼓励我，给我力量，谢谢你时不时寄来的大礼包(里面都是最爱的好吃的零食😋)在这里特别感谢小猪猪💏，我是你幸福的小帅哥👦。</p>
-<h2 id="信用卡／常旅客：">信用卡／常旅客：</h2><p>简单总结下这四个月来的战果(废话不多说，先上图):<br><img src="http://7xihzu.com1.z0.glb.clouddn.com/cards.jpg" alt="4个月的猎物" style="width:600px;"></p>
-<p><strong>航空✈️积分:</strong><br>United 90,548<br>AA 53,392</p>
-<p><strong>信用卡💳积分:</strong><br>MR(AMEX):53,911<br>UR(CHASE):14,301</p>
-<p><strong>酒店🏨积分：</strong><br>HHonor: 64,768</p>
-<p><strong>酒店航空会员: </strong><br>UA金，希尔顿金，AB金，万豪金，BestWestern钻，Herz金。</p>
-<h2 id="暑假目标：">暑假目标：</h2><ol>
-<li>不许偷懒，每天坚持🏃 是个👦 就剪掉小肚肚</li>
-<li>完成 <strong> [Head First Java]</strong> <img src="http://7xihzu.com1.z0.glb.clouddn.com/books.headFirstJava.png" alt="Head First Java" style="width:600px;"></li>
-<li>完成 <strong> [Effective Java]</strong>   <img src="http://7xihzu.com1.z0.glb.clouddn.com/books.EffectJava.png" alt="Effective Java" style="width:600px;"></li>
-<li>每天早晚GRE 单词(200个) 各一小时 偷懒不背就是小狗🐶</li>
-<li>Python 爬虫project  </li>
-</ol>
-<p>先想到这么多～ 想到重要的继续补充。</p>
-<h2 id="大四课程安排：">大四课程安排：</h2><p>To be continue……</p>
-
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/08/endOfJunior/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1529,7 +1049,7 @@ nl80211 driver <span class="keyword">initialization</span> failed.
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" rel="gallery_cigzhmx7m000qfqyr5pr93q28"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" rel="gallery_cigziuphs000p1dyrx3ccfjgw"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" itemprop="contentUrl"/>
               </a>
@@ -1537,7 +1057,7 @@ nl80211 driver <span class="keyword">initialization</span> failed.
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" rel="gallery_cigzhmx7m000qfqyr5pr93q28"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" rel="gallery_cigziuphs000p1dyrx3ccfjgw"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" itemprop="contentUrl"/>
               </a>
@@ -1545,7 +1065,7 @@ nl80211 driver <span class="keyword">initialization</span> failed.
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" rel="gallery_cigzhmx7m000qfqyr5pr93q28"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" rel="gallery_cigziuphs000p1dyrx3ccfjgw"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" itemprop="contentUrl"/>
               </a>
@@ -1553,7 +1073,7 @@ nl80211 driver <span class="keyword">initialization</span> failed.
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" rel="gallery_cigzhmx7m000qfqyr5pr93q28"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" rel="gallery_cigziuphs000p1dyrx3ccfjgw"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" itemprop="contentUrl"/>
               </a>
@@ -1561,7 +1081,7 @@ nl80211 driver <span class="keyword">initialization</span> failed.
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" rel="gallery_cigzhmx7m000qfqyr5pr93q28"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" rel="gallery_cigziuphs000p1dyrx3ccfjgw"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" itemprop="contentUrl"/>
               </a>
@@ -1754,7 +1274,7 @@ nl80211 driver <span class="keyword">initialization</span> failed.
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
