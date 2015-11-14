@@ -1,7 +1,8 @@
+layout: {{ layout }}
 title: {{ title }}
 date: {{ date }}
-updated: {{ date }}
-tags:
-categories:
+tags: 
+photos: 
+- 
 ---
 
