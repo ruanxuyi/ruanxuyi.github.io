@@ -1,0 +1,720 @@
+
+ <!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Hashtable vs Hashmap vs Hashset | 威斯星星de小窝</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="阮先生">
+    
+
+    
+    <meta name="description" content="HashTable, HashMap, HashSet
+
+
+HashTable
+HashMap
+HashSet
+
+
+
+
+synchronized
+not synchronized
+not synchronized
+
+
+duplicate key allow
+duplicate key allow
+duplicate key NOT allow
+
+
+null keys or values NOT a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hashtable vs Hashmap vs Hashset">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/03/25/Hashtable-Hashmap-Hashset-linkedhashmap/index.html">
+<meta property="og:site_name" content="威斯星星de小窝">
+<meta property="og:description" content="HashTable, HashMap, HashSet
+
+
+HashTable
+HashMap
+HashSet
+
+
+
+
+synchronized
+not synchronized
+not synchronized
+
+
+duplicate key allow
+duplicate key allow
+duplicate key NOT allow
+
+
+null keys or values NOT a">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201211/17/1353118778_2052.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hashtable vs Hashmap vs Hashset">
+<meta name="twitter:description" content="HashTable, HashMap, HashSet
+
+
+HashTable
+HashMap
+HashSet
+
+
+
+
+synchronized
+not synchronized
+not synchronized
+
+
+duplicate key allow
+duplicate key allow
+duplicate key NOT allow
+
+
+null keys or values NOT a">
+
+
+    
+    <link rel="alternative" href="/atom.xml" title="威斯星星de小窝" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/logo.png">
+    
+    
+    <link rel="apple-touch-icon" href="/img/sushi.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/sushi.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/sushi.png" alt="威斯星星de小窝" title="威斯星星de小窝"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="威斯星星de小窝">威斯星星de小窝</a></h1>
+				<h2 class="blog-motto">多睡觉 多读书 多思考</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.xuyiruan.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/25/Hashtable-Hashmap-Hashset-linkedhashmap/" title="Hashtable vs Hashmap vs Hashset" itemprop="url">Hashtable vs Hashmap vs Hashset</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://www.xuyiruan.com/about" title="阮先生" target="_blank" itemprop="author">阮先生</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-25T06:35:52.000Z" itemprop="datePublished"> 發表於 03-25-2016</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HashTable,_HashMap,_HashSet"><span class="toc-number">1.</span> <span class="toc-text">HashTable, HashMap, HashSet</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HashMap"><span class="toc-number">2.</span> <span class="toc-text">HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Internal_Data_Structure"><span class="toc-number">2.1.</span> <span class="toc-text">Internal Data Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Characterstics"><span class="toc-number">2.2.</span> <span class="toc-text">Characterstics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance"><span class="toc-number">2.3.</span> <span class="toc-text">Performance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constructors"><span class="toc-number">2.4.</span> <span class="toc-text">Constructors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.5.</span> <span class="toc-text">Methods</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HashTable"><span class="toc-number">3.</span> <span class="toc-text">HashTable</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HashSet"><span class="toc-number">4.</span> <span class="toc-text">HashSet</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">4.1.</span> <span class="toc-text">Reference</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="HashTable,_HashMap,_HashSet"><strong>HashTable, HashMap, HashSet</strong></h1><table>
+<thead>
+<tr>
+<th>HashTable</th>
+<th>HashMap</th>
+<th>HashSet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>synchronized</td>
+<td>not synchronized</td>
+<td>not synchronized</td>
+</tr>
+<tr>
+<td>duplicate key allow</td>
+<td>duplicate key allow</td>
+<td>duplicate key <em>NOT</em> allow</td>
+</tr>
+<tr>
+<td>null keys or values NOT allow</td>
+<td>allows one null key &amp; many null values</td>
+<td>allow one null value</td>
+</tr>
+<tr>
+<td>key, value pair</td>
+<td>key, value pair</td>
+<td>non-duplicate value</td>
+</tr>
+<tr>
+<td>implement Map interface</td>
+<td>implement Map interface</td>
+<td>implement Set interface</td>
+</tr>
+</tbody>
+</table>
+<h1 id="HashMap"><strong>HashMap</strong></h1><h2 id="Internal_Data_Structure"><strong>Internal Data Structure</strong></h2><p>There are two type of internal data structure in Java programming. <em>Array</em> and <em>linked-list</em>. </p>
+<p><em>Array</em>‘s query can complete in constant time, however, operations such as add or remove certain elements result large overhead (rearranging elements within array). </p>
+<p>On the other hand, <em>linked-list</em> has huge overhead in query (treverse whole linked-list) however, the pure operation of add/delete in <em>linked-list</em> data structure (by maniuplating the pointer) is much easier comparing to <em>array</em>. </p>
+<p>HashMap/Table combines both constant query time from <em>array</em> and relatively better performance for add/delete with <em>linked-list</em> </p>
+<p>Below is a graphical represetation of a Hashtable.</p>
+<p><img src="http://img.my.csdn.net/uploads/201211/17/1353118778_2052.png" alt="HashMap internal data structure"></p>
+<p>As more and more <em>key value</em> pair ‘put’ into the hash table. It is very likely that different key values will result into the same location of the arrray cell - which is also called collision. A chain bucket was implemented with <em>linked-list</em>. As the number of collisions into the same array cell increased, the time to treverse the <em>linked-list</em> to look for the specified <em>key</em> value will increase. Once the size of the chain-bucket linked-list exceeds the <em>threadshold</em> ( threadshold = capacity <em> loadFactor). The size of the capacity (size of array) will increase from default capacity of 16 to 32 to reduce the overhead of treverse the long </em>linkedlist*. </p>
+<h2 id="Characterstics"><strong>Characterstics</strong></h2><p>Compared to <em>HashTable</em>, <em>HashMap</em> has the following special characters: </p>
+<p><strong>1. permit nulls</strong>  </p>
+<p>Null value is allowed for both <em>key</em> and <em>value</em> in <em>hashMap</em>, while that is not allowed in <em>hashTable</em>. There is only <strong>one</strong> <code>key=null</code> is permited in <em>hashMap</em>, while <strong>multiple</strong> <code>value=null</code> is allowed. Becaue of that, <code>get(Object key)</code> should not be used to determine whether <em>key</em> exists in a table since a <code>&lt;key, null&gt;</code> pair is legal in <em>hashMap</em>.</p>
+<p><strong>2. Unsynchronized in multi-thread</strong></p>
+<p><em>HashMap</em> implementation of hash table is not thread safe. Manual steps are needed to ensure thread safe in multiple threads environment. The simplest way to enusre thread-safe is by warpping with <code>Collections.synchronizedMap</code> method at the create time: </p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">Map m = Collections.synchronizedMap(new HashMap(<span class="keyword">...</span>));</span><br></pre></td></tr></table></figure>
+<p>The wrapping at <em>creatation time</em> prevent accidental unsynchronized behavior in multi-thread contest. </p>
+<ul>
+<li><em>Why collections class provide synchronized behavior???</em></li>
+</ul>
+<p>According to java documentation: </p>
+<blockquote>
+<p>The synchronization wrappers add automatic synchronization (thread-safety) to an arbitrary collection. Each of the six core collection interfaces — <em>Collection, Set, List, Map, SortedSet, and SortedMap</em></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Collection&lt;T&gt; <span class="title">synchronizedCollection</span><span class="params">(Collection&lt;T&gt; c)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Set&lt;T&gt; <span class="title">synchronizedSet</span><span class="params">(Set&lt;T&gt; s)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">synchronizedList</span><span class="params">(List&lt;T&gt; list)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; Map&lt;K,V&gt; synchronizedMap(Map&lt;K,V&gt; m);</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">SortedSet&lt;T&gt; <span class="title">synchronizedSortedSet</span><span class="params">(SortedSet&lt;T&gt; s)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; SortedMap&lt;K,V&gt; synchronizedSortedMap(SortedMap&lt;K,V&gt; m);</span><br></pre></td></tr></table></figure>
+<p>In example above, we use <code>synchronizedMap</code> in for one of the collection interface: Map with collection wrapper to ensure thread-safe ability for HashMap .</p>
+<h2 id="Performance"><strong>Performance</strong></h2><p><strong>1. constant time operation for <code>get()</code> and <code>put()</code> operation.</strong>  </p>
+<p><strong>2. <em>initial capacity</em> and <em>load factor</em> affect the performance of HashMap.</strong>     </p>
+<ul>
+<li><p>The <em>capacity</em> is the number of buckets in the hash table. Therefore the <em>initial capacity</em> is the number of bucekts in the hash table when created. <em>load factor</em> determines how full the hash table is allowed bofore its capacity is automatically increased. When number of entries exceeds <code>capacity * loadfactor</code>, the hash table is <em>rehashed</em>.  </p>
+</li>
+<li><p>Rule of thumb: the default load factor (.75) offers good tradeoff between time and space costs. For example, if known large amount of entries need to store into hash table, it will be more efficient to create a large capacity instead of performing automatic rehashing as needed. </p>
+</li>
+</ul>
+<h2 id="Constructors"><strong>Constructors</strong></h2><table>
+<thead>
+<tr>
+<th>Constructor Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HashMap()</code> - default initial capacity(16) and default load factor(.75)</td>
+</tr>
+<tr>
+<td><code>HashMap(int initialCapacity)</code> - Constructs an empty HashMap with the specified initial capacity and default load factor(.75)</td>
+</tr>
+<tr>
+<td><code>HashMap(int initialCapacity, float loadFactor)</code> - Constructs an empty HashMap with the specified intial capacity and load factor</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Methods"><strong>Methods</strong></h2><ul>
+<li><code>clear()</code>  </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remove all mappings from this map.</p>
+<ul>
+<li><code>put(K key, V value)</code></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assoicate the specified <em>value</em> with the specified <em>key</em> in this map.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. the <em>value</em> previously assoicated with the <em>key</em> OR<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. <code>null</code> if <em>key</em> not exists in the table before. </p>
+<ul>
+<li><code>get(Object key)</code>  </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the value of the corresponding key, or return <code>null</code> if:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. key not exists in the map<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. if the value of the key is <code>null</code>  </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Therefore we cannot use <code>get()</code> to determine if key exist in the haspmap, we should use <code>containsKey()</code> to check.   </p>
+<ul>
+<li><code>containsKey(Object key)</code>  </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return <code>true</code> if this map contains a mapping for the specific key.   </p>
+<ul>
+<li><code>containsValue(Object value)</code>  </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return <code>true</code> if this map contains a mapping for the specific value.   </p>
+<ul>
+<li><code>isEmpty()</code>  </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return ture if this map contains no key-value pair.</p>
+<ul>
+<li><code>remove(Object key)</code></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Removes the mapping for the specified key from this map if present.</p>
+<ul>
+<li><code>size()</code> </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the number of key-value mappings in this map.  </p>
+<p>——————————————————-less use ————————————————————-</p>
+<ul>
+<li><code>values()</code>  </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a <code>Collection&lt;V&gt;</code> view of the values contained in this map.</p>
+<ul>
+<li><code>Set&lt;K&gt;    keySet()</code> </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a Set view of the keys contained in this map.</p>
+<ul>
+<li><code>Object    clone()</code> </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a shallow copy of this HashMap instance: the keys and values themselves are not cloned.</p>
+<ul>
+<li><code>Set&lt;Map.Entry&lt;K,V&gt;&gt;    entrySet()</code>  </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a Set view of the mappings contained in this map.</p>
+<h1 id="HashTable"><strong>HashTable</strong></h1><blockquote>
+<p>Hashtable is basically a datastructure to retain values of key-value pair.  </p>
+<ul>
+<li>It didn’t allow null for both key and value. You will get NullPointerException if you add null value.  </li>
+<li>It is synchronized. So it comes with its cost. Only one thread can access in one time.</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Hashtable&lt;Integer,String&gt;; cityTable = <span class="keyword">new</span> Hashtable&lt;Integer,String&gt;();</span><br><span class="line">cityTable.put(<span class="number">1</span>, <span class="string">"Lahore"</span>);</span><br><span class="line">cityTable.put(<span class="number">2</span>, <span class="string">"Karachi"</span>);</span><br><span class="line">cityTable.put(<span class="number">3</span>, <span class="keyword">null</span>); <span class="comment">/* NullPointerEcxeption at runtime*/</span></span><br><span class="line"> </span><br><span class="line">System.out.println(cityTable.get(<span class="number">1</span>));</span><br><span class="line">System.out.println(cityTable.get(<span class="number">2</span>));</span><br><span class="line">System.out.println(cityTable.get(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+<h1 id="HashSet"><strong>HashSet</strong></h1><blockquote>
+<p>HashSet does not allow duplicate values. It provides add method rather put method. You also use its contain method to check whether the object is already available in HashSet. HashSet can be used where you want to maintain a <strong><em>unique list</em></strong>.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">HashSet&lt;String&gt; stateSet = <span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line">stateSet.add (<span class="string">"CA"</span>);</span><br><span class="line">stateSet.add (<span class="string">"WI"</span>);</span><br><span class="line">stateSet.add (<span class="string">"NY"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> (stateSet.contains(<span class="string">"PB"</span>)) <span class="comment">/* if CA, it will not add but shows following message*/</span></span><br><span class="line">     System.out.println(<span class="string">"Already found"</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    stateSet.add(<span class="string">"PB"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Reference">Reference</h2><p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html" target="_blank" rel="external">Java Documentation</a><br><a href="http://blog.csdn.net/tgxblue/article/details/8479147" target="_blank" rel="external">HashMap internal data structure</a><br><a href="https://docs.oracle.com/javase/tutorial/collections/implementations/wrapper.html" target="_blank" rel="external">Collection Wrapper</a><br><a href="http://stackoverflow.com/questions/6046263/how-to-indent-a-few-lines-in-markdown-markup" target="_blank" rel="external">Markdown Indentation</a><br><a href="http://www.jianshu.com/p/q81RER" target="_blank" rel="external">Markdown excerpt</a><br><a href="https://www.quora.com/What-is-the-difference-between-HashSet-HashMap-and-hash-table-How-do-they-behave-in-a-multi-threaded-environment" target="_blank" rel="external">hasmap VS hashset VS hashtable</a><br><a href="http://www.pakzilla.com/2009/08/24/hashmap-vs-hashtable-vs-hashset/" target="_blank" rel="external">HashMap vs Hashtable vs HashSet</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/DataStructure/">DataStructure</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/HashMap/">HashMap</a><a href="/tags/HashSet/">HashSet</a><a href="/tags/HashTable/">HashTable</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.xuyiruan.com/2016/03/25/Hashtable-Hashmap-Hashset-linkedhashmap/" data-title="Hashtable vs Hashmap vs Hashset | 威斯星星de小窝" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/03/02/reverse-linked-list/"  title="reverse-linked-list">
+ <strong>下一篇：</strong><br/> 
+ <span>reverse-linked-list
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/03/25/Hashtable-Hashmap-Hashset-linkedhashmap/" data-title="Hashtable vs Hashmap vs Hashset" data-url="http://www.xuyiruan.com/2016/03/25/Hashtable-Hashmap-Hashset-linkedhashmap/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HashTable,_HashMap,_HashSet"><span class="toc-number">1.</span> <span class="toc-text">HashTable, HashMap, HashSet</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HashMap"><span class="toc-number">2.</span> <span class="toc-text">HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Internal_Data_Structure"><span class="toc-number">2.1.</span> <span class="toc-text">Internal Data Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Characterstics"><span class="toc-number">2.2.</span> <span class="toc-text">Characterstics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance"><span class="toc-number">2.3.</span> <span class="toc-text">Performance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constructors"><span class="toc-number">2.4.</span> <span class="toc-text">Constructors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.5.</span> <span class="toc-text">Methods</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HashTable"><span class="toc-number">3.</span> <span class="toc-text">HashTable</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HashSet"><span class="toc-number">4.</span> <span class="toc-text">HashSet</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">4.1.</span> <span class="toc-text">Reference</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/DataStructure/" title="DataStructure">DataStructure<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MoblieApplication/" title="MoblieApplication">MoblieApplication<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/RandomThought/" title="RandomThought">RandomThought<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Work/" title="Work">Work<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/leetcode/" title="leetcode">leetcode<sup>1</sup></a></li>
+		  
+		
+		  
+		
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/ParadropLab/" title="ParadropLab">ParadropLab<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Life/" title="Life">Life<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AndroidStudio/" title="AndroidStudio">AndroidStudio<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/linkedlist/" title="linkedlist">linkedlist<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Photography/" title="Photography">Photography<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/UbuntuSnappy/" title="UbuntuSnappy">UbuntuSnappy<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HashTable/" title="HashTable">HashTable<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HashMap/" title="HashMap">HashMap<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HashSet/" title="HashSet">HashSet<sup>1</sup></a></li>
+			
+		
+			
+		
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://mszhuchinese.com" target="_blank" title="MsZhu Learn Chinese">MsZhu Learn Chinese</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.winniebabe.com" target="_blank" title="Winnie Babe的小窝">Winnie Babe的小窝</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://suncuss.me" target="_blank" title="孙老板&#39;s Blog">孙老板&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 写代码, 学知识, 为了和你一起活着 <br/>
+			尝美食, 游世界, 为了给你更好的生活</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> © 2016 
+		
+		<a href="http://www.xuyiruan.com/about" target="_blank" title="阮先生">阮先生</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"xruan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-61663668-1', 'www.xuyiruan.com');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+  </body>
+</html>
