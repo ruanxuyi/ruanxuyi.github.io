@@ -23,6 +23,8 @@ At this stage, we send command from dbapi server (`dbapi_tool.py`) to create AP 
 To start, I would recommend that you change the sniff.py file so that during init it looks for the AP settings and it sets up hostapd if they are found. We can manually change the database configuration to have these extra settings without changing the dbapi_recon.py file, so this would be the easiest thing to do first.
 
 
+<!-- more -->
+
 ## Thought Process: 
 
 Inside `sniff.py` file,  

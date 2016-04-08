@@ -1,4 +1,4 @@
-title: "ubuntu_snappy_apu"
+title: "Ubuntu Snappy"
 date: 2015-07-13 13:20:18
 updated: 2015-07-13 13:20:18
 tags: 
@@ -7,6 +7,9 @@ tags:
 categories: Work
 ---
 
+
+# Description: 
+Paradrop 2.0 will be deployed on the newest Ubuntu 15.04. The following task will try to deploy Ubuntu snappy on the paradrop router.
 
 
 
@@ -18,9 +21,6 @@ categories: Work
 4. ~~fix driver issue for wan port(it works)~~
 4. ~~fix the driver issues for wirless card(it works)~~
 
-
-# Objective: 
-Paradrop 2.0 will be deployed on the newest Ubuntu 15.04. The following task will try to deploy Ubuntu snappy on the paradrop router.
 
 
 # Writing the .img file to the SD card
@@ -62,6 +62,7 @@ password: ubuntu
 
 <img src="http://7xihzu.com1.z0.glb.clouddn.com/work.ubuntu15.jpg" alt="Snappy Ubuntu Core" style="width:600px;"/>
 
+<!-- more -->
 
 # Current issues: 
 

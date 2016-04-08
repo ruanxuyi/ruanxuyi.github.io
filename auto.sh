@@ -18,4 +18,6 @@ else
     echo "************* Local Testing myBlog *****************"
     # preview draft at local
     hexo s --drafts
+    # preview witout drafts
+    #hexo s
 fi

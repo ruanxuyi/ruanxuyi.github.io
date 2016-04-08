@@ -22,8 +22,8 @@ look at code in `loc_node` to see poetential place to add white list filtering i
 2. `/home/xuyi/paradrop/trunk/scripts/recon_loc.conf ` - configuration file to create specific `loc` instances follow by `loc_node`
 3. `/home/xuyi/paradrop/trunk/backend/loc/loc_node.py` - receive raw data (RSSI data) forward by `dbapi` and filter the  raw data by last digit of the associated MAC address. ex. (0-7) goes to `loc1` and (8-F) goes to `loc2`. We need to add new function to filter specific MAC by creating a white list.  
 4. `/home/xuyi/paradrop/trunk/backend/loc/loc.py` - the sever that process and compute the raw data from `loc_node` then sent computed data back to `dbapi_server` and store there.
-5. 
 
+<!-- more -->
 
 ## Study Notes: 
 1.in side the `loc_node.py` file, function `generateMacMap` generates a dictionary `macMap` that map `last char of MAC` to `loc id number`

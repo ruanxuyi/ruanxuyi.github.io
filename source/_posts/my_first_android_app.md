@@ -1,18 +1,21 @@
-title: "My first android app - StopWatch"
+title: "StopWatch - Andriod"
 date: 2015-09-14 14:17:17
 updated: 2015-09-14 14:17:17
-tags: Android Development, ece454
-categories: 
+tags: AndroidStudio
+categories: MoblieApplication
 ---
 
 ## **Description:**
 
 This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of `Runnerable`, `Multli-threads application`,`Handler`, as well as `OnClickListener`
 
-### **key components:** 
+<img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp2.png" alt="running app" style="width:600px"/>
+ 
+### **Key components:** 
 
 When a new Handler Object is instantaited, a stand alone thread and a conressponding message queue is created. Handler object now can push/send either `Message Object` or `Runnable Object` into the message queue. Each Handler has its own seperate message queue, however, the Main UI thread is able to access and dequeue message/runnable from those queue from Handler. There are following two ways to send message/runnable to the queue: `Post` and `sendMessage()`.
 
+<!-- more -->
 
 ## **TODO**
 
@@ -84,8 +87,7 @@ Attach the code for the this stopwatch applications. Hope you enjoy your first a
 
 <img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp1.png" alt="stopWatch UI" style="width:600px;"/>
 
-<img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp2.png" alt="running app" style="width:600px"/>
- 
+
 ### ** Codes **
 
 [Click here for Code!](https://github.com/ruanxuyi/ece454minilab2)

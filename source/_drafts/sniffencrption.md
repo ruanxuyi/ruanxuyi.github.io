@@ -45,6 +45,7 @@ Outputs:
 
     iw dev wlan0 scan
 
+<!-- more -->
 
 ### Connect to the router:
 1. SSID: ParadropXX

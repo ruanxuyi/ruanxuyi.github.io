@@ -33,7 +33,8 @@ package: JSON object.
         wdev 0x100002490
         addr 04:f0:21:10:c0:d8
         type monitor
-        
+
+<!-- more -->
 
 ## **Useful commands: **  
 
