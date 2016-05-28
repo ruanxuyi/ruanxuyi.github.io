@@ -1,5 +1,11 @@
 <!doctype html>
-<html class="theme-next   use-motion ">
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -21,20 +27,57 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
   
-    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Bree Serif:300,300italic,400,400italic,700,700italic|Arimo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -46,7 +89,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png?v=0.4.5.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/author.jpg?v=5.0.1" />
 
 
 
@@ -55,39 +98,36 @@
 
 <meta name="description" content="阮先生’s blog">
 <meta property="og:type" content="website">
-<meta property="og:title" content="威斯星星de小窝">
+<meta property="og:title" content="阮先生de小窝">
 <meta property="og:url" content="http://www.xuyiruan.com/index.html">
-<meta property="og:site_name" content="威斯星星de小窝">
+<meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="阮先生’s blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="威斯星星de小窝">
+<meta name="twitter:title" content="阮先生de小窝">
 <meta name="twitter:description" content="阮先生’s blog">
 
 
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post',
-    motion: true
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
   };
 </script>
 
-  <title> 威斯星星de小窝 </title>
+  <title> 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -95,9 +135,18 @@
 
 
 
-  <div class="container one-column 
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -107,11 +156,11 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">威斯星星de小窝</span>
+      <span class="site-title">阮先生de小窝</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">多睡觉 多读书 多思考</p>
+  <p class="site-subtitle">多读书 多思考 少吃零食 多睡觉</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -126,15 +175,25 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
           </a>
         </li>
       
@@ -142,7 +201,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
           </a>
@@ -152,7 +211,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
           </a>
@@ -162,14 +221,23 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             About
           </a>
         </li>
       
-
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Search
+          </a>
+        </li>
       
+
       
     </ul>
   
@@ -182,15 +250,10 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-
-    
-
-    
-    
-
     
       
 
@@ -223,15 +286,22 @@
 
         <div class="post-meta">
           <span class="post-time">
-            Posted on
-            <time itemprop="dateCreated" datetime="2016-03-28T19:35:52+00:00" content="03-28-2016">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-03-28T18:35:52+00:00" content="03-28-2016">
               03-28-2016
             </time>
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; In
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/DataStructure/" itemprop="url" rel="index">
@@ -259,21 +329,23 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <p>LeetCode #33</p>
+          <p>LeetCode #33</p>
 <p>Tag: binary search, array, </p>
 <h1 id="Binary_Search"><strong>Binary Search</strong></h1><ol>
 <li>In-order list. </li>
@@ -286,36 +358,20 @@
 <p>low + high &lt; 0时，如low = -3, high = 2时，计算出来的中点是0。<br>然而用low + (high – low) / 2计算出来的中点是-1。</p>
 <p>算法二: 向下取整。(ex. 1.5 －&gt; 1, -0.5 -&gt; -1)<br>算法一: mid 是向0取整: (ex. 1.5 -&gt; 1, -0.5 -&gt; 0)  </p>
 <p>为了避免 向0取整 用算法二。</p>
-<h3 id="3:_prevent_using_recursion:">3: prevent using recursion:</h3><p>slow, dont use it??</p>
-<p>maybe use up too many system resource??</p>
-<h2 id="Regular_Binary_Search_Templete"><strong>Regular Binary Search Templete</strong></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) </span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">		mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125; <span class="function"><span class="keyword">else</span> <span class="title">if</span> <span class="params">(target &lt; nums[mid])</span></span>&#123;</span><br><span class="line">			high = mid - <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			low = mid + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Search_in_Rotated_Sorted_Array"><strong>Search in Rotated Sorted Array</strong></h2><p>Suppose a sorted array is rotated at some pivot unknown to you beforehand.</p>
-<p>(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).</p>
-<p>You are given a target value to search. If found in the array return its index, otherwise return -1.</p>
-<p>You may assume no duplicate exists in the array.</p>
-<p><strong>Solution 1: Iteration (in linear time complexity)</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (nums[i] == target)</span><br><span class="line">				<span class="keyword">return</span> i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Solution 2: Binary Search (time complexity in log(N))</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = nums.length - <span class="number">1</span> ;</span><br><span class="line">        <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">            mid = low + (high - low)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target == nums[mid])</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="comment">// if nums[low] &lt; nums[mid] -&gt; this portion in-order-&gt; can apply binary search</span></span><br><span class="line">            <span class="function"><span class="keyword">else</span> <span class="title">if</span> <span class="params">(nums[low] &lt;= nums[mid])</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (target &lt; nums[mid] &amp;&amp; target &gt;= nums[low])</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    low = mid + <span class="number">1</span>; <span class="comment">// nums[low] = nums[mid] case</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// if nums[low] &gt;= nums[mid] -&gt; other protion in-order</span></span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//if (nums[low] &gt; nums[mid]) &#123;</span></span><br><span class="line">                <span class="keyword">if</span> (target &gt; nums[mid] &amp;&amp; target &lt;= nums[high])</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Solution 3: Binary Search with recursion</strong></p>
- <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="javadoc">/**</span><br><span class="line"> * Recursion with binary search</span><br><span class="line"> * </span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> binarySearch(nums, target, <span class="number">0</span>, <span class="number">0</span>, nums.length-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target, <span class="keyword">int</span> low, <span class="keyword">int</span> mid, <span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (low &lt;= high) &#123;</span><br><span class="line">            mid = low + (high - low)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target == nums[mid])</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">                <span class="comment">// if nums[low] &lt; nums[mid] -&gt; this portion in-order-&gt; can apply binary search</span></span><br><span class="line">            <span class="function"><span class="keyword">else</span> <span class="title">if</span> <span class="params">(nums[low] &lt;= nums[mid])</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (target &lt; nums[mid] &amp;&amp; target &gt;= nums[low])</span><br><span class="line">                    <span class="keyword">return</span> binarySearch(nums, target, low, mid, mid - <span class="number">1</span>);</span><br><span class="line">                <span class="function"><span class="keyword">else</span></span><br><span class="line">                    return <span class="title">binarySearch</span><span class="params">(nums, target, mid + <span class="number">1</span>, mid, high)</span></span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// if nums[low] &gt;= nums[mid] -&gt; other protion in-order</span></span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//if (nums[low] &gt; nums[mid]) &#123;</span></span><br><span class="line">                <span class="keyword">if</span> (target &gt; nums[mid] &amp;&amp; target &lt;= nums[high])</span><br><span class="line">                    <span class="keyword">return</span> binarySearch(nums, target, mid + <span class="number">1</span>, mid, high);</span><br><span class="line">                <span class="function"><span class="keyword">else</span></span><br><span class="line">                    return <span class="title">binarySearch</span><span class="params">(nums, target, low, mid, mid - <span class="number">1</span>)</span></span>;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>拓展: Allow of duplication</strong></p>
-<p>In the previous case, if <code>nums[low] &lt;= nums[mid]</code>, we knows that [low, mid] is in a ordered sequence ([2, 3, 4, 5] for example).<br>BUT now with duplication allowed, this no longer hold (<code>[1, 1, 3, 1]</code> with <code>low = 1</code>, <code>mid = 1</code>). if we still image <code>[1, 1, 3, 1]</code> is an ordered sequency (since nums[low] &lt;= nums[mid]), we will not be able to notice <code>target 3</code> is in this sequence. Hence, now we need to be careful with condition <code>nums[low] &lt;= nums[mid]</code>.</p>
-<p>Lets break this condition into two cases:   </p>
-<ol>
-<li>when <code>nums[low] &lt; nums[mid]</code><br>In this case, we are confident that [low, mid] is a increasing ordered sequence. We can apply binary search on [low, mid] to locate the target value.   </li>
-<li>when <code>num[low] == nums[mid]</code><br>In this case, since duplications are allowed, we don’t know if <code>[low, mid]</code> sequence is still an ordered increasing list. Therefore we can not be determine if target value is within <code>[low, mid]</code>. Hence, we simply increment the <code>low</code> pointer and cotinue with the algorithm.</li>
-</ol>
-<p>In this case, the time complexity will increase if the number of duplicated elements are large. Other than that, the time complexity will stay similar if not many duplications is in the sequence.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = nums.length - <span class="number">1</span> ;</span><br><span class="line">        <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">            mid = low + (high - low)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target == nums[mid])</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="comment">// if nums[low] &lt; nums[mid] -&gt; this portion in-order-&gt; can apply binary search</span></span><br><span class="line">            <span class="function"><span class="keyword">else</span> <span class="title">if</span> <span class="params">(nums[low] &lt; nums[mid])</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (target &lt; nums[mid] &amp;&amp; target &gt;= nums[low])</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    low = mid + <span class="number">1</span>; <span class="comment">// nums[low] = nums[mid] case</span></span><br><span class="line">            &#125; <span class="function"><span class="keyword">else</span> <span class="title">if</span> <span class="params">(nums[low] == nums[mid])</span> </span>&#123;</span><br><span class="line">                <span class="comment">// account for duplication</span></span><br><span class="line">                low++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">// if nums[low] &gt; nums[mid] -&gt; other protion in-order</span></span><br><span class="line">                <span class="keyword">if</span> (target &gt; nums[mid] &amp;&amp; target &lt;= nums[high]) &#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>给定一个升序排列的自然数数组，数组中包含重复数字，例如：[1,2,2,3,4,4,4,5,6,7,7]。问题：给定任意自然数，对数组进行二分查找，返回数组正确的位置，给出函数实现。注：连续相同的数字，返回第一个匹配位置还是最后一个匹配位置，由函数传入参数决定。</p>
-<p>Reference: </p>
-<p><a href="http://blog.csdn.net/maqingli87/article/details/8009186" target="_blank" rel="external">http://blog.csdn.net/maqingli87/article/details/8009186</a></p>
-<p><a href="http://hedengcheng.com/?p=595" target="_blank" rel="external">Binary Search</a><br>[duplication allowed] (<a href="http://www.2cto.com/kf/201401/272968.html" target="_blank" rel="external">http://www.2cto.com/kf/201401/272968.html</a>)</p>
-
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/28/BinarySearch/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -364,15 +420,22 @@
 
         <div class="post-meta">
           <span class="post-time">
-            Posted on
-            <time itemprop="dateCreated" datetime="2016-03-28T19:35:52+00:00" content="03-28-2016">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-03-28T18:35:52+00:00" content="03-28-2016">
               03-28-2016
             </time>
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; In
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/DataStructure/" itemprop="url" rel="index">
@@ -400,26 +463,37 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h1 id="BFS_and_DFS">BFS and DFS</h1><h2 id="BFS">BFS</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="javadoc">/**</span><br><span class="line"> * 本代码由九章算法编辑提供。没有版权欢迎转发。</span><br><span class="line"> * - 九章算法致力于帮助更多中国人找到好的工作，教师团队均来自硅谷和国内的一线大公司在职工程师。</span><br><span class="line"> * - 现有的面试培训课程包括：九章算法班，系统设计班，BAT国内班</span><br><span class="line"> * - 更多详情请见官方网站：http://www.jiuzhang.com/</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">        ArrayList result = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">            </span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        queue.offer(root);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            ArrayList&lt;Integer&gt; level = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">            <span class="keyword">int</span> size = queue.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">                TreeNode head = queue.poll();</span><br><span class="line">                level.add(head.val);</span><br><span class="line">                <span class="keyword">if</span> (head.left != <span class="keyword">null</span>)</span><br><span class="line">                    queue.offer(head.left);</span><br><span class="line">                <span class="keyword">if</span> (head.right != <span class="keyword">null</span>)</span><br><span class="line">                    queue.offer(head.right);</span><br><span class="line">            &#125;</span><br><span class="line">            result.add(level);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="DFS">DFS</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="javadoc">/**</span><br><span class="line"> * 本代码由九章算法编辑提供。没有版权欢迎转发。</span><br><span class="line"> * - 九章算法致力于帮助更多中国人找到好的工作，教师团队均来自硅谷和国内的一线大公司在职工程师。</span><br><span class="line"> * - 现有的面试培训课程包括：九章算法班，系统设计班，BAT国内班</span><br><span class="line"> * - 更多详情请见官方网站：http://www.jiuzhang.com/</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line">Template <span class="number">1</span>: Traverse</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">        traverse(root.left);</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">        traverse(root.right);</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Tempate <span class="number">2</span>: Divide &amp; Conquer</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultType <span class="title">traversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// null or leaf</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// do something and return;</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Divide</span></span><br><span class="line">        ResultType left = traversal(root.left);</span><br><span class="line">        ResultType right = traversal(root.right);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Conquer</span></span><br><span class="line">        ResultType result = Merge from left and right.</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-            
-          </span>
+          <h1 id="BFS_and_DFS">BFS and DFS</h1><h2 id="BFS">BFS</h2>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/28/BFS-DFS/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -468,15 +542,22 @@
 
         <div class="post-meta">
           <span class="post-time">
-            Posted on
-            <time itemprop="dateCreated" datetime="2016-03-25T19:35:52+00:00" content="03-25-2016">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-03-25T18:35:52+00:00" content="03-25-2016">
               03-25-2016
             </time>
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; In
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/DataStructure/" itemprop="url" rel="index">
@@ -504,21 +585,23 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h1 id="HashTable,_HashMap,_HashSet"><strong>HashTable, HashMap, HashSet</strong></h1><table>
+          <h1 id="HashTable,_HashMap,_HashSet"><strong>HashTable, HashMap, HashSet</strong></h1><table>
 <thead>
 <tr>
 <th>HashTable</th>
@@ -554,123 +637,20 @@
 </tr>
 </tbody>
 </table>
-<h1 id="HashMap"><strong>HashMap</strong></h1><h2 id="Internal_Data_Structure"><strong>Internal Data Structure</strong></h2><p>There are two type of internal data structure in Java programming. <em>Array</em> and <em>linked-list</em>. </p>
-<p><em>Array</em>‘s query can complete in constant time, however, operations such as add or remove certain elements result large overhead (rearranging elements within array). </p>
-<p>On the other hand, <em>linked-list</em> has huge overhead in query (treverse whole linked-list) however, the pure operation of add/delete in <em>linked-list</em> data structure (by maniuplating the pointer) is much easier comparing to <em>array</em>. </p>
-<p>HashMap/Table combines both constant query time from <em>array</em> and relatively better performance for add/delete with <em>linked-list</em> </p>
-<p>Below is a graphical represetation of a Hashtable.</p>
-<p><img src="http://img.my.csdn.net/uploads/201211/17/1353118778_2052.png" alt="HashMap internal data structure"></p>
-<p>As more and more <em>key value</em> pair ‘put’ into the hash table. It is very likely that different key values will result into the same location of the arrray cell - which is also called collision. A chain bucket was implemented with <em>linked-list</em>. As the number of collisions into the same array cell increased, the time to treverse the <em>linked-list</em> to look for the specified <em>key</em> value will increase. Once the size of the chain-bucket linked-list exceeds the <em>threadshold</em> ( threadshold = capacity <em> loadFactor). The size of the capacity (size of array) will increase from default capacity of 16 to 32 to reduce the overhead of treverse the long </em>linkedlist*. </p>
-<h2 id="Characterstics"><strong>Characterstics</strong></h2><p>Compared to <em>HashTable</em>, <em>HashMap</em> has the following special characters: </p>
-<p><strong>1. permit nulls</strong>  </p>
-<p>Null value is allowed for both <em>key</em> and <em>value</em> in <em>hashMap</em>, while that is not allowed in <em>hashTable</em>. There is only <strong>one</strong> <code>key=null</code> is permited in <em>hashMap</em>, while <strong>multiple</strong> <code>value=null</code> is allowed. Becaue of that, <code>get(Object key)</code> should not be used to determine whether <em>key</em> exists in a table since a <code>&lt;key, null&gt;</code> pair is legal in <em>hashMap</em>.</p>
-<p><strong>2. Unsynchronized in multi-thread</strong></p>
-<p><em>HashMap</em> implementation of hash table is not thread safe. Manual steps are needed to ensure thread safe in multiple threads environment. The simplest way to enusre thread-safe is by warpping with <code>Collections.synchronizedMap</code> method at the create time: </p>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">Map m = Collections.synchronizedMap(new HashMap(<span class="keyword">...</span>));</span><br></pre></td></tr></table></figure>
-<p>The wrapping at <em>creatation time</em> prevent accidental unsynchronized behavior in multi-thread contest. </p>
-<ul>
-<li><em>Why collections class provide synchronized behavior???</em></li>
-</ul>
-<p>According to java documentation: </p>
-<blockquote>
-<p>The synchronization wrappers add automatic synchronization (thread-safety) to an arbitrary collection. Each of the six core collection interfaces — <em>Collection, Set, List, Map, SortedSet, and SortedMap</em></p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Collection&lt;T&gt; <span class="title">synchronizedCollection</span><span class="params">(Collection&lt;T&gt; c)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Set&lt;T&gt; <span class="title">synchronizedSet</span><span class="params">(Set&lt;T&gt; s)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">synchronizedList</span><span class="params">(List&lt;T&gt; list)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; Map&lt;K,V&gt; synchronizedMap(Map&lt;K,V&gt; m);</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">SortedSet&lt;T&gt; <span class="title">synchronizedSortedSet</span><span class="params">(SortedSet&lt;T&gt; s)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; SortedMap&lt;K,V&gt; synchronizedSortedMap(SortedMap&lt;K,V&gt; m);</span><br></pre></td></tr></table></figure>
-<p>In example above, we use <code>synchronizedMap</code> in for one of the collection interface: Map with collection wrapper to ensure thread-safe ability for HashMap .</p>
-<h2 id="Performance"><strong>Performance</strong></h2><p><strong>1. constant time operation for <code>get()</code> and <code>put()</code> operation.</strong>  </p>
-<p><strong>2. <em>initial capacity</em> and <em>load factor</em> affect the performance of HashMap.</strong>     </p>
-<ul>
-<li><p>The <em>capacity</em> is the number of buckets in the hash table. Therefore the <em>initial capacity</em> is the number of bucekts in the hash table when created. <em>load factor</em> determines how full the hash table is allowed bofore its capacity is automatically increased. When number of entries exceeds <code>capacity * loadfactor</code>, the hash table is <em>rehashed</em>.  </p>
-</li>
-<li><p>Rule of thumb: the default load factor (.75) offers good tradeoff between time and space costs. For example, if known large amount of entries need to store into hash table, it will be more efficient to create a large capacity instead of performing automatic rehashing as needed. </p>
-</li>
-</ul>
-<h2 id="Constructors"><strong>Constructors</strong></h2><table>
-<thead>
-<tr>
-<th>Constructor Summary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>HashMap()</code> - default initial capacity(16) and default load factor(.75)</td>
-</tr>
-<tr>
-<td><code>HashMap(int initialCapacity)</code> - Constructs an empty HashMap with the specified initial capacity and default load factor(.75)</td>
-</tr>
-<tr>
-<td><code>HashMap(int initialCapacity, float loadFactor)</code> - Constructs an empty HashMap with the specified intial capacity and load factor</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Methods"><strong>Methods</strong></h2><ul>
-<li><code>clear()</code>  </li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remove all mappings from this map.</p>
-<ul>
-<li><code>put(K key, V value)</code></li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assoicate the specified <em>value</em> with the specified <em>key</em> in this map.</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. the <em>value</em> previously assoicated with the <em>key</em> OR<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. <code>null</code> if <em>key</em> not exists in the table before. </p>
-<ul>
-<li><code>get(Object key)</code>  </li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the value of the corresponding key, or return <code>null</code> if:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. key not exists in the map<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. if the value of the key is <code>null</code>  </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Therefore we cannot use <code>get()</code> to determine if key exist in the haspmap, we should use <code>containsKey()</code> to check.   </p>
-<ul>
-<li><code>containsKey(Object key)</code>  </li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return <code>true</code> if this map contains a mapping for the specific key.   </p>
-<ul>
-<li><code>containsValue(Object value)</code>  </li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return <code>true</code> if this map contains a mapping for the specific value.   </p>
-<ul>
-<li><code>isEmpty()</code>  </li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return ture if this map contains no key-value pair.</p>
-<ul>
-<li><code>remove(Object key)</code></li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Removes the mapping for the specified key from this map if present.</p>
-<ul>
-<li><code>size()</code> </li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the number of key-value mappings in this map.  </p>
-<p>——————————————————-less use ————————————————————-</p>
-<ul>
-<li><code>values()</code>  </li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a <code>Collection&lt;V&gt;</code> view of the values contained in this map.</p>
-<ul>
-<li><code>Set&lt;K&gt;    keySet()</code> </li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a Set view of the keys contained in this map.</p>
-<ul>
-<li><code>Object    clone()</code> </li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a shallow copy of this HashMap instance: the keys and values themselves are not cloned.</p>
-<ul>
-<li><code>Set&lt;Map.Entry&lt;K,V&gt;&gt;    entrySet()</code>  </li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a Set view of the mappings contained in this map.</p>
-<h1 id="HashTable"><strong>HashTable</strong></h1><blockquote>
-<p>Hashtable is basically a datastructure to retain values of key-value pair.  </p>
-<ul>
-<li>It didn’t allow null for both key and value. You will get NullPointerException if you add null value.  </li>
-<li>It is synchronized. So it comes with its cost. Only one thread can access in one time.</li>
-</ul>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Hashtable&lt;Integer,String&gt;; cityTable = <span class="keyword">new</span> Hashtable&lt;Integer,String&gt;();</span><br><span class="line">cityTable.put(<span class="number">1</span>, <span class="string">"Lahore"</span>);</span><br><span class="line">cityTable.put(<span class="number">2</span>, <span class="string">"Karachi"</span>);</span><br><span class="line">cityTable.put(<span class="number">3</span>, <span class="keyword">null</span>); <span class="comment">/* NullPointerEcxeption at runtime*/</span></span><br><span class="line"> </span><br><span class="line">System.out.println(cityTable.get(<span class="number">1</span>));</span><br><span class="line">System.out.println(cityTable.get(<span class="number">2</span>));</span><br><span class="line">System.out.println(cityTable.get(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
-<h1 id="HashSet"><strong>HashSet</strong></h1><blockquote>
-<p>HashSet does not allow duplicate values. It provides add method rather put method. You also use its contain method to check whether the object is already available in HashSet. HashSet can be used where you want to maintain a <strong><em>unique list</em></strong>.</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">HashSet&lt;String&gt; stateSet = <span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line">stateSet.add (<span class="string">"CA"</span>);</span><br><span class="line">stateSet.add (<span class="string">"WI"</span>);</span><br><span class="line">stateSet.add (<span class="string">"NY"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> (stateSet.contains(<span class="string">"PB"</span>)) <span class="comment">/* if CA, it will not add but shows following message*/</span></span><br><span class="line">     System.out.println(<span class="string">"Already found"</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    stateSet.add(<span class="string">"PB"</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="Reference">Reference</h2><p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html" target="_blank" rel="external">Java Documentation</a><br><a href="http://blog.csdn.net/tgxblue/article/details/8479147" target="_blank" rel="external">HashMap internal data structure</a><br><a href="https://docs.oracle.com/javase/tutorial/collections/implementations/wrapper.html" target="_blank" rel="external">Collection Wrapper</a><br><a href="http://stackoverflow.com/questions/6046263/how-to-indent-a-few-lines-in-markdown-markup" target="_blank" rel="external">Markdown Indentation</a><br><a href="http://www.jianshu.com/p/q81RER" target="_blank" rel="external">Markdown excerpt</a><br><a href="https://www.quora.com/What-is-the-difference-between-HashSet-HashMap-and-hash-table-How-do-they-behave-in-a-multi-threaded-environment" target="_blank" rel="external">hasmap VS hashset VS hashtable</a><br><a href="http://www.pakzilla.com/2009/08/24/hashmap-vs-hashtable-vs-hashset/" target="_blank" rel="external">HashMap vs Hashtable vs HashSet</a></p>
-
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/25/Hashtable-Hashmap-Hashset-linkedhashmap/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -710,7 +690,7 @@
               
                 
                 <a class="post-title-link" href="/2016/03/02/reverse-linked-list/" itemprop="url">
-                  reverse-linked-list
+                  Reverse linkedlist
                 </a>
               
             
@@ -719,15 +699,22 @@
 
         <div class="post-meta">
           <span class="post-time">
-            Posted on
-            <time itemprop="dateCreated" datetime="2016-03-02T08:04:12+00:00" content="03-02-2016">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-03-02T07:04:12+00:00" content="03-02-2016">
               03-02-2016
             </time>
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; In
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/leetcode/" itemprop="url" rel="index">
@@ -755,36 +742,39 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h1 id="#206_Reverse_Linked_List">#206 Reverse Linked List</h1><p><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="external">Try it yourself</a></p>
+          <h2 id="206_Reverse_Linked_List">206 Reverse Linked List</h2><p><a href="https://leetcode.com/problems/reverse-linked-list/">Try it yourself</a></p>
 <h2 id="Requirment:">Requirment:</h2><p>Reverse a singly linked list.</p>
-<h2 id="Solution_1:_(Iteratively_O(N))">Solution 1: (Iteratively O(N))</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="javadoc">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ListNode curr = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode tmp = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode reverseHead = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        <span class="comment">// create the head for reversed list.</span></span><br><span class="line">        curr = head;</span><br><span class="line">        tmp.val = curr.val;</span><br><span class="line">        tmp.next = <span class="keyword">null</span>;</span><br><span class="line">        reverseHead = tmp;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (curr.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            curr = curr.next;</span><br><span class="line">            tmp = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">            tmp.val = curr.val;</span><br><span class="line">            tmp.next = reverseHead;</span><br><span class="line">            reverseHead = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> reverseHead;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Solution_2:_(Cleaner_Version)">Solution 2: (Cleaner Version)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="javadoc">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// Much cleaner version with only manipulation on pointer </span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">           ListNode temp = <span class="keyword">null</span>;</span><br><span class="line">           temp = head.next;</span><br><span class="line">           head.next = pre;</span><br><span class="line">           pre = head;</span><br><span class="line">           head = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="#92-_Reverse_Linked_List_II">#92. Reverse Linked List II</h1><p><a href="https://leetcode.com/problems/reverse-linked-list-ii/" target="_blank" rel="external">Try it yourself!</a></p>
-<h2 id="Task:">Task:</h2><p>Reverse a linked list from position <code>m</code> to <code>n</code>. Do it in-place and in one-pass.</p>
-<p>For example:<br>Given <code>1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</code>, <code>m = 2</code> and <code>n = 4</code>,</p>
-<p>return <code>1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL</code>.</p>
-<p>Note:<br>Given <code>m</code>, <code>n</code> satisfy the following condition:<br><code>1 ≤ m ≤ n ≤ length of list</code>.</p>
-<h3 id="Note">Note</h3><p>This version can also be implied to other similar question on the interview:<br>Example: To reverse the second half of the linkedlist. </p>
-<h2 id="Solution:">Solution:</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="javadoc">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseBetween</span><span class="params">(ListNode head, <span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// corner case, 1. empty, 2, single element, 3, m &lt; n constraint, 4. duplicate, </span></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || m &gt; n || m == n) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// create dummy header to get back to orginal linkedlist</span></span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummy.next = head;</span><br><span class="line">        head = dummy; </span><br><span class="line">        </span><br><span class="line">        <span class="comment">// treverse to head. </span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="comment">// index outof bound</span></span><br><span class="line">            <span class="keyword">if</span> (head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// safe back ptr and proceed head</span></span><br><span class="line">        ListNode backPtr = head;</span><br><span class="line">        head = head.next;</span><br><span class="line">        <span class="comment">// m = n</span></span><br><span class="line">        ListNode subPre = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; (n - m) + <span class="number">1</span>; j++) &#123;</span><br><span class="line">            ListNode temp = head.next;</span><br><span class="line">            head.next = subPre;</span><br><span class="line">            subPre = head;</span><br><span class="line">            head = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// reconnect the linked list.</span></span><br><span class="line">        backPtr.next.next = head;</span><br><span class="line">        backPtr.next = subPre;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Reference:">Reference:</h1><p><a href="http://www.jiuzhang.com/solutions/reverse-linked-list/" target="_blank" rel="external">reverse linked-list</a><br><a href="http://www.jiuzhang.com/solutions/reverse-linked-list-ii/" target="_blank" rel="external">reverse linked-list 2</a></p>
-
-            
-          </span>
+<h2 id="Solution_1:_(Iteratively_O(N))">Solution 1: (Iteratively O(N))</h2>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/02/reverse-linked-list/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -833,15 +823,22 @@
 
         <div class="post-meta">
           <span class="post-time">
-            Posted on
-            <time itemprop="dateCreated" datetime="2015-09-14T19:17:17+00:00" content="09-14-2015">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-09-14T18:17:17+00:00" content="09-14-2015">
               09-14-2015
             </time>
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; In
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/MoblieApplication/" itemprop="url" rel="index">
@@ -869,12 +866,16 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -883,13 +884,20 @@
         
           <h2 id="Description:"><strong>Description:</strong></h2><p>This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of <code>Runnerable</code>, <code>Multli-threads application</code>,<code>Handler</code>, as well as <code>OnClickListener</code></p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp2.png" alt="running app" style="width:600px"/></p>
-<h3 id="Key_components:"><strong>Key components:</strong></h3><p>When a new Handler Object is instantaited, a stand alone thread and a conressponding message queue is created. Handler object now can push/send either <code>Message Object</code> or <code>Runnable Object</code> into the message queue. Each Handler has its own seperate message queue, however, the Main UI thread is able to access and dequeue message/runnable from those queue from Handler. There are following two ways to send message/runnable to the queue: <code>Post</code> and <code>sendMessage()</code>.</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/09/14/my_first_android_app/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -938,15 +946,22 @@
 
         <div class="post-meta">
           <span class="post-time">
-            Posted on
-            <time itemprop="dateCreated" datetime="2015-06-09T01:22:37+00:00" content="06-09-2015">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-09T00:22:37+00:00" content="06-09-2015">
               06-09-2015
             </time>
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; In
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/RandomThought/" itemprop="url" rel="index">
@@ -974,12 +989,16 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -989,14 +1008,20 @@
           <p>大三上学期收获不小，GPA成功破3.7。数了数钱包，短短4个月申请了接近10张的信用卡💳。这两天刚刚接到suman教授的回信，邀请我加入他的团队，summer research也有了着落～我的小美女还有1个月就要来美国读研了。感觉一切都慢慢街上了正轨。今年暑假上一门EPD397(学术写作课)，外加另外一门网课(音乐理论课)。大四两个学期每学期只需要14个学分就可以双学位顺利毕业。</p>
 <p>大三下学期让我明白了什么是学习,我总结出自己人生的公式:<br><strong>喜欢,热爱的事情＋学习时心无旁念＝生活</strong>。</p>
 <p>不仅学习的效率也明显提升了，常旅客的学识方面慢慢跟上了前辈们的脚步。主流的信用卡，酒店，航空金卡积分都有了大概的了解，自己的视野一下子宽了许多。老爸经常爱说的一句话：“花小钱办大事” 感觉跟常旅客的精髓有一定的相似度。在跟前辈／同辈们的学期过程中懂得了常旅客的精神: 出门旅游，要自己玩的开心，住得开心，吃的开心，常旅客的精神就是最大利润回报，这里强调的是回报。我选择你们酒店，就是我看得起你，为了感谢我对你的忠诚，对于这些忠诚的客户，你们用免费住宿来回报我。</p>
-<h2 id="常旅客：">常旅客：</h2><p>熟悉和了解酒店／航空业的游戏规则，会让你的出行更加的舒适，方便。这几天知乎上讨论旅游出行怎么样才能最开心。一位朋友提到 💰钱💰 不应该放在旅行计划考虑的第一位，穷游会直接影响旅游的质量，和心情。他举例到，有时候因为想省钱，结果住到了很偏远的地方，交通去主要的景点的路费不说，来回就浪费了半天时间。虽然景点的附近酒店相对会更贵些，但是花多点钱，但是省下的是更多游览玩耍的时间。</p>
-<p>针对这个观点，我部分同意，因为穷游，少花钱，并不代表旅途的质量和欢乐会因此大打折扣。虽说时间就是金钱，金钱可能买给你方便，但是金钱不一定能给你买来快乐。2015年寒假，我和小女友去了趟海口。两个人都是学生，虽然父母也给了足够的资金，可是我和小女友都选择了穷游(现在回想起来，有点委屈小美女了～). 整趟下来人均包机票6天下来2000出头。现在回想起来，其实我家小美女很早就懂得了常旅客的精髓，花小钱办大事。第一天入住了一个中端酒店，一晚300多，300多在三亚来说已经是比较实惠的价格。当晚小美女打开团购发现附近的酒店有90多一晚的，一开始还不太敢相信，后来看了下还挺靠谱的，决定第二天去试一试。然后之后的5天都在那个酒店入住。再举一个例子，去海口少不了潜水，这也是我们两个的第一次潜水。在三亚潜水，通过正常渠道，没有个300-500你就别想玩。结果小美女团购上找到了个酒店来回接送+烧烤+潜水＝89人民币。当时也不敢相信自己的眼睛，其实我现在也还不敢回想，我们是怎么办到的。所以说并不是说穷游就会影响出行的质量，这两者之间的关系是非常微妙的。只要你有心，多找找，多看看，多比一比，出门旅行，很多费用其实是可以省下来的。那些费用没法避免费用，针对不同类型消费，使用不同的信用卡消费，使得积分最大利益化，使得旅游出行正回报，是旅行变成一种期待而不是一种负担。</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/08/endOfJunior/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1045,8 +1070,11 @@
 
         <div class="post-meta">
           <span class="post-time">
-            Posted on
-            <time itemprop="dateCreated" datetime="2015-04-09T19:33:52+00:00" content="04-09-2015">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-09T18:33:52+00:00" content="04-09-2015">
               04-09-2015
             </time>
           </span>
@@ -1066,12 +1094,16 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -1080,7 +1112,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" rel="gallery_cims2wdea000e0ypkhs7ddmgl"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" rel="gallery_cioqiqebs000egipkkaqezsyt"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" itemprop="contentUrl"/>
               </a>
@@ -1088,7 +1120,7 @@
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" rel="gallery_cims2wdea000e0ypkhs7ddmgl"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" rel="gallery_cioqiqebs000egipkkaqezsyt"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" itemprop="contentUrl"/>
               </a>
@@ -1096,7 +1128,7 @@
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" rel="gallery_cims2wdea000e0ypkhs7ddmgl"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" rel="gallery_cioqiqebs000egipkkaqezsyt"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" itemprop="contentUrl"/>
               </a>
@@ -1104,7 +1136,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" rel="gallery_cims2wdea000e0ypkhs7ddmgl"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" rel="gallery_cioqiqebs000egipkkaqezsyt"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" itemprop="contentUrl"/>
               </a>
@@ -1112,7 +1144,7 @@
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" rel="gallery_cims2wdea000e0ypkhs7ddmgl"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" rel="gallery_cioqiqebs000egipkkaqezsyt"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" itemprop="contentUrl"/>
               </a>
@@ -1126,12 +1158,24 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              
-            
-          </span>
+          
+          
+          
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/09/photoPost/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1180,15 +1224,22 @@
 
         <div class="post-meta">
           <span class="post-time">
-            Posted on
-            <time itemprop="dateCreated" datetime="2015-04-09T07:35:52+00:00" content="04-09-2015">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-09T06:35:52+00:00" content="04-09-2015">
               04-09-2015
             </time>
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; In
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/RandomThought/" itemprop="url" rel="index">
@@ -1216,36 +1267,40 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h1 id="浅谈人生_(Talk_about_life)"><strong>浅谈人生 (Talk about life)</strong></h1><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/badger.jpg" alt="摄于海南三亚" style="width: 600px;"></p>
+          <h1 id="浅谈人生_(Talk_about_life)"><strong>浅谈人生 (Talk about life)</strong></h1><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/badger.jpg" alt="摄于海南三亚" style="width: 600px;"/></p>
 <p>大半夜的你还不睡觉你在干什么！哈哈哈。难得今天这么有精神，外面下着小雨，还伴着电闪雷鸣，麦迪逊的冬天开始悄悄的离去。</p>
 <h3 id="大学已经过了三年："><strong>大学已经过了三年：</strong></h3><p>对了，你还没说你这么晚在干什么！说起来也惭愧，大学三年了，完全没有仔细想过当初为什么自己选择了计算机工程(Computer Engineering)，虽然父母督促我工程太累了，选个别的吧。我毅然坚定的选择了计算机工程(当时的我一度以为计算机工程就是帮别人修修电脑🙈)。大二的时候，听说计算机工程的学生只要多修两门课就能拿到计算机科学(Computer Science)的双学位，我一开始还不太相信，后来一看真是这么简单。也没多想，感觉双学位毕业🎓，毕业工作也稳稳的了。</p>
 <p>现在回想起来，当时真的是not too young, but still too naive!由于工程的课程难度本身就不简单，现在又要加上CS的课程，简直就是像大锅饭一样，左右不可兼得。虽然GPA保持的还算凑活，可是我学的很不开心呀！完全没有一点方向感，感觉每天就是活在渊源不断作业的里，美味的QQ吃的都不开心了。</p>
-<h3 id="招聘会："><strong>招聘会：</strong></h3><p>大三这年去了大大小小的招聘会，虽然自己的简历并说不上太优秀，可是至少我的Resume的各方面(GPA, Course projects)还是拿的出手的，再说了，哥怎么也是准备本科双学位的人(🐶)。公司没理由在第一轮刷掉我吧。跟我想的一样，大家(什么Amazon, Microsoft呀)都觉得我挺不错的，开始联系我，进行技术面试。我是条双学位的狗，interviewer看我挺阳光开朗的，小伙子不错，来，给你出个简单的reverse linked list的题。结果我还是再三的提示下才勉强写了出来。</p>
-<p>这样下去可真不是办法，难道大学四年真的要白忙活了？大三结束了连一个internship都捞不到，还想怎么在美利坚大国混下去！我必须在工程和CS两边做个抉择。</p>
-<h3 id="无法抉择："><strong>无法抉择：</strong></h3><p>今天晚上是历史性的一刻。一直无法割舍自己白学了三年Engineering课程的假象，觉得如果就这么放弃了Engineering, 好不甘心！google Computer Science然后又跟Computer Engineering 有关的方向。然后走火入魔的找到了Computer Architecture. 发现UW-Madison 住着好几只Architecture世界级的大神级人物(David Wood, Mark Hill, etc)，然后又开始新一轮疯狂的google有关Architecture的资料，还专门建了个文件夹，放了好多资料，准备最后一年大干一场。(Naive!)</p>
-<p>看看表，两点了，虽然还是没有最后定下人生的目标，赶紧刷牙洗洗睡了。可这事没定下来，内心不安啊。虽然computer architecture可以说是CS和CE的结合区域。可是我真的喜欢吗？我真的擅长这方面的细节的研究吗？就当我全神贯注地在思考计算机有关领域我到底应该往哪走的一瞬间，宝贝女友走进了我的脑海里，给我指明了人生的方向。我定下了人生的第一个勇敢的目标：软件。</p>
-<h3 id="爱情的力量："><strong>爱情的力量：</strong></h3><p>女友是做教育方面的，这一刻看起来，她变成了我人生的导师。放弃硬件的路，勇敢的选择软件／网页方向，是有原因的。首先我觉得自己还是更喜欢接触新鲜的事物，更享受完成一个小型项目/程序的那种喜悦感。另外如果我选择硬件，感觉以后和女友的connect就越来越少。相反如果我选择软件方面作为职业目标，可以把自己大学学过的cs有关的内容真正用到，跟自己人生的另一半的结合。女友一直有很多很棒的点子💡，她提供灵感，我用技术帮她实现，一下子人生好像充起了满满的希望。</p>
-<p>当然，Engineering 的课程还是要好好的上的，CS选课的时候就更明白这门课对自己的理想／目标会有多少的支持。时间分配上，要对自己的理想和目标上分配更多的时间。人生一世，既然没办法做好所有的事情，那就想办法努力完成一个目标。</p>
-<h3 id="2015年4月9日凌晨2点35-_定下人生目标："><strong>2015年4月9日凌晨2点35. 定下人生目标：</strong></h3><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/plan.jpg" alt="myPlan" style="width: 600px;"></p>
-<h3 id="后面的路，不会一帆风顺，但我并不害怕，因为有了目标，有了你，我就知道该往哪走，我们的船还能继续前行。">后面的路，不会一帆风顺，但我并不害怕，因为有了目标，有了你，我就知道该往哪走，我们的船还能继续前行。</h3><p>P.S. 明天ResSprot Webmaster面试,展现不一样的你。</p>
-
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/09/talk_about_life/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1263,23 +1318,20 @@
 
 
     
-
   </section>
 
   
 
 
+          </div>
+          
+
+
+          
+
         </div>
-
         
-
-
-        
-
-      </div>
-
-      
-        
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -1298,10 +1350,12 @@
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="images/sushi.png" alt="阮先生" itemprop="image"/>
-          <p class="site-author-name" itemprop="name">阮先生</p>
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.jpg"
+               alt="🍣之神" />
+          <p class="site-author-name" itemprop="name">🍣之神</p>
+          <p class="site-description motion-element" itemprop="description">阮先生’s blog</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">阮先生’s blog</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -1310,19 +1364,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            
-              <span class="site-state-item-count">7</span>
-              <span class="site-state-item-name">categories</span>
-              
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">15</span>
-              <span class="site-state-item-name">tags</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
               </a>
-          </div>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
 
         </nav>
 
@@ -1332,10 +1390,29 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/ruanxuyi" target="_blank">
+                <a href="https://github.com/ruanxuyi" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-github"></i> GitHub
+                    <i class="fa fa-fw fa-github"></i>
                   
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/xuyiruan/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/xuyi-ruan-a728a889" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
                 </a>
               </span>
             
@@ -1345,16 +1422,30 @@
         
         
 
-        <div class="links-of-author motion-element">
-          
-            <p class="site-author-name"></p>
-            
-              <span class="links-of-author-item">
-                <a href="http://winniebabe.com" target="_blank">Winnie's webpage</a>
-              </span>
-            
-          
-        </div>
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mszhuchinese.com" title="MsZhuChinese" target="_blank">MsZhuChinese</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.winniebabe.com" title="WinnieBabe" target="_blank">WinnieBabe</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suncuss.me" title="BossSun" target="_blank">BossSun</a>
+                </li>
+              
+            </ul>
+          </div>
+        
 
       </section>
 
@@ -1364,19 +1455,20 @@
   </aside>
 
 
-      
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2014 - 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">阮先生</span>
+  <span class="author" itemprop="copyrightHolder">🍣之神</span>
 </div>
 
 <div class="powered-by">
@@ -1386,25 +1478,89 @@
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
   
 
   
-    
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
 
   
     
@@ -1422,36 +1578,22 @@
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
-    
-     
 
-
+  
     
   
 
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
 
 
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
-
   
   
 
   
+
   
 
 </body>
