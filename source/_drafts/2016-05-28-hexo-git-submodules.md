@@ -51,6 +51,25 @@ fork很简单，只要登陆后在屏幕右上角点击 `fork` 按钮即可。fo
 	git clone git@github.com:替换你的github-user-name/hexo-theme-next.git
 	mv 
 	
+Problem: 
+```
+xruan@Xuyis-MacBook-Air:ruanxuyi.github.io/themes ‹source›$ git submodule init
+fatal: no submodule mapping found in .gitmodules for path 'ruanxuyi.github.io'
+```
+Solution: 
+
+```
+No submodule mapping found in .gitmodules for path 'OtherLibrary/MKStore' when
+
+$ git submodule update --init
+I didn't know why the error occur. After spending a minute and found the answer in stackoverflow.
+
+$ git rm --cached OtherLibrary/MKStore
+and then update the submodule again. It's working fine.
+
+
+```
+	
 ```
 xruan@Xuyis-MacBook-Air:themes/next ‹master*›$ git remote -v
 origin	git@github.com:ruanxuyi/hexo-theme-next.git (fetch)
@@ -153,6 +172,6 @@ $ npm install hexo-cli -g
 
 ## References（引用）: 
 
-[引用: 利用git submodule来处理hexo的theme](http://jr0cket.co.uk/hexo/using-git-submodules-for-custom-hexo-theme.html)
-[fatal: remote origin already exists](http://stackoverflow.com/questions/10904339/github-fatal-remote-origin-already-exists)
+[引用: 利用git submodule来处理hexo的theme](http://jr0cket.co.uk/hexo/using-git-submodules-for-custom-hexo-theme.html)  
+[fatal: remote origin already exists](http://stackoverflow.com/questions/10904339/github-fatal-remote-origin-already-exists)  
 [引用: 关于博客同步的解决办法](http://devtian.me/2015/03/17/blog-sync-solution/)
