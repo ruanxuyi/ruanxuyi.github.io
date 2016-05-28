@@ -22,7 +22,7 @@ categories: DataStructure
 | implement Map interface | implement Map interface| implement Set interface|
 
 
-
+<!--more-->
 
 
 # **HashMap**

@@ -1,4 +1,4 @@
-title: "reverse-linked-list"
+title: Reverse linkedlist
 date: 2016-03-02 02:04:12
 updated: 2016-03-02 02:04:12
 tags: linkedlist
@@ -6,7 +6,7 @@ categories: leetcode
 ---
 
 
-# #206 Reverse Linked List
+## 206 Reverse Linked List
 [Try it yourself](https://leetcode.com/problems/reverse-linked-list/)
 
 
@@ -15,6 +15,8 @@ Reverse a singly linked list.
 
 
 ## Solution 1: (Iteratively O(N))
+
+<!--more-->
 
 ```java
 /**

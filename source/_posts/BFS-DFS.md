@@ -13,6 +13,8 @@ categories: DataStructure
 
 ##BFS
 
+<!--more-->
+
 ```java
 /**
  * 本代码由九章算法编辑提供。没有版权欢迎转发。

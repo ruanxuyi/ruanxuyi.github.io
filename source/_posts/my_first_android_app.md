@@ -10,7 +10,9 @@ categories: MoblieApplication
 This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of `Runnerable`, `Multli-threads application`,`Handler`, as well as `OnClickListener`
 
 <img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp2.png" alt="running app" style="width:600px"/>
- 
+
+<!--more-->
+
 ### **Key components:** 
 
 When a new Handler Object is instantaited, a stand alone thread and a conressponding message queue is created. Handler object now can push/send either `Message Object` or `Runnable Object` into the message queue. Each Handler has its own seperate message queue, however, the Main UI thread is able to access and dequeue message/runnable from those queue from Handler. There are following two ways to send message/runnable to the queue: `Post` and `sendMessage()`.

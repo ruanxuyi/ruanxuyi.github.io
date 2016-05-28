@@ -41,6 +41,8 @@ low + high < 0时，如low = -3, high = 2时，计算出来的中点是0。
 
 为了避免 向0取整 用算法二。
 
+<!--more-->
+
 
 ### 3: prevent using recursion: 
 

@@ -31,6 +31,19 @@ link: http://dev.duoshuo.com/threads/541d3b2b40b5abcd2e4df0e9
 <% } %>
 ```
 
+## 添加文章阅读量统计
+
+[添加文章阅读量统计1](https://notes.wanghao.work/2015-10-21-为NexT主题添加文章阅读量统计功能.html#配置LeanCloud)
+
+[添加文章阅读量统计2](http://www.jeyzhang.com/hexo-next-add-post-views.html)
+
+## hexo 添加搜索功能
+
+[swiftype搜索功能](http://www.jianshu.com/p/2010ad07d960)
+
+## 搭建HEXO+安装主题+第三方评论+网站统计+搜索引擎+小插件+配置结构分析
+
+[朱琛小屋](http://prozhuchen.github.io/page/2/)
 
 ## 遇到错误：(ERRORs)
 1. `highlight = hexo-config("highlight.enable")`  

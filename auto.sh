@@ -17,7 +17,7 @@ if [ "$1" == "-d" ]; then
 else
     echo "************* Local Testing myBlog *****************"
     # preview draft at local
-    hexo s --drafts
+    #hexo s --drafts
     # preview witout drafts
-    #hexo s
+    hexo s
 fi
