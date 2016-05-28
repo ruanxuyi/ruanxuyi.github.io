@@ -12,6 +12,19 @@
 https://disqus.com/websites/?utm_source=hexojs&utm_medium=Disqus-Footer
 
 
+## Hexo添加文章时自动打开编辑器
+
+[引用: Hexo添加文章时自动打开编辑器](http://notes.wanghao.work/2015-06-29-Hexo添加文章时自动打开编辑器.html)
+
+使用方法: 
+    
+    hexo new "post-name" 
+
+默认的markdown 编辑器(macdown) 自动打开`post-name.md`文件. 免去了寻找md文件的时间。
+原理：当检测到 `hexo new` 关键字，创建新的child process用指定编辑器打开新建文件(path). 
+
+
+
 ## 404 Page
 创建404.html，位于root/source文件夹下。copy以下代码，调用腾讯404寻找走失儿童。
 404 代码位于: 
