@@ -1,0 +1,1041 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Bree Serif:300,300italic,400,400italic,700,700italic|Arimo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Coursera,Machine Learning," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/sushi.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Week 1: Lesson 3Supervise LearningExamples:
+
+Given email labeled as spam/not spam, learn a spam filter. (classification)
+Given a dataset of patients diagnosed as either having diabetes or not, learn t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coursera: Machine Learning by Stanford">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/06/18/ML/index.html">
+<meta property="og:site_name" content="阮先生de小窝">
+<meta property="og:description" content="Week 1: Lesson 3Supervise LearningExamples:
+
+Given email labeled as spam/not spam, learn a spam filter. (classification)
+Given a dataset of patients diagnosed as either having diabetes or not, learn t">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/news.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/genes.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/market.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/cocktail.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/univariate-linear-regression.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/cost-function.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/theta1.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/theta2.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/theta3.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/cost-function-2para.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/counter-plot1.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/counter-plot2.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/gradient-dec1.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/gradient-dec2.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/sim-update.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/gradient-dec-alpha.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/fix-alpha.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/partial-derivative.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160620/best-hyphthesis-func.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Coursera: Machine Learning by Stanford">
+<meta name="twitter:description" content="Week 1: Lesson 3Supervise LearningExamples:
+
+Given email labeled as spam/not spam, learn a spam filter. (classification)
+Given a dataset of patients diagnosed as either having diabetes or not, learn t">
+
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> Coursera: Machine Learning by Stanford | 阮先生de小窝 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">阮先生de小窝</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">多读书 多思考 少吃零食 多睡觉</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'TVdsuUVez9DD1Mx-gjc8','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Coursera: Machine Learning by Stanford
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-18T15:11:11-04:00" content="06-18-2016">
+              06-18-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/18/ML/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/18/ML/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/18/ML/" class="leancloud_visitors" data-flag-title="Coursera: Machine Learning by Stanford">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Week_1:_Lesson_3">Week 1: Lesson 3</h1><h2 id="Supervise_Learning">Supervise Learning</h2><p><strong>Examples:</strong></p>
+<ul>
+<li>Given email labeled as spam/not spam, learn a spam filter. (classification)</li>
+<li>Given a dataset of patients diagnosed as either having diabetes or not, learn to classify new patients as having diabtetes or not. (classification)</li>
+<li>Given data of different house types (room, square feet, year built, wood/concrete.. etc) with their corresponding price, evaluate/preidct the price of a given house. (Regression)</li>
+</ul>
+<h3 id="Regression:">Regression:</h3><ul>
+<li>predict value according to the data set.  </li>
+<li>predict <strong>continuous valued</strong> output(price)  </li>
+</ul>
+<h3 id="Classification:">Classification:</h3><ul>
+<li><strong>discrete valued</strong> output(0 or 1).</li>
+</ul>
+<h3 id="SVM(Support_Vector_Machine):">SVM(Support Vector Machine):</h3><ul>
+<li>process of infinte number of features.   </li>
+</ul>
+<h2 id="Unsupervised_Learning">Unsupervised Learning</h2><p><strong>Defination:</strong>   </p>
+<ul>
+<li>did not telling the algorithm how to categorize data sets into different types in advance.  </li>
+<li>automatically find structure/categories on given data sets.  </li>
+</ul>
+<h3 id="Cluster_Learning:">Cluster Learning:</h3><p><strong>Examples:</strong>  </p>
+<ul>
+<li><p>Given a set of news articles found on the web, group them into set of articles about the same story. (Cluster)<br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/news.png" alt=""></p>
+</li>
+<li><p>automatically analyzes data sets and group them into different type of genes sequence for diffrent group of individuals’ data set. (Cluster)<br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/genes.png" alt=""></p>
+</li>
+</ul>
+<p><strong>Applications:</strong>  </p>
+<ul>
+<li>Market Segementation:  algorithm automatically categorizes customers into different clusters according to customers’ data, which make marketing and advertisement more effecients and effecitve.   (Airline company tries to categorizes their frequent flyers to different types to better advertises products for different type of frequent flyiers [YMMV - different people get different targeted advertisement])</li>
+</ul>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/market.png" alt=""></p>
+<h3 id="Cocktail_Party_Problem_Algorithm">Cocktail Party Problem Algorithm</h3><ul>
+<li>seperate overlaped audio and let <code>cocktail party algorithm</code> to seperate them into different audios tracks.  </li>
+</ul>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/cocktail.png" alt=""></p>
+<h1 id="Week_1:_Lesson_5">Week 1: Lesson 5</h1><h2 id="Model_Representation">Model Representation</h2><ul>
+<li>m = Number of training examples </li>
+<li>x’s = “input” variable/ feature</li>
+<li>y’s = “output” variable / target variable</li>
+<li>(x,y) = one training example.</li>
+<li>(x<sup>i</sup> , y<sup>i</sup>) = i<sup>th</sup> training example.  </li>
+</ul>
+<p>Traning set -&gt; Learning Algorithm -&gt; h(hypothesis) -&gt; </p>
+<blockquote>
+<p>h(hypothesis) - a function that maps from x’s -&gt; y’s. </p>
+</blockquote>
+<pre><code><span class="title">size</span> <span class="keyword">of</span> house -&gt; h -&gt; estimated price
+</code></pre><h3 id="Univariate_Linear_Regression">Univariate Linear Regression</h3><ul>
+<li>Linear Regression with <strong>one variable</strong>. (x)<br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/univariate-linear-regression.png" alt=""></li>
+</ul>
+<h2 id="Cost_Function">Cost Function</h2><ul>
+<li>fit the best straigt line to our data  </li>
+</ul>
+<p>Given training set and Hypothesis:  h<sub>θ</sub>(x) = θ<sub>0</sub> + θ<sub>1</sub>x  (linear, single variable)  </p>
+<p>How to choose θ<sub>i</sub>‘s (Paramenters)?  </p>
+<ul>
+<li><p>choose θ<sub>0</sub>, θ<sub>1</sub> so that h(x) is close to <code>y</code> for our training examples<code>(x,y)</code></p>
+</li>
+<li><p>minimize $ \frac 1 {2m}\sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2 $(m - # training examples)</p>
+</li>
+</ul>
+<p><strong>Hypothesis Function:</strong><br>
+$$h_{\theta}(x)=\theta_0+\theta_1 x$$
+</p>
+<p><strong>Cost Function(Squared error function)</strong><br>
+$$J(\theta_0, \theta_1) = \frac 1 {2m} \sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2$$
+<br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/cost-function.png" alt=""></p>
+<h2 id="Cost_Fucntion_-_Intro_I">Cost Fucntion - Intro I</h2><ul>
+<li>difference and relation between Hypothesis Function and Cost Function   </li>
+<li>pick a Hypothesis Function ($\theta_0=0$ pick $\theta_1$)  </li>
+<li>Graphically understand the chice of $\theta_1$ affect Hypothesis Function and Cost Function.  </li>
+</ul>
+<p>Hypothesis function $h_0(x)$<br>is a funtion of house area $x$ and price of that house.<br>
+$$h_{\theta}(x)=\theta_1 x$$ 
+</p>
+<p>Cost function $J(\theta_1)$ is a funciton of $\theta_1$, assuming $\theta_0=0$.</p>
+
+$$J(\theta_1) = \frac 1 {2m} \sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2$$
+
+<h3 id="Find_$\theta_1$_by_minimizing_$J(\theta_1)$_(local_MIN_of_$J(\theta_1)$)">Find $\theta_1$ by minimizing $J(\theta_1)$ (local MIN of $J(\theta_1)$)</h3><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/theta1.png" alt=""></p>
+<p>$$ \theta_1 = 1$$</p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/theta2.png" alt=""></p>
+<p>$$ \theta_1 = 0.5 $$</p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/theta3.png" alt=""></p>
+<p>$$ \theta_1 = 0 $$ </p>
+<p>In this case, the local min happens at $ \theta_1 = 1$.</p>
+<h2 id="Cost_Fucntion_-_Intro_II">Cost Fucntion - Intro II</h2><ul>
+<li>better understanding of the cost function  </li>
+<li>understand contour plots  </li>
+<li><strong>manually</strong> looking for $\theta_0$ and $\theta1$ pair that minimize the cost function. </li>
+</ul>
+<p>Pick a hypothesis funciton $\theta_0$ and $\theta1$. In this example, we assume $\theta_0\neq0$.</p>
+<h3 id="Cost_Function_in_3D">Cost Function in 3D</h3><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/cost-function-2para.png" alt=""></p>
+<h3 id="Counter_Plot">Counter Plot</h3><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/counter-plot1.png" alt=""></p>
+<p>$$ \theta_0 = 360,\theta_1 = 0 $$</p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/counter-plot2.png" alt=""></p>
+<p>$$ \theta_0 = 220,\theta_1 = 0.15 $$</p>
+<h1 id="Week_1:_Lesson_6">Week 1: Lesson 6</h1><h2 id="Gradient_Descent">Gradient Descent</h2><ul>
+<li>Gradient Descent - an algorithm to minimize the cost function J and other function.  </li>
+<li>very general algorithm that used a lot in ML.  </li>
+<li>Gradient - downhill as rapidly as possible. (take the steepest slope)   </li>
+</ul>
+<p><strong>Steps</strong>   </p>
+<ol>
+<li>start with some $ \theta_0 ,\theta_1 $ ($ \theta_0 = 0 ,\theta_1 = 0$)  </li>
+<li>Keep chaning $ \theta_0 ,\theta_1 $ to reduce $J(\theta_0, \theta_1)$ until it reaches local minimum.  </li>
+</ol>
+<p><strong>Example</strong></p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/gradient-dec1.png" alt=""></p>
+<p>Start with a point that is little bit to the right result in a <strong>different path</strong> to another local-minima.  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/gradient-dec2.png" alt=""></p>
+<p><strong>Algorithm</strong><br>
+$$ \theta_i :=\theta_i - \alpha \frac {\partial}{\partial\theta_i} J(\theta_0,\theta_1),(i = 0, i = 1)$$    
+ </p>
+<p>$:= $ - assign statement<br>$\alpha$ - learning rate (how far each step should go down hill)</p>
+<p><strong>Implementation</strong><br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/sim-update.png" alt="Simultaneous Update"></p>
+<h2 id="Gradient_Descent_Intuition">Gradient Descent Intuition</h2><ul>
+<li>better intuition of Gradient Descent Algorithm.  </li>
+<li>understand the derivative term.  </li>
+</ul>
+
+$$ \theta_1 :=\theta_1 - \alpha \frac {\partial}{\partial\theta_1} J(\theta_1)$$    
+ 
+<ul>
+<li>if $\alpha$ is too small, gradient decent can be slow.   </li>
+<li>if $\alpha$ too large, gradient decent can overshoot the minimum. It may fails to converge.  </li>
+</ul>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/gradient-dec-alpha.png" alt=""></p>
+<p>As we approach a local minimum, the gradient decent will <strong>automatically</strong> take <strong>smaller steps</strong> even with fixed learning rate $\alpha$. </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/fix-alpha.png" alt=""></p>
+<p>Even $\alpha$ is fixed, slope or $\frac {\partial}{\partial\theta_1} J(\theta_1)$ is decreasing. Therefore, the overall term $\alpha \frac {\partial}{\partial\theta_1} J(\theta_1) $ decreases.</p>
+<h2 id="Gradient_Descent_For_Linear_Regression">Gradient Descent For Linear Regression</h2><ul>
+<li>apply gradient descent algorithm to minimize suqare error cost function (J).  </li>
+</ul>
+
+$$ \theta_i :=\theta_i - \alpha \frac {\partial}{\partial\theta_i} J(\theta_0,\theta_1),(i = 0, i = 1)$$    
+ 
+<p>After taking partial derivative:<br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/partial-derivative.png" alt=""></p>
+<h3 id="Gradient_Descent_Algorithm">Gradient Descent Algorithm</h3>
+$$ \theta_0 :=\theta_0 - \alpha \frac {1}{m}\sum_{i=1}^m(h_0(x^{(i)}) - y^{(i)}) $$    
+
+$$ \theta_1 :=\theta_1 - \alpha \frac {1}{m}\sum_{i=1}^m(h_0(x^{(i)}) - y^{(i)})*x^{(i)} $$    
+ 
+<blockquote>
+<p>IMPORTANT: $\theta_0$ and $\theta_1$ need to be updated <strong>simultaneously</strong>. </p>
+</blockquote>
+<p>Using Gradient Descnet Algorithm to find the best Hyphothesis Function.  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160620/best-hyphthesis-func.png" alt=""></p>
+<h3 id="“Batch”_Gradient_Descent_Algorithm">“Batch” Gradient Descent Algorithm</h3><ul>
+<li>Batch: each step of gradient descent uses <strong>all the training examples/data</strong>.  </li>
+<li>
+$$\sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2$$
+</li>
+<li>m = total # of training examples/data.  </li>
+</ul>
+<h1 id="Logs">Logs</h1><ul>
+<li>06/19/2016: Complete week 1 notes and quizs  </li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Coursera/" rel="tag">#Coursera</a>
+          
+            <a href="/tags/Machine-Learning/" rel="tag">#Machine Learning</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/09/learning-how-to-learn/" rel="next" title="Coursera: Learning How to Learn by UCSD">
+                <i class="fa fa-chevron-left"></i> Coursera: Learning How to Learn by UCSD
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/06/18/ML/"
+     data-title="Coursera: Machine Learning by Stanford"
+     data-content=""
+     data-url="http://www.xuyiruan.com/2016/06/18/ML/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/18/ML/"
+           data-title="Coursera: Machine Learning by Stanford" data-url="http://www.xuyiruan.com/2016/06/18/ML/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.jpg"
+               alt="🍣之神" />
+          <p class="site-author-name" itemprop="name">🍣之神</p>
+          <p class="site-description motion-element" itemprop="description">阮先生’s blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ruanxuyi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/xuyiruan/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/xuyi-ruan-a728a889" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mszhuchinese.com" title="MsZhuChinese" target="_blank">MsZhuChinese</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.winniebabe.com" title="WinnieBabe" target="_blank">WinnieBabe</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suncuss.me" title="BossSun" target="_blank">BossSun</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_1:_Lesson_3"><span class="nav-number">1.</span> <span class="nav-text">Week 1: Lesson 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervise_Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Supervise Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regression:"><span class="nav-number">1.1.1.</span> <span class="nav-text">Regression:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classification:"><span class="nav-number">1.1.2.</span> <span class="nav-text">Classification:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM(Support_Vector_Machine):"><span class="nav-number">1.1.3.</span> <span class="nav-text">SVM(Support Vector Machine):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unsupervised_Learning"><span class="nav-number">1.2.</span> <span class="nav-text">Unsupervised Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cluster_Learning:"><span class="nav-number">1.2.1.</span> <span class="nav-text">Cluster Learning:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cocktail_Party_Problem_Algorithm"><span class="nav-number">1.2.2.</span> <span class="nav-text">Cocktail Party Problem Algorithm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_1:_Lesson_5"><span class="nav-number">2.</span> <span class="nav-text">Week 1: Lesson 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Model_Representation"><span class="nav-number">2.1.</span> <span class="nav-text">Model Representation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Univariate_Linear_Regression"><span class="nav-number">2.1.1.</span> <span class="nav-text">Univariate Linear Regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cost_Function"><span class="nav-number">2.2.</span> <span class="nav-text">Cost Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cost_Fucntion_-_Intro_I"><span class="nav-number">2.3.</span> <span class="nav-text">Cost Fucntion - Intro I</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Find_$\theta_1$_by_minimizing_$J(\theta_1)$_(local_MIN_of_$J(\theta_1)$)"><span class="nav-number">2.3.1.</span> <span class="nav-text">Find $\theta_1$ by minimizing $J(\theta_1)$ (local MIN of $J(\theta_1)$)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cost_Fucntion_-_Intro_II"><span class="nav-number">2.4.</span> <span class="nav-text">Cost Fucntion - Intro II</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cost_Function_in_3D"><span class="nav-number">2.4.1.</span> <span class="nav-text">Cost Function in 3D</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counter_Plot"><span class="nav-number">2.4.2.</span> <span class="nav-text">Counter Plot</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_1:_Lesson_6"><span class="nav-number">3.</span> <span class="nav-text">Week 1: Lesson 6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradient_Descent"><span class="nav-number">3.1.</span> <span class="nav-text">Gradient Descent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradient_Descent_Intuition"><span class="nav-number">3.2.</span> <span class="nav-text">Gradient Descent Intuition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradient_Descent_For_Linear_Regression"><span class="nav-number">3.3.</span> <span class="nav-text">Gradient Descent For Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient_Descent_Algorithm"><span class="nav-number">3.3.1.</span> <span class="nav-text">Gradient Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“Batch”_Gradient_Descent_Algorithm"><span class="nav-number">3.3.2.</span> <span class="nav-text">“Batch” Gradient Descent Algorithm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">4.</span> <span class="nav-text">Logs</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">🍣之神</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xruan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oKoPG1XTXkC7T1oasGQwau2g-gzGzoHsz", "JFJCQtIsUKhrX6S7Gvgqdqgk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
