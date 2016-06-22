@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Array,BinarySearch," />
+  <meta name="keywords" content="Array,BinarySearch,DataStructure," />
 
 
 
@@ -319,25 +319,6 @@ Binary Search Implementation:1: check the val">
           </span>
 
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/DataStructure/" itemprop="url" rel="index">
-                    <span itemprop="name">DataStructure</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
 
           
             
@@ -378,11 +359,11 @@ Binary Search Implementation:1: check the val">
       
         <p>LeetCode #33</p>
 <p>Tag: binary search, array, </p>
-<h1 id="Binary_Search"><strong>Binary Search</strong></h1><ol>
+<h1 id="Binary_Search">Binary Search</h1><ol>
 <li>In-order list. </li>
 <li>If not in-order -&gt; sort the list with <code>quick sort</code> first and apply binary search.</li>
 </ol>
-<h2 id="Binary_Search_Implementation:"><strong>Binary Search Implementation:</strong></h2><h3 id="1:_check_the_validaite_of_low_and_high">1: check the validaite of low and high</h3><h3 id="2:_prevent_overflow">2: prevent overflow</h3><p>算法一： mid = (low + high) / 2</p>
+<h2 id="Binary_Search_Implementation:">Binary Search Implementation:</h2><h3 id="1:_check_the_validaite_of_low_and_high">1: check the validaite of low and high</h3><h3 id="2:_prevent_overflow">2: prevent overflow</h3><p>算法一： mid = (low + high) / 2</p>
 <p>算法二： mid = low + (high – low) / 2</p>
 <p>乍看起来，算法一简洁，算法二提取之后，跟算法一没有什么区别。但是实际上，区别是存在的。算法一的做法，在极端情况下，(low + high)存在着溢出的风险，进而得到错误的mid结果，导致程序错误。而算法二能够保证计算出来的mid，一定大于low，小于high，不存在溢出的问题。</p>
 <p>二分算法的实现中，我们更期望的是向下取整, 算法二保证向下取整。</p>
@@ -391,9 +372,25 @@ Binary Search Implementation:1: check the val">
 <p>为了避免 向0取整 用算法二。</p>
 <a id="more"></a>
 <h3 id="3:_prevent_using_recursion:">3: prevent using recursion:</h3><p>slow, dont use it??</p>
-<p>maybe use up too many system resource??</p>
-<h2 id="Regular_Binary_Search_Templete"><strong>Regular Binary Search Templete</strong></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) </span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">		mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &lt; nums[mid])&#123;</span><br><span class="line">			high = mid - <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			low = mid + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Search_in_Rotated_Sorted_Array"><strong>Search in Rotated Sorted Array</strong></h2><p>Suppose a sorted array is rotated at some pivot unknown to you beforehand.</p>
+<ul>
+<li>use up too many <strong>system resource</strong>  </li>
+<li>possible overflow  </li>
+</ul>
+<h2 id="Binary_Search_Templete_1">Binary Search Templete 1</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">		mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (target &lt; nums[mid])&#123;</span><br><span class="line">			high = mid;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; nums[mid]) &#123;</span><br><span class="line">			low = mid;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">			<span class="comment">// nums[mid] == target, </span></span><br><span class="line">			<span class="comment">// 因为大部分的时候都是不相等。</span></span><br><span class="line">			<span class="comment">// 每次循环都判断＝＝的话，会很耗时。</span></span><br><span class="line">			<span class="comment">// 因此放在最后面会提升性能。</span></span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (nums[low] == target) &#123;</span><br><span class="line">		<span class="keyword">return</span> low; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (nums[high] == target) &#123;</span><br><span class="line">		<span class="keyword">return</span> high;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Binary_Search_Templete_2">Binary Search Templete 2</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">		mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (target &lt; nums[mid])&#123;</span><br><span class="line">			high = mid - <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; nums[mid]) &#123;</span><br><span class="line">			low = mid + <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">			<span class="comment">// nums[mid] == target, </span></span><br><span class="line">			<span class="comment">// 因为大部分的时候都是不相等。</span></span><br><span class="line">			<span class="comment">// 每次循环都判断＝＝的话，会很耗时。</span></span><br><span class="line">			<span class="comment">// 因此放在最后面会提升性能。</span></span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (nums[low] == target) &#123;</span><br><span class="line">		<span class="keyword">return</span> low; <span class="comment">// 记住这里用low来判断，因为while在外面, low &gt; high		&#125;</span></span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="要点：">要点：</h2><p>如果while 循环判断是 (low + 1 &lt; high)，  </p>
+<ul>
+<li>没有 +1, -1  </li>
+<li>low + 1 = high 因此low比high index 少1  </li>
+</ul>
+<p>如果while 循环判断用 (low &lt;= high),  </p>
+<ul>
+<li>需要 +1, -1  </li>
+<li>当跳出while 循环后，此时 low &gt; high  </li>
+</ul>
+<h2 id="Application_Example_1:_Search_Insert_Position">Application Example 1: Search Insert Position</h2><p><a href="http://www.lintcode.com/en/problem/search-insert-position/" target="_blank" rel="external">Click here to try</a>  </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** </span><br><span class="line">     * param A : an integer sorted array</span><br><span class="line">     * param target :  an integer to be inserted</span><br><span class="line">     * return : an integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A.length == <span class="number">0</span> || target &lt; A[<span class="number">0</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123; <span class="comment">// to keep `start` and `end` seperate.</span></span><br><span class="line">            mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target &lt; A[mid]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; A[mid]) &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (target &lt;= A[low]) &#123;</span><br><span class="line">            <span class="keyword">return</span> low;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &lt;= A[high]) &#123;</span><br><span class="line">            <span class="keyword">return</span> high;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            <span class="keyword">return</span> high + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Application_Example_2:_Search_in_Rotated_Sorted_Array">Application Example 2: Search in Rotated Sorted Array</h2><p>Suppose a sorted array is rotated at some pivot unknown to you beforehand.</p>
 <p>(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).</p>
 <p>You are given a target value to search. If found in the array return its index, otherwise return -1.</p>
 <p>You may assume no duplicate exists in the array.</p>
@@ -413,9 +410,13 @@ Binary Search Implementation:1: check the val">
 <p>In this case, the time complexity will increase if the number of duplicated elements are large. Other than that, the time complexity will stay similar if not many duplications is in the sequence.</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = nums.length - <span class="number">1</span> ;</span><br><span class="line">        <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">            mid = low + (high - low)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target == nums[mid])</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="comment">// if nums[low] &lt; nums[mid] -&gt; this portion in-order-&gt; can apply binary search</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (nums[low] &lt; nums[mid]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (target &lt; nums[mid] &amp;&amp; target &gt;= nums[low])</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    low = mid + <span class="number">1</span>; <span class="comment">// nums[low] = nums[mid] case</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[low] == nums[mid]) &#123;</span><br><span class="line">                <span class="comment">// account for duplication</span></span><br><span class="line">                low++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">// if nums[low] &gt; nums[mid] -&gt; other protion in-order</span></span><br><span class="line">                <span class="keyword">if</span> (target &gt; nums[mid] &amp;&amp; target &lt;= nums[high]) &#123;</span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    high = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>给定一个升序排列的自然数数组，数组中包含重复数字，例如：[1,2,2,3,4,4,4,5,6,7,7]。问题：给定任意自然数，对数组进行二分查找，返回数组正确的位置，给出函数实现。注：连续相同的数字，返回第一个匹配位置还是最后一个匹配位置，由函数传入参数决定。</p>
-<p>Reference: </p>
-<p><a href="http://blog.csdn.net/maqingli87/article/details/8009186" target="_blank" rel="external">http://blog.csdn.net/maqingli87/article/details/8009186</a></p>
+<h1 id="Logs">Logs</h1><ul>
+<li>03/28/2016: first post created  </li>
+<li>06/22/2016: update: added both methods, decided to use the first implementation, added sample example</li>
+</ul>
+<h1 id="Reference:">Reference:</h1><p><a href="http://blog.csdn.net/maqingli87/article/details/8009186" target="_blank" rel="external">http://blog.csdn.net/maqingli87/article/details/8009186</a></p>
 <p><a href="http://hedengcheng.com/?p=595" target="_blank" rel="external">Binary Search</a><br>[duplication allowed] (<a href="http://www.2cto.com/kf/201401/272968.html" target="_blank" rel="external">http://www.2cto.com/kf/201401/272968.html</a>)</p>
+<p><a href="http://www.meetqun.com/thread-13219-1-1.html" target="_blank" rel="external">[刷题心得] Binary Search基础模板</a><br><a href="http://www.jianshu.com/p/0fb2f5f604fa" target="_blank" rel="external">6.二分搜索模板及其变体（上）</a><br><a href="http://www.jiuzhang.com/solutions/binary-search/" target="_blank" rel="external">JIUZHANG 参考</a><br><a href=""></a>  </p>
 
       
     </div>
@@ -440,6 +441,8 @@ Binary Search Implementation:1: check the val">
             <a href="/tags/Array/" rel="tag">#Array</a>
           
             <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
+          
+            <a href="/tags/DataStructure/" rel="tag">#DataStructure</a>
           
         </div>
       
@@ -566,7 +569,7 @@ Binary Search Implementation:1: check the val">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -646,7 +649,7 @@ Binary Search Implementation:1: check the val">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary_Search"><span class="nav-number">1.</span> <span class="nav-text">Binary Search</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Implementation:"><span class="nav-number">1.1.</span> <span class="nav-text">Binary Search Implementation:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1:_check_the_validaite_of_low_and_high"><span class="nav-number">1.1.1.</span> <span class="nav-text">1: check the validaite of low and high</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2:_prevent_overflow"><span class="nav-number">1.1.2.</span> <span class="nav-text">2: prevent overflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3:_prevent_using_recursion:"><span class="nav-number">1.1.3.</span> <span class="nav-text">3: prevent using recursion:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regular_Binary_Search_Templete"><span class="nav-number">1.2.</span> <span class="nav-text">Regular Binary Search Templete</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search_in_Rotated_Sorted_Array"><span class="nav-number">1.3.</span> <span class="nav-text">Search in Rotated Sorted Array</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary_Search"><span class="nav-number">1.</span> <span class="nav-text">Binary Search</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Implementation:"><span class="nav-number">1.1.</span> <span class="nav-text">Binary Search Implementation:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1:_check_the_validaite_of_low_and_high"><span class="nav-number">1.1.1.</span> <span class="nav-text">1: check the validaite of low and high</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2:_prevent_overflow"><span class="nav-number">1.1.2.</span> <span class="nav-text">2: prevent overflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3:_prevent_using_recursion:"><span class="nav-number">1.1.3.</span> <span class="nav-text">3: prevent using recursion:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Templete_1"><span class="nav-number">1.2.</span> <span class="nav-text">Binary Search Templete 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Templete_2"><span class="nav-number">1.3.</span> <span class="nav-text">Binary Search Templete 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要点："><span class="nav-number">1.4.</span> <span class="nav-text">要点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application_Example_1:_Search_Insert_Position"><span class="nav-number">1.5.</span> <span class="nav-text">Application Example 1: Search Insert Position</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application_Example_2:_Search_in_Rotated_Sorted_Array"><span class="nav-number">1.6.</span> <span class="nav-text">Application Example 2: Search in Rotated Sorted Array</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">2.</span> <span class="nav-text">Logs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number">3.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
             
           </div>
         </section>

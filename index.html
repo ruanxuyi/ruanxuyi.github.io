@@ -755,25 +755,6 @@
           </span>
 
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/DataStructure/" itemprop="url" rel="index">
-                    <span itemprop="name">DataStructure</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
 
           
             
@@ -815,11 +796,11 @@
         
           <p>LeetCode #33</p>
 <p>Tag: binary search, array, </p>
-<h1 id="Binary_Search"><strong>Binary Search</strong></h1><ol>
+<h1 id="Binary_Search">Binary Search</h1><ol>
 <li>In-order list. </li>
 <li>If not in-order -&gt; sort the list with <code>quick sort</code> first and apply binary search.</li>
 </ol>
-<h2 id="Binary_Search_Implementation:"><strong>Binary Search Implementation:</strong></h2><h3 id="1:_check_the_validaite_of_low_and_high">1: check the validaite of low and high</h3><h3 id="2:_prevent_overflow">2: prevent overflow</h3><p>算法一： mid = (low + high) / 2</p>
+<h2 id="Binary_Search_Implementation:">Binary Search Implementation:</h2><h3 id="1:_check_the_validaite_of_low_and_high">1: check the validaite of low and high</h3><h3 id="2:_prevent_overflow">2: prevent overflow</h3><p>算法一： mid = (low + high) / 2</p>
 <p>算法二： mid = low + (high – low) / 2</p>
 <p>乍看起来，算法一简洁，算法二提取之后，跟算法一没有什么区别。但是实际上，区别是存在的。算法一的做法，在极端情况下，(low + high)存在着溢出的风险，进而得到错误的mid结果，导致程序错误。而算法二能够保证计算出来的mid，一定大于low，小于high，不存在溢出的问题。</p>
 <p>二分算法的实现中，我们更期望的是向下取整, 算法二保证向下取整。</p>
@@ -1614,7 +1595,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
