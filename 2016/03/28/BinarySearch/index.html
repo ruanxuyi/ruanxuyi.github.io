@@ -96,33 +96,15 @@
 
 
 
-<meta name="description" content="LeetCode #33
-Tag: binary search, array, 
-Binary Search
-In-order list. 
-If not in-order -&amp;gt; sort the list with quick sort first and apply binary search.
-
-Binary Search Implementation:1: check the val">
+<meta name="description" content="Binary Search Templetepublic static int binarySearch(int[] nums, int target) &amp;#123;	if (nums == null || nums.length == 0) &amp;#123;		return -1;	&amp;#125;	int low = 0;	int mid = 0;	int high = nums.length - 1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Binary Search">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/03/28/BinarySearch/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="LeetCode #33
-Tag: binary search, array, 
-Binary Search
-In-order list. 
-If not in-order -&amp;gt; sort the list with quick sort first and apply binary search.
-
-Binary Search Implementation:1: check the val">
+<meta property="og:description" content="Binary Search Templetepublic static int binarySearch(int[] nums, int target) &amp;#123;	if (nums == null || nums.length == 0) &amp;#123;		return -1;	&amp;#125;	int low = 0;	int mid = 0;	int high = nums.length - 1">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Binary Search">
-<meta name="twitter:description" content="LeetCode #33
-Tag: binary search, array, 
-Binary Search
-In-order list. 
-If not in-order -&amp;gt; sort the list with quick sort first and apply binary search.
-
-Binary Search Implementation:1: check the val">
+<meta name="twitter:description" content="Binary Search Templetepublic static int binarySearch(int[] nums, int target) &amp;#123;	if (nums == null || nums.length == 0) &amp;#123;		return -1;	&amp;#125;	int low = 0;	int mid = 0;	int high = nums.length - 1">
 
 
 
@@ -357,8 +339,8 @@ Binary Search Implementation:1: check the val">
       
 
       
-        <p>LeetCode #33</p>
-<p>Tag: binary search, array, </p>
+        <h2 id="Binary_Search_Templete">Binary Search Templete</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">		mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (target &lt; nums[mid])&#123;</span><br><span class="line">			high = mid;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; nums[mid]) &#123;</span><br><span class="line">			low = mid;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (nums[low] == target) &#123;</span><br><span class="line">		<span class="keyword">return</span> low; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (nums[high] == target) &#123;</span><br><span class="line">		<span class="keyword">return</span> high;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h1 id="Binary_Search">Binary Search</h1><ol>
 <li>In-order list. </li>
 <li>If not in-order -&gt; sort the list with <code>quick sort</code> first and apply binary search.</li>
@@ -370,7 +352,7 @@ Binary Search Implementation:1: check the val">
 <p>low + high &lt; 0时，如low = -3, high = 2时，计算出来的中点是0。<br>然而用low + (high – low) / 2计算出来的中点是-1。</p>
 <p>算法二: 向下取整。(ex. 1.5 －&gt; 1, -0.5 -&gt; -1)<br>算法一: mid 是向0取整: (ex. 1.5 -&gt; 1, -0.5 -&gt; 0)  </p>
 <p>为了避免 向0取整 用算法二。</p>
-<a id="more"></a>
+<!--more-->
 <h3 id="3:_prevent_using_recursion:">3: prevent using recursion:</h3><p>slow, dont use it??</p>
 <ul>
 <li>use up too many <strong>system resource</strong>  </li>
@@ -649,7 +631,7 @@ Binary Search Implementation:1: check the val">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary_Search"><span class="nav-number">1.</span> <span class="nav-text">Binary Search</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Implementation:"><span class="nav-number">1.1.</span> <span class="nav-text">Binary Search Implementation:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1:_check_the_validaite_of_low_and_high"><span class="nav-number">1.1.1.</span> <span class="nav-text">1: check the validaite of low and high</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2:_prevent_overflow"><span class="nav-number">1.1.2.</span> <span class="nav-text">2: prevent overflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3:_prevent_using_recursion:"><span class="nav-number">1.1.3.</span> <span class="nav-text">3: prevent using recursion:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Templete_1"><span class="nav-number">1.2.</span> <span class="nav-text">Binary Search Templete 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Templete_2"><span class="nav-number">1.3.</span> <span class="nav-text">Binary Search Templete 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要点："><span class="nav-number">1.4.</span> <span class="nav-text">要点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application_Example_1:_Search_Insert_Position"><span class="nav-number">1.5.</span> <span class="nav-text">Application Example 1: Search Insert Position</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application_Example_2:_Search_in_Rotated_Sorted_Array"><span class="nav-number">1.6.</span> <span class="nav-text">Application Example 2: Search in Rotated Sorted Array</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">2.</span> <span class="nav-text">Logs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number">3.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Templete"><span class="nav-number">1.</span> <span class="nav-text">Binary Search Templete</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary_Search"><span class="nav-number"></span> <span class="nav-text">Binary Search</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Implementation:"><span class="nav-number">1.</span> <span class="nav-text">Binary Search Implementation:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1:_check_the_validaite_of_low_and_high"><span class="nav-number">1.1.</span> <span class="nav-text">1: check the validaite of low and high</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2:_prevent_overflow"><span class="nav-number">1.2.</span> <span class="nav-text">2: prevent overflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3:_prevent_using_recursion:"><span class="nav-number">1.3.</span> <span class="nav-text">3: prevent using recursion:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Templete_1"><span class="nav-number">2.</span> <span class="nav-text">Binary Search Templete 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Templete_2"><span class="nav-number">3.</span> <span class="nav-text">Binary Search Templete 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要点："><span class="nav-number">4.</span> <span class="nav-text">要点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application_Example_1:_Search_Insert_Position"><span class="nav-number">5.</span> <span class="nav-text">Application Example 1: Search Insert Position</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application_Example_2:_Search_in_Rotated_Sorted_Array"><span class="nav-number">6.</span> <span class="nav-text">Application Example 2: Search in Rotated Sorted Array</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number"></span> <span class="nav-text">Logs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number"></span> <span class="nav-text">Reference:</span></a></div>
             
           </div>
         </section>
