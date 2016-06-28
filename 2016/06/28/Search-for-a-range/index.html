@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="BinarySearch,LintCode," />
 
 
 
@@ -96,15 +96,24 @@
 
 
 
-<meta name="description" content="阮先生’s blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阮先生de小窝">
-<meta property="og:url" content="http://www.xuyiruan.com/tags/Array/index.html">
+<meta name="description" content="Search for a Range  
+Description:Given a sorted array of n integers, find the starting and ending position of a given target value.  
+If the target is not found in the array, return [-1, -1].  
+Exampl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lintcode 61 - Search For a Range">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/06/28/Search-for-a-range/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="阮先生’s blog">
+<meta property="og:description" content="Search for a Range  
+Description:Given a sorted array of n integers, find the starting and ending position of a given target value.  
+If the target is not found in the array, return [-1, -1].  
+Exampl">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阮先生de小窝">
-<meta name="twitter:description" content="阮先生’s blog">
+<meta name="twitter:title" content="Lintcode 61 - Search For a Range">
+<meta name="twitter:description" content="Search for a Range  
+Description:Given a sorted array of n integers, find the starting and ending position of a given target value.  
+If the target is not found in the array, return [-1, -1].  
+Exampl">
 
 
 
@@ -123,7 +132,7 @@
   };
 </script>
 
-  <title> Tag: Array | 阮先生de小窝 </title>
+  <title> Lintcode 61 - Search For a Range | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -144,7 +153,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,46 +271,182 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Array
-        <small>Tag</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Lintcode 61 - Search For a Range
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-28T11:24:01-04:00" content="06-28-2016">
+              06-28-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/28/Search-for-a-range/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/28/Search-for-a-range/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/28/Search-for-a-range/" class="leancloud_visitors" data-flag-title="Lintcode 61 - Search For a Range">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p><a href="http://www.lintcode.com/en/problem/search-for-a-range/" target="_blank" rel="external">Search for a Range</a>  </p>
+<h1 id="Description:">Description:</h1><p>Given a sorted array of n integers, find the starting and ending position of a given target value.  </p>
+<p>If the target is not found in the array, return <code>[-1, -1]</code>.  </p>
+<p><strong>Example</strong>:<br>Given <code>[5, 7, 7, 8, 8, 10]</code> and target value <code>8</code>,<br>return <code>[3, 4]</code>.</p>
+<a id="more"></a>
+<h1 id="Thought_Process:">Thought Process:</h1><ul>
+<li>Binary Search Algortihm  </li>
+<li>Duplication allowed  </li>
+<li>return the range of all target values(when duplicated) [Not return the first element found]    </li>
+</ul>
+<p><code>BinarySearch + duplication + return array of **range** of target value</code>  </p>
+<h1 id="Corner_Case:">Corner Case:</h1><ul>
+<li>if arrray <strong>size 0/null</strong>  </li>
+<li>array has only <strong>one element</strong>  </li>
+<li>target is the <strong>first</strong> element <code>(startPos = low)</code>  </li>
+<li>target is the <strong>last</strong> element <code>(startPos = high)</code>  </li>
+</ul>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] searchRange(<span class="keyword">int</span>[] A, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> [] result = &#123;-<span class="number">1</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> startPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> endPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">            mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target &lt;= A[mid]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// binary search end</span></span><br><span class="line">        <span class="keyword">if</span> (A[low] == target) &#123;</span><br><span class="line">            startPos = low;</span><br><span class="line">            found = <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (A[high] == target) &#123; <span class="comment">// if the target value is the LAST element, using low as startPos will not work, in this case, set startPos as the index of LAST element. </span></span><br><span class="line">            startPos = high;</span><br><span class="line">            found = <span class="keyword">true</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> (found) &#123;</span><br><span class="line">            endPos = startPos;</span><br><span class="line">            <span class="keyword">while</span> (endPos &lt; A.length &amp;&amp; A[endPos] == target) &#123;</span><br><span class="line">                endPos++;</span><br><span class="line">            &#125;</span><br><span class="line">            endPos--;</span><br><span class="line">            result[<span class="number">0</span>] = startPos;</span><br><span class="line">            result[<span class="number">1</span>] = endPos;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Depends on the type of data that you are working with, the alghrithm above will suffer if the duplicated target value is very long. (time complexity of traversing the duplicated target value high).<br>In this case, we prefer to perform binary search <strong>twice</strong> to find <strong>low bound</strong> &amp; <strong>high bound</strong> seperately.  </p>
+</blockquote>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/03/28/BinarySearch/" itemprop="url">
-              
-                <span itemprop="name">Binary Search</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-03-28T18:35:52+00:00"
-              content="03-28-2016" >
-          03-28
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
+          
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/18/ML/" rel="next" title="Coursera: Machine Learning by Stanford">
+                <i class="fa fa-chevron-left"></i> Coursera: Machine Learning by Stanford
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/28/Search-in-a-Big-Sorted-Array/" rel="prev" title="Lintcode 447 - Search in a Big Sorted Array">
+                Lintcode 447 - Search in a Big Sorted Array <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/06/28/Search-for-a-range/"
+     data-title="Lintcode 61 - Search For a Range"
+     data-content=""
+     data-url="http://www.xuyiruan.com/2016/06/28/Search-for-a-range/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -309,6 +454,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/28/Search-for-a-range/"
+           data-title="Lintcode 61 - Search For a Range" data-url="http://www.xuyiruan.com/2016/06/28/Search-for-a-range/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -328,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/author.jpg"
@@ -340,7 +502,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -357,7 +519,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -430,6 +592,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">2.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">3.</span> <span class="nav-text">Corner Case:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">4.</span> <span class="nav-text">Code:</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -533,6 +706,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
