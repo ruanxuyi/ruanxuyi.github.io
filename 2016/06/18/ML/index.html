@@ -711,8 +711,9 @@ $$ ... $$
 <p><strong>After Scaling</strong>  </p>
 <p>$x_1 = \frac{size(feet^2)}{2000}$<br>$x_2 = \frac{number of bedroom}{5}$</p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160627%2Fscale-after.png" alt=""></p>
+<p>Gradient Descent with scaling will result in a faster, <strong>direct path</strong> to find the local minimal and<strong> converge much faster, </strong>why??**</p>
 <blockquote>
-<p>Gradient Descent with scaling will result in a faster, <strong>direct path</strong> to find the local minimal and<strong> converge much faster</strong>, why?? </p>
+<p>Possible Reason: Feature Scaling + Mean Normalization allows updated $X$ values locate in a <strong>similiar</strong> &amp; <strong>smaller</strong> range ( $ -1 &lt; X &lt; 1$ ) instead of un-normalizaed range ($0&lt;x&lt;2000$). The <strong>smaller</strong>&amp;<strong>united</strong> range allow gradient descent to work <strong>better</strong> even with small value of $\alpha$.  </p>
 </blockquote>
 <h4 id="Feature_Scaling">Feature Scaling</h4><p>Get every featrue into <strong>approximately</strong> a $-1 \leq x_i \leq 1$ range.  </p>
 <p><strong>Examples of Good Scaling:</strong>  </p>
@@ -725,7 +726,7 @@ $$ ... $$
 <h4 id="Mean_Normalization">Mean Normalization</h4><ul>
 <li>another techique to enhance feature scaling’s perforamnce      </li>
 <li>Replace $x_i$ with $x_i - \mu_i$  </li>
-<li>Help gradient descent converge more <strong>faster</strong> ??  </li>
+<li>Help gradient descent converge more <strong>faster</strong> </li>
 </ul>
 
 $$x_i = \frac{x_i-\mu_i}{s_i}$$
@@ -881,6 +882,7 @@ $$ h_0(x)= \theta_0+\theta_1\times (size)+\theta_2\times (size)^2+\theta_3 \time
 <li>06/19/2016: Complete week 1 notes and quizs  </li>
 <li>06/21/2016: week 1 linear algrba review completed</li>
 <li>06/27/2016: week 2 notes updated</li>
+<li>06/27/2016: updated week 2: added notes for feature scaling &amp; mean normalization.  </li>
 </ul>
 <h1 id="Reference">Reference</h1><p><a href="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera.s3.amazonaws.com/topics/ml/large-icon.png" target="_blank" rel="external">Front cover from Coursera</a>  </p>
 
