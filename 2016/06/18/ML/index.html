@@ -157,15 +157,15 @@
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160628/logistic-regression.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160628/decision-boundary.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160628/non-linear-logistic-regression.png">
-<meta property="og:image" content="convex.png">
-<meta property="og:image" content="non-convex.png">
-<meta property="og:image" content="cost-function-y1.png">
-<meta property="og:image" content="cost-function-y0.png">
-<meta property="og:image" content="logistic-regression-cost-function.png">
-<meta property="og:image" content="cost-function0.png">
-<meta property="og:image" content="cost-function.png">
-<meta property="og:image" content="fminunc.png">
-<meta property="og:image" content="logistic-regression-with-advanced-optimzation-algorithm.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160701/convex.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160701/non-convex.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function-y1.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function-y0.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160701/logistic-regression-cost-function.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function0.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160701/fminunc.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160701/logistic-regression-with-advanced-optimzation-algorithm.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coursera: Machine Learning by Stanford">
 <meta name="twitter:description">
@@ -961,11 +961,11 @@ $$J(\theta) = \frac 1 {m} \sum_{i=1}^m \frac{1}{2}(h_\theta(x^{(i)})-y^{(i)})^2$
 <blockquote>
 <p>Non-convex function: function that is not able to converge to a local minium.  </p>
 </blockquote>
-<p><img src="convex.png" alt=""><br><img src="non-convex.png" alt="">  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/convex.png" alt=""><br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/non-convex.png" alt="">  </p>
 <p>Therefore, we need to come up with <strong>new</strong> cost function, that does come up into a <strong>convex</strong> function. (so that the fucntion can converge to a local/global minimum).  </p>
 <h4 id="Logistic_regression_cost_function">Logistic regression cost function</h4><p>$$Cost(h<em>\theta(x),y) =<br>\left{\begin{matrix}<br> -log(h</em>\theta(x)) \; if\;y=1 \<br> -log(1-h_\theta(x))\; if \;y = 0<br>\end{matrix}\right.$$</p>
-<p><img src="cost-function-y1.png" alt=""></p>
-<p><img src="cost-function-y0.png" alt=""></p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function-y1.png" alt=""></p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function-y0.png" alt=""></p>
 <h3 id="Simplified_Cost_Function_and_Gradient_Descent">Simplified Cost Function and Gradient Descent</h3><ul>
 <li>simpler way to write out cost fucntion  </li>
 <li>apply gradient descent to get the best $\theta$ values.  </li>
@@ -976,7 +976,7 @@ $$J(\theta) = \frac 1 {m} \sum_{i=1}^m Cost(h_\theta(x^{(i)}), y^{(i)})$$
 <p>$$Cost(h<em>\theta(x),y) =<br>\left{\begin{matrix}<br> -log(h</em>\theta(x)) \; if\;y=1 \<br> -log(1-h_\theta(x))\; if \;y = 0<br>\end{matrix}\right.$$</p>
 <p>Compressed version for cost function  </p>
 <p>$$Cost(h<em>\theta(x),y) =<br> -y\;log(h</em>\theta(x))<br> -(1-y    )log(1-h_\theta(x))$$</p>
-<p><img src="logistic-regression-cost-function.png" alt=""><br>Above is the compact version of our cost fucntion for logistic regression.  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/logistic-regression-cost-function.png" alt=""><br>Above is the compact version of our cost fucntion for logistic regression.  </p>
 <blockquote>
 <p>Why would we choose this partitular <code>log</code> fucntion as cost fucntion is because this function was proven that provide efficient method to find $\theta$ values and the most convex feature for logistic regression.  </p>
 </blockquote>
@@ -1017,10 +1017,10 @@ $$ \theta_j :=\theta_j - \alpha \sum_{i=1}^m(h_0(x^{(i)}) - y^{(i)})*x_j^{(i)} $
 </ul>
 <p><strong>Example</strong>:   </p>
 <p>Cost function</p>
-<p><img src="cost-function0.png" alt=""><br><img src="cost-function.png" alt="">  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function0.png" alt=""><br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function.png" alt="">  </p>
 <p>Instead of manually choose learning rate $\alpha$, we will used advanced optimzation library to automatically use the best learning rate $\alpha$ to find optimal $\theta$ values.  </p>
-<h4 id="fminunc_function">fminunc function</h4><p><img src="fminunc.png" alt="">  </p>
-<h4 id="Application_of_advanced_optimzation_library_to_logistic_regression">Application of advanced optimzation library to logistic regression</h4><p><img src="logistic-regression-with-advanced-optimzation-algorithm.png" alt=""></p>
+<h4 id="fminunc_function">fminunc function</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/fminunc.png" alt="">  </p>
+<h4 id="Application_of_advanced_optimzation_library_to_logistic_regression">Application of advanced optimzation library to logistic regression</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/logistic-regression-with-advanced-optimzation-algorithm.png" alt=""></p>
 <h4 id="Summary:">Summary:</h4><p><strong>benefit</strong> of using advanced optimzation algorith library</p>
 <ul>
 <li>harder to debug  </li>
@@ -1033,6 +1033,7 @@ $$ \theta_j :=\theta_j - \alpha \sum_{i=1}^m(h_0(x^{(i)}) - y^{(i)})*x_j^{(i)} $
 <li>06/27/2016: week 2 notes updated</li>
 <li>06/27/2016: updated week 2: added notes for feature scaling &amp; mean normalization.  </li>
 <li>06/28/2016: week 3 started: logistic regression, decision boundary  </li>
+<li>07/01/2016: week 3 lesson 3: Logistic Regression Model &amp; advanced optimazation models</li>
 </ul>
 <h1 id="Reference">Reference</h1><p><a href="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera.s3.amazonaws.com/topics/ml/large-icon.png" target="_blank" rel="external">Front cover from Coursera</a>  </p>
 
