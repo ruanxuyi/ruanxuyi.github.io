@@ -911,6 +911,7 @@ $$ h_0(x)= \theta_0+\theta_1\times (size)+\theta_2\times (size)^2+\theta_3 \time
 <ul>
 <li>as we add one more data point to the right, the hypothesis function become smaller slope, two data points previous classify as malignant(y = 1) now become non-malignant.    </li>
 <li>in most of case, linear regression is not the best approach for classification problem  </li>
+<li>in example above, we might <strong>manually</strong> change the hypothesis function to $h_\theta(x) = 0.3x$. However, if we added one more data point, we will need to <strong>manually</strong> assigned a <strong>different</strong> <strong>slope</strong> for the hypothesis function. We need to find <strong>something else</strong> smarter (evenly seperate using the $h_\theta(x) = 0.5 $ threshold for classification problem). With new approch, even more data points invovole, the alorithm can automatically update the $\theta$ values to make the hypothesis function sucessfully classify the traning sets)  </li>
 </ul>
 <h4 id="Logistic_Regression:">Logistic Regression:</h4><ul>
 <li>an classification algorithm  </li>
@@ -933,8 +934,9 @@ $$ h_0(x)= \theta_0+\theta_1\times (size)+\theta_2\times (size)^2+\theta_3 \time
 <li>virtualization </li>
 <li>better sense of Logistic regression  </li>
 </ul>
-<h4 id="logistic_regression">logistic regression</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160628/logistic-regression.png" alt=""></p>
-<p>$g(z) \geq 0.5$ when $z \geq 0$, since $h<em>\theta(x) = g(\theta^Tx)$, therefore, $h</em>\theta(x) \geq 0.5$ where $\theta^Tx \geq 0 $</p>
+<h4 id="logistic_regression">logistic regression</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160628/logistic-regression.png" alt=""><br>
+$g(z) \geq 0.5$ when $z \geq 0$, since $h_\theta(x) = g(\theta^Tx)$, therefore, $h_\theta(x) \geq 0.5$ where $\theta^Tx \geq 0 $
+</p>
 <p>Similarly, $h_\theta(x) &lt; 0.5$ where $\theta^Tx &lt; 0 $</p>
 <h4 id="Decision_Boundary_Vitualizaiton">Decision Boundary Vitualizaiton</h4><ul>
 <li>once $\theta$ value fixed, the line for decision boundary was also fixed  </li>
@@ -963,7 +965,13 @@ $$J(\theta) = \frac 1 {m} \sum_{i=1}^m \frac{1}{2}(h_\theta(x^{(i)})-y^{(i)})^2$
 </blockquote>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/convex.png" alt=""><br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/non-convex.png" alt="">  </p>
 <p>Therefore, we need to come up with <strong>new</strong> cost function, that does come up into a <strong>convex</strong> function. (so that the fucntion can converge to a local/global minimum).  </p>
-<h4 id="Logistic_regression_cost_function">Logistic regression cost function</h4><p>$$Cost(h<em>\theta(x),y) =<br>\left{\begin{matrix}<br> -log(h</em>\theta(x)) \; if\;y=1 \<br> -log(1-h_\theta(x))\; if \;y = 0<br>\end{matrix}\right.$$</p>
+<h4 id="Logistic_regression_cost_function">Logistic regression cost function</h4>
+$$Cost(h_\theta(x),y) = 
+\left\{\begin{matrix}
+ -log(h_\theta(x)) \; if\;y=1 \\ 
+ -log(1-h_\theta(x))\; if \;y = 0 
+\end{matrix}\right.$$
+
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function-y1.png" alt=""></p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function-y0.png" alt=""></p>
 <h3 id="Simplified_Cost_Function_and_Gradient_Descent">Simplified Cost Function and Gradient Descent</h3><ul>
@@ -973,17 +981,29 @@ $$J(\theta) = \frac 1 {m} \sum_{i=1}^m \frac{1}{2}(h_\theta(x^{(i)})-y^{(i)})^2$
 <h4 id="Logistic_regression_cost_function-1">Logistic regression cost function</h4>
 $$J(\theta) = \frac 1 {m} \sum_{i=1}^m Cost(h_\theta(x^{(i)}), y^{(i)})$$
 
-<p>$$Cost(h<em>\theta(x),y) =<br>\left{\begin{matrix}<br> -log(h</em>\theta(x)) \; if\;y=1 \<br> -log(1-h_\theta(x))\; if \;y = 0<br>\end{matrix}\right.$$</p>
-<p>Compressed version for cost function  </p>
-<p>$$Cost(h<em>\theta(x),y) =<br> -y\;log(h</em>\theta(x))<br> -(1-y    )log(1-h_\theta(x))$$</p>
+
+$$Cost(h_\theta(x),y) = 
+\left\{\begin{matrix}
+ -log(h_\theta(x)) \; if\;y=1 \\ 
+ -log(1-h_\theta(x))\; if \;y = 0 
+\end{matrix}\right.$$
+
+Compressed version for cost function  
+
+
+$$Cost(h_\theta(x),y) = 
+ -y\;log(h_\theta(x)) 
+ -(1-y	)log(1-h_\theta(x))$$
+
+
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/logistic-regression-cost-function.png" alt=""><br>Above is the compact version of our cost fucntion for logistic regression.  </p>
 <blockquote>
-<p>Why would we choose this partitular <code>log</code> fucntion as cost fucntion is because this function was proven that provide efficient method to find $\theta$ values and the most convex feature for logistic regression.  </p>
+<p>Why would we choose this partitular <code>log</code> fucntion as cost fucntion is because this function was proven that <strong>provide efficiency</strong> to find $\theta$ values and the most <strong>convex feature</strong> for logistic regression.  </p>
 </blockquote>
 <h4 id="Find_the_theta_values_that_minimize_the_cost_function">Find the theta values that minimize the cost function</h4><p>$$\min_{\theta} J(\theta)$$</p>
 <p><strong>Hypothesis Function</strong>  </p>
 <p>$$h_\theta(x) = \frac{1}{1+e^{-\theta^{T}x}}$$</p>
-<p>the output of the hypothesis function $h_\theta$ indicates<br>$$P(y=1\; | \; x;\theta)$$<br>the <strong>probability</strong> of result being <code>y=1</code> with given <code>x</code> values and $\theta$ values calculated from the gradient descent.  </p>
+<p>the output of the hypothesis function $h_\theta$ indicates<br>$$P(y=1\; | \; x;\theta)$$<br>the <strong>probability</strong> of result being <code>y=1</code> with given <code>x</code> values (from user) and $\theta$ values (pre-set by gradient descent).  </p>
 <h4 id="Gradient_Descent-1">Gradient Descent</h4><p><strong>Update Rules</strong>:<br>
 $$ \theta_j :=\theta_j - \alpha \frac {\partial}{\partial\theta_j} J(\theta)$$    
  </p>
