@@ -1092,7 +1092,9 @@ $$ \theta_j :=\theta_j - \alpha \sum_{i=1}^m(h_0(x^{(i)}) - y^{(i)})*x_j^{(i)} $
 <li>each of which was trained to recognize one of three classes  </li>
 </ul>
 <h4 id="One-vs-all_Definition">One-vs-all Definition</h4><p>Train a logistic regression classifier $h_\theta^{i}(x)$ for each class $i$ to predict the <strong>probability</strong> that $y=i$.  </p>
-<p>On a new input $x$, to make a prediction, pick the class $i$ that maximizes $$\max<em>{i} h</em>\theta^{(i)}(x)$$  </p>
+<p>On a new input $x$, to make a prediction, pick the class $i$ that maximizes<br>
+$$\max_{i} h_\theta^{(i)}(x)$$  
+</p>
 <blockquote>
 <p>maxmizes since $h_\theta^{(i)}(x)$ is the probability of class is $i$ given $x$ value.  </p>
 </blockquote>
@@ -1410,7 +1412,7 @@ If network has $s_j$ units in layer $j$, $s_{j+1}$ units in layer $j+1$, then $\
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1427,7 +1429,7 @@ If network has $s_j$ units in layer $j$, $s_{j+1}$ units in layer $j+1$, then $\
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

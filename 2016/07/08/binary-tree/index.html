@@ -1,0 +1,963 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Bree Serif:300,300italic,400,400italic,700,700italic|Arimo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="BalancedTree,BinaryTree," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/sushi.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="All about the Tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tree Data Structure">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/07/08/binary-tree/index.html">
+<meta property="og:site_name" content="阮先生de小窝">
+<meta property="og:description" content="All about the Tree">
+<meta property="og:image" content="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/binaryTree.bmp">
+<meta property="og:image" content="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/tree1.bmp">
+<meta property="og:image" content="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/traversalEuler.bmp">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160712/full-tree.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160712/complete-tree.png">
+<meta property="og:image" content="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/pix03.bmp">
+<meta property="og:image" content="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/insert.bmp">
+<meta property="og:image" content="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/del01.bmp">
+<meta property="og:image" content="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/del02.bmp">
+<meta property="og:image" content="https://webdocs.cs.ualberta.ca/~holte/T26/Lecture9Fig9.gif">
+<meta property="og:image" content="https://webdocs.cs.ualberta.ca/~holte/T26/Lecture9Fig11.gif">
+<meta property="og:image" content="https://webdocs.cs.ualberta.ca/~holte/T26/Lecture9Fig12.gif">
+<meta property="og:image" content="https://webdocs.cs.ualberta.ca/~holte/T26/Lecture9Fig13.gif">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tree Data Structure">
+<meta name="twitter:description" content="All about the Tree">
+
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> Tree Data Structure | 阮先生de小窝 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">阮先生de小窝</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">多读书 多思考 少吃零食 多睡觉</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'TVdsuUVez9DD1Mx-gjc8','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Tree Data Structure
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-08T21:52:34-07:00" content="07-09-2016">
+              07-09-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/08/binary-tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/08/binary-tree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/08/binary-tree/" class="leancloud_visitors" data-flag-title="Tree Data Structure">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="All_about_the_Tree">All about the Tree</h1><p><img src="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/binaryTree.bmp" alt="cover-image"></p>
+<a id="more"></a>
+<h2 id="Advantage_of_Tree">Advantage of Tree</h2><ul>
+<li>provides efficient <strong>inssertion</strong> and <strong>search</strong>  </li>
+<li>maintains level of <strong>hierarchy</strong>  </li>
+<li>reflects structural <strong>relationships</strong> in <strong>data</strong> (BST - values in left subtree smaller than root, while values in right subtree larger than root)  </li>
+<li>flexible data structure  </li>
+</ul>
+<h1 id="Tree_Traversals">Tree Traversals</h1><ul>
+<li>Traversal is a process of visiting all the nodes in a given tree.  </li>
+<li>There are two main type of traversal algorithms:  </li>
+</ul>
+<ol>
+<li>depth-first traversal  </li>
+<li>breath-first traversal (Level-Order)  </li>
+</ol>
+<h2 id="Depth-First_Traversal">Depth-First Traversal</h2><p>Three types of depth-first traversal are available:  </p>
+<ul>
+<li>PreOrder Traversal  </li>
+<li>InOrder Traversal  </li>
+<li>PostOrder Traversal  </li>
+</ul>
+<h3 id="PreOrder_Traversal">PreOrder Traversal</h3><p>Parent value read <strong>first</strong>(Pre(first) -&gt; parent, left, right)  </p>
+<h3 id="InOrder_Traversal">InOrder Traversal</h3><p>parent Value read in the <strong>middle</strong>(In -&gt; left, parent, right)  </p>
+<h3 id="PostOrder_Traversal">PostOrder Traversal</h3><p>parent Value read in the end(Post -&gt; last read -&gt; left, right, parent)  </p>
+<h3 id="Recursive_Implementation">Recursive Implementation</h3><p><strong>TODO</strong></p>
+<h3 id="Non-recursive_Implementation">Non-recursive Implementation</h3><p><strong>TODO</strong></p>
+<h2 id="Breath-First_Traversal(Level-Order)">Breath-First Traversal(Level-Order)</h2><p>There is only one type of Breath-First Traversal. The traversal visits nodes by levels from <strong>top to bottom</strong> and from <strong>left to right</strong>.  </p>
+<h3 id="Implementation">Implementation</h3><p><strong>ToDo</strong></p>
+<h2 id="Example:">Example:</h2><p><img src="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/tree1.bmp" alt=""></p>
+<p>PreOrder - <code>8, 5, 9, 7, 1, 12, 2, 4, 11, 3</code><br>InOrder - <code>9, 5, 1, 7, 2, 12, 8, 4, 3, 11</code><br>PostOrder - <code>9, 1, 2, 12, 7, 5, 3, 11, 4, 8</code><br>LevelOrder - <code>8, 5, 4, 9, 7, 11, 1, 12, 3, 2</code>  </p>
+<h2 id="Euler_tour">Euler tour</h2><ul>
+<li>faster way to wirte out different order of depth-first traversal  </li>
+</ul>
+<p><img src="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/traversalEuler.bmp" alt="">   </p>
+<ul>
+<li>each nodes were visited three times during the traversal  </li>
+<li>follow the purple lines to take the <strong>tour</strong>(you cannot cross the edges)  </li>
+<li>Each node will be visited either on the <strong>left</strong>, <strong>below</strong>, or <strong>right</strong>.  </li>
+<li>The Euler tour in which we visited nodes <strong>on the left</strong> produced <strong>preorder traversal</strong>.  </li>
+<li>When we visited nodes <strong>under below</strong> the nodes, we got <strong>in-order traversal</strong>.  </li>
+<li>When we visited nodes <strong>on the right</strong> of the nodes, we got <strong>post-order traversal</strong>.  </li>
+</ul>
+<h1 id="Binary_Tree">Binary Tree</h1><ul>
+<li>a tree data structure that each node has <strong>at most</strong> two children.   </li>
+<li>The <strong>depth</strong> of a node is the number of edges from the <strong>root</strong> to <strong>the node</strong>.  </li>
+<li>The height of a <strong>node</strong> is the number of edges from <strong>the node</strong> to the <strong>deepest leaf</strong>.  </li>
+<li>The height of the <strong>tree</strong> is the number of edges from the <strong>root</strong> to the <strong>deepest leaf</strong>.  </li>
+</ul>
+<h2 id="Full_Binary_Tree">Full Binary Tree</h2><p>Full binary tree is a binary tree in which <strong>each node</strong> has exactly <strong>zero</strong> or <strong>two</strong> children.    </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160712/full-tree.png" alt="">  </p>
+<h2 id="Complete_Binary_Tree">Complete Binary Tree</h2><p>A complete binary tree is a binary tree, which is completely filled, with the possible exception in the <strong>bottom level</strong> (partially filled), which is filled from <strong>left to right</strong>.  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160712/complete-tree.png" alt="">  </p>
+<h1 id="Binary_Search_Tree_(BST)">Binary Search Tree (BST)</h1><p>The basic idea of binary search tree is to have such stroring repository to <strong>search, insert, retrive</strong> data.  </p>
+<h2 id="Basic_rules_for_Binary_Search_Tree:">Basic rules for Binary Search Tree:</h2><ul>
+<li>each node contains <strong>one</strong> key (data)  </li>
+<li><strong>no</strong> <strong>duplicates</strong> keys were allowed  </li>
+<li>key values in the left subtree must be <strong>smaller</strong> than the key value of its parent node.  </li>
+<li>key values in teh right subtree must be <strong>larger</strong> than the key value of its parent node.  </li>
+</ul>
+<p><img src="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/pix03.bmp" alt="">  </p>
+<h2 id="Insertion">Insertion</h2><p>Because of the $L&lt;P&lt;R$ structure maintains by the binary search tree. We will be easily insert new node by start from the root and recursively go down the tree for a location in BST to insert a new node.  </p>
+<p><img src="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/insert.bmp" alt=""></p>
+<blockquote>
+<p>if the insert node was already exist in the BST, we simply return since BST does not allow duplicates.  </p>
+</blockquote>
+<h2 id="Searching">Searching</h2><p>Searching is similiar to the insertion. We start from the root of the tree and go down the tree by comparing the data value and either process to left or right of the BST depends on the result of the comparison of the data value.  </p>
+<p>Searching in a BST has an average of $O(log(N))$ time complexity where $N$ is the number of nodes in the BST. However, the worst time complexity can be as high as $O(N)$ if the BST is not well balanced (extreme not height-balanced, liked linked-list).  </p>
+<h2 id="Deletion">Deletion</h2><p>There are four cases need to consider for deletion:  </p>
+<ul>
+<li>the node is <strong>not</strong> in the tree  </li>
+<li>the node is a <strong>leaf</strong>  </li>
+<li>the node has <strong>one</strong> child  </li>
+<li>the ndoe has <strong>two</strong> children  </li>
+</ul>
+<h3 id="node_is_not_in_the_tree">node is <strong>not</strong> in the tree</h3><p>The first case if node is not in the tree, we will not need to do much except the time spend to search for that node.  </p>
+<h3 id="node_is_a_leaf">node is a <strong>leaf</strong></h3><p>In the second case when the node being delete is the leaf, we simply set that node to be <code>null</code>  </p>
+<h3 id="node_has_one_child">node has <strong>one</strong> child</h3><p>If the node being deleted has <strong>only</strong> one child, we just need to set its parent’s child to the child of the node that will be delete.  </p>
+<p><img src="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/del01.bmp" alt="">  </p>
+<h3 id="node_has_two_children">node has <strong>two</strong> children</h3><p>If the node being deleted has two children, we can swap it with the largest node to its left/ the smallest node to its right, and then deleted the node we intend to delete. </p>
+<blockquote>
+<p>If the node being swapped performed the same operation according to each individual cases.  </p>
+</blockquote>
+<p><img src="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/del02.bmp" alt=""></p>
+<h1 id="Balanced_Tree">Balanced Tree</h1><h2 id="Definition_of_height-balanced">Definition of height-balanced</h2><h3 id="1-_Perfectly_height-balanced_tree**">1. Perfectly height-balanced tree**</h3><ul>
+<li>left and right subtree of <strong>any node</strong> are the <strong>same height</strong>.  </li>
+<li>$H=O(logN)$  </li>
+<li>rare case since it need <strong>exactly</strong> $2^(H-1)$ nodes.  </li>
+</ul>
+<p><img src="https://webdocs.cs.ualberta.ca/~holte/T26/Lecture9Fig9.gif" alt="perfectly-height-balanced-tree"></p>
+<h3 id="2-_Height-balanced_tree">2. Height-balanced tree</h3><ul>
+<li>the height difference of left and right subtree of <strong>every node</strong> are within 1.  </li>
+<li>check <strong>from leaves</strong> and work your <strong>way up</strong>.  </li>
+</ul>
+<p><img src="https://webdocs.cs.ualberta.ca/~holte/T26/Lecture9Fig11.gif" alt=""></p>
+<p>Node C and D are <strong>perfectly balacned</strong> since <strong>height</strong> of both left and right subtrees <strong>are zeros</strong> (same height).  </p>
+<p><img src="https://webdocs.cs.ualberta.ca/~holte/T26/Lecture9Fig12.gif" alt=""></p>
+<p>work your way up and find out that node B’s left subtree has height 1, while right subtree has height 0. The difference of left and right height is 1 (within 1). Therefore, subtree with root node B has is <strong>height balanced</strong>.  </p>
+<p><img src="https://webdocs.cs.ualberta.ca/~holte/T26/Lecture9Fig13.gif" alt=""></p>
+<p>work your way up and find out that node A’s left subtree has height 2, while right subtree has height 1. The difference of left and right height is still 1 (within 1). </p>
+<p>Since <strong>all the nodes</strong> in the tree maintain height-balanced property. This is a <strong>height-balalnced</strong> tree. </p>
+<blockquote>
+<p><strong>Why</strong> do we need height-balanced tree structure?   </p>
+<p>Since most of the tree structure invovle data manipulation in form of <strong>insert, delect, search</strong> operations. The complexity of those operations are directly relate to the <strong>height</strong> of the tree. The most <strong>optimal height</strong> for a height-balance three is $H = O(Log(N))$, which is <strong>smaller</strong> than a unbalanced one. Therefore, maintaining a height-balanced tree structure (shorter height) means a better peroformance in doing those operations. </p>
+</blockquote>
+<h1 id=""> </h1><h1 id="Find_the_height_of_tree_structure">Find the height of tree structure</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getHeight</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (rotot == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> leftHeight = getHeight(root.left);</span><br><span class="line">    <span class="keyword">int</span> rightHeight = getHeight(root.right);</span><br><span class="line">    <span class="keyword">return</span> Math.max(leftHeight, rightHeight) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="References:">References:</h1><p><a href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/binaryTree.bmp" target="_blank" rel="external">cover-image</a><br><a href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/trees.html" target="_blank" rel="external">Tree Traversals</a><br><a href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/trees.html" target="_blank" rel="external">CMU Binary Tree Intro</a><br><a href="https://webdocs.cs.ualberta.ca/~holte/T26/balanced-trees.html" target="_blank" rel="external">3.1. Balanced Trees and images</a>  </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BalancedTree/" rel="tag">#BalancedTree</a>
+          
+            <a href="/tags/BinaryTree/" rel="tag">#BinaryTree</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/08/balanced-binary-tree/" rel="next" title="LintCode 93 - Balanced Binary Tree">
+                <i class="fa fa-chevron-left"></i> LintCode 93 - Balanced Binary Tree
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/07/08/binary-tree/"
+     data-title="Tree Data Structure"
+     data-content=""
+     data-url="http://www.xuyiruan.com/2016/07/08/binary-tree/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/08/binary-tree/"
+           data-title="Tree Data Structure" data-url="http://www.xuyiruan.com/2016/07/08/binary-tree/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.jpg"
+               alt="🍣之神" />
+          <p class="site-author-name" itemprop="name">🍣之神</p>
+          <p class="site-description motion-element" itemprop="description">阮先生’s blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ruanxuyi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/xuyiruan/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/xuyi-ruan-a728a889" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mszhuchinese.com" title="MsZhuChinese" target="_blank">MsZhuChinese</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.winniebabe.com" title="WinnieBabe" target="_blank">WinnieBabe</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suncuss.me" title="BossSun" target="_blank">BossSun</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#All_about_the_Tree"><span class="nav-number">1.</span> <span class="nav-text">All about the Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Advantage_of_Tree"><span class="nav-number">1.1.</span> <span class="nav-text">Advantage of Tree</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tree_Traversals"><span class="nav-number">2.</span> <span class="nav-text">Tree Traversals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Depth-First_Traversal"><span class="nav-number">2.1.</span> <span class="nav-text">Depth-First Traversal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PreOrder_Traversal"><span class="nav-number">2.1.1.</span> <span class="nav-text">PreOrder Traversal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InOrder_Traversal"><span class="nav-number">2.1.2.</span> <span class="nav-text">InOrder Traversal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PostOrder_Traversal"><span class="nav-number">2.1.3.</span> <span class="nav-text">PostOrder Traversal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive_Implementation"><span class="nav-number">2.1.4.</span> <span class="nav-text">Recursive Implementation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-recursive_Implementation"><span class="nav-number">2.1.5.</span> <span class="nav-text">Non-recursive Implementation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Breath-First_Traversal(Level-Order)"><span class="nav-number">2.2.</span> <span class="nav-text">Breath-First Traversal(Level-Order)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Implementation"><span class="nav-number">2.2.1.</span> <span class="nav-text">Implementation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example:"><span class="nav-number">2.3.</span> <span class="nav-text">Example:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Euler_tour"><span class="nav-number">2.4.</span> <span class="nav-text">Euler tour</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary_Tree"><span class="nav-number">3.</span> <span class="nav-text">Binary Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Full_Binary_Tree"><span class="nav-number">3.1.</span> <span class="nav-text">Full Binary Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complete_Binary_Tree"><span class="nav-number">3.2.</span> <span class="nav-text">Complete Binary Tree</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary_Search_Tree_(BST)"><span class="nav-number">4.</span> <span class="nav-text">Binary Search Tree (BST)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic_rules_for_Binary_Search_Tree:"><span class="nav-number">4.1.</span> <span class="nav-text">Basic rules for Binary Search Tree:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Insertion"><span class="nav-number">4.2.</span> <span class="nav-text">Insertion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Searching"><span class="nav-number">4.3.</span> <span class="nav-text">Searching</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deletion"><span class="nav-number">4.4.</span> <span class="nav-text">Deletion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node_is_not_in_the_tree"><span class="nav-number">4.4.1.</span> <span class="nav-text">node is not in the tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node_is_a_leaf"><span class="nav-number">4.4.2.</span> <span class="nav-text">node is a leaf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node_has_one_child"><span class="nav-number">4.4.3.</span> <span class="nav-text">node has one child</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node_has_two_children"><span class="nav-number">4.4.4.</span> <span class="nav-text">node has two children</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Balanced_Tree"><span class="nav-number">5.</span> <span class="nav-text">Balanced Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition_of_height-balanced"><span class="nav-number">5.1.</span> <span class="nav-text">Definition of height-balanced</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-_Perfectly_height-balanced_tree**"><span class="nav-number">5.1.1.</span> <span class="nav-text">1. Perfectly height-balanced tree**</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-_Height-balanced_tree"><span class="nav-number">5.1.2.</span> <span class="nav-text">2. Height-balanced tree</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">6.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Find_the_height_of_tree_structure"><span class="nav-number">7.</span> <span class="nav-text">Find the height of tree structure</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References:"><span class="nav-number">8.</span> <span class="nav-text">References:</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">🍣之神</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xruan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oKoPG1XTXkC7T1oasGQwau2g-gzGzoHsz", "JFJCQtIsUKhrX6S7Gvgqdqgk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
