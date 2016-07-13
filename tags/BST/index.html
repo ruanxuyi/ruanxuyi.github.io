@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BFS,DFS," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -96,15 +96,15 @@
 
 
 
-<meta name="description" content="BFS and DFSBFS">
-<meta property="og:type" content="article">
-<meta property="og:title" content="BFS vs DFS">
-<meta property="og:url" content="http://www.xuyiruan.com/2016/03/28/BFS-DFS/index.html">
+<meta name="description" content="阮先生’s blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="阮先生de小窝">
+<meta property="og:url" content="http://www.xuyiruan.com/tags/BST/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="BFS and DFSBFS">
+<meta property="og:description" content="阮先生’s blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BFS vs DFS">
-<meta name="twitter:description" content="BFS and DFSBFS">
+<meta name="twitter:title" content="阮先生de小窝">
+<meta name="twitter:description" content="阮先生’s blog">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title> BFS vs DFS | 阮先生de小窝 </title>
+  <title> Tag: BST | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -144,7 +144,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,183 +262,74 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                BFS vs DFS
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-03-28T14:35:52-07:00" content="03-28-2016">
-              03-28-2016
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/DataStructure/" itemprop="url" rel="index">
-                    <span itemprop="name">DataStructure</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/28/BFS-DFS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/28/BFS-DFS/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/03/28/BFS-DFS/" class="leancloud_visitors" data-flag-title="BFS vs DFS">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="BFS_and_DFS">BFS and DFS</h1><h2 id="BFS">BFS</h2><a id="more"></a>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 本代码由九章算法编辑提供。没有版权欢迎转发。</span><br><span class="line"> * - 九章算法致力于帮助更多中国人找到好的工作，教师团队均来自硅谷和国内的一线大公司在职工程师。</span><br><span class="line"> * - 现有的面试培训课程包括：九章算法班，系统设计班，BAT国内班</span><br><span class="line"> * - 更多详情请见官方网站：http://www.jiuzhang.com/</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">        ArrayList result = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">            </span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        queue.offer(root);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            ArrayList&lt;Integer&gt; level = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">            <span class="keyword">int</span> size = queue.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">                TreeNode head = queue.poll();</span><br><span class="line">                level.add(head.val);</span><br><span class="line">                <span class="keyword">if</span> (head.left != <span class="keyword">null</span>)</span><br><span class="line">                    queue.offer(head.left);</span><br><span class="line">                <span class="keyword">if</span> (head.right != <span class="keyword">null</span>)</span><br><span class="line">                    queue.offer(head.right);</span><br><span class="line">            &#125;</span><br><span class="line">            result.add(level);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="DFS">DFS</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 本代码由九章算法编辑提供。没有版权欢迎转发。</span><br><span class="line"> * - 九章算法致力于帮助更多中国人找到好的工作，教师团队均来自硅谷和国内的一线大公司在职工程师。</span><br><span class="line"> * - 现有的面试培训课程包括：九章算法班，系统设计班，BAT国内班</span><br><span class="line"> * - 更多详情请见官方网站：http://www.jiuzhang.com/</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line">Template <span class="number">1</span>: Traverse</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">        traverse(root.left);</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">        traverse(root.right);</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Tempate <span class="number">2</span>: Divide &amp; Conquer</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultType <span class="title">traversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// null or leaf</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// do something and return;</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Divide</span></span><br><span class="line">        ResultType left = traversal(root.left);</span><br><span class="line">        ResultType right = traversal(root.right);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Conquer</span></span><br><span class="line">        ResultType result = Merge from left and right.</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        BST
+        <small>Tag</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/" itemprop="url">
+              
+                <span itemprop="name">LintCode 448 - Inorder Successor in Binary Search Tree</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-07-13T17:45:40+00:00"
+              content="07-13-2016" >
+          07-13
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/BFS/" rel="tag">#BFS</a>
-          
-            <a href="/tags/DFS/" rel="tag">#DFS</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/03/28/BinarySearch/" rel="next" title="Binary Search">
-                <i class="fa fa-chevron-left"></i> Binary Search
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/07/毕业之旅/" rel="prev" title="大学四年。">
-                大学四年。 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
+    
       
-        <div class="ds-share flat" data-thread-key="2016/03/28/BFS-DFS/"
-     data-title="BFS vs DFS"
-     data-content=""
-     data-url="http://www.xuyiruan.com/2016/03/28/BFS-DFS/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
 
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/07/08/binary-tree/" itemprop="url">
+              
+                <span itemprop="name">Tree Data Structure</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-07-09T04:52:34+00:00"
+              content="07-09-2016" >
+          07-09
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
   </div>
-</div>
-      
-    </div>
-  </div>
+
+  
 
 
           </div>
@@ -446,14 +337,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/03/28/BFS-DFS/"
-           data-title="BFS vs DFS" data-url="http://www.xuyiruan.com/2016/03/28/BFS-DFS/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -473,17 +356,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/author.jpg"
@@ -584,17 +458,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BFS_and_DFS"><span class="nav-number">1.</span> <span class="nav-text">BFS and DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS"><span class="nav-number">1.1.</span> <span class="nav-text">BFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFS"><span class="nav-number">1.2.</span> <span class="nav-text">DFS</span></a></li></ol></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -698,10 +561,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

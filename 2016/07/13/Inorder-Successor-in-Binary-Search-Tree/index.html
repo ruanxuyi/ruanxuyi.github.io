@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BFS,DFS," />
+  <meta name="keywords" content="BST,LintCode," />
 
 
 
@@ -96,15 +96,18 @@
 
 
 
-<meta name="description" content="BFS and DFSBFS">
+<meta name="description" content="Inorder Successor in Binary Search Tree
+Code:/** * Definition for a binary tree node. * public class TreeNode &amp;#123; *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) &amp;#1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BFS vs DFS">
-<meta property="og:url" content="http://www.xuyiruan.com/2016/03/28/BFS-DFS/index.html">
+<meta property="og:title" content="LintCode 448 - Inorder Successor in Binary Search Tree">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="BFS and DFSBFS">
+<meta property="og:description" content="Inorder Successor in Binary Search Tree
+Code:/** * Definition for a binary tree node. * public class TreeNode &amp;#123; *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) &amp;#1">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BFS vs DFS">
-<meta name="twitter:description" content="BFS and DFSBFS">
+<meta name="twitter:title" content="LintCode 448 - Inorder Successor in Binary Search Tree">
+<meta name="twitter:description" content="Inorder Successor in Binary Search Tree
+Code:/** * Definition for a binary tree node. * public class TreeNode &amp;#123; *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) &amp;#1">
 
 
 
@@ -123,7 +126,7 @@
   };
 </script>
 
-  <title> BFS vs DFS | 阮先生de小窝 </title>
+  <title> LintCode 448 - Inorder Successor in Binary Search Tree | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -283,7 +286,7 @@
             
             
               
-                BFS vs DFS
+                LintCode 448 - Inorder Successor in Binary Search Tree
               
             
           </h1>
@@ -295,38 +298,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-03-28T14:35:52-07:00" content="03-28-2016">
-              03-28-2016
+            <time itemprop="dateCreated" datetime="2016-07-13T10:45:40-07:00" content="07-13-2016">
+              07-13-2016
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/DataStructure/" itemprop="url" rel="index">
-                    <span itemprop="name">DataStructure</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/28/BFS-DFS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/28/BFS-DFS/" itemprop="commentsCount"></span>
+                <a href="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/13/Inorder-Successor-in-Binary-Search-Tree/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -336,7 +320,7 @@
 
           
           
-             <span id="/2016/03/28/BFS-DFS/" class="leancloud_visitors" data-flag-title="BFS vs DFS">
+             <span id="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/" class="leancloud_visitors" data-flag-title="LintCode 448 - Inorder Successor in Binary Search Tree">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -358,9 +342,39 @@
       
 
       
-        <h1 id="BFS_and_DFS">BFS and DFS</h1><h2 id="BFS">BFS</h2><a id="more"></a>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 本代码由九章算法编辑提供。没有版权欢迎转发。</span><br><span class="line"> * - 九章算法致力于帮助更多中国人找到好的工作，教师团队均来自硅谷和国内的一线大公司在职工程师。</span><br><span class="line"> * - 现有的面试培训课程包括：九章算法班，系统设计班，BAT国内班</span><br><span class="line"> * - 更多详情请见官方网站：http://www.jiuzhang.com/</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">        ArrayList result = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">            </span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        queue.offer(root);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            ArrayList&lt;Integer&gt; level = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">            <span class="keyword">int</span> size = queue.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">                TreeNode head = queue.poll();</span><br><span class="line">                level.add(head.val);</span><br><span class="line">                <span class="keyword">if</span> (head.left != <span class="keyword">null</span>)</span><br><span class="line">                    queue.offer(head.left);</span><br><span class="line">                <span class="keyword">if</span> (head.right != <span class="keyword">null</span>)</span><br><span class="line">                    queue.offer(head.right);</span><br><span class="line">            &#125;</span><br><span class="line">            result.add(level);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="DFS">DFS</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 本代码由九章算法编辑提供。没有版权欢迎转发。</span><br><span class="line"> * - 九章算法致力于帮助更多中国人找到好的工作，教师团队均来自硅谷和国内的一线大公司在职工程师。</span><br><span class="line"> * - 现有的面试培训课程包括：九章算法班，系统设计班，BAT国内班</span><br><span class="line"> * - 更多详情请见官方网站：http://www.jiuzhang.com/</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line">Template <span class="number">1</span>: Traverse</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">        traverse(root.left);</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">        traverse(root.right);</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Tempate <span class="number">2</span>: Divide &amp; Conquer</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultType <span class="title">traversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// null or leaf</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// do something and return;</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Divide</span></span><br><span class="line">        ResultType left = traversal(root.left);</span><br><span class="line">        ResultType right = traversal(root.right);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Conquer</span></span><br><span class="line">        ResultType result = Merge from left and right.</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://www.lintcode.com/en/problem/inorder-successor-in-binary-search-tree/" target="_blank" rel="external">Inorder Successor in Binary Search Tree</a></p>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition for a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">inorderSuccessor</span><span class="params">(TreeNode root, TreeNode p)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">// locate node P and mark the deepest ancestor which p locates in its LEFT-subtree</span></span><br><span class="line">        TreeNode successor = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (root != <span class="keyword">null</span> &amp;&amp; root != p) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root.val &gt; p.val) &#123;</span><br><span class="line">                successor = root;</span><br><span class="line">                root = root.left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                root = root.right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// case 1: p has NO right child</span></span><br><span class="line">        <span class="keyword">if</span> (root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> successor;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// case 2: p has right child</span></span><br><span class="line">        root = root.right;</span><br><span class="line">        <span class="comment">// locate far-left node (smallest value in right subtree)</span></span><br><span class="line">        <span class="keyword">while</span> (root.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            root = root.left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// return far-left node if left child exists</span></span><br><span class="line">        <span class="comment">// otherwise, return right child of node p.</span></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="Description:">Description:</h1><p>Given a binary search tree (See Definition) and a node in it, find the in-order successor of that node in the BST.</p>
+<p>If the given node has no in-order successor in the tree, return <code>null</code>.</p>
+<blockquote>
+<p><strong>Notice</strong>:<br>It’s guaranteed p is one node in the given tree. (You can directly compare the memory address to find p)  </p>
+</blockquote>
+<h2 id="Example">Example</h2><p>Given tree = <code>[2,1]</code> and node = <code>1</code>:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">  <span class="number">2</span></span><br><span class="line"> /</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>return node <code>2</code>.</p>
+<p>Given tree = <code>[2,1,3]</code> and node = <code>2</code>:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">  <span class="number">2</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">1</span>   <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>return node <code>3</code>.</p>
+<h1 id="Thought_Process:">Thought Process:</h1><p>In-order successor is the <strong>next node</strong> that will be visit after node <code>p</code> with the <strong>in-order traversal</strong> algorithm.  </p>
+<p>The reason that we care about in-order-successor in that we are usually interesting in knowing the data <strong>before</strong> and <strong>after</strong> the given target data. Therefore, we need an <strong>efficient algorithm</strong> to find both <strong>successor</strong> and <strong>predecessor</strong> of the target data.  </p>
+<p>We can definitly find the successor by performing the complete in-order traversal while that will be not be efficient ($O(N)$ time complexity). We can implement more efficient algorithm to finish the task in ($O(log(N))$) time complexity.  </p>
+<h2 id="Steps:">Steps:</h2><h3 id="1-_Search_the_target_node_(p)-">1. Search the target node (p).</h3><p>Since the data store in BST data structure, we are able to locate the target node from top of the tree with $O(log_2(N))$ time complexity, where $N$ is the number of nodes in the BST.  </p>
+<h3 id="2-_Case_1:_if_p_has_NO_right_child">2. Case 1: if p has NO right child</h3><p>If target node p has NO right child, the next node visit will be one of its <strong>deepest</strong> ancestor, which p is in the <strong>left subtree</strong> of the ancestor.  </p>
+<blockquote>
+<p><strong>deepest ancestor:</strong><br>the <strong>depth</strong> of a tree is number of edges from root to given node. Therefore, the deepest ancestor will likely be the one <strong>furthest</strong> from the root node and fulfill the left-subtree requirement.  </p>
+</blockquote>
+<p>node p has no right child, and deepest ancestor node 8, which node 7 (target) is in the left-sub tree of the ancestor, therefore, node 8 will be the successor in this example.  </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">      <span class="number">10</span> &lt;- root</span><br><span class="line">     /</span><br><span class="line">    <span class="number">9</span> </span><br><span class="line">   /</span><br><span class="line">  <span class="number">8</span> &lt;- successor</span><br><span class="line"> /</span><br><span class="line"><span class="number">4</span></span><br><span class="line"> \</span><br><span class="line">  <span class="number">7</span> &lt;- target node p</span><br></pre></td></tr></table></figure>
+<p>node p has no right child, and deepest ancestor node 4, which node 3 (target) is in the left-sub tree of the ancestor, therefore, node 4 will be the successor in this example. </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">        <span class="number">10</span> &lt;- root</span><br><span class="line">       /</span><br><span class="line">      <span class="number">9</span> </span><br><span class="line">     /</span><br><span class="line">    <span class="number">8</span> </span><br><span class="line">   /</span><br><span class="line">  <span class="number">4</span> &lt;- successor</span><br><span class="line"> /</span><br><span class="line"><span class="number">3</span> &lt;- target node p</span><br></pre></td></tr></table></figure>
+<h3 id="3-_Case_2:_if_p_has_right_child">3. Case 2: if p has right child</h3><p>If target node p has right child, the next node (<strong>successor</strong>) will visit according to the in-order traversal algorithm <strong>locates</strong> <strong>in the right-subtree</strong> of the target node.  </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">     <span class="number">10</span> &lt;- root</span><br><span class="line">     /</span><br><span class="line">    <span class="number">9</span> </span><br><span class="line">   /</span><br><span class="line">  <span class="number">8</span> &lt;- successor</span><br><span class="line"> /</span><br><span class="line"><span class="number">4</span> &lt;- target node p</span><br><span class="line"> \</span><br><span class="line">  <span class="number">7</span>    &#125;</span><br><span class="line"> / \   &#125; right subtree of node p</span><br><span class="line">    ...&#125;</span><br></pre></td></tr></table></figure>
+<p>we need to find the <strong>far-left node</strong> in the right subtree until we reach the far-left child (<strong>smallest</strong> node in the right subtree) in the right-subtree. That far-left node is the next node we will visit (successor).  </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">       <span class="number">10</span> &lt;- root</span><br><span class="line">       /</span><br><span class="line">      <span class="number">9</span> </span><br><span class="line">     /</span><br><span class="line">    <span class="number">8</span> </span><br><span class="line">   /</span><br><span class="line">  <span class="number">4</span> &lt;- target node p</span><br><span class="line">   \</span><br><span class="line">    <span class="number">7</span>     &#125;</span><br><span class="line">   / \    &#125; right subtree of node p</span><br><span class="line">  <span class="number">6</span>   ... &#125;</span><br><span class="line"> /</span><br><span class="line"><span class="number">5</span>  &lt;- successor (far-left node in right subtree)</span><br></pre></td></tr></table></figure>
+<p>Otherwise, if there is NO left-child, we will <strong>next visit</strong> the <strong>right child of the target node p</strong>. Simply return the right child of the target node p. <code>return p.right</code>  </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">     <span class="number">10</span> &lt;- root</span><br><span class="line">     /</span><br><span class="line">    <span class="number">9</span> </span><br><span class="line">   /</span><br><span class="line">  <span class="number">8</span> </span><br><span class="line"> /</span><br><span class="line"><span class="number">4</span> &lt;- target node p</span><br><span class="line"> \</span><br><span class="line">  <span class="number">7</span> &lt;- successor     &#125;</span><br><span class="line">   \                 &#125; right subtree of node p</span><br><span class="line">   ...               &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Corner_Case:">Corner Case:</h1><h1 id="Reference:">Reference:</h1><p><a href="http://www.jiuzhang.com/solutions/inorder-successor-in-binary-search-tree/" target="_blank" rel="external">Solution by Jiuzhang</a><br><a href="https://www.youtube.com/watch?v=5cPbNCrdotA" target="_blank" rel="external">Youtube walk-through</a></p>
 
       
     </div>
@@ -382,9 +396,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/BFS/" rel="tag">#BFS</a>
+            <a href="/tags/BST/" rel="tag">#BST</a>
           
-            <a href="/tags/DFS/" rel="tag">#DFS</a>
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
           
         </div>
       
@@ -393,17 +407,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/28/BinarySearch/" rel="next" title="Binary Search">
-                <i class="fa fa-chevron-left"></i> Binary Search
+              <a href="/2016/07/08/binary-tree/" rel="next" title="Tree Data Structure">
+                <i class="fa fa-chevron-left"></i> Tree Data Structure
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/07/毕业之旅/" rel="prev" title="大学四年。">
-                大学四年。 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -418,10 +428,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/03/28/BFS-DFS/"
-     data-title="BFS vs DFS"
+        <div class="ds-share flat" data-thread-key="2016/07/13/Inorder-Successor-in-Binary-Search-Tree/"
+     data-title="LintCode 448 - Inorder Successor in Binary Search Tree"
      data-content=""
-     data-url="http://www.xuyiruan.com/2016/03/28/BFS-DFS/">
+     data-url="http://www.xuyiruan.com/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -448,8 +458,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/28/BFS-DFS/"
-           data-title="BFS vs DFS" data-url="http://www.xuyiruan.com/2016/03/28/BFS-DFS/">
+      <div class="ds-thread" data-thread-key="2016/07/13/Inorder-Successor-in-Binary-Search-Tree/"
+           data-title="LintCode 448 - Inorder Successor in Binary Search Tree" data-url="http://www.xuyiruan.com/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/">
       </div>
     
   </div>
@@ -591,7 +601,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BFS_and_DFS"><span class="nav-number">1.</span> <span class="nav-text">BFS and DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS"><span class="nav-number">1.1.</span> <span class="nav-text">BFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFS"><span class="nav-number">1.2.</span> <span class="nav-text">DFS</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Steps:"><span class="nav-number">3.1.</span> <span class="nav-text">Steps:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-_Search_the_target_node_(p)-"><span class="nav-number">3.1.1.</span> <span class="nav-text">1. Search the target node (p).</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-_Case_1:_if_p_has_NO_right_child"><span class="nav-number">3.1.2.</span> <span class="nav-text">2. Case 1: if p has NO right child</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-_Case_2:_if_p_has_right_child"><span class="nav-number">3.1.3.</span> <span class="nav-text">3. Case 2: if p has right child</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number">5.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
             
           </div>
         </section>
