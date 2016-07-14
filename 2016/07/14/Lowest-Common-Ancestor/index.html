@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="BinaryTree,Divide&Conquer,LintCode," />
 
 
 
@@ -96,15 +96,18 @@
 
 
 
-<meta name="description" content="阮先生’s blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://www.xuyiruan.com/categories/index.html">
+<meta name="description" content="Lowest Common Ancestor  
+Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *         this">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LintCode 88 - Lowest Common Ancestor">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/07/14/Lowest-Common-Ancestor/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="阮先生’s blog">
+<meta property="og:description" content="Lowest Common Ancestor  
+Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *         this">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="阮先生’s blog">
+<meta name="twitter:title" content="LintCode 88 - Lowest Common Ancestor">
+<meta name="twitter:description" content="Lowest Common Ancestor  
+Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *         this">
 
 
 
@@ -123,13 +126,7 @@
   };
 </script>
 
-  <title>
-  
-
-  
-    Category | 阮先生de小窝
-  
-</title>
+  <title> LintCode 88 - Lowest Common Ancestor | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -150,7 +147,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -270,16 +267,170 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-      <div class="category-all-page">
-        <div class="category-all-title">
-            9 categories in total
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                LintCode 88 - Lowest Common Ancestor
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-14T15:06:48-07:00" content="07-14-2016">
+              07-14-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/14/Lowest-Common-Ancestor/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/14/Lowest-Common-Ancestor/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/14/Lowest-Common-Ancestor/" class="leancloud_visitors" data-flag-title="LintCode 88 - Lowest Common Ancestor">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DataStructure/">DataStructure</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MoblieApplication/">MoblieApplication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RandomThought/">RandomThought</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><span class="category-list-count">1</span></li></ul>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://www.lintcode.com/en/problem/lowest-common-ancestor/" target="_blank" rel="external">Lowest Common Ancestor</a>  </p>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of the binary search tree.</span><br><span class="line">     * <span class="doctag">@param</span> A and B: two nodes in a Binary.</span><br><span class="line">     * <span class="doctag">@return</span>: Return the least common ancestor(LCA) of the two nodes.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode root, TreeNode A, TreeNode B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span> || root.val == A.val || root.val == B.val) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// divide</span></span><br><span class="line">        TreeNode left = lowestCommonAncestor(root.left, A, B);</span><br><span class="line">        TreeNode right = lowestCommonAncestor(root.right, A, B);</span><br><span class="line">        <span class="comment">// conquer</span></span><br><span class="line">        <span class="keyword">if</span> (left != <span class="keyword">null</span> &amp;&amp; right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="Description:">Description:</h1><p>Given the root and two nodes in a Binary Tree. Find the lowest common ancestor(LCA) of the two nodes.  </p>
+<p>The lowest common ancestor is the node with largest depth which is the ancestor of both nodes. </p>
+<p><strong>Example:</strong></p>
+<p>For the following binary tree:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">  <span class="number">4</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">3</span>   <span class="number">7</span></span><br><span class="line">   / \</span><br><span class="line">  <span class="number">5</span>   <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>LCA(3, 5) = <code>4</code></p>
+<p>LCA(5, 6) = <code>7</code></p>
+<p>LCA(6, 7) = <code>7</code></p>
+<h1 id="Thought_Process:">Thought Process:</h1><p>This question invovles usage of divide and conquer. Since we are doing <strong>recursive</strong> call to the same funciton, we need to fisrt come up with its <strong>base cases</strong>. Basic cases serve as an end point for the recursive function call. Once return from the base case, we process to the <strong>divide and conquer</strong> section. Within the divide section, the same activation record (same recursive process), <code>TreeNode left</code> <strong>will wait</strong> until <code>TreeNode right</code> has a valid value. (this waiting step is essential to understand the idea of recursive function) A valid value could be either <code>null</code>, or a TreeNode with values data in this example.  </p>
+<p>Once both left and right TreeNode has a return value from the <strong>previous</strong> recurrsive call. We can process to the <strong>conquer</strong> section to determine the lowest common ancestor.  </p>
+<h1 id="Refernce:">Refernce:</h1><p><a href="http://www.jiuzhang.com/solutions/lowest-common-ancestor/" target="_blank" rel="external">Solution by Jiuzhang</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BinaryTree/" rel="tag">#BinaryTree</a>
+          
+            <a href="/tags/Divide-Conquer/" rel="tag">#Divide&Conquer</a>
+          
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/" rel="next" title="LintCode 448 - Inorder Successor in Binary Search Tree">
+                <i class="fa fa-chevron-left"></i> LintCode 448 - Inorder Successor in Binary Search Tree
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/07/14/Lowest-Common-Ancestor/"
+     data-title="LintCode 88 - Lowest Common Ancestor"
+     data-content=""
+     data-url="http://www.xuyiruan.com/2016/07/14/Lowest-Common-Ancestor/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
   </div>
 
 
@@ -290,8 +441,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="categories/index.html"
-           data-title="categories" data-url="http://www.xuyiruan.com/categories/index.html">
+      <div class="ds-thread" data-thread-key="2016/07/14/Lowest-Common-Ancestor/"
+           data-title="LintCode 88 - Lowest Common Ancestor" data-url="http://www.xuyiruan.com/2016/07/14/Lowest-Common-Ancestor/">
       </div>
     
   </div>
@@ -315,8 +466,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/author.jpg"
@@ -417,6 +577,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Refernce:"><span class="nav-number">4.</span> <span class="nav-text">Refernce:</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -520,6 +691,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
