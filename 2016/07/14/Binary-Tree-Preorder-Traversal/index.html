@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ArrayList,BinaryTree,Divide&Conquer,LintCode,Recursion,TreeTraversal," />
 
 
 
@@ -96,48 +96,18 @@
 
 
 
-<meta name="description" content="title: “LintCode 66 - Binary Tree Preorder Traversal”date: 2016-07-14 16:12:25tags:
-
-LintCode
-TreeTraversal
-BinaryTree
-ArrayList
-Divide&amp;amp;Conquer
-Recursion
-
-
-Binary Tree Preorder Traversal
-Code:Vers">
+<meta name="description" content="Binary Tree Preorder Traversal
+Code:Version 0 (Non-recursion Stack) - Recommend/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阮先生de小窝">
+<meta property="og:title" content="LintCode 66 - Binary Tree Preorder Traversal">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/07/14/Binary-Tree-Preorder-Traversal/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="title: “LintCode 66 - Binary Tree Preorder Traversal”date: 2016-07-14 16:12:25tags:
-
-LintCode
-TreeTraversal
-BinaryTree
-ArrayList
-Divide&amp;amp;Conquer
-Recursion
-
-
-Binary Tree Preorder Traversal
-Code:Vers">
+<meta property="og:description" content="Binary Tree Preorder Traversal
+Code:Version 0 (Non-recursion Stack) - Recommend/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阮先生de小窝">
-<meta name="twitter:description" content="title: “LintCode 66 - Binary Tree Preorder Traversal”date: 2016-07-14 16:12:25tags:
-
-LintCode
-TreeTraversal
-BinaryTree
-ArrayList
-Divide&amp;amp;Conquer
-Recursion
-
-
-Binary Tree Preorder Traversal
-Code:Vers">
+<meta name="twitter:title" content="LintCode 66 - Binary Tree Preorder Traversal">
+<meta name="twitter:description" content="Binary Tree Preorder Traversal
+Code:Version 0 (Non-recursion Stack) - Recommend/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *">
 
 
 
@@ -156,7 +126,7 @@ Code:Vers">
   };
 </script>
 
-  <title>  | 阮先生de小窝 </title>
+  <title> LintCode 66 - Binary Tree Preorder Traversal | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -316,7 +286,7 @@ Code:Vers">
             
             
               
-                
+                LintCode 66 - Binary Tree Preorder Traversal
               
             
           </h1>
@@ -328,7 +298,7 @@ Code:Vers">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-14T00:00:00-07:00" content="07-14-2016">
+            <time itemprop="dateCreated" datetime="2016-07-14T16:12:25-07:00" content="07-14-2016">
               07-14-2016
             </time>
           </span>
@@ -350,7 +320,7 @@ Code:Vers">
 
           
           
-             <span id="/2016/07/14/Binary-Tree-Preorder-Traversal/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2016/07/14/Binary-Tree-Preorder-Traversal/" class="leancloud_visitors" data-flag-title="LintCode 66 - Binary Tree Preorder Traversal">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -372,17 +342,7 @@ Code:Vers">
       
 
       
-        <p>title: “LintCode 66 - Binary Tree Preorder Traversal”<br>date: 2016-07-14 16:12:25<br>tags:</p>
-<ul>
-<li>LintCode</li>
-<li>TreeTraversal</li>
-<li>BinaryTree</li>
-<li>ArrayList</li>
-<li>Divide&amp;Conquer</li>
-<li>Recursion</li>
-</ul>
-<hr>
-<p><a href="http://www.lintcode.com/en/problem/binary-tree-preorder-traversal/" target="_blank" rel="external">Binary Tree Preorder Traversal</a></p>
+        <p><a href="http://www.lintcode.com/en/problem/binary-tree-preorder-traversal/" target="_blank" rel="external">Binary Tree Preorder Traversal</a></p>
 <h1 id="Code:">Code:</h1><h2 id="Version_0_(Non-recursion_Stack)_-_Recommend">Version 0 (Non-recursion Stack) - Recommend</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: Preorder in ArrayList which contains node values.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</span><br><span class="line">        ArrayList&lt;Integer&gt; preorder = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> preorder;</span><br><span class="line">        &#125;</span><br><span class="line">        stack.push(root);</span><br><span class="line">        <span class="keyword">while</span> (!stack.empty()) &#123;</span><br><span class="line">            TreeNode curr = stack.pop();</span><br><span class="line">            preorder.add(curr.val);</span><br><span class="line">            <span class="comment">// LIFO / FILO</span></span><br><span class="line">            <span class="keyword">if</span> (curr.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(curr.right);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (curr.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(curr.left);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> preorder;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>Recursive algorithm has following advantage and disadvantages: </p>
@@ -397,6 +357,7 @@ Code:Vers">
 <li>use lots of memory  </li>
 <li>run slower  </li>
 </ul>
+<p><a href="http://xuyiruan.com/2016/07/15/Recursion-vs-Iteration/" target="_blank" rel="external">Link: Recursion-vs-Iteration</a></p>
 <h2 id="Version_1_(Divide-and-Conquer)">Version 1 (Divide-and-Conquer)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: Preorder in ArrayList which contains node values.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> list;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// divide</span></span><br><span class="line">        ArrayList&lt;Integer&gt; left = preorderTraversal(root.left);</span><br><span class="line">        ArrayList&lt;Integer&gt; right = preorderTraversal(root.right);</span><br><span class="line">        <span class="comment">// conquer</span></span><br><span class="line">        list.add(root.val);</span><br><span class="line">        list.addAll(left);</span><br><span class="line">        list.addAll(right);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Version_2_(Traverse)">Version 2 (Traverse)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: Preorder in ArrayList which contains node values.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        getValue(root, list);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getValue</span><span class="params">(TreeNode root, ArrayList&lt;Integer&gt; list)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// pre-oder traversal</span></span><br><span class="line">        list.add(root.val);</span><br><span class="line">        getValue(root.left, list);</span><br><span class="line">        getValue(root.right, list);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>The code below can be easily changed to implement inorder-traversal and postorder-traversal</p>
@@ -427,21 +388,37 @@ Code:Vers">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ArrayList/" rel="tag">#ArrayList</a>
+          
+            <a href="/tags/BinaryTree/" rel="tag">#BinaryTree</a>
+          
+            <a href="/tags/Divide-Conquer/" rel="tag">#Divide&Conquer</a>
+          
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+            <a href="/tags/Recursion/" rel="tag">#Recursion</a>
+          
+            <a href="/tags/TreeTraversal/" rel="tag">#TreeTraversal</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/" rel="next" title="LintCode 448 - Inorder Successor in Binary Search Tree">
-                <i class="fa fa-chevron-left"></i> LintCode 448 - Inorder Successor in Binary Search Tree
+              <a href="/2016/07/14/Lowest-Common-Ancestor/" rel="next" title="LintCode 88 - Lowest Common Ancestor">
+                <i class="fa fa-chevron-left"></i> LintCode 88 - Lowest Common Ancestor
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/14/Lowest-Common-Ancestor/" rel="prev" title="LintCode 88 - Lowest Common Ancestor">
-                LintCode 88 - Lowest Common Ancestor <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/15/Recursion-vs-Iteration/" rel="prev" title="Recursion vs Iteration">
+                Recursion vs Iteration <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -458,7 +435,7 @@ Code:Vers">
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2016/07/14/Binary-Tree-Preorder-Traversal/"
-     data-title=""
+     data-title="LintCode 66 - Binary Tree Preorder Traversal"
      data-content=""
      data-url="http://www.xuyiruan.com/2016/07/14/Binary-Tree-Preorder-Traversal/">
   <div class="ds-share-inline">
@@ -488,7 +465,7 @@ Code:Vers">
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/07/14/Binary-Tree-Preorder-Traversal/"
-           data-title="" data-url="http://www.xuyiruan.com/2016/07/14/Binary-Tree-Preorder-Traversal/">
+           data-title="LintCode 66 - Binary Tree Preorder Traversal" data-url="http://www.xuyiruan.com/2016/07/14/Binary-Tree-Preorder-Traversal/">
       </div>
     
   </div>
@@ -550,7 +527,7 @@ Code:Vers">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
