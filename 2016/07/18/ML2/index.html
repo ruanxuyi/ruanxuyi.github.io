@@ -424,27 +424,30 @@ $$J(\theta) =  \frac 1 {2m}[\sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2 + \lambda
 <li>test set (20%)  </li>
 </ul>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160718/three-part-model-selection.png" alt="">  </p>
-<p>Now, we are able to use <strong>training set</strong> to find $Θ$ for each polynomial degree, we then use <strong>cross validation set</strong> to select the lowest $J<em>{cv}$ cost. We finally use <strong>test set</strong> to estimate generalization error as $J</em>{test}$. </p>
+<p>Now, we are able to use <strong>training set</strong> to find $Θ$ for each polynomial degree, we then use <strong>cross validation set</strong> to select the lowest  $J_{cv}$  cost. We finally use <strong>test set</strong> to estimate generalization error as $J_{test}$. </p>
 <h1 id="Week_6:_Lesson_2">Week 6: Lesson 2</h1><h2 id="Bias_vs-_Variance">Bias vs. Variance</h2><h3 id="Diagnosing_Bias_vs-_Variance"><center> Diagnosing Bias vs. Variance </center></h3><ul>
 <li>identify underfiting/overfiting  </li>
 <li>evaluate problem of bias/variance issues  </li>
-<li><strong>bias</strong>: high $J<em>{train}(\theta)$ and $ J</em>{cv}(\theta)$  </li>
-<li><strong>variance</strong>: low $J<em>{train}(\theta)$ high $ J</em>{cv}(\theta)$ </li>
+<li><strong>bias</strong>: high  $J_{train}(\theta)$ and $ J_{cv}(\theta)$  </li>
+<li><strong>variance</strong>: low $J_{train}(\theta)$ high $ J_{cv}(\theta)$ </li>
 </ul>
 <h4 id="Bias/Variance">Bias/Variance</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160718/bias-variance.png" alt=""></p>
 <p>Bias - underfit<br>variance - overfit  </p>
 <h4 id="Diagnosing_bias_vs-_variance">Diagnosing bias vs. variance</h4><p>Suppose your learning algorithm is not as well as you have perdict, how can we know if it is a bias problem or a variance problem?  </p>
-<p>First, we need to plot $J<em>{cv}(\theta)$ (cross-validation error) and $J</em>{train} (\theta)$ (training error) in a error vs degree of polynomial d.  </p>
+<p>First, we need to plot
+ $J_{cv}(\theta)$  (cross-validation error) and $J_{train} (\theta)$ (training error) in a error vs degree of polynomial d.  </p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160718/error-degree-polynomial.png" alt="">  </p>
 <p><strong>Bias(underfit):</strong>  </p>
 <ul>
-<li><strong>both</strong> $J<em>{train}(\theta)$ and $J</em>{cv}(\theta)$ will be <strong>high</strong>  </li>
-<li>$J<em>{train}(\theta) \approx J</em>{cv}(\theta)$  </li>
+<li><strong>both</strong>  $J_{train}(\theta)$ and $J_{cv}(\theta)$  will be <strong>high</strong>  </li>
+<li> $J_{train}(\theta) \approx J_{cv}(\theta)$  
+</li>
 </ul>
 <p><strong>Variance(overfit):</strong>  </p>
 <ul>
 <li>$J_{train}(\theta)$ will be <strong>low</strong>.  </li>
-<li>$J<em>{train}(\theta) \gg J</em>{cv}(\theta)$ </li>
+<li> $J_{train}(\theta) \gg J_{cv}(\theta)$ 
+</li>
 </ul>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160718/high-varience-bias.png" alt=""></p>
 <h1 id="Logs">Logs</h1><ul>
