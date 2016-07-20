@@ -114,6 +114,15 @@
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160718/bias-variance.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160718/error-degree-polynomial.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160718/high-varience-bias.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160719/regularzation-parameter.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160719/choose-best-lambda.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160719/lambda-vs-cost-function.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160719/learning-curve-def.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160719/high-bias.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160719/high-variance.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160719/small-neural-network.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160719/large-neural-network.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160719/exercise.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coursera: Machine Learning by Stanford - Part2">
 <meta name="twitter:description">
@@ -450,9 +459,77 @@ $$J(\theta) =  \frac 1 {2m}[\sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2 + \lambda
 </li>
 </ul>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160718/high-varience-bias.png" alt=""></p>
+<h3 id="Regularization_and_Bias/Variance"><center> Regularization and Bias/Variance </center></h3><ul>
+<li>how regularization affect bias and variance  </li>
+<li>how to automatically find $\lambda$ value: the regularzation parameter  </li>
+<li>recall the procedures in utilizing $J_{cv}(\theta)$ to pick the most optimized $\lambda$ value.  </li>
+</ul>
+<h4 id="Linear_Regression_with_Regularization">Linear Regression with Regularization</h4><p>$\lambda$ = is the regularization parameter. A large value of $\lambda$ will heavily penalize all the $\theta$ values, which result in high bias(underfit). On the other hand, a too small $\lambda$ value will result in small effect by the regularization terms, which will result in high varience (overfit).  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160719/regularzation-parameter.png" alt=""></p>
+<p>How to automatically select best regularzation parameter $\lambda$ for the regularization term.  </p>
+<h4 id="Choosing_the_regularization_parameter_$\lambda$">Choosing the regularization parameter $\lambda$</h4><p>Steps and procedures to automatically choose the best $\lambda$ value.  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160719/choose-best-lambda.png" alt=""></p>
+<h4 id="Bias/variance_as_a_function_of_the_regularization_parameter_$\lambda$-">Bias/variance as a function of the regularization parameter $\lambda$.</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160719/lambda-vs-cost-function.png" alt="">  </p>
+<blockquote>
+<p><strong>Note</strong>:<br> Even though the calculation of $J_{train}(\theta)$ is not directly assoicate with the looking for the best $\lambda$ value for the regularization term. The best $\lambda$ value directly associate with where smallest value of $J_{cv}(\theta)$ appear. However, the calcuation of $J_{train}(\theta)$, and $J_{cv}(\theta)$ together will result in a nice graph above. <br>With the present of graph above, we will be able to <strong>graphically determine</strong> whether bias/variance issues remain. </p>
+</blockquote>
+<h3 id="Learning_Curves"><center> Learning Curves </center></h3><ul>
+<li>Learning Curves helps to diagnoise if a learning algorthm is suffering from bias/variance  </li>
+<li>A learning curves make up of  $J_{train}(\theta)$ and $J_{cv}(\theta)$   </li>
+<li>Poltting the learning curve will usually tells you if the learning algorithm is suffering from bias or variance.  </li>
+</ul>
+<h4 id="Learning_curves">Learning curves</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160719/learning-curve-def.png" alt=""></p>
+<p>Lerning curve consisit of following:   </p>
+<ul>
+<li>$J_{train}(\theta)$ vs $m$  </li>
+<li>$J_{cv}(\theta)$ vs $m$   </li>
+</ul>
+<p>where $m$ represents traning set size.  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160719/high-bias.png" alt=""></p>
+<p>If suffering from <strong>high bias</strong>, getting more training examples doesn’t help much. (change of model/degree of polynomial)  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160719/high-variance.png" alt=""></p>
+<p>If suffering from <strong>high variance</strong> problem, getting more traning examples is likely to help. ( $J_{train}(\theta)$ is low, as more getting more data, $J_{cv}(\theta)$ is likely to approaching $J_{train}(\theta)$ )</p>
+<h3 id="Deciding_What_to_Do_Next_Revisited"><center>Deciding What to Do Next Revisited</center></h3><ul>
+<li>what we can do with what we have learned so far from week 6.  </li>
+</ul>
+<h4 id="Debugging_a_learning_algorithm:">Debugging a learning algorithm:</h4><p>Previously, we talked about few things we could possible try to improve our learning algorithm when the the hypothesis function did not give us a accurate prediction for un-seen data points.  </p>
+<p>Now we everything we learned above, we could easily nail down half the unrelated options base on our analysis.  </p>
+<ul>
+<li>get <strong>more</strong> training examples (fix high variance)  </li>
+<li><strong>smaller</strong> sets of features (fix high variance)  </li>
+<li>Try getting <strong>additional</strong> features (fix high bias: function is too simple -&gt; need more complex function to better fitting the hypothesis function)</li>
+<li>Try adding <strong>polynomial</strong> features (fix high bias) </li>
+<li>Try <strong>increasing</strong> $\lambda$ (fix high variance)</li>
+<li>Try <strong>decreasing</strong> $\lambda$ (fix high bias)</li>
+</ul>
+<h4 id="Neural_Network_and_Overfitting">Neural Network and Overfitting</h4><ul>
+<li>take what we learned and <strong>relate</strong> back to <strong>neural netowrk</strong>.  </li>
+<li>small neural network (underfitting) vs. large neural network(overfitting)  </li>
+</ul>
+<p><strong>Small neural network:</strong>  </p>
+<ul>
+<li><strong>fewer</strong> parameters  </li>
+<li>more prone to <strong>underfitting</strong>  </li>
+<li>computationally cheaper  </li>
+</ul>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160719/small-neural-network.png" alt=""></p>
+<p><strong>Large neural network:</strong>  </p>
+<ul>
+<li>large: either more activation units per layer or more layers.  </li>
+<li><strong>more</strong> parameters  </li>
+<li>more prone to <strong>overfitting</strong> (solve by regularization term($\lambda$))  </li>
+<li>computationally more <strong>expensive</strong>.  </li>
+</ul>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160719/large-neural-network.png" alt=""></p>
+<p> Larger network + regularzaiton($\lambda$) $\gg$ small neural network  </p>
+<h4 id="How_to_decide_how_many_layers_for_hidden_layer?">How to decide how many layers for hidden layer?</h4><p>We could use the similiar techniques we used to determine the best $\lambda$ value.  </p>
+<p>We split the data into three different sections and use the cross-validation technique with 1-layer, 2-layer, 3-layer and choose the layer with minimum $J_{cv}(Θ)$.  </p>
+<h4 id="Exercise:">Exercise:</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160719/exercise.png" alt=""><br> $J_{cv}(Θ)$ $\gg$ $J_{train}(Θ)$ , we know that the learning algorithm is suffering from high variance (overfitting). Because of that, increasing the number of hidden layer (increasing number of $\theta$ parameter) will possiblly not doing any benefit to the learning algorithm.  </p>
+<p>I would suggest <strong>decreasing</strong> number of hidden layer units OR getting <strong>more</strong> training examples OR adding <strong>regularization</strong> terms to imporve the learning algorithm.  </p>
 <h1 id="Logs">Logs</h1><ul>
 <li>07/18/2016: New post for week 6 onward.  </li>
 <li>07/18/2016: Week 6 Lesson 1 completed.  </li>
+<li>07/19/2016: Week 6 Lesson 2 completed.  </li>
 </ul>
 
       
@@ -684,7 +761,7 @@ $$J(\theta) =  \frac 1 {2m}[\sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2 + \lambda
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_1"><span class="nav-number">1.</span> <span class="nav-text">Week 6: Lesson 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluating_a_Learning_Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Evaluating a Learning Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deciding_What_to_Try_Next"><span class="nav-number">1.1.1.</span> <span class="nav-text"> Deciding What to Try Next </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problem_in_real_practice:"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Problem in real practice:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Machine_learning_diagnostic:"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Machine learning diagnostic:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Evaluating_a_Hypothesis"><span class="nav-number">1.1.2.</span> <span class="nav-text"> Evaluating a Hypothesis </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis_(Ploting)"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Evaluating your hypothesis (Ploting)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis_(Spliting_your_data_set)"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Evaluating your hypothesis (Spliting your data set)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Misclassification_error_(a-k-a-_0/1_misclassification_error)"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Misclassification error (a.k.a. 0/1 misclassification error)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model_Selection_and_Train/Validation/Test_Sets"><span class="nav-number">1.1.3.</span> <span class="nav-text">Model Selection and Train/Validation/Test Sets</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting_problem"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Overfitting problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model_selection"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Evaluating your hypothesis</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_2"><span class="nav-number">2.</span> <span class="nav-text">Week 6: Lesson 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bias_vs-_Variance"><span class="nav-number">2.1.</span> <span class="nav-text">Bias vs. Variance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Diagnosing_Bias_vs-_Variance"><span class="nav-number">2.1.1.</span> <span class="nav-text"> Diagnosing Bias vs. Variance </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bias/Variance"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Bias/Variance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diagnosing_bias_vs-_variance"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Diagnosing bias vs. variance</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">3.</span> <span class="nav-text">Logs</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_1"><span class="nav-number">1.</span> <span class="nav-text">Week 6: Lesson 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluating_a_Learning_Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Evaluating a Learning Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deciding_What_to_Try_Next"><span class="nav-number">1.1.1.</span> <span class="nav-text"> Deciding What to Try Next </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problem_in_real_practice:"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Problem in real practice:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Machine_learning_diagnostic:"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Machine learning diagnostic:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Evaluating_a_Hypothesis"><span class="nav-number">1.1.2.</span> <span class="nav-text"> Evaluating a Hypothesis </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis_(Ploting)"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Evaluating your hypothesis (Ploting)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis_(Spliting_your_data_set)"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Evaluating your hypothesis (Spliting your data set)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Misclassification_error_(a-k-a-_0/1_misclassification_error)"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Misclassification error (a.k.a. 0/1 misclassification error)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model_Selection_and_Train/Validation/Test_Sets"><span class="nav-number">1.1.3.</span> <span class="nav-text">Model Selection and Train/Validation/Test Sets</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting_problem"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Overfitting problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model_selection"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Evaluating your hypothesis</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_2"><span class="nav-number">2.</span> <span class="nav-text">Week 6: Lesson 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bias_vs-_Variance"><span class="nav-number">2.1.</span> <span class="nav-text">Bias vs. Variance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Diagnosing_Bias_vs-_Variance"><span class="nav-number">2.1.1.</span> <span class="nav-text"> Diagnosing Bias vs. Variance </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bias/Variance"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Bias/Variance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diagnosing_bias_vs-_variance"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Diagnosing bias vs. variance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regularization_and_Bias/Variance"><span class="nav-number">2.1.2.</span> <span class="nav-text"> Regularization and Bias/Variance </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear_Regression_with_Regularization"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Linear Regression with Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choosing_the_regularization_parameter_$\lambda$"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">Choosing the regularization parameter $\lambda$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bias/variance_as_a_function_of_the_regularization_parameter_$\lambda$-"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">Bias/variance as a function of the regularization parameter $\lambda$.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning_Curves"><span class="nav-number">2.1.3.</span> <span class="nav-text"> Learning Curves </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Learning_curves"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">Learning curves</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deciding_What_to_Do_Next_Revisited"><span class="nav-number">2.1.4.</span> <span class="nav-text">Deciding What to Do Next Revisited</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Debugging_a_learning_algorithm:"><span class="nav-number">2.1.4.1.</span> <span class="nav-text">Debugging a learning algorithm:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Neural_Network_and_Overfitting"><span class="nav-number">2.1.4.2.</span> <span class="nav-text">Neural Network and Overfitting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How_to_decide_how_many_layers_for_hidden_layer?"><span class="nav-number">2.1.4.3.</span> <span class="nav-text">How to decide how many layers for hidden layer?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exercise:"><span class="nav-number">2.1.4.4.</span> <span class="nav-text">Exercise:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">3.</span> <span class="nav-text">Logs</span></a></li></ol></div>
             
           </div>
         </section>
