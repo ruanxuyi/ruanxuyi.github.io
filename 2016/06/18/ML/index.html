@@ -775,8 +775,9 @@ $$ ... $$
 <p><strong>After Scaling</strong>  </p>
 <p>$x_1 = \frac{size(feet^2)}{2000}$<br>$x_2 = \frac{number of bedroom}{5}$</p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160627%2Fscale-after.png" alt=""></p>
-<p>Gradient Descent with scaling will result in a faster, <strong>direct path</strong> to find the local minimal and<strong> converge much faster, </strong>why??**</p>
+<p>Gradient Descent with scaling will result in a faster, <strong>direct path</strong> to find the local minimal and converge much faster, why?</p>
 <blockquote>
+<p>During the gradient descent, depends on $\alpha$ learning rate, $\theta_1$ and $\theta_2$ value will only change in a limited amount ($\alpha$ is small to prevent overshooting). If $\theta_1$ and $\theta_2$ are not on the similar scale, similar amount of value changes will result in $\theta_2$ value wondering around the same location on y-axis, which will result in a slow converge for the gradient descent.  </p>
 <p>Possible Reason: Feature Scaling + Mean Normalization allows updated $X$ values locate in a <strong>similiar</strong> &amp; <strong>smaller</strong> range ( $ -1 &lt; X &lt; 1$ ) instead of un-normalizaed range ($0&lt;x&lt;2000$). The <strong>smaller</strong>&amp;<strong>united</strong> range allow gradient descent to work <strong>better</strong> even with small value of $\alpha$.  </p>
 </blockquote>
 <h4 id="Feature_Scaling">Feature Scaling</h4><p>Get every featrue into <strong>approximately</strong> a $-1 \leq x_i \leq 1$ range.  </p>
@@ -803,7 +804,7 @@ $$x_i = \frac{x_i-\mu_i}{s_i}$$
 $$ \theta_j :=\theta_j - \alpha \frac {\partial}{\partial\theta_j} J(\theta)$$    
  
 <ul>
-<li>anther technique to make gradient descent work well in practice  </li>
+<li>another technique to make gradient descent work well in practice  </li>
 <li>how to make sure gradient descent is working <strong>correctly</strong>  </li>
 <li>how to <strong>choose</strong> learning rate $\alpha$.  </li>
 </ul>
@@ -1161,6 +1162,9 @@ $$\max_{i} h_\theta^{(i)}(x)$$
 <h4 id="which_one/feature_to_pick_to_reduce_values?">which one/feature to pick to reduce values?</h4><p>We basically regularize all features.  </p>
 $$J(\theta) =  \frac 1 {2m}[\sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2 + \lambda \sum_{j=1}^{n}\theta_j^2] $$
  $$ \lambda \sum_{j=1}^{n}\theta_j^2 $$
+<blockquote>
+<p>Note: $\theta_0$ will NOT participate in the regularzation equation.  </p>
+</blockquote>
 <p>is called the regularzation term.  $ \lambda$ is the regularization parameter.  </p>
 <blockquote>
 <p>Regularization parameter $\lambda$:<br>it control to both<br>1) fitting the training data set well,<br>and 2) keeping the paramenters small (smaller parameters ~ 0 -&gt; <strong>get rid</strong> of the feature paramenters -&gt; keep hypothesis simple to prevent overfitting)</p>
