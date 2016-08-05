@@ -130,6 +130,25 @@
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160721/recall-percission-average.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160721/F-SCORE.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160721/large-amout-data.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160731/hypothesis.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function-y1.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function-y0.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160731/svm-costfunction.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160731/svm-y0.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160731/svm-y1.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160731/large-margin-classifier.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160731/overfitting-underfitting-svm.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160731/svm-bad-classifier.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160731/svm-good-classifier.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160731/similarity-function-example.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160731/sigma-value.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160806/k-mean-non-separate.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160806/local-optimal-dataset.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160806/local-optimal-global-cluster.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160806/local-optimal.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160806/k-elbow-method.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160806/elbow-method-bad.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160806/data-compression.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coursera: Machine Learning by Stanford - Part2">
 <meta name="twitter:description">
@@ -323,7 +342,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-18T10:15:48-07:00" content="07-18-2016">
+            <time itemprop="dateCreated" datetime="2016-07-18T10:15:48+08:00" content="07-18-2016">
               07-18-2016
             </time>
           </span>
@@ -625,12 +644,275 @@ $$J(\theta) =  \frac 1 {2m}[\sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2 + \lambda
 <p>Given the sentence above, an expert in English speaking will be easily fill in the sentence with word ‘two’ (not ‘to’ or ‘too’) base on the information (features) given in the sentence.  </p>
 <p>However, an counter example of given only the size of a house (without the location, age), even an estitate expert will not be able to predict a fair price (y) for the house.  </p>
 <h4 id="Improve_performance_with_large_data_set">Improve performance with large data set</h4><p>Having a large training set can significantly improve the learning algorithm with the <strong>assumption</strong> of “The features has enough information to predict y accurately” held on.  </p>
-<p>Using a learning algorithm with <strong>many parameters</strong> will still be fine when we have a large set of training data. $J<em>{train}(\theta)$ will be small. And since we are using a <strong>very large</strong> training set, it is <strong>unlikely</strong> to overfit. Therefore, $J</em>{train(\theta)} \approx J<em>{test}(\theta)$, which means $J</em>{test}(\theta)$ will likely be small.  </p>
+<p>Using a learning algorithm with <strong>many parameters</strong> will still be fine when we have a large set of training data. $J_{train}(\theta)$  will be small. And since we are using a <strong>very large</strong> training set, it is <strong>unlikely</strong> to overfit. Therefore, $J_{train(\theta)} \approx J_{test}(\theta)$, which means $J_{test}(\theta)$ will likely be small.  </p>
+<h1 id="Week_7:_Lesson_1">Week 7: Lesson 1</h1><h2 id="Large_Margin_Classification">Large Margin Classification</h2><h3 id="Optimization_Objective"><center> Optimization Objective </center></h3><ul>
+<li>introduction of SVM  </li>
+<li>more powerful way to learn complex non-linear function  </li>
+<li>supervised learning algorithm: linear regression, neural network, SVM.  </li>
+</ul>
+<h4 id="Alternative_logistic_regression_to_SVM">Alternative logistic regression to SVM</h4><p><strong>Recall for logistic regression:</strong>  </p>
+
+Hypothesis function: $h_{\theta}(x) = \frac{1}{1+e^{-\theta T x}}$
+
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160731/hypothesis.png" alt=""></p>
+<p><strong>Cost Function:</strong> </p>
+
+$Cost(h_\theta(x),y) = 
+ -y\;log(h_\theta(x)) 
+ -(1-y	)log(1-h_\theta(x))$
+
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function-y1.png" alt=""></p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160701/cost-function-y0.png" alt=""></p>
+<p><strong>1. Change Cost function for SVM:</strong>  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160731/svm-costfunction.png" alt="">  </p>
+<p>Pink line denotes new cost function for SVM. $Cost_1(z)$ is cost fucntion when $y=1$. $Cost_0(z)$ is cost fucntion when $y=0$. </p>
+<p><strong>2. Change constant parameter for SVM:</strong>  </p>
+<p>$1/m$ and $\frac{\lambda}{2m}$ terms goes away by multipling equation by $m$, which will not affect the optimzation process. Later we further multiply equation with $\frac{1}{\lambda}$ which result in following.</p>
+<h4 id="SVM_cost_function">SVM cost function</h4>
+$$J(\theta) = C\sum_{i=1}^m y^{(i)} \ \text{cost}_1(\theta^Tx^{(i)}) + (1 - y^{(i)}) \ \text{cost}_0(\theta^Tx^{(i)}) + \dfrac{1}{2}\sum_{j=1}^n \Theta^2_j$$
+
+<p>As we increase $C$, we regularize <strong>less</strong> (less weight on regularzation term - reduce overfitting). If we decrease $C$, we regularize <strong>more</strong> (more weight on regularzation term - reduce underfitting).</p>
+<h4 id="SVM_hypothesis_function">SVM hypothesis function</h4><p>The hypothesis of the SVN is not interpreted as the probability of $y$ being 1 or 0 (as it is for the hypothesis of logistic regression).  </p>
+
+$$
+h_\theta(x) = 
+\begin{cases}
+    1 & \text{if} \ \Theta^Tx \geq 0 \\
+    0 & \text{otherwise}
+\end{cases}
+$$
+
+<h3 id="Large_Margin_Intuition"><center>Large Margin Intuition</center></h3><ul>
+<li>introduction for large margin classifier  </li>
+<li>value $C$’s effect on position of the classifier  </li>
+<li>$C = \frac{1}{\lambda}$ relationship   </li>
+</ul>
+<h4 id="Support_Vector_Machine">Support Vector Machine</h4><p>The cost function for SVM looks like following:<br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160731/svm-y0.png" alt=""><br>If $y=0$, we want $\theta^Tx \leq -1$ (not just $\leq 0$).  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160731/svm-y1.png" alt=""><br>If $y=1$, we want $\theta^Tx \geq 1$ (not just $\geq 0$).  </p>
+<p>SVM create a better <strong>precision</strong> by setting $\theta^Tx \leq -1$ and $\theta^Tx \geq 1$  </p>
+<h4 id="Large_Margin_Classifier">Large Margin Classifier</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160731/large-margin-classifier.png" alt=""></p>
+<p>Instead of learning the green/pink classifer, SVM learns a more robust classifer (with more margin to either of the <strong>blue</strong> line), which marked as the <strong>black</strong> line.  </p>
+<h4 id="SVM_constant_value_C">SVM constant value C</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160731/overfitting-underfitting-svm.png" alt="">  </p>
+<p>In logistic regression, large $\lambda$ result in underfitting, and small $\lambda$ result in overfitting. </p>
+<p>Similarly, in SVM, large $C$ (small $\lambda$) value results in overfitting, and small $C$ (large $\lambda$) value results in underfitting.  </p>
+<p>$$C = \frac{1}{\lambda}$$  </p>
+<h3 id="Mathematics_Behind_Large_Margin_Classification"><center> Mathematics Behind Large Margin Classification </center></h3><ul>
+<li>why/how svm large margin classifier ???</li>
+</ul>
+<h4 id="Vector_Inner_Product">Vector Inner Product</h4><p>why $\theta$ line is vertical to classifier line.  </p>
+<p>SVM decision boundary has to satisfy with following two conditions:  </p>
+
+$\begin{align*}
+&min_\Theta \dfrac{1}{2}\sum_{j=1}^n \Theta_j^2
+\end{align*}$
+
+<p>for minimum of $Θ$ values</p>
+<p>and  </p>
+<p>So we now have a new optimization objective by substituting $p^{(i)} \cdot ||\Theta ||$ in for $\Theta^Tx^{(i)}$:<br>If y=1, we want $p^{(i)} \cdot ||\Theta || \geq 1$<br>If y=0, we want $p^{(i)} \cdot ||\Theta || \leq -1$  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160731/svm-bad-classifier.png" alt=""></p>
+
+We want $p^{(i)} \cdot ||\Theta || \geq 1$, if $p^{(i)}$ is small(distance of `x` or `o` to blue line), $||\Theta ||$ will be large (which is NOT good, we want to minimize $\theta$ values).  
+
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160731/svm-good-classifier.png" alt=""></p>
+
+We want $p^{(i)} \cdot ||\Theta || \geq 1$, if $p^{(i)}$ is large, $||\Theta ||$ could be small (which is good, we want to minimize $\theta$ values).  
+
+<h1 id="Week_7:_Lesson_2">Week 7: Lesson 2</h1><h2 id="Kernels">Kernels</h2><h3 id="Kernels_I"><center> Kernels I</center></h3><ul>
+<li>Introduction to new form for hypothesis function for SVM  </li>
+<li>Introduction to Gaussian Kernels (similarity function)  </li>
+<li>properity of Gaussian Kernels  </li>
+<li>Effect of sigma value in Gaussian Kernels  </li>
+</ul>
+<h4 id="Hypothesis_function_for_SVM">Hypothesis function for SVM</h4><p>Instead of using the hypothesis function in form below (for <strong>high level polynomial</strong> logistic regression):  </p>
+
+$$\begin{align*}
+h_\Theta(x) = \Theta_1x_1 + \Theta_2x_2 + \Theta_3x_1x_2 + \Theta_4x_1^2 + \dots
+\end{align*}$$
+
+<p>We use the following hypothesis function form for SVM:  </p>
+
+$$\begin{align*}
+h_\Theta(x) = \Theta_1f_1 + \Theta_2f_2 + \Theta_3f_3 + \dots
+\end{align*}$$
+
+<p>Where:  </p>
+
+$$\begin{align*}
+f_1 = x_1 \newline
+f_2 = x_2 \newline
+f_3 = x_1x_2 \newline
+f_4 = x_1^2 \newline
+\dots \newline
+\end{align*}$$
+
+
+<h4 id="Gaussian_Kernels:_The_similarity_function">Gaussian Kernels: The similarity function</h4><p>The similarity of data point $x$ and some landmark $l$ define as:  </p>
+
+$$f_i = similarity(x, l^{(i)}) = \exp(-\dfrac{||x - l^{(i)}||^2}{2\sigma^2}) = \exp(-\dfrac{\sum^n_{j=1}(x_j-l_j^{(i)})^2}{2\sigma^2})$$
+
+<h4 id="Properties_of_the_similarity_function">Properties of the similarity function</h4><p>If $x \approx l^{(i)}$, then $f_i = \exp(-\dfrac{\approx 0^2}{2\sigma^2}) \approx 1$  </p>
+<p>If $x$ is far from $l^{(i)}$, then $f_i = \exp(-\dfrac{(large\ number)^2}{2\sigma^2}) \approx 0$  </p>
+<p>In other word, if data point $x$ is close to the landmark $i$, then the value of $f_i$ will close to $1$. Other wise, if data point $x$ is far from the landmark $i$, then the value of $f_i$ will close to $0$.</p>
+<p><strong>Example:</strong>  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160731/similarity-function-example.png" alt=""></p>
+<h4 id="Effect_of_sigma_value">Effect of sigma value</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160731/sigma-value.png" alt=""></p>
+<p>If $\sigma$ value increase, the shape will become wider. If $\sigma$ value decrease, the shape will become narrower.</p>
+<h3 id="Kernels_II"><center> Kernels II</center></h3><ul>
+<li>where to get landmark $l^{(1)}, l^{(2)}, l^{(3)},..?$</li>
+<li>how SVM with kernels can learn complex non-linear function.  </li>
+<li>how to get parameter $\Theta$  </li>
+<li>SVM parameters $C$ and $\sigma^2$  </li>
+</ul>
+<h4 id="Choosing_the_landmarks">Choosing the landmarks</h4><p>We can choose landmarks $l_i$ from exact same location as the training data $x_i$.  </p>
+<p>Given training data $x$: </p>
+
+$$f_1 = similarity(x,l^{(1)}), f_2 = similarity(x,l^{(2)}), f_3 = similarity(x,l^3) \dots$$
+
+<p>Each training data $x^{(i)}$ has $m$ features (total of $m$ training datas), which denotes as a “feature vector” $f^{(i)}$. We may also have $f_0=1$ to correspond with $\Theta_0$. </p>
+
+$$x^{(i)} \rightarrow \begin{bmatrix}
+f_1^{(i)} = similarity(x^{(i)}, l^{(1)}) \newline
+f_2^{(i)} = similarity(x^{(i)}, l^{(2)}) \newline
+\dots \newline
+f_m^{(i)} = similarity(x^{(i)}, l^{(m)}) \newline
+\end{bmatrix}$$
+
+
+<h4 id="Choosing_the_parameters_$\Theta$">Choosing the parameters $\Theta$</h4><p>we can use the SVM minimization algorithm but with $f(i)$ substituted in for $x(i)$:</p>
+
+$\large
+min_\Theta C \sum_{i=1}^m y^{(i)}\text{cost}_1(\Theta^Tf^{(i)}) + (1 - y^{(i)})\text{cost}_0(\theta^Tf^{(i)}) + \dfrac{1}{2}\sum_{j=1}^n \Theta^2_j$
+
+<blockquote>
+<p><strong>Note</strong>: Kernals could also use with logistic regression but it works much faster with SVM because of computational optimizations on SVMs. </p>
+</blockquote>
+<h4 id="SVM_parameters">SVM parameters</h4><p><strong>Choosing $C$ ($C=\frac{1}{\lambda}$)</strong>:  </p>
+<p>If $C$ is large: higher variance/lower bias/overfitting<br>If $C$ is small: lower variance/higher bias/underfitting  </p>
+<p><strong>Choosing $\sigma^2$</strong></p>
+<p>With a large $\sigma^2$: the features $f_i$ vary <strong>more</strong> smoothly, higher bias/lower variance/underfitting<br>With a small $\sigma^2$: the features $f_i$ vary <strong>less</strong> smoothly, lower bias/higher variance/overfitting  </p>
+<h1 id="Week_7:_Lesson_3">Week 7: Lesson 3</h1><h2 id="SVMs_in_Practice">SVMs in Practice</h2><h3 id="Using_An_SVM"><center>Using An SVM</center></h3><ul>
+<li>not recommand writing own implementation for solving $\Theta$ value, use the SVM software package (<code>liblinear</code>, <code>libsvm</code>) instead.  </li>
+</ul>
+<h4 id="Kernel_(similarity)_functions:">Kernel (similarity) functions:</h4><p>$$f = exp(-\frac{\Vert x1 - x2 \Vert ^2}{2\lambda})$$</p>
+<h4 id="Implementation_choice_for_SVM">Implementation choice for SVM</h4><ul>
+<li>Choice of parameter $C$.  </li>
+<li>Choice of kernel $\sigma^2$(similarity function).  </li>
+<li>Linear kernel (No Kernel) - (<code>n</code> large, <code>m</code> small)</li>
+<li>Complex non-linear kernel (Gaussian Kernel) (<code>n</code> small, <code>m</code> large)  </li>
+</ul>
+<p>Why # of feature n = # of training example m??? </p>
+<h4 id="Multi-class_classification">Multi-class classification</h4><ol>
+<li><p>SVM package already build-in multi-class classification</p>
+</li>
+<li><p>use one-vs-all method</p>
+</li>
+</ol>
+<h4 id="Logistic_regression_vs-_SVMs">Logistic regression vs. SVMs</h4><p><code>n</code> = number of features.<br><code>m</code> = number of training examples.  </p>
+<p>quiz question???<br>TODO: notes for last lecture</p>
+<h1 id="Week_8:_Lesson_1">Week 8: Lesson 1</h1><h2 id="Clustering">Clustering</h2><h3 id="Unsupervised_Learning:_Introduction"><center>Unsupervised Learning: Introduction</center></h3><ul>
+<li>learned from un-labeled data  </li>
+<li>in unsupervised learning, training set is of the form ${x^{(1)},x^{(2)},x^{(3)}, \dots x^{(m)}, }$ without labels $y^{(i)}$  </li>
+</ul>
+<h4 id="First_unsupervised_learning_algorithm:_clustering">First unsupervised learning algorithm: clustering</h4><p>give un-labelled training sets to learn coherent structure/cluster/subset.  </p>
+<h4 id="Application_of_Clustering">Application of Clustering</h4><ul>
+<li>market segementation  </li>
+<li>social netowrk analysis: clustering algorithm to find conherent groups of friends   </li>
+<li>organize computing clusters: how to design data center efficiently  </li>
+<li>astronomical data analysis  </li>
+</ul>
+<h3 id="K-means_algorithm"><center>K-means algorithm </center></h3><ul>
+<li>K-means : most popluar clustering algorithm   </li>
+<li>k-means algorithm sudo code    </li>
+<li>K-means algorithm for non-well-separated data   </li>
+</ul>
+<h4 id="K-means_introudction:">K-means introudction:</h4><p><strong>Step 1:</strong> initialize $K$ cluster centroids (ex. K=2 clusters -&gt; 2 points [red/blue])  </p>
+<p><strong>Step 2:</strong> cluster assignments: loop through all the training sets data (1 to $m$) and mark data sets to index of the closer cluster centroids. In $K = 2$, mark as red (1) if it is closer to red cluster centroid, mark as blue (2), if closer to blue cluster centroid.<br><strong>Step 3:</strong> move the <strong>cluster centroids</strong> by doing mean of locations of all red/blue <strong>data points</strong> seperately<br><strong>Step 4:</strong> repeat step 2-3 to update cluster assignments based on current updated cluster centroids’ location until it saturtated.  </p>
+<h4 id="K-means_algorithm_input:">K-means algorithm input:</h4><p>Input:  </p>
+<ul>
+<li>$K$ (number of clusters)  </li>
+<li>Training set ${x^{(1)},x^{(2)},x^{(3)}, \dots x^{(m)}}$  </li>
+</ul>
+<p>$x^{(i)} \in R^n$ where $n$ represents number of features (drop $x_0 = 1$ convention)</p>
+<h4 id="K-means_algorithm:">K-means algorithm:</h4>
+
+Randomly initialize $K$ cluster centroids $\mu_1,\mu_1,\mu_1, \dots \mu_K \in R^n [vector \ \mu]$  
+Repeat {  
+	for $i = 1$ to $m$: [data points cluster/color  assignemnt]  
+		$c^{(i)}$ [vector] = index (from 1 to $K$) of cluster centroid closes to $x^{(i)}$  
+	for $k=1$ to $K$: [move centroid]  
+		$\mu_k$ = average (mean) of points, update $K$ centroids' positions   
+}  
+
+
+<h4 id="K-means_for_non-well-separated_clusters">K-means for non-well-separated clusters</h4><p>The following example shows how K-means algorithm separate non-well-separated clusters:  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160806/k-mean-non-separate.png" alt="">  </p>
+<p>After running K-mean on the data set above, the algorithm will automatically cluster the data points into three clusters.  </p>
+<h3 id="Optimization_Objective-1"><center> Optimization Objective </center></h3><ul>
+<li>cost function : optimization objective  </li>
+<li>notation for  $c^{(i)},$ $x^{(i)},$ $\mu_k $, $\mu_{c^{(i)}}$ </li>
+</ul>
+<h4 id="K-means_optimization_objective">K-means optimization objective</h4><p>$c^{(i)} = $ index of cluster ($1,2, \dots K$) to which data point $x^{(i)}$ is currently assigned.<br> $\mu_k = $ location of cluster centroid $k \ (\mu_k \in R^n)$  <br>$\mu_{c^{(i)}} = $ location of <strong>cluster centroid</strong> of cluster to which example data $x^{(i)}$ has been assigned.  </p>
+<p>Optimization objective:<br> $$J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots \mu_K) = \frac{1}{m} \sum_{i=1}^m \Vert x^{(i)} - \mu_{c^{(i)}} \Vert^2$$ </p>
+<p>$$min \ J(cost \ function)  $$ -&gt; distortion k-mean cost function </p>
+<h3 id="Random_Initialization"><center> Random Initialization </center></h3><ul>
+<li>how to random initialization cluster centroids  </li>
+<li>how to avoid local minimum  </li>
+<li>multiple random initialization algorithm  </li>
+</ul>
+<h4 id="Random_initialization">Random initialization</h4><ul>
+<li>should have $K &lt; m$  </li>
+<li><strong>randomly</strong> pick $K$ training examples  </li>
+<li><strong>set</strong> $\mu_1, \dots, \mu_K$ equal to these $K$ examples  </li>
+</ul>
+<blockquote>
+<p><strong>Notes</strong>: Depends on location of random initialization, K-means algorithm can actually end up in different solution.  </p>
+</blockquote>
+<h4 id="Avoid_local_optima">Avoid local optima</h4><p>Example training set:  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160806/local-optimal-dataset.png" alt=""></p>
+<p>Global minimum (Good):<br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160806/local-optimal-global-cluster.png" alt=""></p>
+<p>Local optima (Not good):<br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160806/local-optimal.png" alt=""></p>
+<p>Solution: Try <strong>multiple random initialization</strong> ($50-1000$ times) to get global optima.  </p>
+<h4 id="Multiple_Random_initialization_algorithm">Multiple Random initialization algorithm</h4><p>For $i=1 \ to \ 100 $ {  </p>
+<ol>
+<li>Randomly initialize K-means  </li>
+<li>Run K-means. Get $c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_k$  </li>
+<li>Compute cost function (distortion) $J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_k)$  </li>
+</ol>
+<p>}  </p>
+<p>Pick clustering htat gave <strong>lowest</strong> cost $J(c^{(1)}, \dots, c^{(m)}, \mu_1, \dots, \mu_k)$  </p>
+<blockquote>
+<p><strong>Note</strong>: multiple random initialization is especially helpful for small number of cluster ($K = 2-&gt;10$). With a large $K$, multiple random initialization is not necessary.  </p>
+</blockquote>
+<h3 id="Choosing_the_Number_of_Clusters"><center> Choosing the Number of Clusters </center></h3><ul>
+<li>how to choose the number of clusters $K$  </li>
+</ul>
+<h4 id="Elbow_method">Elbow method</h4><p>Graph Value of the cost function verus the no. of the cluster $K$. The location where “elbow” appear is the location of the best $K$ value.  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160806/k-elbow-method.png" alt="">  </p>
+<p>However, elbow method does not always works well:  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160806/elbow-method-bad.png" alt=""></p>
+<p>Choose by hand <strong>manually</strong> (tshirt size: xs, s, m, l, xl OR s, m, l) is still the best approach for choosing $K$.  </p>
+<h1 id="Week_8:_Lesson_3">Week 8: Lesson 3</h1><h2 id="Motivation">Motivation</h2><h3 id="Motivation_I:_Data_Compression"><center> Motivation I: Data Compression </center></h3><ul>
+<li>compressed and reduce dimension of redundant data -&gt; less computer memory, disk space  </li>
+<li>speed up the learning algorithm  </li>
+</ul>
+<h4 id="Data_Compression_From_2D_to_1D">Data Compression From 2D to 1D</h4><ul>
+<li>Doing dimensionality reduction will reduce the total data we have to store in computer memory and will help to reduce the memory and disk usage.  </li>
+</ul>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160806/data-compression.png" alt="">  </p>
+<blockquote>
+<p><strong>Note</strong>: in dimensionality reduction, variable $m$ will stay the same size; $n$ the number of features each example carries, will be reduced.  </p>
+</blockquote>
+<h3 id="Motivation_II:_Data_Visualization"><center> Motivation II: Data Visualization </center></h3><ul>
+<li>better understand our data with data visualization.  </li>
+<li>with large number of features, $n=50$ for example, we could select two or three features, which can effectivly summarize all other features, and plot it in 2D or 3D.  </li>
+</ul>
 <h1 id="Logs">Logs</h1><ul>
 <li>07/18/2016: New post for week 6 onward.  </li>
 <li>07/18/2016: Week 6 Lesson 1 completed.  </li>
 <li>07/19/2016: Week 6 Lesson 2 completed.  </li>
 <li>07/19/2016: Week 6 Lesson 3，4，5 completed.  </li>
+<li>07/31/2016: Week 7 completed.  </li>
+<li>08/06/2016: Week 8 Lesson 1, 3 completed.  </li>
 </ul>
 
       
@@ -862,7 +1144,7 @@ $$J(\theta) =  \frac 1 {2m}[\sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2 + \lambda
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_1"><span class="nav-number">1.</span> <span class="nav-text">Week 6: Lesson 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluating_a_Learning_Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Evaluating a Learning Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deciding_What_to_Try_Next"><span class="nav-number">1.1.1.</span> <span class="nav-text"> Deciding What to Try Next </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problem_in_real_practice:"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Problem in real practice:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Machine_learning_diagnostic:"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Machine learning diagnostic:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Evaluating_a_Hypothesis"><span class="nav-number">1.1.2.</span> <span class="nav-text"> Evaluating a Hypothesis </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis_(Ploting)"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Evaluating your hypothesis (Ploting)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis_(Spliting_your_data_set)"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Evaluating your hypothesis (Spliting your data set)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Misclassification_error_(a-k-a-_0/1_misclassification_error)"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Misclassification error (a.k.a. 0/1 misclassification error)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model_Selection_and_Train/Validation/Test_Sets"><span class="nav-number">1.1.3.</span> <span class="nav-text">Model Selection and Train/Validation/Test Sets</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting_problem"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Overfitting problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model_selection"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Evaluating your hypothesis</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_2"><span class="nav-number">2.</span> <span class="nav-text">Week 6: Lesson 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bias_vs-_Variance"><span class="nav-number">2.1.</span> <span class="nav-text">Bias vs. Variance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Diagnosing_Bias_vs-_Variance"><span class="nav-number">2.1.1.</span> <span class="nav-text"> Diagnosing Bias vs. Variance </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bias/Variance"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Bias/Variance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diagnosing_bias_vs-_variance"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Diagnosing bias vs. variance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regularization_and_Bias/Variance"><span class="nav-number">2.1.2.</span> <span class="nav-text"> Regularization and Bias/Variance </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear_Regression_with_Regularization"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Linear Regression with Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choosing_the_regularization_parameter_$\lambda$"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">Choosing the regularization parameter $\lambda$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bias/variance_as_a_function_of_the_regularization_parameter_$\lambda$-"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">Bias/variance as a function of the regularization parameter $\lambda$.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning_Curves"><span class="nav-number">2.1.3.</span> <span class="nav-text"> Learning Curves </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Learning_curves"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">Learning curves</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deciding_What_to_Do_Next_Revisited"><span class="nav-number">2.1.4.</span> <span class="nav-text">Deciding What to Do Next Revisited</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Debugging_a_learning_algorithm:"><span class="nav-number">2.1.4.1.</span> <span class="nav-text">Debugging a learning algorithm:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Neural_Network_and_Overfitting"><span class="nav-number">2.1.4.2.</span> <span class="nav-text">Neural Network and Overfitting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How_to_decide_how_many_layers_for_hidden_layer?"><span class="nav-number">2.1.4.3.</span> <span class="nav-text">How to decide how many layers for hidden layer?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exercise:"><span class="nav-number">2.1.4.4.</span> <span class="nav-text">Exercise:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_4"><span class="nav-number">3.</span> <span class="nav-text">Week 6: Lesson 4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Building_a_Spam_Classifier"><span class="nav-number">3.1.</span> <span class="nav-text">Building a Spam Classifier</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prioritizing_What_to_Work_On"><span class="nav-number">3.1.1.</span> <span class="nav-text"> Prioritizing What to Work On </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Building_a_spam_classifier"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">Building a spam classifier</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Building_a_spam_classifier-1"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">Building a spam classifier</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error_Analysis"><span class="nav-number">3.1.2.</span> <span class="nav-text"> Error Analysis </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Recommended_approach"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">Recommended approach</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example_of_Error_Analysis"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">Example of Error Analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The_important_of_numerical_evaluation"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">The important of numerical evaluation</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_5"><span class="nav-number">4.</span> <span class="nav-text">Week 6: Lesson 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Handling_Skewed_Data"><span class="nav-number">4.1.</span> <span class="nav-text">Handling Skewed Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error_Metrics_for_Skewed_Classes"><span class="nav-number">4.1.1.</span> <span class="nav-text"> Error Metrics for Skewed Classes </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Skew_class"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">Skew class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Precision/Recall"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">Precision/Recall</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trading_Off_Precision_and_Recall"><span class="nav-number">4.1.2.</span> <span class="nav-text">Trading Off Precision and Recall </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Determine_good_recall/variance:_Average:"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">Determine good recall/variance: Average:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Determine_good_recall/variance:_F_Score"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">Determine good recall/variance: F Score</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#automatcially_determine_the_threshold_for_classifier:_$h(x)$_function"><span class="nav-number">4.1.2.3.</span> <span class="nav-text">automatcially determine the threshold for classifier: $h(x)$ function</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data_For_Machine_Learning"><span class="nav-number">4.1.3.</span> <span class="nav-text"> Data For Machine Learning </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Userful_test"><span class="nav-number">4.1.3.1.</span> <span class="nav-text">Userful test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Improve_performance_with_large_data_set"><span class="nav-number">4.1.3.2.</span> <span class="nav-text">Improve performance with large data set</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">5.</span> <span class="nav-text">Logs</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_1"><span class="nav-number">1.</span> <span class="nav-text">Week 6: Lesson 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluating_a_Learning_Algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">Evaluating a Learning Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deciding_What_to_Try_Next"><span class="nav-number">1.1.1.</span> <span class="nav-text"> Deciding What to Try Next </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problem_in_real_practice:"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Problem in real practice:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Machine_learning_diagnostic:"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Machine learning diagnostic:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Evaluating_a_Hypothesis"><span class="nav-number">1.1.2.</span> <span class="nav-text"> Evaluating a Hypothesis </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis_(Ploting)"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Evaluating your hypothesis (Ploting)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis_(Spliting_your_data_set)"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Evaluating your hypothesis (Spliting your data set)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Misclassification_error_(a-k-a-_0/1_misclassification_error)"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Misclassification error (a.k.a. 0/1 misclassification error)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model_Selection_and_Train/Validation/Test_Sets"><span class="nav-number">1.1.3.</span> <span class="nav-text">Model Selection and Train/Validation/Test Sets</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting_problem"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Overfitting problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model_selection"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluating_your_hypothesis"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Evaluating your hypothesis</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_2"><span class="nav-number">2.</span> <span class="nav-text">Week 6: Lesson 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bias_vs-_Variance"><span class="nav-number">2.1.</span> <span class="nav-text">Bias vs. Variance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Diagnosing_Bias_vs-_Variance"><span class="nav-number">2.1.1.</span> <span class="nav-text"> Diagnosing Bias vs. Variance </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bias/Variance"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Bias/Variance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diagnosing_bias_vs-_variance"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Diagnosing bias vs. variance</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regularization_and_Bias/Variance"><span class="nav-number">2.1.2.</span> <span class="nav-text"> Regularization and Bias/Variance </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear_Regression_with_Regularization"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">Linear Regression with Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choosing_the_regularization_parameter_$\lambda$"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">Choosing the regularization parameter $\lambda$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bias/variance_as_a_function_of_the_regularization_parameter_$\lambda$-"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">Bias/variance as a function of the regularization parameter $\lambda$.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning_Curves"><span class="nav-number">2.1.3.</span> <span class="nav-text"> Learning Curves </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Learning_curves"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">Learning curves</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deciding_What_to_Do_Next_Revisited"><span class="nav-number">2.1.4.</span> <span class="nav-text">Deciding What to Do Next Revisited</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Debugging_a_learning_algorithm:"><span class="nav-number">2.1.4.1.</span> <span class="nav-text">Debugging a learning algorithm:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Neural_Network_and_Overfitting"><span class="nav-number">2.1.4.2.</span> <span class="nav-text">Neural Network and Overfitting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How_to_decide_how_many_layers_for_hidden_layer?"><span class="nav-number">2.1.4.3.</span> <span class="nav-text">How to decide how many layers for hidden layer?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exercise:"><span class="nav-number">2.1.4.4.</span> <span class="nav-text">Exercise:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_4"><span class="nav-number">3.</span> <span class="nav-text">Week 6: Lesson 4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Building_a_Spam_Classifier"><span class="nav-number">3.1.</span> <span class="nav-text">Building a Spam Classifier</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prioritizing_What_to_Work_On"><span class="nav-number">3.1.1.</span> <span class="nav-text"> Prioritizing What to Work On </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Building_a_spam_classifier"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">Building a spam classifier</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Building_a_spam_classifier-1"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">Building a spam classifier</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error_Analysis"><span class="nav-number">3.1.2.</span> <span class="nav-text"> Error Analysis </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Recommended_approach"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">Recommended approach</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example_of_Error_Analysis"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">Example of Error Analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The_important_of_numerical_evaluation"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">The important of numerical evaluation</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_6:_Lesson_5"><span class="nav-number">4.</span> <span class="nav-text">Week 6: Lesson 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Handling_Skewed_Data"><span class="nav-number">4.1.</span> <span class="nav-text">Handling Skewed Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error_Metrics_for_Skewed_Classes"><span class="nav-number">4.1.1.</span> <span class="nav-text"> Error Metrics for Skewed Classes </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Skew_class"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">Skew class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Precision/Recall"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">Precision/Recall</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trading_Off_Precision_and_Recall"><span class="nav-number">4.1.2.</span> <span class="nav-text">Trading Off Precision and Recall </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Determine_good_recall/variance:_Average:"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">Determine good recall/variance: Average:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Determine_good_recall/variance:_F_Score"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">Determine good recall/variance: F Score</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#automatcially_determine_the_threshold_for_classifier:_$h(x)$_function"><span class="nav-number">4.1.2.3.</span> <span class="nav-text">automatcially determine the threshold for classifier: $h(x)$ function</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data_For_Machine_Learning"><span class="nav-number">4.1.3.</span> <span class="nav-text"> Data For Machine Learning </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Userful_test"><span class="nav-number">4.1.3.1.</span> <span class="nav-text">Userful test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Improve_performance_with_large_data_set"><span class="nav-number">4.1.3.2.</span> <span class="nav-text">Improve performance with large data set</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_7:_Lesson_1"><span class="nav-number">5.</span> <span class="nav-text">Week 7: Lesson 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Large_Margin_Classification"><span class="nav-number">5.1.</span> <span class="nav-text">Large Margin Classification</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimization_Objective"><span class="nav-number">5.1.1.</span> <span class="nav-text"> Optimization Objective </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Alternative_logistic_regression_to_SVM"><span class="nav-number">5.1.1.1.</span> <span class="nav-text">Alternative logistic regression to SVM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVM_cost_function"><span class="nav-number">5.1.1.2.</span> <span class="nav-text">SVM cost function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVM_hypothesis_function"><span class="nav-number">5.1.1.3.</span> <span class="nav-text">SVM hypothesis function</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Large_Margin_Intuition"><span class="nav-number">5.1.2.</span> <span class="nav-text">Large Margin Intuition</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Support_Vector_Machine"><span class="nav-number">5.1.2.1.</span> <span class="nav-text">Support Vector Machine</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Large_Margin_Classifier"><span class="nav-number">5.1.2.2.</span> <span class="nav-text">Large Margin Classifier</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVM_constant_value_C"><span class="nav-number">5.1.2.3.</span> <span class="nav-text">SVM constant value C</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mathematics_Behind_Large_Margin_Classification"><span class="nav-number">5.1.3.</span> <span class="nav-text"> Mathematics Behind Large Margin Classification </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vector_Inner_Product"><span class="nav-number">5.1.3.1.</span> <span class="nav-text">Vector Inner Product</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_7:_Lesson_2"><span class="nav-number">6.</span> <span class="nav-text">Week 7: Lesson 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Kernels"><span class="nav-number">6.1.</span> <span class="nav-text">Kernels</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Kernels_I"><span class="nav-number">6.1.1.</span> <span class="nav-text"> Kernels I</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hypothesis_function_for_SVM"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">Hypothesis function for SVM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gaussian_Kernels:_The_similarity_function"><span class="nav-number">6.1.1.2.</span> <span class="nav-text">Gaussian Kernels: The similarity function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Properties_of_the_similarity_function"><span class="nav-number">6.1.1.3.</span> <span class="nav-text">Properties of the similarity function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Effect_of_sigma_value"><span class="nav-number">6.1.1.4.</span> <span class="nav-text">Effect of sigma value</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kernels_II"><span class="nav-number">6.1.2.</span> <span class="nav-text"> Kernels II</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Choosing_the_landmarks"><span class="nav-number">6.1.2.1.</span> <span class="nav-text">Choosing the landmarks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choosing_the_parameters_$\Theta$"><span class="nav-number">6.1.2.2.</span> <span class="nav-text">Choosing the parameters $\Theta$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVM_parameters"><span class="nav-number">6.1.2.3.</span> <span class="nav-text">SVM parameters</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_7:_Lesson_3"><span class="nav-number">7.</span> <span class="nav-text">Week 7: Lesson 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SVMs_in_Practice"><span class="nav-number">7.1.</span> <span class="nav-text">SVMs in Practice</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Using_An_SVM"><span class="nav-number">7.1.1.</span> <span class="nav-text">Using An SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Kernel_(similarity)_functions:"><span class="nav-number">7.1.1.1.</span> <span class="nav-text">Kernel (similarity) functions:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Implementation_choice_for_SVM"><span class="nav-number">7.1.1.2.</span> <span class="nav-text">Implementation choice for SVM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multi-class_classification"><span class="nav-number">7.1.1.3.</span> <span class="nav-text">Multi-class classification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logistic_regression_vs-_SVMs"><span class="nav-number">7.1.1.4.</span> <span class="nav-text">Logistic regression vs. SVMs</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_8:_Lesson_1"><span class="nav-number">8.</span> <span class="nav-text">Week 8: Lesson 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Clustering"><span class="nav-number">8.1.</span> <span class="nav-text">Clustering</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unsupervised_Learning:_Introduction"><span class="nav-number">8.1.1.</span> <span class="nav-text">Unsupervised Learning: Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#First_unsupervised_learning_algorithm:_clustering"><span class="nav-number">8.1.1.1.</span> <span class="nav-text">First unsupervised learning algorithm: clustering</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Application_of_Clustering"><span class="nav-number">8.1.1.2.</span> <span class="nav-text">Application of Clustering</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-means_algorithm"><span class="nav-number">8.1.2.</span> <span class="nav-text">K-means algorithm </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#K-means_introudction:"><span class="nav-number">8.1.2.1.</span> <span class="nav-text">K-means introudction:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#K-means_algorithm_input:"><span class="nav-number">8.1.2.2.</span> <span class="nav-text">K-means algorithm input:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#K-means_algorithm:"><span class="nav-number">8.1.2.3.</span> <span class="nav-text">K-means algorithm:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#K-means_for_non-well-separated_clusters"><span class="nav-number">8.1.2.4.</span> <span class="nav-text">K-means for non-well-separated clusters</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimization_Objective-1"><span class="nav-number">8.1.3.</span> <span class="nav-text"> Optimization Objective </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#K-means_optimization_objective"><span class="nav-number">8.1.3.1.</span> <span class="nav-text">K-means optimization objective</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Random_Initialization"><span class="nav-number">8.1.4.</span> <span class="nav-text"> Random Initialization </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Random_initialization"><span class="nav-number">8.1.4.1.</span> <span class="nav-text">Random initialization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Avoid_local_optima"><span class="nav-number">8.1.4.2.</span> <span class="nav-text">Avoid local optima</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiple_Random_initialization_algorithm"><span class="nav-number">8.1.4.3.</span> <span class="nav-text">Multiple Random initialization algorithm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Choosing_the_Number_of_Clusters"><span class="nav-number">8.1.5.</span> <span class="nav-text"> Choosing the Number of Clusters </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Elbow_method"><span class="nav-number">8.1.5.1.</span> <span class="nav-text">Elbow method</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_8:_Lesson_3"><span class="nav-number">9.</span> <span class="nav-text">Week 8: Lesson 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Motivation"><span class="nav-number">9.1.</span> <span class="nav-text">Motivation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Motivation_I:_Data_Compression"><span class="nav-number">9.1.1.</span> <span class="nav-text"> Motivation I: Data Compression </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Data_Compression_From_2D_to_1D"><span class="nav-number">9.1.1.1.</span> <span class="nav-text">Data Compression From 2D to 1D</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Motivation_II:_Data_Visualization"><span class="nav-number">9.1.2.</span> <span class="nav-text"> Motivation II: Data Visualization </span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">10.</span> <span class="nav-text">Logs</span></a></li></ol></div>
             
           </div>
         </section>
