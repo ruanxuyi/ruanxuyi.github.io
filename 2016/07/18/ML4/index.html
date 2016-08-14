@@ -103,6 +103,16 @@
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description">
 <meta property="og:image" content="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera.s3.amazonaws.com/topics/ml/large-icon.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160814/high-variance.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160814/gradient-descent.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160814/quiz.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160814/smaller-learning-rate.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160814/larger-average-sample.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160814/flat-curve.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160814/increaseing.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160814/map-reduce.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160814/map-reduce-on-batch-gradient-descent.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20160814/MULTIPLE-CORE.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coursera: Machine Learning by Stanford - Part4">
 <meta name="twitter:description">
@@ -342,7 +352,116 @@
       
         <p><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera.s3.amazonaws.com/topics/ml/large-icon.png" alt=""></p>
 <a id="more"></a>
-<h1 id="Week_10:_Lesson_1">Week 10: Lesson 1</h1><h2 id="Collaborative_Filtering">Collaborative Filtering</h2><h3 id="Collaborative_Filtering-1"><center> Collaborative Filtering </center></h3>
+<h1 id="Week_10:_Lesson_1">Week 10: Lesson 1</h1><h2 id="Gradient_Descent_with_Large_Datasets">Gradient Descent with Large Datasets</h2><h3 id="Learning_With_Large_Datasets"><center> Learning With Large Datasets </center></h3><ul>
+<li>alogrithm deal with large data set.  </li>
+<li>come up with computational efficient way to deal with large dataset.  </li>
+</ul>
+<h4 id="Learning_with_large_datasets">Learning with large datasets</h4><ul>
+<li>typically with $m=100,000,000$, computational heavy.  </li>
+<li>better to try random small subset of $m=1,000$ first.  </li>
+<li>plot the learning curve of $J_{cv}(\theta)$ and $J_{train}{\theta}$  v.s. $m$ (training size) will help to better determine if increasing $m$ will likely imporve the learning accuracy. (high variance -&gt; increasing $m$ will likely imporve accuracy).  </li>
+</ul>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160814/high-variance.png" alt=""></p>
+<h3 id="Stochastic_Gradient_Descent"><center> Stochastic Gradient Descent </center></h3><ul>
+<li>gradient escent - computational expensive for large data set.  </li>
+<li>to compute gradient descent for large data set $m$, we perfer using stochastic gradient descent.  </li>
+<li>batch gradient descent vs. stochastic gradient descent  </li>
+<li>instead of getting directly to global minimum, stochastic gradient descent will likely <strong>wondering around</strong> the global minimum.  </li>
+</ul>
+<h4 id="Gradient_descent">Gradient descent</h4><p>Every iteration approaches directly to the global minimum step by step.<br>However, as $m$ get large(<code>100,000,000</code> scale), every iteration, it needs to go through $m$ number of training sets and it is very heavy computation. It is considered heavy computation because it is memory cant hold up that amount of data at once, and swaping bewteen disk and memory is required.  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160814/gradient-descent.png" alt=""></p>
+<p>In case of large training example $m$, we need more efficient algorithm.  </p>
+<h4 id="Stochastic_gradient_descent">Stochastic gradient descent</h4><p>We defined:  </p>
+$$cost(\theta, (x^{(i)}, y^{(i)})) = \frac{1}{2}(h_{\theta}(x^{(i)})-y^{(i)})^2$$
+<p>Similar to Gradient descent, We have:  </p>
+$$J_{train}(\theta) = \dfrac{1}{m} \displaystyle \sum_{i=1}^m cost(\theta, (x^{(i)}, y^{(i)}))$$
+<p>The only difference was in the <strong>iteration updating step.</strong> Instead of iterating through the <strong>entire</strong> $m$ number of examples to get a <strong>single</strong> update, we update the parameter $\theta$ at <strong>every</strong> training set.  </p>
+<h4 id="Stochastic_gradient_algorithm">Stochastic gradient algorithm</h4><ul>
+<li>1.Randomly ‘shuffle’ the dataset  </li>
+<li>2.For $i=1…m$  </li>
+</ul>
+$$\Theta_j := \Theta_j - \alpha (h_{\Theta}(x^{(i)}) - y^{(i)}) \cdot x^{(i)}_j$$
+<p>$\Theta_j$ now updates for every $(x^{(i)}, y^{(i)})$ pair. With stochastic gradient, we can <strong>make progress</strong> in gradient descent <strong>without</strong> having to scan <strong>all $m$ training set</strong> first.   </p>
+<p>Stochastic gradient descent <strong>will not</strong> converge to global minimum, instead, it will wondering <strong>around</strong> the global minimum and result in a solution that is close enough.  </p>
+<p>Stochastic gradient descent usually take about $1-10$ passes through your data set to get near the global minimum.  </p>
+<p><strong>Quiz:</strong><br><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160814/quiz.png" alt=""></p>
+<h3 id="Mini-batch_gradient_descent"><center> Mini-batch gradient descent </center></h3><ul>
+<li>mini-batch faster than stochastic gradient descent and batch gradient descent.  </li>
+<li>advantage and disadvantage of mini-batch gradient descent.  </li>
+</ul>
+<h4 id="Mini-batch_gradient_descent-1">Mini-batch gradient descent</h4><ul>
+<li>with good choice of parameter $b$, mini-batch sometimes faster than stochastic gradient descent.  </li>
+<li>batch gradient descent[$m$ example each iteration]/stochastic gradient descent[$1$ example each iteration], mini-batch gradient descent using $b$ example for each iteration.  </li>
+<li>$b\in[2,100]$  </li>
+</ul>
+<p>For example, with $b=10$ and $m = 1000$:  </p>
+<ul>
+<li>Repeat:  </li>
+<li>for $i = 1,11,21,31,\dots,991:$  </li>
+<li>$\theta_j := \theta_j - \alpha \dfrac{1}{10} \displaystyle \sum_{k=i}^{i+9} (h_\theta(x^{(k)}) - y^{(k)})x_j^{(k)}$ (for each $j = 0, \dots, n$)  
+</li>
+</ul>
+<h4 id="Mini-batch_vs_Stochastic_gradient_descent">Mini-batch vs Stochastic gradient descent</h4><p><strong>Advantage</strong>: Vectorization implementation over $b$ examples -&gt; more parallel  </p>
+<p><strong>Disadvantage</strong>: extra parameter $b$ to fit.  </p>
+<h3 id="Stochastic_Gradient_descent_convergence"><center> Stochastic Gradient descent convergence </center></h3><ul>
+<li>choosing learning rate $\alpha$ for stochastic gradient descent  </li>
+<li>how to make sure it is converging okay?  </li>
+<li>compute and save average cost of hypothesis $cost(\theta, (x^{(i)},y^{(i)}))$ over the last $1000$ examples processed by algorithm.  </li>
+<li>possible thing to try out for different situations.  </li>
+</ul>
+<h4 id="Checking_for_convergence">Checking for convergence</h4><h5 id="Better_precision_at_covergence">Better precision at covergence</h5><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160814/smaller-learning-rate.png" alt=""></p>
+<ul>
+<li>red curve: learning algorithm with smaller learning rate $\alpha$. Smaller learning rate $\alpha$, smaller occilscation of stochastic gradient descent around the global minimum.    </li>
+</ul>
+<h5 id="Plot_too_noisy">Plot too noisy</h5><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160814/larger-average-sample.png" alt=""></p>
+<ul>
+<li>red curve: increasing from $1000$ to $5000$, smoother plot</li>
+</ul>
+<h5 id="Flat_curve(cost_not_decreasing)">Flat curve(cost not decreasing)</h5><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160814/flat-curve.png" alt=""></p>
+<ul>
+<li>red curve: increase to average of large sample data (from $1000$ to $5000$). Slowly decreasing  </li>
+<li>pink curve: if change to average of large sample data does not help, there might be something wrong with features you choose, etc.  </li>
+</ul>
+<h5 id="plot_increasing">plot increasing</h5><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160814/increaseing.png" alt=""></p>
+<ul>
+<li>try smaller value of learning rate $\alpha$</li>
+</ul>
+<p>Learning rate $\alpha$ is typically held constant. Can slowly decrease $\alpha$ over time if we want $\theta$ to converge.  </p>
+$$\alpha_{new} = \frac{const1}{iterationNumber + const2}$$
+<p>As number of iteration (number of training example went through) increase, learning rate $\alpha$ gradually decrease. However, the two parameters $const1$ and $const2$ need extra time to compute. </p>
+<h3 id="Online_learning"><center> Online learning </center></h3><ul>
+<li>learning continously from the data generated by the user.  </li>
+<li>learning example $(x, y)$ and discard that and move on with new coming data set. </li>
+</ul>
+<h4 id="Online_learning-1">Online learning</h4><p>With a continuous stream of users to a website, we can run an endless loop that gets $(x,y)$, where we collect some user actions for the features in $x$ to predict some behavior $y$.  </p>
+<p>You can update $θ$ for each individual $(x,y)$ pair as you collect them. This way, you can adapt to new pools of users, since you are continuously updating theta.   </p>
+<h4 id="Other_online_learning_example:">Other online learning example:</h4><ul>
+<li>Chossing special offers to show user  </li>
+<li>customized selection of news articles  </li>
+<li>product reommendation  </li>
+</ul>
+<h1 id="Week_10:_Lesson_2">Week 10: Lesson 2</h1><h2 id="Map-reduce">Map-reduce</h2><h3 id="Map-reduce_and_data_parallelism"><center> Map-reduce and data parallelism </center></h3><ul>
+<li>run computation and data on different machines  </li>
+<li>large scale machine learning  </li>
+</ul>
+<h4 id="Map-reduce_idea">Map-reduce idea</h4><ul>
+<li>parallelizing computation accross different machine.  </li>
+</ul>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160814/map-reduce.png" alt=""></p>
+<h4 id="Map-reduce_on_batch_gradient_descent">Map-reduce on batch gradient descent</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160814/map-reduce-on-batch-gradient-descent.png" alt=""></p>
+<h4 id="Map-reduce_and_summation_over_training_set">Map-reduce and summation over training set</h4><blockquote>
+<p>Can every learning algorithm be expressed as the summation of the training set?  </p>
+</blockquote>
+<p>Many learning algorithms <strong>can</strong> be expressed as computing sums of functions over the training set.  </p>
+<p>Your learning algorithm is MapReduceable if it can be expressed as computing <strong>sums</strong> of functions over the training set. Linear regression and logistic regression are easily parallelizable.</p>
+<p>For neural networks, you can compute <strong>forward propagation and back propagation</strong> on subsets of your data on many machines. Those machines can report their derivatives back to a ‘master’ server that will combine them.</p>
+<h4 id="Single-computer,_multi-core_machines">Single-computer, multi-core machines</h4><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20160814/MULTIPLE-CORE.png" alt=""></p>
+<p>Advantage: not need to worry about <strong>network latency</strong>  </p>
+<p><strong>Library with multi-core capability:</strong> Some numerical linear algebra library that automatically implament the multi-core techique.  </p>
+<h1 id="Logs">Logs</h1><ul>
+<li>07/31/2016: Week 10 completed.  </li>
+</ul>
+
       
     </div>
 
@@ -572,7 +691,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_10:_Lesson_1"><span class="nav-number">1.</span> <span class="nav-text">Week 10: Lesson 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Collaborative_Filtering"><span class="nav-number">1.1.</span> <span class="nav-text">Collaborative Filtering</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collaborative_Filtering-1"><span class="nav-number">1.1.1.</span> <span class="nav-text"> Collaborative Filtering </span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_10:_Lesson_1"><span class="nav-number">1.</span> <span class="nav-text">Week 10: Lesson 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradient_Descent_with_Large_Datasets"><span class="nav-number">1.1.</span> <span class="nav-text">Gradient Descent with Large Datasets</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning_With_Large_Datasets"><span class="nav-number">1.1.1.</span> <span class="nav-text"> Learning With Large Datasets </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Learning_with_large_datasets"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Learning with large datasets</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic_Gradient_Descent"><span class="nav-number">1.1.2.</span> <span class="nav-text"> Stochastic Gradient Descent </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradient_descent"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stochastic_gradient_descent"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Stochastic gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stochastic_gradient_algorithm"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Stochastic gradient algorithm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mini-batch_gradient_descent"><span class="nav-number">1.1.3.</span> <span class="nav-text"> Mini-batch gradient descent </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mini-batch_gradient_descent-1"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Mini-batch gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mini-batch_vs_Stochastic_gradient_descent"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Mini-batch vs Stochastic gradient descent</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic_Gradient_descent_convergence"><span class="nav-number">1.1.4.</span> <span class="nav-text"> Stochastic Gradient descent convergence </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Checking_for_convergence"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">Checking for convergence</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Better_precision_at_covergence"><span class="nav-number">1.1.4.1.1.</span> <span class="nav-text">Better precision at covergence</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Plot_too_noisy"><span class="nav-number">1.1.4.1.2.</span> <span class="nav-text">Plot too noisy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Flat_curve(cost_not_decreasing)"><span class="nav-number">1.1.4.1.3.</span> <span class="nav-text">Flat curve(cost not decreasing)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#plot_increasing"><span class="nav-number">1.1.4.1.4.</span> <span class="nav-text">plot increasing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Online_learning"><span class="nav-number">1.1.5.</span> <span class="nav-text"> Online learning </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Online_learning-1"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">Online learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other_online_learning_example:"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">Other online learning example:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_10:_Lesson_2"><span class="nav-number">2.</span> <span class="nav-text">Week 10: Lesson 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-reduce"><span class="nav-number">2.1.</span> <span class="nav-text">Map-reduce</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map-reduce_and_data_parallelism"><span class="nav-number">2.1.1.</span> <span class="nav-text"> Map-reduce and data parallelism </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Map-reduce_idea"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Map-reduce idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Map-reduce_on_batch_gradient_descent"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Map-reduce on batch gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Map-reduce_and_summation_over_training_set"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">Map-reduce and summation over training set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Single-computer,_multi-core_machines"><span class="nav-number">2.1.1.4.</span> <span class="nav-text">Single-computer, multi-core machines</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">3.</span> <span class="nav-text">Logs</span></a></li></ol></div>
             
           </div>
         </section>
