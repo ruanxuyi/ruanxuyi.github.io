@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BinarySearch,LintCode," />
+  <meta name="keywords" content="Coursera,Machine Learning," />
 
 
 
@@ -96,18 +96,16 @@
 
 
 
-<meta name="description" content="Search a 2D Matrix  
-Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // write your code here    if (matrix == null || matrix.length == 0) &amp;#123;        return false;    &amp;#125;">
+<meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LintCode 28 - Search a 2D Matrix">
-<meta property="og:url" content="http://www.xuyiruan.com/2016/07/01/Search-a-2D-Matrix/index.html">
+<meta property="og:title" content="Coursera: Machine Learning by Stanford - Part4">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/07/18/ML4/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="Search a 2D Matrix  
-Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // write your code here    if (matrix == null || matrix.length == 0) &amp;#123;        return false;    &amp;#125;">
+<meta property="og:description">
+<meta property="og:image" content="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera.s3.amazonaws.com/topics/ml/large-icon.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LintCode 28 - Search a 2D Matrix">
-<meta name="twitter:description" content="Search a 2D Matrix  
-Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // write your code here    if (matrix == null || matrix.length == 0) &amp;#123;        return false;    &amp;#125;">
+<meta name="twitter:title" content="Coursera: Machine Learning by Stanford - Part4">
+<meta name="twitter:description">
 
 
 
@@ -126,7 +124,7 @@ Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // wr
   };
 </script>
 
-  <title> LintCode 28 - Search a 2D Matrix | 阮先生de小窝 </title>
+  <title> Coursera: Machine Learning by Stanford - Part4 | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -286,7 +284,7 @@ Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // wr
             
             
               
-                LintCode 28 - Search a 2D Matrix
+                Coursera: Machine Learning by Stanford - Part4
               
             
           </h1>
@@ -298,8 +296,8 @@ Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // wr
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-01T11:27:35+08:00" content="07-01-2016">
-              07-01-2016
+            <time itemprop="dateCreated" datetime="2016-07-18T10:15:48+08:00" content="07-18-2016">
+              07-18-2016
             </time>
           </span>
 
@@ -309,8 +307,8 @@ Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // wr
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/01/Search-a-2D-Matrix/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/01/Search-a-2D-Matrix/" itemprop="commentsCount"></span>
+                <a href="/2016/07/18/ML4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/18/ML4/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -320,7 +318,7 @@ Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // wr
 
           
           
-             <span id="/2016/07/01/Search-a-2D-Matrix/" class="leancloud_visitors" data-flag-title="LintCode 28 - Search a 2D Matrix">
+             <span id="/2016/07/18/ML4/" class="leancloud_visitors" data-flag-title="Coursera: Machine Learning by Stanford - Part4">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -342,28 +340,9 @@ Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // wr
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/search-a-2d-matrix/" target="_blank" rel="external">Search a 2D Matrix</a>  </p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> rowLow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> rowMid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> rowHigh = matrix.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> rowIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colLow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colMid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colHigh = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (rowLow + <span class="number">1</span> &lt; rowHigh) &#123;</span><br><span class="line">        rowMid = rowLow + (rowHigh - rowLow) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt; matrix[rowMid][<span class="number">0</span>]) &#123;</span><br><span class="line">            rowHigh = rowMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowMid][<span class="number">0</span>]) &#123;</span><br><span class="line">            rowLow = rowMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (target &gt; matrix[rowLow][<span class="number">0</span>] &amp;&amp; target &lt; matrix[rowHigh][<span class="number">0</span>]) &#123;</span><br><span class="line">        rowIndex = rowLow;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowHigh][<span class="number">0</span>]) &#123;</span><br><span class="line">        rowIndex = rowHigh;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target == matrix[rowLow][<span class="number">0</span>] || target == matrix[rowHigh][<span class="number">0</span>])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// (target &lt; matrix[rowLow][0]</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (colLow + <span class="number">1</span> &lt; colHigh) &#123;</span><br><span class="line">        colMid = colLow + (colHigh - colLow) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt; matrix[rowIndex][colMid]) &#123;</span><br><span class="line">            colHigh = colMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowIndex][colMid]) &#123;</span><br><span class="line">            colLow = colMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (target == matrix[rowIndex][colLow] || target == matrix[rowIndex][colHigh]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera.s3.amazonaws.com/topics/ml/large-icon.png" alt=""></p>
 <a id="more"></a>
-<h1 id="Description:">Description:</h1><p>Write an efficient algorithm that searches for a value in an <code>m x n</code> matrix.  </p>
-<p>This matrix has the following properties:  </p>
-<ul>
-<li>Integers in each row are sorted from left to right.  </li>
-<li>The first integer of each row is greater than the last integer of the previous row.  </li>
-</ul>
-<p><strong>Example</strong><br>Consider the following matrix:<br><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">    [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>],</span><br><span class="line">    [<span class="number">10</span>, <span class="number">11</span>, <span class="number">16</span>, <span class="number">20</span>],</span><br><span class="line">    [<span class="number">23</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">50</span>]</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
-<p>Given <code>target = 3</code>, return <code>true</code>.</p>
-<h1 id="Thought_Process:">Thought Process:</h1><ul>
-<li>binary search algorithm </li>
-<li><strong>2D-array</strong> matrix length/size  </li>
-<li>perform binary search <strong>two times</strong>  </li>
-<li>first binary search <strong>find</strong> the possible target’s <strong>row index</strong>    </li>
-<li>second binary search <strong>find</strong> the possible <strong>column index</strong>  </li>
-</ul>
-<h1 id="Corner_Case:">Corner Case:</h1><ul>
-<li><code>matrix == null || matrix.length == 0</code>  </li>
-</ul>
-
+<h1 id="Week_10:_Lesson_1">Week 10: Lesson 1</h1><h2 id="Collaborative_Filtering">Collaborative Filtering</h2><h3 id="Collaborative_Filtering-1"><center> Collaborative Filtering </center></h3>
       
     </div>
 
@@ -384,9 +363,9 @@ Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // wr
       
         <div class="post-tags">
           
-            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
+            <a href="/tags/Coursera/" rel="tag">#Coursera</a>
           
-            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+            <a href="/tags/Machine-Learning/" rel="tag">#Machine Learning</a>
           
         </div>
       
@@ -395,16 +374,16 @@ Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // wr
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/01/First-Position-of-Target/" rel="next" title="LintCode 14 - First Position of Target">
-                <i class="fa fa-chevron-left"></i> LintCode 14 - First Position of Target
+              <a href="/2016/07/18/ML3/" rel="next" title="Coursera: Machine Learning by Stanford - Part3">
+                <i class="fa fa-chevron-left"></i> Coursera: Machine Learning by Stanford - Part3
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/01/Find-Minimum-in-Rotated-Sorted-Array/" rel="prev" title="LintCode 159 - Find Minimum in Rotated Sorted Array">
-                LintCode 159 - Find Minimum in Rotated Sorted Array <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/18/ML2/" rel="prev" title="Coursera: Machine Learning by Stanford - Part2">
+                Coursera: Machine Learning by Stanford - Part2 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -420,10 +399,10 @@ Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // wr
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/07/01/Search-a-2D-Matrix/"
-     data-title="LintCode 28 - Search a 2D Matrix"
+        <div class="ds-share flat" data-thread-key="2016/07/18/ML4/"
+     data-title="Coursera: Machine Learning by Stanford - Part4"
      data-content=""
-     data-url="http://www.xuyiruan.com/2016/07/01/Search-a-2D-Matrix/">
+     data-url="http://www.xuyiruan.com/2016/07/18/ML4/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -450,8 +429,8 @@ Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // wr
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/01/Search-a-2D-Matrix/"
-           data-title="LintCode 28 - Search a 2D Matrix" data-url="http://www.xuyiruan.com/2016/07/01/Search-a-2D-Matrix/">
+      <div class="ds-thread" data-thread-key="2016/07/18/ML4/"
+           data-title="Coursera: Machine Learning by Stanford - Part4" data-url="http://www.xuyiruan.com/2016/07/18/ML4/">
       </div>
     
   </div>
@@ -593,7 +572,7 @@ Code:public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // wr
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week_10:_Lesson_1"><span class="nav-number">1.</span> <span class="nav-text">Week 10: Lesson 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Collaborative_Filtering"><span class="nav-number">1.1.</span> <span class="nav-text">Collaborative Filtering</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collaborative_Filtering-1"><span class="nav-number">1.1.1.</span> <span class="nav-text"> Collaborative Filtering </span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
