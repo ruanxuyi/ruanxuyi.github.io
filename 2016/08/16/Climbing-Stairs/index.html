@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="DP,H,LintCode,Recursive," />
 
 
 
@@ -96,15 +96,18 @@
 
 
 
-<meta name="description" content="阮先生’s blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阮先生de小窝">
-<meta property="og:url" content="http://www.xuyiruan.com/tags/ArrayList/index.html">
+<meta name="description" content="Climbing Stairs
+Code:Recursive V0 (time limited NOT passed)public class Solution &amp;#123;    /**     * @param n: An integer     * @return: An integer     */    public int climbStairs(int n) &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LintCode 111 - Climbing Stairs">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/08/16/Climbing-Stairs/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="阮先生’s blog">
+<meta property="og:description" content="Climbing Stairs
+Code:Recursive V0 (time limited NOT passed)public class Solution &amp;#123;    /**     * @param n: An integer     * @return: An integer     */    public int climbStairs(int n) &amp;#123;">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阮先生de小窝">
-<meta name="twitter:description" content="阮先生’s blog">
+<meta name="twitter:title" content="LintCode 111 - Climbing Stairs">
+<meta name="twitter:description" content="Climbing Stairs
+Code:Recursive V0 (time limited NOT passed)public class Solution &amp;#123;    /**     * @param n: An integer     * @return: An integer     */    public int climbStairs(int n) &amp;#123;">
 
 
 
@@ -123,7 +126,7 @@
   };
 </script>
 
-  <title> Tag: ArrayList | 阮先生de小窝 </title>
+  <title> LintCode 111 - Climbing Stairs | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -144,7 +147,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,46 +265,180 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        ArrayList
-        <small>Tag</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                LintCode 111 - Climbing Stairs
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-16T11:12:48+08:00" content="08-16-2016">
+              08-16-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/16/Climbing-Stairs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/16/Climbing-Stairs/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/16/Climbing-Stairs/" class="leancloud_visitors" data-flag-title="LintCode 111 - Climbing Stairs">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p><a href="http://www.lintcode.com/en/problem/climbing-stairs/" target="_blank" rel="external">Climbing Stairs</a></p>
+<h1 id="Code:">Code:</h1><h2 id="Recursive_V0_(time_limited_NOT_passed)">Recursive V0 (time limited NOT passed)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> n: An integer</span><br><span class="line">     * <span class="doctag">@return</span>: An integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> climbStairs(n - <span class="number">1</span>) + climbStairs(n - <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Iterative_V1:">Iterative V1:</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> n: An integer</span><br><span class="line">     * <span class="doctag">@return</span>: An integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> last = <span class="number">1</span>, lastlast = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> current = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            current = last + lastlast;</span><br><span class="line">            lastlast = last;</span><br><span class="line">            last = current;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="Description:">Description:</h1><p>You are climbing a stair case. It takes n steps to reach to the top.</p>
+<p>Each time you can either climb <code>1</code> or <code>2</code> steps. In how many distinct ways can you climb to the top?</p>
+<p><strong>Example</strong>  </p>
+<blockquote>
+<p>Given an example <code>n=3</code> , <code>1+1+1=2+1=1+2=3</code><br>return <code>3</code>  </p>
+</blockquote>
+<h1 id="Thought_Process:">Thought Process:</h1><p>If <code>n = 1</code>, we have <code>1</code> way to get to top.<br>If <code>n = 2</code>, we hvae <code>1+1=2</code> ways to get to top.<br>If <code>n = 3</code>, we have <code>1+2=3</code> ways to get to top.<br>If <code>n = 4</code>, we have <code>2+3=5</code> ways to get to top.<br>If <code>n = 5</code>, we have <code>3+5=8</code> ways to get to top…  </p>
+<p>We can see above analysis is very similar to Fibonacci sequence. </p>
+<p>Instead of for Fibonacci sequence: </p>
+<p>$$Fib(1)=1,Fib(2)=1$$</p>
+<p>We have: </p>
+<p>$$Fib(1)=1,Fib(2)=2$$</p>
+<p>$$Fib(4)=Fib(3)+Fib(2)=(Fib(1)+Fib(2))+Fib(2)=2+2+1=5$$</p>
+<p>Above can also be calculated by manually list out all possible <strong>permutation</strong> of <code>1&#39;s</code> and <code>2&#39;s</code>.  </p>
+<h1 id="Corner_Case:">Corner Case:</h1><p>NA</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/07/14/Binary-Tree-Preorder-Traversal/" itemprop="url">
-              
-                <span itemprop="name">LintCode 66 - Binary Tree Preorder Traversal</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-14T08:12:25+00:00"
-              content="07-14-2016" >
-          07-14
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DP/" rel="tag">#DP</a>
+          
+            <a href="/tags/H/" rel="tag">#H</a>
+          
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+            <a href="/tags/Recursive/" rel="tag">#Recursive</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/09/Triangle/" rel="next" title="LintCode 109 - Triangle">
+                <i class="fa fa-chevron-left"></i> LintCode 109 - Triangle
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/16/Climbing-Stairs/"
+     data-title="LintCode 111 - Climbing Stairs"
+     data-content=""
+     data-url="http://www.xuyiruan.com/2016/08/16/Climbing-Stairs/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -309,6 +446,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/16/Climbing-Stairs/"
+           data-title="LintCode 111 - Climbing Stairs" data-url="http://www.xuyiruan.com/2016/08/16/Climbing-Stairs/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -328,8 +473,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/author.jpg"
@@ -430,6 +584,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursive_V0_(time_limited_NOT_passed)"><span class="nav-number">1.1.</span> <span class="nav-text">Recursive V0 (time limited NOT passed)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Iterative_V1:"><span class="nav-number">1.2.</span> <span class="nav-text">Iterative V1:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -533,6 +698,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
