@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BinarySearch,LintCode," />
+  <meta name="keywords" content="DP,Greedy,H,LintCode," />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="Find Minimum in Rotated Sorted Array  
-Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (num == null || num.length == 0) &amp;#123;        return -1;    &amp;#125;    int low = 0;">
+<meta name="description" content="Jump Game
+Code:V0 Greedy ($O(n)$)public class Solution &amp;#123;    /**     * @param A: A list of integers     * @return: The boolean answer     */    public boolean canJump(int[] A) &amp;#123;        // wir">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LintCode 159 - Find Minimum in Rotated Sorted Array">
-<meta property="og:url" content="http://www.xuyiruan.com/2016/07/01/Find-Minimum-in-Rotated-Sorted-Array/index.html">
+<meta property="og:title" content="LintCode 116 - Jump Game">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/08/19/Jump-Game/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="Find Minimum in Rotated Sorted Array  
-Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (num == null || num.length == 0) &amp;#123;        return -1;    &amp;#125;    int low = 0;">
+<meta property="og:description" content="Jump Game
+Code:V0 Greedy ($O(n)$)public class Solution &amp;#123;    /**     * @param A: A list of integers     * @return: The boolean answer     */    public boolean canJump(int[] A) &amp;#123;        // wir">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LintCode 159 - Find Minimum in Rotated Sorted Array">
-<meta name="twitter:description" content="Find Minimum in Rotated Sorted Array  
-Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (num == null || num.length == 0) &amp;#123;        return -1;    &amp;#125;    int low = 0;">
+<meta name="twitter:title" content="LintCode 116 - Jump Game">
+<meta name="twitter:description" content="Jump Game
+Code:V0 Greedy ($O(n)$)public class Solution &amp;#123;    /**     * @param A: A list of integers     * @return: The boolean answer     */    public boolean canJump(int[] A) &amp;#123;        // wir">
 
 
 
@@ -126,7 +126,7 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
   };
 </script>
 
-  <title> LintCode 159 - Find Minimum in Rotated Sorted Array | 阮先生de小窝 </title>
+  <title> LintCode 116 - Jump Game | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -286,7 +286,7 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
             
             
               
-                LintCode 159 - Find Minimum in Rotated Sorted Array
+                LintCode 116 - Jump Game
               
             
           </h1>
@@ -298,8 +298,8 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-01T11:38:06+08:00" content="07-01-2016">
-              07-01-2016
+            <time itemprop="dateCreated" datetime="2016-08-19T15:28:25+08:00" content="08-19-2016">
+              08-19-2016
             </time>
           </span>
 
@@ -309,8 +309,8 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/01/Find-Minimum-in-Rotated-Sorted-Array/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/01/Find-Minimum-in-Rotated-Sorted-Array/" itemprop="commentsCount"></span>
+                <a href="/2016/08/19/Jump-Game/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/19/Jump-Game/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -320,7 +320,7 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
 
           
           
-             <span id="/2016/07/01/Find-Minimum-in-Rotated-Sorted-Array/" class="leancloud_visitors" data-flag-title="LintCode 159 - Find Minimum in Rotated Sorted Array">
+             <span id="/2016/08/19/Jump-Game/" class="leancloud_visitors" data-flag-title="LintCode 116 - Jump Game">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -342,29 +342,47 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/find-minimum-in-rotated-sorted-array/" target="_blank" rel="external">Find Minimum in Rotated Sorted Array</a>  </p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] num)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (num == <span class="keyword">null</span> || num.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = num.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">        mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (num[low] &gt; num[mid]) &#123;</span><br><span class="line">            high = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num[high] &lt; num[mid]) &#123;</span><br><span class="line">            low = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// un-rotated?? 需要考虑么?</span></span><br><span class="line">            <span class="keyword">return</span> num[low];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (num[low] &lt; num[high]) &#123;</span><br><span class="line">        <span class="keyword">return</span> num[low];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num[high];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://www.lintcode.com/en/problem/jump-game/#" target="_blank" rel="external">Jump Game</a></p>
+<h1 id="Code:">Code:</h1><h2 id="V0_Greedy_($O(n)$)">V0 Greedy ($O(n)$)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> A: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: The boolean answer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canJump</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// wirte your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> farDis = A[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length &amp;&amp; i &lt;= farDis; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] + i &gt; farDis) &#123;</span><br><span class="line">                farDis = A[i] + i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> farDis &gt;= A.length - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="V1_DP_($O(n^2)$)">V1 DP ($O(n^2)$)</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> A: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: The boolean answer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canJump</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// wirte your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">boolean</span>[] com = <span class="keyword">new</span> <span class="keyword">boolean</span>[A.length];</span><br><span class="line">        com[<span class="number">0</span>] = <span class="keyword">true</span>; <span class="comment">// start point always reachable</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length; i++) &#123; <span class="comment">// start point already assigned</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (com[j] &amp;&amp; A[j] + j &gt;= i) &#123;</span><br><span class="line">                    com[i] = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> com[A.length - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="Description:">Description:</h1><p>Suppose a sorted array is rotated at some pivot unknown to you beforehand.</p>
-<p>(i.e., <code>0 1 2 4 5 6 7</code> might become <code>4 5 6 7 0 1 2</code>).</p>
-<p>Find the minimum element.</p>
+<h2 id="V2:_version_that_misunderstood_the_description">V2: version that misunderstood the description</h2><ul>
+<li>this version use the number as exact distance jumped  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> A: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: The boolean answer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canJump</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// wirte your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> currIndex = A.length - <span class="number">1</span>;</span><br><span class="line">        Queue&lt;Integer&gt; candiate = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">        candiate.offer(currIndex);</span><br><span class="line">        <span class="keyword">while</span> (!candiate.isEmpty()) &#123;</span><br><span class="line">            currIndex = candiate.poll();</span><br><span class="line">            <span class="keyword">if</span> (currIndex == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i + A[i] == currIndex || i - A[i] == currIndex) &#123;</span><br><span class="line">                    candiate.offer(i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Description:">Description:</h1><p>Given an array of non-negative integers, you are initially positioned at the first index of the array.</p>
+<p>Each element in the array represents your maximum jump length at that position.</p>
+<p>Determine if you are able to reach the last index.</p>
 <blockquote>
-<p><strong>Notice</strong>:<br>You may assume no duplicate exists in the array.</p>
+<p><strong>Notice</strong></p>
+<p>This problem have two method which is <code>Greedy</code> and <code>Dynamic Programming</code>.</p>
+<p>The time complexity of <code>Greedy</code> method is <code>O(n)</code>.</p>
+<p>The time complexity of <code>Dynamic Programming</code> method is <code>O(n^2)</code>.</p>
+<p>We manually set the small data set to allow you pass the test in both ways. This is just to let you learn how to use this problem in dynamic programming ways. If you finish it in dynamic programming ways, you can try greedy method to make it accept again.</p>
 </blockquote>
-<p><strong>Example</strong><br>Given <code>[4, 5, 6, 7, 0, 1, 2]</code> return <code>0</code></p>
-<h1 id="Thought_Process:">Thought Process:</h1><ul>
-<li>binary search algorithm  </li>
-<li><strong>no</strong> <strong>target</strong> values given  </li>
+<p><strong>Example</strong></p>
+<blockquote>
+<p><code>A = [2,3,1,1,4]</code>, return <code>true</code>.</p>
+<p><code>A = [3,2,1,0,4]</code>, return <code>false</code>.</p>
+</blockquote>
+<h1 id="Thought_Process:">Thought Process:</h1><h2 id="V0_Greddy">V0 Greddy</h2><blockquote>
+<p>Greedy Algorithm: Greedy Algorithm is the idea of finding the <strong>local optimum</strong> at  each stage with the hope of finding a <strong>global optimum</strong>.   </p>
+</blockquote>
+<ul>
+<li>record the farthest point (<code>farDis</code>) from start point.  </li>
+<li>from start point to <code>farDis</code> index can be reach, update the new <code>farDis</code> index base on current reachable range.  </li>
+<li>if <code>farDis</code> is larger or equal to <code>A.length - 1</code>, then the last index is reachable.  </li>
 </ul>
-<p><code>7 8 0 **1** 2 3 4 5</code> -&gt; </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (num[low] &gt; num[mid]) &#123;</span><br><span class="line">                high = mid;</span><br></pre></td></tr></table></figure>
-<p><code>4 5 6 7 **8** 9 0 1 2</code> -&gt; </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (num[high] &lt; num[mid]) &#123;</span><br><span class="line">                low = mid;</span><br></pre></td></tr></table></figure>
-<p><code>2 3 4 5 6 7 8</code> -&gt; unrotated </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> num[low];</span><br></pre></td></tr></table></figure>
+<h2 id="V1_DP">V1 DP</h2><p>The array <code>com[i]</code> stores boolean value (<code>true</code> or <code>false</code>), which uses to represent whether or not we are able to jump to location <code>i</code>. And every update on the new location for <code>com[i]</code> depends on:   </p>
+<ul>
+<li>whether current postion <code>j</code> is reachable from start point <code>com[j]</code>, and  </li>
+<li>whether current examining postion <code>i</code> is reachable from any of the locations index before/pre to <code>i</code>. (If <code>A[j] + j &gt;= i</code>, we can said that current examining postion <code>i</code> is reachable from postion <code>j</code>). Once we are able to determine the value for <code>com[i]</code>, no need to examine the rest element and we simply <code>break</code> the inner loop.</li>
+</ul>
+<p>The notion of DP comes from we are using extra space $O(N)$ to store boolean value to indicate whether the postion is reachable from start postion.  </p>
 <h1 id="Corner_Case:">Corner Case:</h1><ul>
-<li><code>num == null || num.length == 0</code> </li>
+<li>A == null || A.length == 0  </li>
 </ul>
+<h1 id="Reference:">Reference:</h1><p><a href="http://www.jiuzhang.com/solutions/jump-game/" target="_blank" rel="external">Solution by Jiuzhang</a></p>
 
       
     </div>
@@ -386,7 +404,11 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
       
         <div class="post-tags">
           
-            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
+            <a href="/tags/DP/" rel="tag">#DP</a>
+          
+            <a href="/tags/Greedy/" rel="tag">#Greedy</a>
+          
+            <a href="/tags/H/" rel="tag">#H</a>
           
             <a href="/tags/LintCode/" rel="tag">#LintCode</a>
           
@@ -397,17 +419,13 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/01/Search-a-2D-Matrix/" rel="next" title="LintCode 28 - Search a 2D Matrix">
-                <i class="fa fa-chevron-left"></i> LintCode 28 - Search a 2D Matrix
+              <a href="/2016/08/17/Unique-Paths-II/" rel="next" title="LintCode 115 - Unique Paths II">
+                <i class="fa fa-chevron-left"></i> LintCode 115 - Unique Paths II
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/08/balanced-binary-tree/" rel="prev" title="LintCode 93 - Balanced Binary Tree">
-                LintCode 93 - Balanced Binary Tree <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -422,10 +440,10 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/07/01/Find-Minimum-in-Rotated-Sorted-Array/"
-     data-title="LintCode 159 - Find Minimum in Rotated Sorted Array"
+        <div class="ds-share flat" data-thread-key="2016/08/19/Jump-Game/"
+     data-title="LintCode 116 - Jump Game"
      data-content=""
-     data-url="http://www.xuyiruan.com/2016/07/01/Find-Minimum-in-Rotated-Sorted-Array/">
+     data-url="http://www.xuyiruan.com/2016/08/19/Jump-Game/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -452,8 +470,8 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/01/Find-Minimum-in-Rotated-Sorted-Array/"
-           data-title="LintCode 159 - Find Minimum in Rotated Sorted Array" data-url="http://www.xuyiruan.com/2016/07/01/Find-Minimum-in-Rotated-Sorted-Array/">
+      <div class="ds-thread" data-thread-key="2016/08/19/Jump-Game/"
+           data-title="LintCode 116 - Jump Game" data-url="http://www.xuyiruan.com/2016/08/19/Jump-Game/">
       </div>
     
   </div>
@@ -595,7 +613,7 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V0_Greedy_($O(n)$)"><span class="nav-number">1.1.</span> <span class="nav-text">V0 Greedy ($O(n)$)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V1_DP_($O(n^2)$)"><span class="nav-number">1.2.</span> <span class="nav-text">V1 DP ($O(n^2)$)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V2:_version_that_misunderstood_the_description"><span class="nav-number">1.3.</span> <span class="nav-text">V2: version that misunderstood the description</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V0_Greddy"><span class="nav-number">3.1.</span> <span class="nav-text">V0 Greddy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V1_DP"><span class="nav-number">3.2.</span> <span class="nav-text">V1 DP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number">5.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
             
           </div>
         </section>
