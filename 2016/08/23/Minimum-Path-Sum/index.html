@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Algorithm,Recursion," />
+  <meta name="keywords" content="DP,LintCode," />
 
 
 
@@ -96,17 +96,18 @@
 
 
 
-<meta name="description">
+<meta name="description" content="Minimum Path Sum
+Code:DP approachpublic class Solution &amp;#123;    /**     * @param grid: a list of lists of integers.     * @return: An integer, minimizes the sum of all numbers along its path     */">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Recursion vs Iteration">
-<meta property="og:url" content="http://www.xuyiruan.com/2016/07/15/Recursion-vs-Iteration/index.html">
+<meta property="og:title" content="LintCode 110 - Minimum Path Sum">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/08/23/Minimum-Path-Sum/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description">
-<meta property="og:image" content="https://i.ytimg.com/vi/Px8dgjKeh5I/maxresdefault.jpg">
-<meta property="og:image" content="http://pages.cs.wisc.edu/~vernon/cs367/notes/RECURSION-FIGURES/Image11.gif">
+<meta property="og:description" content="Minimum Path Sum
+Code:DP approachpublic class Solution &amp;#123;    /**     * @param grid: a list of lists of integers.     * @return: An integer, minimizes the sum of all numbers along its path     */">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Recursion vs Iteration">
-<meta name="twitter:description">
+<meta name="twitter:title" content="LintCode 110 - Minimum Path Sum">
+<meta name="twitter:description" content="Minimum Path Sum
+Code:DP approachpublic class Solution &amp;#123;    /**     * @param grid: a list of lists of integers.     * @return: An integer, minimizes the sum of all numbers along its path     */">
 
 
 
@@ -125,7 +126,7 @@
   };
 </script>
 
-  <title> Recursion vs Iteration | 阮先生de小窝 </title>
+  <title> LintCode 110 - Minimum Path Sum | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -285,7 +286,7 @@
             
             
               
-                Recursion vs Iteration
+                LintCode 110 - Minimum Path Sum
               
             
           </h1>
@@ -297,8 +298,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-15T12:59:42+08:00" content="07-15-2016">
-              07-15-2016
+            <time itemprop="dateCreated" datetime="2016-08-23T02:04:18+08:00" content="08-22-2016">
+              08-22-2016
             </time>
           </span>
 
@@ -308,8 +309,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/15/Recursion-vs-Iteration/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/15/Recursion-vs-Iteration/" itemprop="commentsCount"></span>
+                <a href="/2016/08/23/Minimum-Path-Sum/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/23/Minimum-Path-Sum/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -319,7 +320,7 @@
 
           
           
-             <span id="/2016/07/15/Recursion-vs-Iteration/" class="leancloud_visitors" data-flag-title="Recursion vs Iteration">
+             <span id="/2016/08/23/Minimum-Path-Sum/" class="leancloud_visitors" data-flag-title="LintCode 110 - Minimum Path Sum">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -341,55 +342,16 @@
       
 
       
-        <p><img src="https://i.ytimg.com/vi/Px8dgjKeh5I/maxresdefault.jpg" alt=""></p>
+        <p><a href="http://www.lintcode.com/en/problem/minimum-path-sum/" target="_blank" rel="external">Minimum Path Sum</a></p>
+<h1 id="Code:">Code:</h1><h2 id="DP_approach">DP approach</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> grid: a list of lists of integers.</span><br><span class="line">     * <span class="doctag">@return</span>: An integer, minimizes the sum of all numbers along its path</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (grid == <span class="keyword">null</span> || grid.length == <span class="number">0</span> || grid[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> M = grid.length;</span><br><span class="line">        <span class="keyword">int</span> N = grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[][] state = <span class="keyword">new</span> <span class="keyword">int</span>[M][N];</span><br><span class="line">        state[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++) &#123;</span><br><span class="line">            state[<span class="number">0</span>][i] = state[<span class="number">0</span>][i-<span class="number">1</span>] + grid[<span class="number">0</span>][i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; M; j++) &#123;</span><br><span class="line">            state[j][<span class="number">0</span>] = state[j-<span class="number">1</span>][<span class="number">0</span>] + grid[j][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; M; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; N; j++) &#123;</span><br><span class="line">                state[i][j] = grid[i][j] + Math.min(state[i-<span class="number">1</span>][j], state[i][j-<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> state[M - <span class="number">1</span>][N - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="Introduction">Introduction</h1><p>Most of the problems can be expressed as either recursion or iteration method. </p>
-<blockquote>
-<p>Q: Is the recursive version usually faster?<br>A: No — it’s usually slower (due to the overhead of maintaining the stack)</p>
-<p>Q: Does the recursive version usually use less memory?<br>A: No — it usually uses more memory (for the stack).</p>
-</blockquote>
-<h1 id="Then_why_use_recursion?">Then why use recursion?</h1><p>Sometimes it is much <strong>simpler</strong> to write the recursive version, especially for following examples:  </p>
-<ul>
-<li>factorial  </li>
-<li>fibonacci  </li>
-<li>trees-traversal  </li>
-</ul>
-<h2 id="Recursion_vs_Iteration:_Factorial">Recursion vs Iteration: Factorial</h2><p>Example: $$3!=3\times 2\times 1$$<br>$$0! = 1$$<br>$$-1! = undefined$$</p>
-<p>The first definition leads to an <strong>iterative</strong> version of factorial:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span> <span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// base case</span></span><br><span class="line">  <span class="keyword">if</span> (N == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> tmp = N;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> k=N-<span class="number">1</span>; k&gt;=<span class="number">1</span>; k--) tmp = tmp*k;</span><br><span class="line">  <span class="keyword">return</span> (tmp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The second definition leads to a <strong>recursive</strong> version:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span> <span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// base case</span></span><br><span class="line">  <span class="keyword">if</span> (N == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> (N*factorial(N-<span class="number">1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The recursive version is<br>a little shorter,<br>a little clearer (closer to the mathematical definition),<br>a little slower  </p>
-<h2 id="Recursion_vs_Iteration_:_Fibonacci">Recursion vs Iteration : Fibonacci</h2><p>Example:<br>$$Fib(1) = 1 ,  Fib(2) = 1$$<br>$$Fib(4) = Fib(3) + Fib(2) = (Fib(1) + Fib(2)) + Fib(2) = 1 + 1 + 1 = 3$$</p>
-<p><strong>Iterative version:</strong> </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// iterative version</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span> <span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> k1, k2, k3;</span><br><span class="line">  k1 = k2 = k3 = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">3</span>; j &lt;= N; j++) &#123;</span><br><span class="line">      k3 = k1 + k2;</span><br><span class="line">      k1 = k2;</span><br><span class="line">      k2 = k3;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> k3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Recursive version:</strong> </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// recursive version</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span> <span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ((N == <span class="number">1</span>) || (N == <span class="number">2</span>)) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> (fib (N-<span class="number">1</span>) + fib (N-<span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>For fibonacci, the recursive version is:  </p>
-<ul>
-<li>shorter,  </li>
-<li>clearer,  </li>
-<li>but <strong>much</strong> slower  </li>
-</ul>
-<p>The reasoning behind the fact that recursive is musch slower is not only the overhead in the activation record (locates in working memory), but also because of the <strong>repeated computation</strong> in the recursive algorithm.  </p>
-<p><img src="http://pages.cs.wisc.edu/~vernon/cs367/notes/RECURSION-FIGURES/Image11.gif" alt=""></p>
-<p>Noted that, <code>Fib(3)</code> has repeated 3 times, and <code>Fib(4)</code> has repeated 2 times. We can stores the calculated values and avoid the repeat computation and likely speed up the fibonacci with recursive algorithm.  </p>
-<h1 id="Why_Recursion_Slow?">Why Recursion Slow?</h1><p><strong>Why recursive code is running slow?</strong></p>
-<p>Every time the function is calling itself, <strong>input parameters, local variables, return address. etc.</strong>, have to be stroed in user stack for the return process for the final solution. This type of storing pushing into stack process is very time comsuming therefore very deep recursive call will hurt run time performance of the program.  </p>
-<h1 id="Tail_Recursion_Intro-">Tail Recursion Intro.</h1><p>In a simple word, tail recursion is a type of recursion that can run <strong>faster</strong> compare to regular Recursion. The reasoning behind this is tail recursion <strong>eliminate</strong> the final return steps, which propogates through all the level of recursion for the final solution. However, the downside of tail recurion is its requirement of space for storing extra parameters.  </p>
-<p>Detail example please refer to the link below: </p>
-<p><a href="http://blog.sina.com.cn/s/blog_77dd9d490102vwgr.html" target="_blank" rel="external">递归为什么那么慢？递归的改进算法</a>  </p>
-<h1 id="Summary">Summary</h1><ul>
-<li><p>Use recursion for <strong>clarity</strong>, and (sometimes) for a reduction in the time needed to write and debug code, not for space savings or speed of execution.  </p>
-</li>
-<li><p>Remember that every recursive method must have a <strong>base case</strong>(rule #1).  </p>
-</li>
-<li>Also remember that every recursive method must <strong>make progress towards</strong> its <strong>base case</strong> (rule #2).  </li>
-<li>Sometimes a recursive method has more to do following a recursive call. It gets done only after the recursive call (and all calls it makes) finishes.  </li>
-<li>Recursion is often <strong>simple and elegant</strong>, can be efficient, and tends to be underutilized. Consider using recursion when solving a problem!  </li>
-</ul>
-<h1 id="Reference">Reference</h1><p><a href="https://i.ytimg.com/vi/Px8dgjKeh5I/maxresdefault.jpg" target="_blank" rel="external">Cover image by ytimg.com</a><br><a href="http://pages.cs.wisc.edu/~vernon/cs367/notes/6.RECURSION.html#iter" target="_blank" rel="external">UW-Madison CS367</a><br><a href="http://blog.sina.com.cn/s/blog_77dd9d490102vwgr.html" target="_blank" rel="external">递归为什么那么慢？递归的改进算法</a>  </p>
-
+<h1 id="Description:">Description:</h1><p>Given a <strong>m x n</strong> grid filled with non-negative numbers, find a path from top left to bottom right which <strong>minimizes</strong> the sum of all numbers along its path.</p>
+<p> <strong>Notice</strong>  </p>
+<p>You can only move either down or right at any point in time.  </p>
+<h1 id="Thought_Process:">Thought Process:</h1><p><strong>initialization</strong>: </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> M = grid.length;</span><br><span class="line">      <span class="keyword">int</span> N = grid[<span class="number">0</span>].length;</span><br><span class="line">      <span class="keyword">int</span>[][] state = <span class="keyword">new</span> <span class="keyword">int</span>[M][N];</span><br><span class="line">      state[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++) &#123;</span><br><span class="line">          state[<span class="number">0</span>][i] = state[<span class="number">0</span>][i-<span class="number">1</span>] + grid[<span class="number">0</span>][i];</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; M; j++) &#123;</span><br><span class="line">          state[j][<span class="number">0</span>] = state[j-<span class="number">1</span>][<span class="number">0</span>] + grid[j][<span class="number">0</span>];</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>state</strong>: 2d <code>state</code> array stores current min path sum up to that location.<br><strong>function</strong>: <code>state[i][j] = grid[i][j] + Math.min(state[i-1][j], state[i][j-1]);</code><br><strong>solution</strong>: <code>return state[M - 1][N - 1];</code>  </p>
+<h1 id="Corner_Case:">Corner Case:</h1>
       
     </div>
 
@@ -410,9 +372,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
+            <a href="/tags/DP/" rel="tag">#DP</a>
           
-            <a href="/tags/Recursion/" rel="tag">#Recursion</a>
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
           
         </div>
       
@@ -421,17 +383,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/14/Binary-Tree-Preorder-Traversal/" rel="next" title="LintCode 66 - Binary Tree Preorder Traversal">
-                <i class="fa fa-chevron-left"></i> LintCode 66 - Binary Tree Preorder Traversal
+              <a href="/2016/08/21/Longest-Increasing-Subsequence/" rel="next" title="LintCode 76 - Longest Increasing Subsequence">
+                <i class="fa fa-chevron-left"></i> LintCode 76 - Longest Increasing Subsequence
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/18/ML4/" rel="prev" title="[Completed] Coursera: Machine Learning by Stanford - Part4">
-                [Completed] Coursera: Machine Learning by Stanford - Part4 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -446,10 +404,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/07/15/Recursion-vs-Iteration/"
-     data-title="Recursion vs Iteration"
+        <div class="ds-share flat" data-thread-key="2016/08/23/Minimum-Path-Sum/"
+     data-title="LintCode 110 - Minimum Path Sum"
      data-content=""
-     data-url="http://www.xuyiruan.com/2016/07/15/Recursion-vs-Iteration/">
+     data-url="http://www.xuyiruan.com/2016/08/23/Minimum-Path-Sum/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -476,8 +434,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/15/Recursion-vs-Iteration/"
-           data-title="Recursion vs Iteration" data-url="http://www.xuyiruan.com/2016/07/15/Recursion-vs-Iteration/">
+      <div class="ds-thread" data-thread-key="2016/08/23/Minimum-Path-Sum/"
+           data-title="LintCode 110 - Minimum Path Sum" data-url="http://www.xuyiruan.com/2016/08/23/Minimum-Path-Sum/">
       </div>
     
   </div>
@@ -619,7 +577,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Then_why_use_recursion?"><span class="nav-number">2.</span> <span class="nav-text">Then why use recursion?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursion_vs_Iteration:_Factorial"><span class="nav-number">2.1.</span> <span class="nav-text">Recursion vs Iteration: Factorial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursion_vs_Iteration_:_Fibonacci"><span class="nav-number">2.2.</span> <span class="nav-text">Recursion vs Iteration : Fibonacci</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why_Recursion_Slow?"><span class="nav-number">3.</span> <span class="nav-text">Why Recursion Slow?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tail_Recursion_Intro-"><span class="nav-number">4.</span> <span class="nav-text">Tail Recursion Intro.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary"><span class="nav-number">5.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DP_approach"><span class="nav-number">1.1.</span> <span class="nav-text">DP approach</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
             
           </div>
         </section>
