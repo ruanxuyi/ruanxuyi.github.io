@@ -286,6 +286,235 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/23/Validate-Binary-Search-Tree/" itemprop="url">
+                  LintCode 95 - Validate Binary Search Tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-24T00:15:42+00:00" content="07-24-2016">
+              07-24-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/23/Validate-Binary-Search-Tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/23/Validate-Binary-Search-Tree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/23/Validate-Binary-Search-Tree/" class="leancloud_visitors" data-flag-title="LintCode 95 - Validate Binary Search Tree">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/validate-binary-search-tree/#">Validate Binary Search Tree</a>  </p>
+<h1 id="Code:">Code:</h1><p><strong>Version 1: Recursive</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: True if the binary tree is BST, or false</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isValidBST(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);</span><br><span class="line">        <span class="comment">//return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode p, <span class="keyword">double</span> min, <span class="keyword">double</span> max)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(p == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p.val &lt;= min || p.val &gt;= max) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> isValidBST(p.left, min, p.val) &amp;&amp; isValidBST(p.right, p.val, max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Version 2: Iterative (with Helper function - recommanded)</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: True if the binary tree is BST, or false</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Queue&lt;BNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;BNode&gt;();</span><br><span class="line">        queue.offer(<span class="keyword">new</span> BNode(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY));</span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            BNode curr = queue.poll();</span><br><span class="line">            <span class="keyword">if</span> (curr.node.val &lt;= curr.minVal || curr.node.val &gt;= curr.maxVal) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (curr.node.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                queue.offer(<span class="keyword">new</span> BNode(curr.node.left, curr.minVal, curr.node.val));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (curr.node.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                queue.offer(<span class="keyword">new</span> BNode(curr.node.right, curr.node.val, curr.maxVal));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BNode</span> </span>&#123;</span><br><span class="line">    TreeNode node;</span><br><span class="line">    <span class="keyword">double</span> minVal;</span><br><span class="line">    <span class="keyword">double</span> maxVal;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BNode</span> <span class="params">(TreeNode node, <span class="keyword">double</span> minVal, <span class="keyword">double</span> maxVal)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.node = node;</span><br><span class="line">        <span class="keyword">this</span>.minVal = minVal;</span><br><span class="line">        <span class="keyword">this</span>.maxVal = maxVal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/23/Validate-Binary-Search-Tree/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/22/Binary-Tree-Maximum-Path-Sum/" itemprop="url">
+                  LintCode 94 - Binary Tree Maximum Path Sum
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-22T21:14:17+00:00" content="07-22-2016">
+              07-22-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/22/Binary-Tree-Maximum-Path-Sum/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/22/Binary-Tree-Maximum-Path-Sum/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/22/Binary-Tree-Maximum-Path-Sum/" class="leancloud_visitors" data-flag-title="LintCode 94 - Binary Tree Maximum Path Sum">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/binary-tree-maximum-path-sum/">Binary Tree Maximum Path Sum</a></p>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">import</span> java.lang.Integer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: An integer.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxPathSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	    calculateSum(root);</span><br><span class="line">	    <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculateSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">		    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">    	<span class="keyword">int</span> leftSum = calculateSum(root.left);</span><br><span class="line">	    <span class="keyword">int</span> rightSum = calculateSum(root.right);</span><br><span class="line">	    <span class="keyword">int</span> current = Math.max(root.val, Math.max(root.val + leftSum, root.val + rightSum));</span><br><span class="line">	    <span class="comment">// updat max value</span></span><br><span class="line">	    max = Math.max(max, Math.max(current, leftSum + root.val + rightSum));</span><br><span class="line">    	<span class="comment">// return sum to parents</span></span><br><span class="line">    	<span class="keyword">return</span> current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/22/Binary-Tree-Maximum-Path-Sum/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/18/Java-Interface/" itemprop="url">
                   Java Interface
                 </a>
@@ -300,7 +529,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-18T09:54:44+00:00" content="07-18-2016">
+            <time itemprop="dateCreated" datetime="2016-07-18T21:54:44+00:00" content="07-18-2016">
               07-18-2016
             </time>
           </span>
@@ -417,7 +646,7 @@ The code above creates a reference of List type with variable called list, whic
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-18T07:36:29+00:00" content="07-18-2016">
+            <time itemprop="dateCreated" datetime="2016-07-18T19:36:29+00:00" content="07-18-2016">
               07-18-2016
             </time>
           </span>
@@ -516,118 +745,6 @@ The code above creates a reference of List type with variable called list, whic
             
               
                 
-                <a class="post-title-link" href="/2016/07/18/ML3/" itemprop="url">
-                  [Completed] Coursera: Machine Learning by Stanford - Part3
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-18T02:15:48+00:00" content="07-18-2016">
-              07-18-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/18/ML3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/18/ML3/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/18/ML3/" class="leancloud_visitors" data-flag-title="[Completed] Coursera: Machine Learning by Stanford - Part3">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera.s3.amazonaws.com/topics/ml/large-icon.png" alt=""></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/18/ML3/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/07/18/ML2/" itemprop="url">
                   [Completed] Coursera: Machine Learning by Stanford - Part2
                 </a>
@@ -642,7 +759,7 @@ The code above creates a reference of List type with variable called list, whic
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-18T02:15:48+00:00" content="07-18-2016">
+            <time itemprop="dateCreated" datetime="2016-07-18T14:15:48+00:00" content="07-18-2016">
               07-18-2016
             </time>
           </span>
@@ -740,6 +857,118 @@ The code above creates a reference of List type with variable called list, whic
             
               
                 
+                <a class="post-title-link" href="/2016/07/18/ML3/" itemprop="url">
+                  [Completed] Coursera: Machine Learning by Stanford - Part3
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-18T14:15:48+00:00" content="07-18-2016">
+              07-18-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/18/ML3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/18/ML3/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/18/ML3/" class="leancloud_visitors" data-flag-title="[Completed] Coursera: Machine Learning by Stanford - Part3">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera.s3.amazonaws.com/topics/ml/large-icon.png" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/18/ML3/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/18/ML4/" itemprop="url">
                   [Completed] Coursera: Machine Learning by Stanford - Part4
                 </a>
@@ -754,7 +983,7 @@ The code above creates a reference of List type with variable called list, whic
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-18T02:15:48+00:00" content="07-18-2016">
+            <time itemprop="dateCreated" datetime="2016-07-18T14:15:48+00:00" content="07-18-2016">
               07-18-2016
             </time>
           </span>
@@ -866,7 +1095,7 @@ The code above creates a reference of List type with variable called list, whic
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-15T04:59:42+00:00" content="07-15-2016">
+            <time itemprop="dateCreated" datetime="2016-07-15T16:59:42+00:00" content="07-15-2016">
               07-15-2016
             </time>
           </span>
@@ -978,7 +1207,7 @@ The code above creates a reference of List type with variable called list, whic
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-14T08:12:25+00:00" content="07-14-2016">
+            <time itemprop="dateCreated" datetime="2016-07-14T20:12:25+00:00" content="07-14-2016">
               07-14-2016
             </time>
           </span>
@@ -1091,7 +1320,7 @@ The code above creates a reference of List type with variable called list, whic
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-14T07:06:48+00:00" content="07-14-2016">
+            <time itemprop="dateCreated" datetime="2016-07-14T19:06:48+00:00" content="07-14-2016">
               07-14-2016
             </time>
           </span>
@@ -1169,231 +1398,6 @@ The code above creates a reference of List type with variable called list, whic
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/" itemprop="url">
-                  LintCode 448 - Inorder Successor in Binary Search Tree
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-13T02:45:40+00:00" content="07-13-2016">
-              07-13-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/13/Inorder-Successor-in-Binary-Search-Tree/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/" class="leancloud_visitors" data-flag-title="LintCode 448 - Inorder Successor in Binary Search Tree">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/inorder-successor-in-binary-search-tree/">Inorder Successor in Binary Search Tree</a></p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition for a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">inorderSuccessor</span><span class="params">(TreeNode root, TreeNode p)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">// locate node P and mark the deepest ancestor which p locates in its LEFT-subtree</span></span><br><span class="line">        TreeNode successor = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (root != <span class="keyword">null</span> &amp;&amp; root != p) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root.val &gt; p.val) &#123;</span><br><span class="line">                successor = root;</span><br><span class="line">                root = root.left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                root = root.right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// case 1: p has NO right child</span></span><br><span class="line">        <span class="keyword">if</span> (root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> successor;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// case 2: p has right child</span></span><br><span class="line">        root = root.right;</span><br><span class="line">        <span class="comment">// locate far-left node (smallest value in right subtree)</span></span><br><span class="line">        <span class="keyword">while</span> (root.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            root = root.left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// return far-left node if left child exists</span></span><br><span class="line">        <span class="comment">// otherwise, return right child of node p.</span></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/08/binary-tree/" itemprop="url">
-                  Tree Data Structure
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-08T13:52:34+00:00" content="07-08-2016">
-              07-08-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/08/binary-tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/08/binary-tree/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/08/binary-tree/" class="leancloud_visitors" data-flag-title="Tree Data Structure">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="All_about_the_Tree">All about the Tree</h1><p><img src="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/binaryTree.bmp" alt="cover-image"></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/08/binary-tree/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1439,7 +1443,7 @@ The code above creates a reference of List type with variable called list, whic
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">43</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
