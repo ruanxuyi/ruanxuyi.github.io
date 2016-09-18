@@ -104,6 +104,7 @@ Code:2D array version ($O(mn)$ space complexity)public class Solution &amp;#123;
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="Distinct Subsequences
 Code:2D array version ($O(mn)$ space complexity)public class Solution &amp;#123;    /**     * @param S, T: Two string.     * @return: Count the number of distinct subsequences     */">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/distint-sequence.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 118 - Distinct Subsequences">
 <meta name="twitter:description" content="Distinct Subsequences
@@ -346,7 +347,11 @@ Code:2D array version ($O(mn)$ space complexity)public class Solution &amp;#123;
 <h1 id="Code:">Code:</h1><h1 id="2D_array_version_($O(mn)$_space_complexity)">2D array version ($O(mn)$ space complexity)</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> S, T: Two string.</span><br><span class="line">     * <span class="doctag">@return</span>: Count the number of distinct subsequences</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numDistinct</span><span class="params">(String S, String T)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">// coner case</span></span><br><span class="line">        <span class="keyword">if</span> (T.length() == <span class="number">0</span>) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (S.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> m = S.length();</span><br><span class="line">        <span class="keyword">int</span> n = T.length();</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        <span class="comment">// row initialization</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; dp[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// column initialization</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dp.length; i++) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; dp[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; dp.length; i++) &#123;</span><br><span class="line">                dp[i][j] = dp[i-<span class="number">1</span>][j];</span><br><span class="line">                <span class="keyword">if</span> (S.charAt(i - <span class="number">1</span>) == T.charAt(j - <span class="number">1</span>)) &#123;</span><br><span class="line">                    dp[i][j] += dp[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="1D_Solution:">1D Solution:</h2><p><a href="http://fisherlei.blogspot.com/2012/12/leetcode-distinct-subsequences_19.html" target="_blank" rel="external">[Leetcode] Distinct Subsequences 解题报告</a></p>
-<h1 id="Description:">Description:</h1><h1 id="Thought_Process:">Thought Process:</h1><h2 id="State">State</h2><p>Since we are xxxx, we are using 2D-array <code>dp[m + 1][n + 1]</code>as the state. Where <code>m = S.length()</code> and <code>n = T.length()</code>.   </p>
+<h1 id="Description:">Description:</h1><p>Given a string <code>S</code> and a string <code>T</code>, count the number of distinct subsequences of T in S.</p>
+<p>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, “ACE” is a subsequence of “ABCDE” while “AEC” is not).</p>
+<p>Example<br>Given <code>S = &quot;rabbbit&quot;</code>, <code>T = &quot;rabbit&quot;</code>, return <code>3</code>.</p>
+<h1 id="Thought_Process:">Thought Process:</h1><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/distint-sequence.jpg" alt=""></p>
+<h2 id="State">State</h2><p>Since we are xxxx, we are using 2D-array <code>dp[m + 1][n + 1]</code>as the state. Where <code>m = S.length()</code> and <code>n = T.length()</code>.   </p>
 <h2 id="Initalization">Initalization</h2><p>Since it is not coordinatation problem, we have extra column and row append to the left and top edge of the 2-d array.  </p>
 <p>On first column, every possible <code>S</code> has <code>1</code> subsequence that is identical to <code>null</code>. Therefore we have: </p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// column initialization</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dp.length; i++) &#123;</span><br><span class="line">        dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -401,6 +406,10 @@ Code:2D array version ($O(mn)$ space complexity)public class Solution &amp;#123;
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/17/two-sum/" rel="prev" title="LintCode 56 : Two Sum">
+                LintCode 56 : Two Sum <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -491,7 +500,7 @@ Code:2D array version ($O(mn)$ space complexity)public class Solution &amp;#123;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">45</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -508,7 +517,7 @@ Code:2D array version ($O(mn)$ space complexity)public class Solution &amp;#123;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
