@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BinaryTree,Divide&Conquer,H,LintCode,Recursion," />
+  <meta name="keywords" content="BFS,DFS,Graph,LintCode," />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="Binary Tree Maximum Path Sum
-Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *">
+<meta name="description" content="Clone Graph
+Code:BFS approach/** * Definition for undirected graph. * class UndirectedGraphNode &amp;#123; *     int label; *     ArrayList&amp;lt;UndirectedGraphNode&amp;gt; neighbors; *     UndirectedGraphNode(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LintCode 94 - Binary Tree Maximum Path Sum">
-<meta property="og:url" content="http://www.xuyiruan.com/2016/07/22/Binary-Tree-Maximum-Path-Sum/index.html">
+<meta property="og:title" content="Clone Graph">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/09/18/Clone-Graph/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="Binary Tree Maximum Path Sum
-Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *">
+<meta property="og:description" content="Clone Graph
+Code:BFS approach/** * Definition for undirected graph. * class UndirectedGraphNode &amp;#123; *     int label; *     ArrayList&amp;lt;UndirectedGraphNode&amp;gt; neighbors; *     UndirectedGraphNode(">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LintCode 94 - Binary Tree Maximum Path Sum">
-<meta name="twitter:description" content="Binary Tree Maximum Path Sum
-Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *">
+<meta name="twitter:title" content="Clone Graph">
+<meta name="twitter:description" content="Clone Graph
+Code:BFS approach/** * Definition for undirected graph. * class UndirectedGraphNode &amp;#123; *     int label; *     ArrayList&amp;lt;UndirectedGraphNode&amp;gt; neighbors; *     UndirectedGraphNode(">
 
 
 
@@ -126,7 +126,7 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
   };
 </script>
 
-  <title> LintCode 94 - Binary Tree Maximum Path Sum | 阮先生de小窝 </title>
+  <title> Clone Graph | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -286,7 +286,7 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
             
             
               
-                LintCode 94 - Binary Tree Maximum Path Sum
+                Clone Graph
               
             
           </h1>
@@ -298,8 +298,8 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-22T17:14:17-04:00" content="07-22-2016">
-              07-22-2016
+            <time itemprop="dateCreated" datetime="2016-09-18T19:21:37-04:00" content="09-18-2016">
+              09-18-2016
             </time>
           </span>
 
@@ -309,8 +309,8 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/22/Binary-Tree-Maximum-Path-Sum/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/22/Binary-Tree-Maximum-Path-Sum/" itemprop="commentsCount"></span>
+                <a href="/2016/09/18/Clone-Graph/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/18/Clone-Graph/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -320,7 +320,7 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
 
           
           
-             <span id="/2016/07/22/Binary-Tree-Maximum-Path-Sum/" class="leancloud_visitors" data-flag-title="LintCode 94 - Binary Tree Maximum Path Sum">
+             <span id="/2016/09/18/Clone-Graph/" class="leancloud_visitors" data-flag-title="Clone Graph">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -342,32 +342,46 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/binary-tree-maximum-path-sum/" target="_blank" rel="external">Binary Tree Maximum Path Sum</a></p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">import</span> java.lang.Integer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: An integer.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxPathSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	    calculateSum(root);</span><br><span class="line">	    <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculateSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">		    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">    	<span class="keyword">int</span> leftSum = calculateSum(root.left);</span><br><span class="line">	    <span class="keyword">int</span> rightSum = calculateSum(root.right);</span><br><span class="line">	    <span class="keyword">int</span> current = Math.max(root.val, Math.max(root.val + leftSum, root.val + rightSum));</span><br><span class="line">	    <span class="comment">// updat max value</span></span><br><span class="line">	    max = Math.max(max, Math.max(current, leftSum + root.val + rightSum));</span><br><span class="line">    	<span class="comment">// return sum to parents</span></span><br><span class="line">    	<span class="keyword">return</span> current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://www.lintcode.com/en/problem/clone-graph/#" target="_blank" rel="external">Clone Graph</a></p>
+<h1 id="Code:">Code:</h1><h1 id="BFS_approach">BFS approach</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition for undirected graph.</span><br><span class="line"> * class UndirectedGraphNode &#123;</span><br><span class="line"> *     int label;</span><br><span class="line"> *     ArrayList&lt;UndirectedGraphNode&gt; neighbors;</span><br><span class="line"> *     UndirectedGraphNode(int x) &#123; label = x; neighbors = new ArrayList&lt;UndirectedGraphNode&gt;(); &#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> node: A undirected graph node</span><br><span class="line">     * <span class="doctag">@return</span>: A undirected graph node</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UndirectedGraphNode <span class="title">cloneGraph</span><span class="params">(UndirectedGraphNode node)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (node  == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Queue&lt;UndirectedGraphNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;UndirectedGraphNode&gt;();</span><br><span class="line">        HashMap&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map = <span class="keyword">new</span> HashMap&lt;UndirectedGraphNode, UndirectedGraphNode&gt;();</span><br><span class="line">        queue.offer(node);</span><br><span class="line">        map.put(node, <span class="keyword">new</span> UndirectedGraphNode(node.label));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (queue.peek() != <span class="keyword">null</span>) &#123;</span><br><span class="line">            UndirectedGraphNode curr = queue.poll();</span><br><span class="line">            <span class="comment">//UndirectedGraphNode currCopy = new UndirectedGraphNode(curr.label);</span></span><br><span class="line">            UndirectedGraphNode currCopy = map.get(curr); <span class="comment">// mapping ready exist, should not create new version of deep copy. </span></span><br><span class="line">            <span class="keyword">for</span> (UndirectedGraphNode n : curr.neighbors) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!map.containsKey(n)) &#123;</span><br><span class="line">                    map.put(n, <span class="keyword">new</span> UndirectedGraphNode(n.label));</span><br><span class="line">                    currCopy.neighbors.add(map.get(n));</span><br><span class="line">                    queue.offer(n);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    currCopy.neighbors.add(map.get(n));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> map.get(node);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="DFS_approach">DFS approach</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> node: A undirected graph node</span><br><span class="line">     * <span class="doctag">@return</span>: A undirected graph node</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UndirectedGraphNode <span class="title">cloneGraph</span><span class="params">(UndirectedGraphNode node)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (node  == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dfs(node, <span class="keyword">new</span> HashMap&lt;UndirectedGraphNode, UndirectedGraphNode&gt;());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> UndirectedGraphNode <span class="title">dfs</span><span class="params">(UndirectedGraphNode node, HashMap&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (map.containsKey(node)) &#123;</span><br><span class="line">            <span class="keyword">return</span> map.get(node);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        UndirectedGraphNode nodeCopy = <span class="keyword">new</span> UndirectedGraphNode(node.label);</span><br><span class="line">        map.put(node, nodeCopy);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (UndirectedGraphNode n : node.neighbors) &#123;</span><br><span class="line">            nodeCopy.neighbors.add(dfs(n, map));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nodeCopy;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="Description:">Description:</h1><p>Given a binary tree, find the maximum path sum.</p>
-<p>The path may start and end at any node in the tree.</p>
-<p><strong>Example</strong><br>Given the below binary tree:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  <span class="number">1</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">2</span>   <span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p>return 6.</p>
-<h1 id="Thought_Process:">Thought Process:</h1><p>This problem is particular interesting, since the max path is not limited with any start and end point.  </p>
-<ul>
-<li>Break problem into smaller pieces (fundmental parts).    </li>
-<li>The fundmental part for this problem build with, <code>root</code>, <code>root.left</code>, and <code>root.right</code>  </li>
+<h1 id="Description:">Description:</h1><p>Clone an undirected graph. Each node in the graph contains a <code>label</code> and a list of its <code>neighbors</code>.  </p>
+<p>How we serialize an undirected graph:  </p>
+<p>Nodes are labeled uniquely.  </p>
+<p>We use <code>#</code> as a separator for each node, and <code>,</code> as a separator for node label and each neighbor of the node.  </p>
+<p>As an example, consider the serialized graph <code>{0,1,2#1,2#2,2}</code>.  </p>
+<p>The graph has a total of three nodes, and therefore contains three parts as separated by <code>#</code>.  </p>
+<p>First node is labeled as <code>0</code>. Connect node <code>0</code> to both nodes <code>1</code> and <code>2</code>.<br>Second node is labeled as <code>1</code>. Connect node <code>1</code> to node <code>2</code>.<br>Third node is labeled as <code>2</code>. Connect node <code>2</code> to node <code>2</code> (itself), thus forming a self-cycle.<br>Visually, the graph looks like the following:  </p>
+<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line">   <span class="number">1</span></span><br><span class="line">  / <span class="string">\</span></span><br><span class="line"> /   <span class="string">\</span></span><br><span class="line"><span class="number">0</span> --- <span class="number">2</span></span><br><span class="line">     / <span class="string">\</span></span><br><span class="line">     <span class="string">\_/</span></span><br></pre></td></tr></table></figure>
+<p><strong>Example</strong><br>return a deep copied graph.</p>
+<h1 id="Thought_Process:">Thought Process:</h1><h2 id="BFS_approach-1">BFS approach</h2><ul>
+<li>HashMap stores <code>&lt;node, nodeDeepCopy&gt;</code> pairs. Used to check if current node <strong>already</strong> has a deep copy.   </li>
+<li>HashMap also serves as a mean to retrive deep copy easily.  </li>
+<li>Queue stores child node’s visiting order in same height. (level-order)  </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// fundmental unit</span></span><br><span class="line">		root</span><br><span class="line">		/	\</span><br><span class="line">root.left	 root.right</span><br><span class="line">(leftSum)   (rightSum)</span><br><span class="line"></span><br><span class="line">Note: leftSum and rightSum from previous recursive</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Second step is try to figure out how does the fundemental part contribute/affect the whole tree structure.  </li>
+<blockquote>
+<p>Note:<br>BFS = hashMap(visited nodes) + queue(FIFO, level-order-traversal)<br>no recursion required</p>
+</blockquote>
+<h2 id="DFS_approach-1">DFS approach</h2><ul>
+<li>Recursively performing DFS on current node’s successor list (<code>neighbors</code>).  </li>
+<li>HashMap stores <code>&lt;node, nodeDeepCopy&gt;</code> pairs. Used to check if current node <strong>already</strong> has a deep copy.  </li>
+<li>HashMap also serves as a mean to retrive deep copy easily.  </li>
+<li>If already created a deep copy, simply returns the deep copy of the <code>UndirectedGraphNode</code>.  </li>
 </ul>
-<p>Within the fundemental unit, the max sum for that unit could be one of the following(max of them):  </p>
-<ul>
-<li><code>root.val</code>  </li>
-<li><code>root.val + leftSum</code>  </li>
-<li><code>root.val + rightSum</code></li>
+<blockquote>
+<p>Note:<br>DFS = hashMap(visited nodes)<br>require recursion, like tree traersal</p>
+</blockquote>
+<h1 id="Corner_Case:">Corner Case:</h1><h1 id="Mistake_made">Mistake made</h1><ul>
+<li>mistakenly hard code the path as to the diagram in example(DFS)</li>
+<li>forget to consider about node already <code>new</code> should not create again.(DFS)  </li>
+<li>in line 26, already created deep copy of node should just get from map.  </li>
 </ul>
-<p>We returned the max of the three above to the previous recursive call.  </p>
-<p>One last step: Since the max path could start and end in <strong>any</strong> nodes of the tree. It could be the case that max path connect both paths with the same LCA(lowest common ancester). Therefore, we should also record <code>root.val + rightSum + leftSum</code> seperately.  </p>
-<h1 id="Corner_Case:">Corner Case:</h1><h1 id="Reference:">Reference:</h1><p><a href="http://www.programcreek.com/2013/02/leetcode-binary-tree-maximum-path-sum-java/" target="_blank" rel="external">LeetCode – Binary Tree Maximum Path Sum (Java)</a></p>
+<h1 id="Summary_on_DFS_vs_BFS">Summary on DFS vs BFS</h1><p>首先感觉这个问题问的好大。<br>我就稍微说几句，BFS 和 DFS 都是搜索算法，我就比较一下他们的优缺点。<br>1<strong>.BFS是用来搜索最短径路的解是比较合适的，比如求最少步数的解，最少交换次数的解.</strong><br>因为BFS搜索过程中遇到的解一定是离根最近的，所以遇到一个解，一定就是最优解，此时搜索算法可以终止。这个时候不适宜使用DFS，因为DFS搜索到的解不一定是离根最近的，只有全局搜索完毕，才能从所有解中找出离根的最近的解。（当然这个DFS的不足，可以使用迭代加深搜索ID-DFS去弥补）</p>
+<p>2<strong>.空间优劣上，DFS是有优势的.</strong><br>DFS不需要保存搜索过程中的状态，而BFS在搜索过程中需要<strong>保存搜索过的状态(no queue required)</strong>，而且一般情况需要一个队列来记录。</p>
+<p>3.<strong>DFS适合搜索全部的解</strong>.<br>因为要搜索全部的解，那么BFS搜索过程中，遇到离根最近的解，并没有什么用，也必须遍历完整棵搜索树，DFS搜索也会搜索全部，<strong>但是相比DFS不用记录过多信息</strong>，所以搜素全部解的问题，DFS显然更加合适。</p>
+<p>上面提到的迭代加深搜索（ID-dfs）我觉得充分吸收了BFS和DFS各自的长处 (限制dfs的深度来迭代加深搜索)</p>
+<h1 id="Reference:">Reference:</h1><p><a href="http://www.cnblogs.com/yuzhangcmu/p/4044271.html" target="_blank" rel="external">LeetCode: Clone Graph 解题报告</a><br><a href="http://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes/72904" target="_blank" rel="external">LinkedList vs PriorityQueue for Queue Java</a><br><a href="http://ju.outofmemory.cn/entry/193794" target="_blank" rel="external">理解深度优先搜索（DFS）和广度优先搜索（BFS）</a></p>
 
       
     </div>
@@ -389,15 +403,13 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
       
         <div class="post-tags">
           
-            <a href="/tags/BinaryTree/" rel="tag">#BinaryTree</a>
+            <a href="/tags/BFS/" rel="tag">#BFS</a>
           
-            <a href="/tags/Divide-Conquer/" rel="tag">#Divide&Conquer</a>
+            <a href="/tags/DFS/" rel="tag">#DFS</a>
           
-            <a href="/tags/H/" rel="tag">#H</a>
+            <a href="/tags/Graph/" rel="tag">#Graph</a>
           
             <a href="/tags/LintCode/" rel="tag">#LintCode</a>
-          
-            <a href="/tags/Recursion/" rel="tag">#Recursion</a>
           
         </div>
       
@@ -406,17 +418,13 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/18/Java-Interface/" rel="next" title="Java Interface">
-                <i class="fa fa-chevron-left"></i> Java Interface
+              <a href="/2016/09/17/two-sum/" rel="next" title="LintCode 56 : Two Sum">
+                <i class="fa fa-chevron-left"></i> LintCode 56 : Two Sum
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/23/Validate-Binary-Search-Tree/" rel="prev" title="LintCode 95 - Validate Binary Search Tree">
-                LintCode 95 - Validate Binary Search Tree <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -431,10 +439,10 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/07/22/Binary-Tree-Maximum-Path-Sum/"
-     data-title="LintCode 94 - Binary Tree Maximum Path Sum"
+        <div class="ds-share flat" data-thread-key="2016/09/18/Clone-Graph/"
+     data-title="Clone Graph"
      data-content=""
-     data-url="http://www.xuyiruan.com/2016/07/22/Binary-Tree-Maximum-Path-Sum/">
+     data-url="http://www.xuyiruan.com/2016/09/18/Clone-Graph/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -461,8 +469,8 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/22/Binary-Tree-Maximum-Path-Sum/"
-           data-title="LintCode 94 - Binary Tree Maximum Path Sum" data-url="http://www.xuyiruan.com/2016/07/22/Binary-Tree-Maximum-Path-Sum/">
+      <div class="ds-thread" data-thread-key="2016/09/18/Clone-Graph/"
+           data-title="Clone Graph" data-url="http://www.xuyiruan.com/2016/09/18/Clone-Graph/">
       </div>
     
   </div>
@@ -604,7 +612,7 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number">5.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BFS_approach"><span class="nav-number">2.</span> <span class="nav-text">BFS approach</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DFS_approach"><span class="nav-number">3.</span> <span class="nav-text">DFS approach</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">4.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">5.</span> <span class="nav-text">Thought Process:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS_approach-1"><span class="nav-number">5.1.</span> <span class="nav-text">BFS approach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFS_approach-1"><span class="nav-number">5.2.</span> <span class="nav-text">DFS approach</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">6.</span> <span class="nav-text">Corner Case:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mistake_made"><span class="nav-number">7.</span> <span class="nav-text">Mistake made</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary_on_DFS_vs_BFS"><span class="nav-number">8.</span> <span class="nav-text">Summary on DFS vs BFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number">9.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
             
           </div>
         </section>
