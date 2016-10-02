@@ -97,17 +97,26 @@
 
 
 <meta name="description" content="Balanced Binary Tree
-Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *         this.val">
+Definition of Height balanced tree
+empty tree is a height balanced tree  
+left subtree is balanced, right subtree is balanced  
+left/right sub-tree’s height difference no more tha">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode 93 - Balanced Binary Tree">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/07/08/balanced-binary-tree/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="Balanced Binary Tree
-Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *         this.val">
+Definition of Height balanced tree
+empty tree is a height balanced tree  
+left subtree is balanced, right subtree is balanced  
+left/right sub-tree’s height difference no more tha">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 93 - Balanced Binary Tree">
 <meta name="twitter:description" content="Balanced Binary Tree
-Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *         this.val">
+Definition of Height balanced tree
+empty tree is a height balanced tree  
+left subtree is balanced, right subtree is balanced  
+left/right sub-tree’s height difference no more tha">
 
 
 
@@ -310,7 +319,7 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/07/08/balanced-binary-tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/08/balanced-binary-tree/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/08/balanced-binary-tree/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -343,6 +352,11 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
 
       
         <p><a href="http://www.lintcode.com/en/problem/balanced-binary-tree/" target="_blank" rel="external">Balanced Binary Tree</a></p>
+<h2 id="Definition_of_Height_balanced_tree">Definition of Height balanced tree</h2><ol>
+<li>empty tree is a height balanced tree  </li>
+<li>left subtree is balanced, right subtree is balanced  </li>
+<li>left/right sub-tree’s height difference <strong>no more than 1</strong>    </li>
+</ol>
 <h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: True if this Binary tree is Balanced, or false.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">return</span> findHeight(root) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findHeight</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (rotot == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> leftHeight = findHeight(root.left);</span><br><span class="line">        <span class="keyword">int</span> rightHeight = findHeight(root.right);</span><br><span class="line">        <span class="keyword">if</span> (leftHeight == -<span class="number">1</span> || rightHeight == -<span class="number">1</span> || Math.abs(leftHeight - rightHeight) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(leftHeight, rightHeight) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h1 id="Description:">Description:</h1><p>Given a binary tree, determine if it is <strong>height-balanced</strong>.</p>
@@ -355,10 +369,6 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
 <li>definition of <strong>height-balanced</strong> tree  </li>
 <li>in-order traversal vs out-of-order traversal  </li>
 </ul>
-<h2 id="Height_balanced_tree">Height balanced tree</h2><ol>
-<li>left/right sub-tree’s height difference <strong>no more than 1</strong>    </li>
-<li>empty tree is a height balanced tree  </li>
-</ol>
 <h1 id="Corner_Case:">Corner Case:</h1>
       
     </div>
@@ -420,25 +430,6 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/07/08/balanced-binary-tree/"
-     data-title="LintCode 93 - Balanced Binary Tree"
-     data-content=""
-     data-url="http://www.xuyiruan.com/2016/07/08/balanced-binary-tree/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
     </div>
   </div>
 
@@ -450,8 +441,11 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/08/balanced-binary-tree/"
-           data-title="LintCode 93 - Balanced Binary Tree" data-url="http://www.xuyiruan.com/2016/07/08/balanced-binary-tree/">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
       </div>
     
   </div>
@@ -593,7 +587,7 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Height_balanced_tree"><span class="nav-number">3.1.</span> <span class="nav-text">Height balanced tree</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition_of_Height_balanced_tree"><span class="nav-number">1.</span> <span class="nav-text">Definition of Height balanced tree</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number"></span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number"></span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number"></span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number"></span> <span class="nav-text">Corner Case:</span></a></div>
             
           </div>
         </section>
@@ -714,28 +708,30 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
 
   
 
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"xruan"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-  
 
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xruan';
+      var disqus_identifier = '2016/07/08/balanced-binary-tree/';
+      var disqus_title = "LintCode 93 - Balanced Binary Tree";
+      var disqus_url = 'http://www.xuyiruan.com/2016/07/08/balanced-binary-tree/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
 
 
 
