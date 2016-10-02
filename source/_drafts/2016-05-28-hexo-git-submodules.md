@@ -51,12 +51,12 @@ fork很简单，只要登陆后在屏幕右上角点击 `fork` 按钮即可。fo
 	git clone git@github.com:替换你的github-user-name/hexo-theme-next.git
 	mv 
 	
-Problem: 
+#Problem: 
 ```
 xruan@Xuyis-MacBook-Air:ruanxuyi.github.io/themes ‹source›$ git submodule init
 fatal: no submodule mapping found in .gitmodules for path 'ruanxuyi.github.io'
 ```
-Solution: 
+#Solution: 
 
 ```
 No submodule mapping found in .gitmodules for path 'OtherLibrary/MKStore' when
@@ -166,8 +166,9 @@ $ npm install hexo-cli -g
 1. fork 
 首先
 
+### Sync a fork (当主题有更新的时候)
 
-
+[Sync a fork](https://help.github.com/articles/syncing-a-fork/)
 
 
 ## References（引用）: 

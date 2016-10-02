@@ -1,24 +1,52 @@
 title: Binary Search
 date: 2016-03-28 14:35:52
-updated: 2016-03-28 14:35:52
+updated: 2016-06-20 14:35:52
 tags: 
 - BinarySearch
-- Array
-categories: DataStructure
-
+- Algorithm
 ---
 
+## Binary Search Templete
 
-LeetCode #33
+```java
+	public static int binarySearch(int[] nums, int target) {
+		if (nums == null || nums.length == 0) {
+			return -1;
+		}
+		int low = 0;
+		int mid = 0;
+		int high = nums.length - 1;
+		while (low + 1 < high) {
+			mid = low + (high - low) / 2;
+			if (target < nums[mid]){
+				high = mid;
+			} else if (target > nums[mid]) {
+				low = mid;
+			} else {
+				return mid;
+			} 
+		}
+		
+		if (nums[low] == target) {
+			return low; 
+		}
+		if (nums[high] == target) {
+			return high;
+		}
+		return -1;
+	}
 
-Tag: binary search, array, 
+```
+> The templete above ONLY apply when **duplication** is NOT allowed. If duplication is allowed, minor changes needed(read more below).  
 
-# **Binary Search**
+<!--more-->
+
+# Binary Search
 
 1. In-order list. 
 2. If not in-order -> sort the list with `quick sort` first and apply binary search.
 
-## **Binary Search Implementation:**
+## Binary Search Implementation:
 
 ### 1: check the validaite of low and high
 
@@ -47,35 +75,156 @@ low + high < 0时，如low = -3, high = 2时，计算出来的中点是0。
 ### 3: prevent using recursion: 
 
 slow, dont use it??
+- use up too many **system resource**  
+- possible overflow  
 
-maybe use up too many system resource??
 
-
-## **Regular Binary Search Templete**
+## Binary Search Templete 1
 
 ```java
 	public static int binarySearch(int[] nums, int target) {
-		if (nums == null || nums.length == 0) 
+		if (nums == null || nums.length == 0) {
 			return -1;
+		}
 		int low = 0;
 		int mid = 0;
 		int high = nums.length - 1;
-		while (low <= high) {
+		while (low + 1 < high) {
 			mid = low + (high - low) / 2;
-			if (nums[mid] == target) {
+			if (target < nums[mid]){
+				high = mid;
+			} else if (target > nums[mid]) {
+				low = mid;
+			} else {  
+				// nums[mid] == target, 
+				// 因为大部分的时候都是不相等。
+				// 每次循环都判断＝＝的话，会很耗时。
+				// 因此放在最后面会提升性能。
 				return mid;
-			} else if (target < nums[mid]){
-				high = mid - 1;
-			} else {
-				low = mid + 1;
-			}
+			} 
+		}
+		
+		if (nums[low] == target) {
+			return low; 
+		}
+		if (nums[high] == target) {
+			return high;
 		}
 		return -1;
 	}
 
 ```
 
-## **Search in Rotated Sorted Array**
+### T1 extend: When **duplication** is allowed in the array
+
+```java
+	int low = 0;
+    int mid = 0;
+    int high = nums.length - 1;
+	while (low + 1 < high) {
+            mid = low + (high - low) / 2;
+            if (target <= reader.get(mid)) { // equal sign here: since we are looking for the **first** element match
+                high = mid;
+            } else {
+                low = mid;
+            }
+        }
+        if (reader.get(low) == target) { // check low index first since we want the index first element
+            return low;
+        }
+        if (reader.get(high) == target) {
+            return high;
+        }
+        return -1;
+    }
+```
+
+
+## Binary Search Templete 2
+
+```java
+	public static int binarySearch(int[] nums, int target) {
+		if (nums == null || nums.length == 0) {
+			return -1;
+		}
+		int low = 0;
+		int mid = 0;
+		int high = nums.length - 1;
+		while (low <= high) {
+			mid = low + (high - low) / 2;
+			if (target < nums[mid]){
+				high = mid - 1;
+			} else if (target > nums[mid]) {
+				low = mid + 1;
+			} else {  
+				// nums[mid] == target, 
+				// 因为大部分的时候都是不相等。
+				// 每次循环都判断＝＝的话，会很耗时。
+				// 因此放在最后面会提升性能。
+				return mid;
+			} 
+		}
+		if (nums[low] == target) {
+			return low; // 记住这里用low来判断，因为while在外面, low > high		}
+		return -1;
+	}
+
+```
+
+## 要点：
+如果while 循环判断是 (low + 1 < high)，  
+- 没有 +1, -1  
+- low + 1 = high 因此low比high index 少1  
+
+  
+如果while 循环判断用 (low <= high),  
+- 需要 +1, -1  
+- 当跳出while 循环后，此时 low > high  
+
+
+## Application Example 1: Search Insert Position
+
+[Click here to try](http://www.lintcode.com/en/problem/search-insert-position/)  
+
+```java
+public class Solution {
+    /** 
+     * param A : an integer sorted array
+     * param target :  an integer to be inserted
+     * return : an integer
+     */
+    public int searchInsert(int[] A, int target) {
+        // write your code here
+        if (A.length == 0 || target < A[0]) {
+            return 0;
+        }
+        int low = 0;
+        int mid = 0;
+        int high = A.length - 1;
+        while (low + 1 < high) { // to keep `start` and `end` seperate.
+            mid = low + (high - low) / 2;
+            if (target < A[mid]) {
+                high = mid;
+            } else if (target > A[mid]) {
+                low = mid;
+            } else {
+                return mid;
+            }
+        }
+        if (target <= A[low]) {
+            return low;
+        } else if (target <= A[high]) {
+            return high;
+        } else { 
+            return high + 1;
+        }
+    }
+}
+
+```
+
+
+## Application Example 2: Search in Rotated Sorted Array
 
 
 Suppose a sorted array is rotated at some pivot unknown to you beforehand.
@@ -237,12 +386,22 @@ public class Solution {
 给定一个升序排列的自然数数组，数组中包含重复数字，例如：[1,2,2,3,4,4,4,5,6,7,7]。问题：给定任意自然数，对数组进行二分查找，返回数组正确的位置，给出函数实现。注：连续相同的数字，返回第一个匹配位置还是最后一个匹配位置，由函数传入参数决定。
 
 
+# Logs
+-  03/28/2016: first post created  
+-  06/22/2016: update: added both methods, decided to use the first implementation, added sample example  
+-  06/23/2016: update: updated templete 1 while duplication is allowed  
+-  
 
-Reference: 
 
-
+#Reference: 
 
 http://blog.csdn.net/maqingli87/article/details/8009186
 
 [Binary Search](http://hedengcheng.com/?p=595)
 [duplication allowed] (http://www.2cto.com/kf/201401/272968.html)
+
+[[刷题心得] Binary Search基础模板](http://www.meetqun.com/thread-13219-1-1.html)  
+[6.二分搜索模板及其变体（上）](http://www.jianshu.com/p/0fb2f5f604fa)  
+[JIUZHANG 参考](http://www.jiuzhang.com/solutions/binary-search/) 
+[]()  
+ 
