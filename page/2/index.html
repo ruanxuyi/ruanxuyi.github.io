@@ -286,6 +286,466 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/30/Sorting-Algorithms/" itemprop="url">
+                  Sorting Algorithms
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-31T02:09:38+00:00" content="08-31-2016">
+              08-31-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/30/Sorting-Algorithms/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/30/Sorting-Algorithms/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/30/Sorting-Algorithms/" class="leancloud_visitors" data-flag-title="Sorting Algorithms">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Quick Sort
+How to choose the piviot element?
+why not choosing pivot randomly?
+
+
+randomly select pivot will work, however, the worst case time complexi
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/30/Sorting-Algorithms/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/23/Minimum-Path-Sum/" itemprop="url">
+                  LintCode 110 - Minimum Path Sum
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-23T06:04:18+00:00" content="08-23-2016">
+              08-23-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/23/Minimum-Path-Sum/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/23/Minimum-Path-Sum/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/23/Minimum-Path-Sum/" class="leancloud_visitors" data-flag-title="LintCode 110 - Minimum Path Sum">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/minimum-path-sum/">Minimum Path Sum</a></p>
+<h1 id="Code:">Code:</h1><h2 id="DP_approach">DP approach</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> grid: a list of lists of integers.</span><br><span class="line">     * <span class="doctag">@return</span>: An integer, minimizes the sum of all numbers along its path</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (grid == <span class="keyword">null</span> || grid.length == <span class="number">0</span> || grid[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> M = grid.length;</span><br><span class="line">        <span class="keyword">int</span> N = grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[][] state = <span class="keyword">new</span> <span class="keyword">int</span>[M][N];</span><br><span class="line">        state[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++) &#123;</span><br><span class="line">            state[<span class="number">0</span>][i] = state[<span class="number">0</span>][i-<span class="number">1</span>] + grid[<span class="number">0</span>][i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; M; j++) &#123;</span><br><span class="line">            state[j][<span class="number">0</span>] = state[j-<span class="number">1</span>][<span class="number">0</span>] + grid[j][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; M; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; N; j++) &#123;</span><br><span class="line">                state[i][j] = grid[i][j] + Math.min(state[i-<span class="number">1</span>][j], state[i][j-<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> state[M - <span class="number">1</span>][N - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/23/Minimum-Path-Sum/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/21/Longest-Increasing-Subsequence/" itemprop="url">
+                  LintCode 76 - Longest Increasing Subsequence
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-21T15:49:07+00:00" content="08-21-2016">
+              08-21-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/21/Longest-Increasing-Subsequence/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/21/Longest-Increasing-Subsequence/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/21/Longest-Increasing-Subsequence/" class="leancloud_visitors" data-flag-title="LintCode 76 - Longest Increasing Subsequence">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/longest-increasing-subsequence/#">Longest Increasing Subsequence</a></p>
+<h1 id="Code:">Code:</h1><h2 id="DP_Approach">DP Approach</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: The integer array</span><br><span class="line">     * <span class="doctag">@return</span>: The length of LIS (longest increasing subsequence)</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestIncreasingSubsequence</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] lis = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="keyword">int</span> longest = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            lis[i] = <span class="number">1</span>; <span class="comment">// nums[i] &lt; nums[j]</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] &gt; nums[j]) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (lis[j] + <span class="number">1</span> &gt; lis[i]) &#123;</span><br><span class="line">                        lis[i] = lis[j] + <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[i] == nums[j]) &#123;</span><br><span class="line">                    lis[i] = lis[j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (lis[i] &gt; longest) &#123;</span><br><span class="line">                longest = lis[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> longest;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/21/Longest-Increasing-Subsequence/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/20/Jump-Game-II/" itemprop="url">
+                  LintCode 117 - Jump Game II
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-20T20:15:34+00:00" content="08-20-2016">
+              08-20-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/20/Jump-Game-II/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/20/Jump-Game-II/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/20/Jump-Game-II/" class="leancloud_visitors" data-flag-title="LintCode 117 - Jump Game II">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/jump-game-ii/">Jump Game II</a></p>
+<h1 id="Code:">Code:</h1><h2 id="V0_Greedy">V0 Greedy</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> A: A list of lists of integers</span><br><span class="line">     * <span class="doctag">@return</span>: An integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = <span class="number">0</span>, jumps = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (end &lt; A.length - <span class="number">1</span>) &#123;</span><br><span class="line">            jumps++;</span><br><span class="line">            <span class="keyword">int</span> tempFar = end;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= end; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (A[i] + i &gt; tempFar) &#123;</span><br><span class="line">                    tempFar = A[i] + i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            start = end + <span class="number">1</span>;</span><br><span class="line">            end = tempFar;</span><br><span class="line">            <span class="comment">// if the array is not reachable to the end.</span></span><br><span class="line">            <span class="comment">// prevent infinite loop, which test case assume all array reachable</span></span><br><span class="line">            <span class="keyword">if</span> (start &gt; end) &#123; </span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> jumps;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="V1_DP">V1 DP</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> A: A list of lists of integers</span><br><span class="line">     * <span class="doctag">@return</span>: An integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] steps = <span class="keyword">new</span> <span class="keyword">int</span>[A.length];</span><br><span class="line">        steps[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// DP: steps[] stores minmum steps to that location</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length; i++) &#123;</span><br><span class="line">            steps[i] = Integer.MAX_VALUE;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (steps[j] != Integer.MAX_VALUE &amp;&amp; A[j] + j &gt;= i) &#123;</span><br><span class="line">                    steps[i] = steps[j] + <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> steps[A.length - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/20/Jump-Game-II/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/19/Jump-Game/" itemprop="url">
                   LintCode 116 - Jump Game
                 </a>
@@ -953,466 +1413,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/22/Binary-Tree-Maximum-Path-Sum/" itemprop="url">
-                  LintCode 94 - Binary Tree Maximum Path Sum
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-22T21:14:17+00:00" content="07-22-2016">
-              07-22-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/22/Binary-Tree-Maximum-Path-Sum/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/22/Binary-Tree-Maximum-Path-Sum/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/22/Binary-Tree-Maximum-Path-Sum/" class="leancloud_visitors" data-flag-title="LintCode 94 - Binary Tree Maximum Path Sum">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/binary-tree-maximum-path-sum/">Binary Tree Maximum Path Sum</a></p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">import</span> java.lang.Integer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: An integer.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxPathSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	    calculateSum(root);</span><br><span class="line">	    <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculateSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">		    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">    	<span class="keyword">int</span> leftSum = calculateSum(root.left);</span><br><span class="line">	    <span class="keyword">int</span> rightSum = calculateSum(root.right);</span><br><span class="line">	    <span class="keyword">int</span> current = Math.max(root.val, Math.max(root.val + leftSum, root.val + rightSum));</span><br><span class="line">	    <span class="comment">// updat max value</span></span><br><span class="line">	    max = Math.max(max, Math.max(current, leftSum + root.val + rightSum));</span><br><span class="line">    	<span class="comment">// return sum to parents</span></span><br><span class="line">    	<span class="keyword">return</span> current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/22/Binary-Tree-Maximum-Path-Sum/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/18/Java-Interface/" itemprop="url">
-                  Java Interface
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-18T21:54:44+00:00" content="07-18-2016">
-              07-18-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/18/Java-Interface/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/18/Java-Interface/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/18/Java-Interface/" class="leancloud_visitors" data-flag-title="Java Interface">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          IntroductionLets look at following code: 
-List list = new ArrayList();
-The code above creates a reference of List type with variable called list, whic
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/18/Java-Interface/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/18/Binary-Tree-Level-Order-Traversal/" itemprop="url">
-                  Binary Tree Level Order Traversal
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-18T19:36:29+00:00" content="07-18-2016">
-              07-18-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/18/Binary-Tree-Level-Order-Traversal/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/18/Binary-Tree-Level-Order-Traversal/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/18/Binary-Tree-Level-Order-Traversal/" class="leancloud_visitors" data-flag-title="Binary Tree Level Order Traversal">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/binary-tree-level-order-traversal/">Binary Tree Level Order Traversal</a></p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: Level order a list of lists of integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        Queue&lt;TreeNode&gt; queueInner = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result = <span class="keyword">new</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        queue.offer(root);</span><br><span class="line">        <span class="keyword">while</span> (queue.peek() != <span class="keyword">null</span> || queueInner.peek() != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (queue.peek() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                queueInner.offer(queue.poll());</span><br><span class="line">            &#125;</span><br><span class="line">            ArrayList&lt;Integer&gt; currList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">            <span class="keyword">while</span> (queueInner.peek() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                TreeNode curr = queueInner.poll();</span><br><span class="line">                currList.add(curr.val);</span><br><span class="line">                <span class="keyword">if</span> (curr.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    queue.offer(curr.left);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (curr.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    queue.offer(curr.right);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            result.add(currList);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//System.out.println("hi");</span></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/18/Binary-Tree-Level-Order-Traversal/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/18/ML2/" itemprop="url">
-                  [Completed] Coursera: Machine Learning by Stanford - Part2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-18T14:15:48+00:00" content="07-18-2016">
-              07-18-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/18/ML2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/18/ML2/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/18/ML2/" class="leancloud_visitors" data-flag-title="[Completed] Coursera: Machine Learning by Stanford - Part2">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera.s3.amazonaws.com/topics/ml/large-icon.png" alt=""></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/18/ML2/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1453,7 +1458,7 @@ The code above creates a reference of List type with variable called list, whic
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">52</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1470,7 +1475,7 @@ The code above creates a reference of List type with variable called list, whic
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
