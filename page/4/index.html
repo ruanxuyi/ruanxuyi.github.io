@@ -286,6 +286,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/" itemprop="url">
+                  LintCode 448 - Inorder Successor in Binary Search Tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-13T14:45:40+00:00" content="07-13-2016">
+              07-13-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/13/Inorder-Successor-in-Binary-Search-Tree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/" class="leancloud_visitors" data-flag-title="LintCode 448 - Inorder Successor in Binary Search Tree">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/inorder-successor-in-binary-search-tree/">Inorder Successor in Binary Search Tree</a></p>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition for a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">inorderSuccessor</span><span class="params">(TreeNode root, TreeNode p)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">// locate node P and mark the deepest ancestor which p locates in its LEFT-subtree</span></span><br><span class="line">        TreeNode successor = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (root != <span class="keyword">null</span> &amp;&amp; root != p) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root.val &gt; p.val) &#123;</span><br><span class="line">                successor = root;</span><br><span class="line">                root = root.left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                root = root.right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// case 1: p has NO right child</span></span><br><span class="line">        <span class="keyword">if</span> (root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> successor;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// case 2: p has right child</span></span><br><span class="line">        root = root.right;</span><br><span class="line">        <span class="comment">// locate far-left node (smallest value in right subtree)</span></span><br><span class="line">        <span class="keyword">while</span> (root.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            root = root.left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// return far-left node if left child exists</span></span><br><span class="line">        <span class="comment">// otherwise, return right child of node p.</span></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/13/Inorder-Successor-in-Binary-Search-Tree/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/08/binary-tree/" itemprop="url">
                   Tree Data Structure
                 </a>
@@ -1286,119 +1399,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/28/Search-for-a-range/" itemprop="url">
-                  Lintcode 61 - Search For a Range
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-28T15:24:01+00:00" content="06-28-2016">
-              06-28-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/28/Search-for-a-range/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/28/Search-for-a-range/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/28/Search-for-a-range/" class="leancloud_visitors" data-flag-title="Lintcode 61 - Search For a Range">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/search-for-a-range/">Search for a Range</a>  </p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] searchRange(<span class="keyword">int</span>[] A, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> [] result = &#123;-<span class="number">1</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> startPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> endPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">            mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target &lt;= A[mid]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// binary search end</span></span><br><span class="line">        <span class="keyword">if</span> (A[low] == target) &#123;</span><br><span class="line">            startPos = low;</span><br><span class="line">            found = <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (A[high] == target) &#123; <span class="comment">// if the target value is the LAST element, using low as startPos will not work, in this case, set startPos as the index of LAST element. </span></span><br><span class="line">            startPos = high;</span><br><span class="line">            found = <span class="keyword">true</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> (found) &#123;</span><br><span class="line">            endPos = startPos;</span><br><span class="line">            <span class="keyword">while</span> (endPos &lt; A.length &amp;&amp; A[endPos] == target) &#123;</span><br><span class="line">                endPos++;</span><br><span class="line">            &#125;</span><br><span class="line">            endPos--;</span><br><span class="line">            result[<span class="number">0</span>] = startPos;</span><br><span class="line">            result[<span class="number">1</span>] = endPos;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/28/Search-for-a-range/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1444,7 +1444,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">52</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1461,7 +1461,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
