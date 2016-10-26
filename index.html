@@ -346,7 +346,11 @@
       
         
           <h2 id="Split_String_&amp;_String_to_Int">Split String &amp; String to Int</h2><ul>
-<li>given string has two integers seperate by a space. <code>str = &quot;13 45&quot;</code></li>
+<li><code>str.split(&quot; &quot;); // split string with delimiter &quot; &quot;</code></li>
+<li><p><code>Integer.parseInt(splited[0]); // string to int</code>  </p>
+</li>
+<li><p>given string has two integers seperate by a space. <code>str = &quot;13 45&quot;</code></p>
+</li>
 <li>extract two integers</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String str = <span class="string">"13 45"</span>;</span><br><span class="line">String[] splited = str.split(<span class="string">" "</span>); <span class="comment">// splited[0] = "13", splited[1] = "45"</span></span><br><span class="line"><span class="keyword">int</span> n1 = Integer.parseInt(splited[<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">int</span> n2 = Integer.parseInt(splited[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
