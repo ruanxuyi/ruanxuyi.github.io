@@ -97,18 +97,22 @@
 
 
 <meta name="description" content="Description: [Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence
-A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of palin">
+
+A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of pali">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Longest Palindrome Subsequence">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/10/31/LPS/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="Description: [Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence
-A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of palin">
+
+A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of pali">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Longest Palindrome Subsequence">
 <meta name="twitter:description" content="Description: [Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence
-A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of palin">
+
+A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of pali">
 
 
 
@@ -344,8 +348,10 @@ A palindrome is a nonempty string over some alphabet that reads the same forward
 
       
         <h1 id="Description:"><center> Description: </center></h1><p><strong>[Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence</strong></p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png" alt=""></p>
 <p>A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of palindromes are all strings of length 1, <code>civic</code>, <code>racecar</code>, and <code>aibohphobia</code> (fear of palindromes).  </p>
 <p>Give an efficient algorithm to find the <strong>longest palindrome</strong> that is a <strong>subsequence</strong> of a given input string. For example, given the input character, your algorithm should return carac. What is the running time of your algorithm?   </p>
+<a id="more"></a>
 <h1 id="Iterative_approach:_$O(2^n)$"><center> Iterative approach: $O(2^n)$</center></h1><p>we can simply list out all the possible <strong>subsequence</strong> of a given string. However, the time complexity for that is exponential time $O(2^n)$, where N is the number of character in the string. </p>
 <blockquote>
 <p>Note: for string <code>abc</code>, we have following subsequence: <code>a</code>, <code>b</code>, <code>c</code>, <code>ab</code>, <code>ac</code>, <code>bc</code>, <code>abc</code>. total $2^n -1$ subsequences. ($2^3 - 1 = 7$)</p>
