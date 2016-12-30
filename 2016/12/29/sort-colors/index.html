@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="DataStructure," />
+  <meta name="keywords" content="Array&Numbers,LintCode,Sorting,TwoPtrs," />
 
 
 
@@ -96,15 +96,21 @@
 
 
 
-<meta name="description" content="ListArrayListLinkedListTreeQueue">
+<meta name="description" content="descriptionGiven an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+Here, we will use the i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Data Structure">
-<meta property="og:url" content="http://www.xuyiruan.com/2016/11/25/Data-Structure/index.html">
+<meta property="og:title" content="LC148 - sort colors">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/12/29/sort-colors/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="ListArrayListLinkedListTreeQueue">
+<meta property="og:description" content="descriptionGiven an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+Here, we will use the i">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20161229/1.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20161229/3.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20161229/2.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Data Structure">
-<meta name="twitter:description" content="ListArrayListLinkedListTreeQueue">
+<meta name="twitter:title" content="LC148 - sort colors">
+<meta name="twitter:description" content="descriptionGiven an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+Here, we will use the i">
 
 
 
@@ -123,7 +129,7 @@
   };
 </script>
 
-  <title> Data Structure | 阮先生de小窝 </title>
+  <title> LC148 - sort colors | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -283,7 +289,7 @@
             
             
               
-                Data Structure
+                LC148 - sort colors
               
             
           </h1>
@@ -295,8 +301,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-11-25T16:38:08-05:00" content="11-25-2016">
-              11-25-2016
+            <time itemprop="dateCreated" datetime="2016-12-29T21:04:48-05:00" content="12-30-2016">
+              12-30-2016
             </time>
           </span>
 
@@ -306,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/25/Data-Structure/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/25/Data-Structure/" itemprop="commentsCount"></span>
+                <a href="/2016/12/29/sort-colors/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/29/sort-colors/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -317,7 +323,7 @@
 
           
           
-             <span id="/2016/11/25/Data-Structure/" class="leancloud_visitors" data-flag-title="Data Structure">
+             <span id="/2016/12/29/sort-colors/" class="leancloud_visitors" data-flag-title="LC148 - sort colors">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -339,7 +345,33 @@
       
 
       
-        <h1 id="List">List</h1><h2 id="ArrayList">ArrayList</h2><h2 id="LinkedList">LinkedList</h2><h1 id="Tree">Tree</h1><h1 id="Queue">Queue</h1>
+        <h2 id="description"><center>description</center></h2><p>Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
+<p>Here, we will use the integers <code>0</code>, <code>1</code>, and <code>2</code> to represent the color red, white, and blue respectively.</p>
+<blockquote>
+<p>Notice<br>You are not suppose to use the library’s sort function for this problem.<br>You should do it in-place (sort numbers in the original array).</p>
+</blockquote>
+<p><strong>Example</strong><br>Given <code>[1, 0, 1, 2]</code>, sort it in-place to <code>[0, 1, 1, 2]</code>.  </p>
+<p><strong>challenge</strong><br><strong>one pass</strong> algorithm with constant space ($O(1)$)</p>
+<p><a href="http://www.lintcode.com/en/problem/sort-colors/#" target="_blank" rel="external">LC148 sort colors</a></p>
+<h2 id="code"><center>code</center></h2><h3 id="ver3_one_pass">ver3 one pass</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> curr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (curr &lt;= high) &#123; <span class="comment">// k1: curr == high 时候 high points to unchecked value</span></span><br><span class="line">        <span class="keyword">if</span> (nums[curr] == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[left]</span></span><br><span class="line">            nums[curr] = nums[low]; <span class="comment">// curr should NOT increment to prevent skipping after swap</span></span><br><span class="line">            nums[low++] = <span class="number">0</span>;</span><br><span class="line">            curr++; <span class="comment">// k2: swapped value from left pointer is checked.</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[curr] == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[right]</span></span><br><span class="line">            nums[curr] = nums[high];</span><br><span class="line">            nums[high--] = <span class="number">2</span>;</span><br><span class="line">            <span class="comment">// NO curr++: swaped value from right pointer is unchecked, </span></span><br><span class="line">            <span class="comment">// curr pointed value (uncheck) needed to be checked</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            curr++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="ver2_[count_sort]_two_passes">ver2 [count sort] two passes</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// count sort aux array</span></span><br><span class="line">    <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] == <span class="number">0</span>) &#123;</span><br><span class="line">            count[<span class="number">0</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[i] == <span class="number">1</span>) &#123;</span><br><span class="line">            count[<span class="number">1</span>]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            count[<span class="number">2</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count.length; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> total = count[i];</span><br><span class="line">        <span class="keyword">while</span> (total != <span class="number">0</span>) &#123;</span><br><span class="line">            nums[index] = i;</span><br><span class="line">            index++;</span><br><span class="line">            total--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ver1:">ver1:</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[] sorted = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">            sorted[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                sorted[left] = <span class="number">0</span>;</span><br><span class="line">                ++left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] == <span class="number">2</span>) &#123;</span><br><span class="line">                sorted[right] = <span class="number">2</span>;</span><br><span class="line">                --right;</span><br><span class="line">            &#125;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">            nums[i] = sorted[i]; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="algorithm_correctness"><center>algorithm correctness</center></h2><h3 id="key_0:_decomposition_of_the_array">key 0: decomposition of the array</h3><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20161229/1.png" alt=""></p>
+<h3 id="key_1:_when_(curr_==_high)">key 1: when <code>(curr == high)</code></h3><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20161229/3.png" alt=""></p>
+<p>line9:<code>while (curr &lt;= high) {</code></p>
+<p>why not (<code>while (curr &lt; high)</code>) ? </p>
+<p>when <code>(curr == high)</code>, <code>high</code> points to <strong>unchecked value</strong>. while loop need to check value currently pointed by <code>curr</code> before exit.  </p>
+<h3 id="key_2:_curr_increment_on_swap_w/_nums[low],_but_NOT_on_swap_w/_nums[high]">key 2: curr increment on swap w/ <code>nums[low]</code>, but NOT on swap w/ <code>nums[high]</code></h3><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20161229/2.png" alt=""></p>
+<p><code>curr</code> increment on swap w/ <code>nums[low]</code> becasue <code>low</code> points to value already <strong>checked</strong>. (no need to check after swap).<br>however. <code>curr</code> <strong>NOT</strong> increment on swap w/ <code>nums[high]</code> becuase <code>high</code> points to value <strong>NOT</strong> checked. (need to be checked after swap).  </p>
+<h2 id="complexity_analysis"><center>complexity analysis</center></h2><p>v1: (time: $O(n)$, space: $O(n)$)<br>v2: (time $O(n)$, space: $O(1)$) two passes<br>v3: (time $O(n)$, space $O(1)$) one pass  </p>
+<h2 id="self_notes"><center>self notes</center></h2><p>复习key points:  </p>
+<ol>
+<li>++i vs i++  </li>
+<li>idea of <strong>checked</strong> AND <strong>unchecked</strong> value/portion  </li>
+</ol>
+<h2 id="reference"><center>reference</center></h2><p>附上一个v3 注意点分析的不错的博客<a href="http://www.cnblogs.com/yuzhangcmu/p/4048668.html" target="_blank" rel="external">Yu’s garden</a></p>
+
       
     </div>
 
@@ -360,7 +392,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/DataStructure/" rel="tag">#DataStructure</a>
+            <a href="/tags/Array-Numbers/" rel="tag">#Array&Numbers</a>
+          
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+            <a href="/tags/Sorting/" rel="tag">#Sorting</a>
+          
+            <a href="/tags/TwoPtrs/" rel="tag">#TwoPtrs</a>
           
         </div>
       
@@ -369,17 +407,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/31/LPS/" rel="next" title="Longest Palindrome Subsequence">
-                <i class="fa fa-chevron-left"></i> Longest Palindrome Subsequence
+              <a href="/2016/12/29/Two-Sum-Closest/" rel="next" title="LC533 - two sum closest">
+                <i class="fa fa-chevron-left"></i> LC533 - two sum closest
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/29/2016的6个关键字/" rel="prev" title="2016的6个关键字">
-                2016的6个关键字 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -454,7 +488,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -551,7 +585,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#List"><span class="nav-number">1.</span> <span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LinkedList"><span class="nav-number">1.2.</span> <span class="nav-text">LinkedList</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tree"><span class="nav-number">2.</span> <span class="nav-text">Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Queue"><span class="nav-number">3.</span> <span class="nav-text">Queue</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text">description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text">code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ver3_one_pass"><span class="nav-number">2.1.</span> <span class="nav-text">ver3 one pass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ver2_[count_sort]_two_passes"><span class="nav-number">2.2.</span> <span class="nav-text">ver2 [count sort] two passes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ver1:"><span class="nav-number">2.3.</span> <span class="nav-text">ver1:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm_correctness"><span class="nav-number">3.</span> <span class="nav-text">algorithm correctness</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#key_0:_decomposition_of_the_array"><span class="nav-number">3.1.</span> <span class="nav-text">key 0: decomposition of the array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key_1:_when_(curr_==_high)"><span class="nav-number">3.2.</span> <span class="nav-text">key 1: when (curr == high)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key_2:_curr_increment_on_swap_w/_nums[low],_but_NOT_on_swap_w/_nums[high]"><span class="nav-number">3.3.</span> <span class="nav-text">key 2: curr increment on swap w/ nums[low], but NOT on swap w/ nums[high]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity_analysis"><span class="nav-number">4.</span> <span class="nav-text">complexity analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self_notes"><span class="nav-number">5.</span> <span class="nav-text">self notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">6.</span> <span class="nav-text">reference</span></a></li></ol></div>
             
           </div>
         </section>
@@ -678,9 +712,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
-      var disqus_identifier = '2016/11/25/Data-Structure/';
-      var disqus_title = "Data Structure";
-      var disqus_url = 'http://www.xuyiruan.com/2016/11/25/Data-Structure/';
+      var disqus_identifier = '2016/12/29/sort-colors/';
+      var disqus_title = "LC148 - sort colors";
+      var disqus_url = 'http://www.xuyiruan.com/2016/12/29/sort-colors/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
