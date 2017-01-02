@@ -349,10 +349,11 @@ Return the difference between the sum of the two integers and the target">
 <p><a href="http://www.lintcode.com/en/problem/two-sum-closest/#" target="_blank" rel="external">LC533 Two Sum Closest</a></p>
 <h2 id="code"><center>code</center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">twoSumCloset</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span> || nums == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Arrays.sort(nums); <span class="comment">// o(nlogn)</span></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> minDif = Integer.MAX_VALUE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> twoSum = nums[left] + nums[right];</span><br><span class="line">        <span class="comment">//int currDif = Math.abs(target - twoSum);</span></span><br><span class="line">        <span class="comment">//minDif = currDif &lt; minDif ? currDif : minDif;</span></span><br><span class="line">        <span class="keyword">if</span> (twoSum &lt; target) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        minDif = Math.min(minDif, Math.abs(target - twoSum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minDif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="algorithm_correctness"><center>algorithm correctness</center></h2><p>Why the algorithm is correct?<br>given <code>nums = [1, 2, 4, 6, 8, 12, 13, 15]</code> and  <code>target = 17</code>;<br>if <code>left</code> points to <code>value = 4</code>, at next iteration, <code>left</code> points to <code>value = 6</code>. checking the adjecent values (16 and 18) of <code>target = 17</code> is sufficient to determine <code>minDif</code> for <strong>fixed</strong> right pointer’s value.</p>
+<h2 id="algorithm_correctness"><center>algorithm correctness</center></h2><p>Why the algorithm is correct?<br>given <code>nums = [1, 2, 4, 6, 8, 12, 13, 15]</code> and  <code>target = 17</code>;  </p>
+<p>if <code>left</code> points to <code>value = 4</code>, at next iteration, <code>left</code> points to <code>value = 6</code>. it always checks the adjecent values (16 and 18) of <code>target = 17</code>. It is sufficient to determine <code>minDif</code> for <strong>fixed</strong> right pointer’s value.</p>
 <h2 id="complexity_analysis"><center>complexity analysis</center></h2><ul>
-<li>time $O(NlogN)$ for dual-pivot quick sort and $O(N)$ for traversing entire array. total time complexity: $O(NlogN)$</li>
-<li>space $O(1)$</li>
+<li><strong>time</strong> $O(NlogN)$ for dual-pivot quick sort and $O(N)$ for traversing entire array. total time complexity: $O(NlogN)$</li>
+<li><strong>space</strong> $O(1)$</li>
 </ul>
 <h2 id="self_notes"><center>self notes</center></h2><p>复习key points:   </p>
 <ol>
@@ -481,7 +482,7 @@ Return the difference between the sum of the two integers and the target">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">58</span>
+              <span class="site-state-item-count">60</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -498,7 +499,7 @@ Return the difference between the sum of the two integers and the target">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

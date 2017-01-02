@@ -286,6 +286,235 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/02/Maximum-Subarray/" itemprop="url">
+                  LC41 - maximum subarray
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-02T20:20:18+00:00" content="01-02-2017">
+              01-02-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/02/Maximum-Subarray/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/02/Maximum-Subarray/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/02/Maximum-Subarray/" class="leancloud_visitors" data-flag-title="LC41 - maximum subarray">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><center> description </center></h2><p>Given an array of integers, find a contiguous subarray which has the largest sum.</p>
+<p><strong>Notice</strong><br>The subarray should contain at least one number.</p>
+<p><strong>Example</strong><br>Given the array <code>[−2,2,−3,4,−1,2,1,−5,3]</code>, the contiguous subarray <code>[4,−1,2,1]</code> has the largest <code>sum = 6</code>.</p>
+<p><a href="http://www.lintcode.com/en/problem/maximum-subarray/">LC41 maximum subarray</a></p>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A integer indicate the sum of max subarray</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code</span></span><br><span class="line">        <span class="comment">// double loop -&gt; n^2</span></span><br><span class="line">        <span class="comment">// sort? nlogn NO</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> max = Integer.MIN_VALUE; <span class="comment">// if all negative values, return the smalleset neg val</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            max = Math.max(sum, max);</span><br><span class="line">            sum = Math.max(<span class="number">0</span>, sum); <span class="comment">// if sum of prev elements less than zero, rather not taken them.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/02/Maximum-Subarray/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/02/Subarray-Sum-Closest/" itemprop="url">
+                  Subarray Sum Closest
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-02T19:57:20+00:00" content="01-02-2017">
+              01-02-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/02/Subarray-Sum-Closest/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/02/Subarray-Sum-Closest/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/02/Subarray-Sum-Closest/" class="leancloud_visitors" data-flag-title="Subarray Sum Closest">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><center> description </center></h2><p><a href=""></a></p>
+<h2 id="code"><center> code </center></h2>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/02/Subarray-Sum-Closest/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/02/partition-array/" itemprop="url">
                   LC31 - partition array
                 </a>
@@ -1209,256 +1438,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/10/Longest-Common-Substring/" itemprop="url">
-                  Longest Common Substring
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-10T05:15:21+00:00" content="10-10-2016">
-              10-10-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/10/Longest-Common-Substring/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/10/Longest-Common-Substring/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/10/Longest-Common-Substring/" class="leancloud_visitors" data-flag-title="Longest Common Substring">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/longest-common-substring/">Longest Common Substring</a>  </p>
-<h2 id="Description:"><center>Description: </center></h2><p>Given two strings, find the longest common substring.<br>Return the length of it.</p>
-<p><strong>Notice</strong><br>The characters in substring should occur continuously in original string. This is different with subsequence.</p>
-<p><strong>Example</strong><br>Given A = <code>&quot;ABCD&quot;</code>, B = <code>&quot;CBCE&quot;</code>, return <code>2</code>.</p>
-<p><strong>Challenge</strong><br><code>O(n x m)</code> time and memory.</p>
-<h2 id="Thought_Process:"><center>Thought Process:</center></h2><p>DP:  </p>
-<h3 id="State">State</h3><ul>
-<li><code>dp[i][j]</code> stores longest common substring from <code>A.substring(0,i)</code> and <code>B.substring(0,j)</code>.  </li>
-</ul>
-<h3 id="Initialzation">Initialzation</h3><ul>
-<li><code>dp[i][j] = 0</code> for first column &amp; row.</li>
-</ul>
-<h3 id="Function">Function</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">dp[i][j] = A.charAt(i - <span class="number">1</span>) == B.charAt(j - <span class="number">1</span>)? dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span> : <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="Result">Result</h3><ul>
-<li><code>dp[i][j]</code> has non-zero value only when substring occur <strong>continuously</strong>.  </li>
-<li><code>max</code> store global maximun of LCS.  </li>
-<li><code>return max</code>  </li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/10/Longest-Common-Substring/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/09/palindrome-partitioning-II/" itemprop="url">
-                  palindrome partitioning II
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-10T00:41:58+00:00" content="10-10-2016">
-              10-10-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/09/palindrome-partitioning-II/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/09/palindrome-partitioning-II/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/09/palindrome-partitioning-II/" class="leancloud_visitors" data-flag-title="palindrome partitioning II">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/palindrome-partitioning-ii/">Palindrome Partitioning II</a></p>
-<h2 id="Description:"><center>Description:</center></h2><p>Given a string s, cut s into some substrings such that every substring is a palindrome.<br>Return the <strong>minimum</strong> cuts needed for a palindrome partitioning of s.  </p>
-<p><strong>Example</strong><br>Given <code>s = &quot;aab&quot;</code>,</p>
-<p>Return <code>1</code> since the palindrome partitioning <code>[&quot;aa&quot;, &quot;b&quot;]</code> could be produced using <code>1</code> cut.</p>
-<h2 id="Thought_Process:"><center>Thought Process:</center></h2><h3 id="State">State</h3><p>1.<code>pal[s.length() + 1]</code></p>
-<p><code>pal[i]</code> stores minimum cuts for string <code>s[0, i-1]</code> that every substrings is an palindrome.  </p>
-<p>2.<code>dp[s.length()][s.length()]</code>  </p>
-<p><code>dp[j][i-1]</code> stores if <code>s[j, i-1]</code> a palindrome. trade <strong>space</strong> for <strong>time</strong> (dp).  </p>
-<h3 id="Initialization">Initialization</h3><p>1.<code>pal[0] = -1</code> // set as -1 so that <code>pal[1] = 0</code>.<br>2.<code>pal[i] = Integer.MAX_VALUE</code>. // more than one way to partition a string, desire the <strong>minimum</strong> cuts.  </p>
-<p>3.<code>dp[j][i-1] = false</code>  </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/09/palindrome-partitioning-II/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1504,7 +1483,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">58</span>
+              <span class="site-state-item-count">60</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1521,7 +1500,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
