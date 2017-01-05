@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="LintCode,tag2," />
 
 
 
@@ -96,15 +96,21 @@
 
 
 
-<meta name="description" content="阮先生’s blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阮先生de小窝">
-<meta property="og:url" content="http://www.xuyiruan.com/tags/AndroidStudio/index.html">
+<meta name="description" content="description Given two arrays, write a function to compute their intersection.Intersection指的是数学里的交集($\cap$)
+NoticeEach element in the result must be unique.The result can be in any order.
+LC547 Interse">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LC547 - Intersection of Two Arrays">
+<meta property="og:url" content="http://www.xuyiruan.com/2017/01/04/Intersection-of-Two-Arrays/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="阮先生’s blog">
+<meta property="og:description" content="description Given two arrays, write a function to compute their intersection.Intersection指的是数学里的交集($\cap$)
+NoticeEach element in the result must be unique.The result can be in any order.
+LC547 Interse">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阮先生de小窝">
-<meta name="twitter:description" content="阮先生’s blog">
+<meta name="twitter:title" content="LC547 - Intersection of Two Arrays">
+<meta name="twitter:description" content="description Given two arrays, write a function to compute their intersection.Intersection指的是数学里的交集($\cap$)
+NoticeEach element in the result must be unique.The result can be in any order.
+LC547 Interse">
 
 
 
@@ -123,7 +129,7 @@
   };
 </script>
 
-  <title> Tag: AndroidStudio | 阮先生de小窝 </title>
+  <title> LC547 - Intersection of Two Arrays | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -144,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -232,46 +238,150 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        AndroidStudio
-        <small>Tag</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                LC547 - Intersection of Two Arrays
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-04T16:07:04-05:00" content="01-04-2017">
+              01-04-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/04/Intersection-of-Two-Arrays/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/04/Intersection-of-Two-Arrays/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/04/Intersection-of-Two-Arrays/" class="leancloud_visitors" data-flag-title="LC547 - Intersection of Two Arrays">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="description"><center> description </center></h2><p>Given two arrays, write a function to compute their intersection.<br>Intersection指的是数学里的交集($\cap$)</p>
+<p><strong>Notice</strong><br>Each element in the result must be unique.<br>The result can be in any order.</p>
+<p><a href="http://www.lintcode.com/en/problem/intersection-of-two-arrays/" target="_blank" rel="external">LC547 Intersection of Two Arrays</a></p>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums1 an integer array</span><br><span class="line">     * <span class="doctag">@param</span> nums2 an integer array</span><br><span class="line">     * <span class="doctag">@return</span> an integer array</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span> len1 = nums1.length;</span><br><span class="line">        <span class="keyword">int</span> len2 = nums2.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span> || len2 == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// checking</span></span><br><span class="line">        HashSet&lt;Integer&gt; interset = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// solution</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">            set.add(nums1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (set.contains(nums2[i])) &#123;</span><br><span class="line">                interset.add(nums2[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] sol = <span class="keyword">new</span> <span class="keyword">int</span>[interset.size()];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Integer num: interset) &#123;</span><br><span class="line">            sol[index++] = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="algorithm_correctness"><center> algorithm correctness </center></h2><p>Choose one of the array and add all its elements into a HashSet datastructure. HashSet only keeps single copy of the data disregard how many <strong>duplicated</strong> items are added. Since the question ask for unique intersect, we can simply use two hashSets: one for <strong>checking</strong> hashSet, another one <strong>solution</strong> hashSet.  </p>
+<h2 id="complexity_analysis"><center> complexity analysis </center></h2><p>Assume <code>nums1.length == n</code> and <code>nums2.length == m</code></p>
+<p><code>hashset.add()</code>: $O(1)$<br><code>hashset.contains()</code>: $O(1)$ </p>
+<p><strong>Time</strong>: the first for loop cost $n \times O(1) = O(n)$ to add all items in <code>nums1</code> and second forloop costs $m \times O(1) = O(m)$ to check for intersection. The last forloop add all intersect items (less than either <code>n</code> or <code>m</code>) into an array <code>sol</code>.<br>The total time complexity will be $O(n + m)$  </p>
+<p><strong>Space</strong>: total space complexity will be approx. $O(n + m)$  </p>
+<h2 id="self_notes"><center> self notes </center></h2><h2 id="application"><center> application </center></h2><p>To find the union $\cup$ of two arrays, simply add all items from both array into <strong>one</strong> HashSet.</p>
+<h2 id="reference"><center> reference </center></h2><p><a href="http://infotechgems.blogspot.com/2011/11/java-collections-performance-time.html" target="_blank" rel="external">Java Collections – Performance (Time Complexity)</a></p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2015/09/14/my-first-android-app/" itemprop="url">
-              
-                <span itemprop="name">StopWatch - Andriod</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-09-14T18:17:17+00:00"
-              content="09-14-2015" >
-          09-14
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+            <a href="/tags/tag2/" rel="tag">#tag2</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/04/Subarray-Sum/" rel="next" title="LC138 - subarray sum">
+                <i class="fa fa-chevron-left"></i> LC138 - subarray sum
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -279,6 +389,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -298,8 +419,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/author.jpg"
@@ -400,6 +530,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text"> description </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> code </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm_correctness"><span class="nav-number">3.</span> <span class="nav-text"> algorithm correctness </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity_analysis"><span class="nav-number">4.</span> <span class="nav-text"> complexity analysis </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self_notes"><span class="nav-number">5.</span> <span class="nav-text"> self notes </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application"><span class="nav-number">6.</span> <span class="nav-text"> application </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text"> reference </span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -503,6 +644,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -519,9 +664,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
-      var disqus_identifier = 'tags/AndroidStudio/index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2017/01/04/Intersection-of-Two-Arrays/';
+      var disqus_title = "LC547 - Intersection of Two Arrays";
+      var disqus_url = 'http://www.xuyiruan.com/2017/01/04/Intersection-of-Two-Arrays/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -532,6 +677,8 @@
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   
