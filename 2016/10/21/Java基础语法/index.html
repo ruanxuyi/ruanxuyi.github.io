@@ -369,6 +369,42 @@ given string has two integers seperate by a sp">
 <p>We want to extract only the integers numbers.  </p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">strIn = strIn.trim(); <span class="comment">// omit heading and tailing spaces </span></span><br><span class="line">strIn_array = strIn.split(<span class="string">" +"</span>); <span class="comment">// split string into string array with only numbers</span></span><br></pre></td></tr></table></figure>
 <p>Result: <code>strIn_array = [&quot;32&quot;, &quot;1&quot;, &quot;2&quot; ... &quot;1&quot;];</code></p>
+<h2 id="Methods_and_complexity">Methods and complexity</h2><table>
+<thead>
+<tr>
+<th>HashTable</th>
+<th>Methods</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HashTable</td>
+<td>not synchronized</td>
+<td>not synchronized</td>
+</tr>
+<tr>
+<td>HashSet</td>
+<td>duplicate key allow</td>
+<td>duplicate key <em>NOT</em> allow</td>
+</tr>
+<tr>
+<td>null keys or values NOT allow</td>
+<td>allows one null key &amp; many null values</td>
+<td>allow one null value</td>
+</tr>
+<tr>
+<td>key, value pair</td>
+<td>key, value pair</td>
+<td>non-duplicate value</td>
+</tr>
+<tr>
+<td>implement Map interface</td>
+<td>implement Map interface</td>
+<td>implement Set interface</td>
+</tr>
+</tbody>
+</table>
 <h1 id="Reference:">Reference:</h1><p><a href="http://stackoverflow.com/questions/4968323/java-parse-int-value-from-a-char" target="_blank" rel="external">Stackoverflow: parse int value from a char</a><br><a href="http://stackoverflow.com/questions/10079415/splitting-a-string-with-multiple-spaces" target="_blank" rel="external">stackoverflow: Splitting a string with multiple spaces</a>  </p>
 <h1 id="Logs:">Logs:</h1><ul>
 <li>2016/10/21: doc created  </li>
@@ -489,7 +525,7 @@ given string has two integers seperate by a sp">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">63</span>
+              <span class="site-state-item-count">65</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -586,7 +622,7 @@ given string has two integers seperate by a sp">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Split_String_&_String_to_Int"><span class="nav-number">1.</span> <span class="nav-text">Split String & String to Int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Check_Perfect_Square"><span class="nav-number">2.</span> <span class="nav-text">Check Perfect Square</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Read_from_STDIN"><span class="nav-number">3.</span> <span class="nav-text">Read from STDIN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Files_access"><span class="nav-number">4.</span> <span class="nav-text">Files access</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read_from_file"><span class="nav-number">4.1.</span> <span class="nav-text">Read from file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Write_to_file"><span class="nav-number">4.2.</span> <span class="nav-text">Write to file</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remove_whitespace_in_String"><span class="nav-number">5.</span> <span class="nav-text">Remove whitespace in String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String_to_int"><span class="nav-number">6.</span> <span class="nav-text">String to int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#int_to_String"><span class="nav-number">7.</span> <span class="nav-text">int to String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#char_to_int"><span class="nav-number">8.</span> <span class="nav-text">char to int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Standardize_input_format"><span class="nav-number">9.</span> <span class="nav-text">Standardize input format</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number"></span> <span class="nav-text">Reference:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs:"><span class="nav-number"></span> <span class="nav-text">Logs:</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Split_String_&_String_to_Int"><span class="nav-number">1.</span> <span class="nav-text">Split String & String to Int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Check_Perfect_Square"><span class="nav-number">2.</span> <span class="nav-text">Check Perfect Square</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Read_from_STDIN"><span class="nav-number">3.</span> <span class="nav-text">Read from STDIN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Files_access"><span class="nav-number">4.</span> <span class="nav-text">Files access</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read_from_file"><span class="nav-number">4.1.</span> <span class="nav-text">Read from file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Write_to_file"><span class="nav-number">4.2.</span> <span class="nav-text">Write to file</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remove_whitespace_in_String"><span class="nav-number">5.</span> <span class="nav-text">Remove whitespace in String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String_to_int"><span class="nav-number">6.</span> <span class="nav-text">String to int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#int_to_String"><span class="nav-number">7.</span> <span class="nav-text">int to String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#char_to_int"><span class="nav-number">8.</span> <span class="nav-text">char to int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Standardize_input_format"><span class="nav-number">9.</span> <span class="nav-text">Standardize input format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods_and_complexity"><span class="nav-number">10.</span> <span class="nav-text">Methods and complexity</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number"></span> <span class="nav-text">Reference:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs:"><span class="nav-number"></span> <span class="nav-text">Logs:</span></a></div>
             
           </div>
         </section>

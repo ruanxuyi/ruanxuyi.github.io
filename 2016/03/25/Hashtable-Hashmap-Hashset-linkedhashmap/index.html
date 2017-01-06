@@ -426,13 +426,22 @@ null keys or values NOT a">
 </tbody>
 </table>
 <a id="more"></a>
-<h1 id="HashMap"><strong>HashMap</strong></h1><h2 id="Internal_Data_Structure"><strong>Internal Data Structure</strong></h2><p>There are two type of internal data structure in Java programming. <em>Array</em> and <em>linked-list</em>. </p>
+<h1 id="HashMap"><strong>HashMap</strong></h1><h2 id="Internal_Data_Structure"><strong>Internal Data Structure</strong></h2><p>There are two types of internal data structure in Java programming. <em>Array</em> and <em>linked-list</em>. </p>
 <p><em>Array</em>‘s query can complete in constant time, however, operations such as add or remove certain elements result large overhead (rearranging elements within array). </p>
 <p>On the other hand, <em>linked-list</em> has huge overhead in query (treverse whole linked-list) however, the pure operation of add/delete in <em>linked-list</em> data structure (by maniuplating the pointer) is much easier comparing to <em>array</em>. </p>
 <p>HashMap/Table combines both constant query time from <em>array</em> and relatively better performance for add/delete with <em>linked-list</em> </p>
 <p>Below is a graphical represetation of a Hashtable.</p>
 <p><img src="http://img.my.csdn.net/uploads/201211/17/1353118778_2052.png" alt="HashMap internal data structure"></p>
-<p>As more and more <em>key value</em> pair ‘put’ into the hash table. It is very likely that different key values will result into the same location of the arrray cell - which is also called collision. A chain bucket was implemented with <em>linked-list</em>. As the number of collisions into the same array cell increased, the time to treverse the <em>linked-list</em> to look for the specified <em>key</em> value will increase. Once the size of the chain-bucket linked-list exceeds the <em>threadshold</em> ( threadshold = capacity <em> loadFactor). The size of the capacity (size of array) will increase from default capacity of 16 to 32 to reduce the overhead of treverse the long </em>linkedlist*. </p>
+<p>As more and more <em>key value</em> pair ‘put’ into the hash table. It is very likely that different key values will result into the same location of the arrray cell - which is also called <strong>collision</strong>.  </p>
+<p>There are two types of solution for collision:   </p>
+<ul>
+<li>chain buckets (memory overhead, external datastructure)</li>
+<li>open addressing (no extra memory overhead, hashtable itself)</li>
+</ul>
+<p>A chain bucket was implemented with <em>linked-list</em>. As the number of collisions into the same array cell increased, the time to treverse the <em>linked-list</em> to look for the specified <em>key</em> value will increase. Once the size of the chain-bucket linked-list exceeds the <em>threadshold</em> ( threadshold = capacity <em> loadFactor). The size of the capacity (size of array) will increase from default capacity of 16 to 32 to reduce the overhead of treverse the long </em>linkedlist*. </p>
+<blockquote>
+<p>Open addressing strategy requires, that hash function has additional properties. In addition to performing uniform distribution, it should also avoid clustering of hash values, which are consequent in probe’s order.<br><a href="http://www.algolist.net/Data_structures/Hash_table/Open_addressing" target="_blank" rel="external">read here for detail</a></p>
+</blockquote>
 <h2 id="Characterstics"><strong>Characterstics</strong></h2><p>Compared to <em>HashTable</em>, <em>HashMap</em> has the following special characters: </p>
 <p><strong>1. permit nulls</strong>  </p>
 <p>Null value is allowed for both <em>key</em> and <em>value</em> in <em>hashMap</em>, while that is not allowed in <em>hashTable</em>. There is only <strong>one</strong> <code>key=null</code> is permited in <em>hashMap</em>, while <strong>multiple</strong> <code>value=null</code> is allowed. Becaue of that, <code>get(Object key)</code> should not be used to determine whether <em>key</em> exists in a table since a <code>&lt;key, null&gt;</code> pair is legal in <em>hashMap</em>.</p>
@@ -658,7 +667,7 @@ null keys or values NOT a">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">63</span>
+              <span class="site-state-item-count">65</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
