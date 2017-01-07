@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Array&Numbers,LintCode,Sorting," />
+  <meta name="keywords" content="DataStructure,HashTable,LintCode," />
 
 
 
@@ -96,18 +96,17 @@
 
 
 
-<meta name="description" content="description Given an array nums of integers and an int k, partition the array (i.e move the elements in “nums”) such that:  
-All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved to">
+<meta name="description" content="description In data structure Hash, hash function is used to convert a string(or any other type) into an integer smaller than hash size and bigger or equal to zero. The objective of designing a hash f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC31 - partition array">
-<meta property="og:url" content="http://www.xuyiruan.com/2017/01/02/partition-array/index.html">
+<meta property="og:title" content="LC128 - hash function">
+<meta property="og:url" content="http://www.xuyiruan.com/2017/01/07/hash-function/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="description Given an array nums of integers and an int k, partition the array (i.e move the elements in “nums”) such that:  
-All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved to">
+<meta property="og:description" content="description In data structure Hash, hash function is used to convert a string(or any other type) into an integer smaller than hash size and bigger or equal to zero. The objective of designing a hash f">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20170107/1.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20170107/2.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC31 - partition array">
-<meta name="twitter:description" content="description Given an array nums of integers and an int k, partition the array (i.e move the elements in “nums”) such that:  
-All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved to">
+<meta name="twitter:title" content="LC128 - hash function">
+<meta name="twitter:description" content="description In data structure Hash, hash function is used to convert a string(or any other type) into an integer smaller than hash size and bigger or equal to zero. The objective of designing a hash f">
 
 
 
@@ -126,7 +125,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
   };
 </script>
 
-  <title> LC31 - partition array | 阮先生de小窝 </title>
+  <title> LC128 - hash function | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -256,7 +255,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
             
             
               
-                LC31 - partition array
+                LC128 - hash function
               
             
           </h1>
@@ -268,8 +267,8 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-02T12:17:39-05:00" content="01-02-2017">
-              01-02-2017
+            <time itemprop="dateCreated" datetime="2017-01-07T14:13:47-05:00" content="01-07-2017">
+              01-07-2017
             </time>
           </span>
 
@@ -279,8 +278,8 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/02/partition-array/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/02/partition-array/" itemprop="commentsCount"></span>
+                <a href="/2017/01/07/hash-function/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/07/hash-function/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -290,7 +289,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
 
           
           
-             <span id="/2017/01/02/partition-array/" class="leancloud_visitors" data-flag-title="LC31 - partition array">
+             <span id="/2017/01/07/hash-function/" class="leancloud_visitors" data-flag-title="LC128 - hash function">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -312,30 +311,37 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
       
 
       
-        <h2 id="description"><center> description </center></h2><p>Given an array <code>nums</code> of integers and an int <code>k</code>, partition the array (i.e move the elements in “nums”) such that:  </p>
-<p>All elements &lt; k are moved to the <em>left</em><br>All elements &gt;= k are moved to the <em>right</em><br>Return the partitioning index, i.e the first index <em>i</em> nums[<em>i</em>] &gt;= <em>k</em>.  </p>
-<p><strong>Example</strong><br>If nums = <code>[3,2,2,1]</code> and <code>k=2</code>, a valid answer is <code>1</code>.</p>
-<p><a href="http://www.lintcode.com/en/problem/partition-array/" target="_blank" rel="external">LC31 - partition array</a>  </p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="comment">/** </span><br><span class="line">     *<span class="doctag">@param</span> nums: The integer array you should partition</span><br><span class="line">     *<span class="doctag">@param</span> k: As description</span><br><span class="line">     *return: The index after partition</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partitionArray</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//write your code here</span></span><br><span class="line">	    <span class="keyword">if</span> (nums.length == <span class="number">0</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">	        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	    <span class="keyword">int</span> high = nums.length-<span class="number">1</span>;</span><br><span class="line">	    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[low] &lt; k) &#123;</span><br><span class="line">	            low++;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[high] &gt;= k) &#123;</span><br><span class="line">	            high--;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="comment">// swap</span></span><br><span class="line">	        <span class="keyword">if</span> (low &lt;= high) &#123;</span><br><span class="line">	            <span class="keyword">int</span> tmp = nums[high];</span><br><span class="line">	            nums[high] = nums[low];</span><br><span class="line">	            nums[low] = tmp;</span><br><span class="line">	            <span class="comment">//low++;</span></span><br><span class="line">	            <span class="comment">//high--;</span></span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> high+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="description"><center> description </center></h2><p>In data structure Hash, hash function is used to convert a string(or any other type) into an integer smaller than hash size and bigger or equal to zero. The objective of designing a hash function is to “hash” the key as unreasonable as possible. A good hash function can avoid collision as less as possible. A widely used hash function algorithm is using a magic number 33, consider any string as a 33 based big integer like follow:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">hashcode(<span class="string">"abcd"</span>) = (ascii(a) * <span class="number">333</span> + ascii(b) * <span class="number">332</span> + ascii(c) *<span class="number">33</span> + ascii(d)) % HASH_SIZE </span><br><span class="line"></span><br><span class="line">                              = (<span class="number">97</span>* <span class="number">333</span> + <span class="number">98</span> * <span class="number">332</span> + <span class="number">99</span> * <span class="number">33</span> +<span class="number">100</span>) % HASH_SIZE</span><br><span class="line"></span><br><span class="line">                              = <span class="number">3595978</span> % HASH_SIZE</span><br></pre></td></tr></table></figure>
+<p>here <code>HASH_SIZE</code> is the capacity of the hash table (you can assume a hash table is like an array with index 0 ~ <code>HASH_SIZE</code>-1).</p>
+<p>Given a string as a key and the size of hash table, return the hash value of this key.f</p>
+<p><strong>Clarification</strong><br>For this problem, you are not necessary to design your own hash algorithm or consider any collision issue, you just need to implement the algorithm as described.</p>
+<p><strong>Example</strong><br>For <code>key=&quot;abcd&quot;</code> and <code>size=100</code>, return <code>78</code></p>
+<p><a href="http://www.lintcode.com/en/problem/hash-function/" target="_blank" rel="external">LC129 hash function</a></p>
+<h2 id="code"><center> code </center></h2><h3 id="Ver-1">Ver.1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> key: A String you should hash</span><br><span class="line">     * <span class="doctag">@param</span> HASH_SIZE: An integer</span><br><span class="line">     * <span class="doctag">@return</span> an integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">(<span class="keyword">char</span>[] key,<span class="keyword">int</span> HASH_SIZE)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = key.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; len; index++) &#123;</span><br><span class="line">            sum = (sum * <span class="number">33</span> + key[index]) % HASH_SIZE;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="algorithm_correctness"><center> algorithm correctness </center></h2><h3 id="line_14_:_while_(low_&lt;=_high)_{,_why_low_&lt;_high_is_not_sufficient?">line 14 : <code>while (low &lt;= high) {</code>, why <code>low &lt; high</code> is not sufficient?</h3><p>partition algorithm requires partition to be done as following:<br><code>[start... high] [low... end]</code> where <code>low != high</code><br>Therefore, when <code>low == high</code>, we need to further seperate <code>low</code> with <code>high</code> to fullfill the inclusive requirement.  </p>
-<h3 id="line_15_&amp;_line_18:_why_extra_low_&lt;=_high?">line 15 &amp; line 18: why extra <code>low &lt;= high</code>?</h3><p>different from partition in quicksort algorithm, where pivot <code>p</code> at most the <strong>largest</strong> or <strong>smallest</strong> element <strong>in</strong> the array.(ex <code>[1,2,3]</code>, <code>p = 2</code>).   </p>
-<p>However, in this particular setting, integer <code>k</code> could be either larger/smaller than <strong>any</strong> of the elements in the array. (ex. <code>[1,2,3]</code> <code>k = 4</code>).<br>Without <code>low &lt;= high</code> condition inside <code>while</code> statement, <code>low++</code>/<code>high--</code> will cause index-out-of-bound.  </p>
-<h3 id="line_26,_27_is_optional_in_this_question-">line 26, 27 is optional in this question.</h3><pre><code><span class="comment">//low++;</span>
-<span class="comment">//high--;</span>
-</code></pre><p>two lines above inside if statment is optional in this setting because while statement from line 18-20 <strong>update</strong> <code>high pointer</code> when the value is equal to the target value (pivot value).  </p>
-<p>However, this two lines are <strong>essential</strong> in quicksort becuase both while loop in quick sort did not specific what to do when <code>value == pivot</code>. </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (array[left] &lt; pivot) &#123;</span><br><span class="line">	left++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (pivot &lt; array[right]) &#123;</span><br><span class="line">	right--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Therefore, <strong>without</strong> two lines in if statemnt below. At time encounter values <strong>equal</strong> to pivot value, algorithm will <strong>NOT</strong> progress.  </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">	<span class="keyword">int</span> temp = array[right];</span><br><span class="line">	array[right] = array[left];</span><br><span class="line">	array[left] = temp;</span><br><span class="line">	left++; <span class="comment">// help to progress w/ piviot == array[left]</span></span><br><span class="line">	right--; <span class="comment">// help to progress w/ piviot == array[right]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="complexity_analysis"><center> complexity analysis </center></h2><p>time $O(n)$ where n is the number of elements in array<br>space $O(1)$ no extra space needed</p>
-<p><a href="">github</a></p>
-<h2 id="self_notes"><center> self notes </center></h2><p>quick sort algorithm - PARTION 部分的 变种。  </p>
-<ol>
-<li>int <code>k</code>, is not neccessary part of array, <code>k</code> could be larger/smaller than any of elements in array.  add <code>low &lt; nums.length</code> on line 15 and <code>high &gt;= 0</code> on line 18 to prevent indexOutOfBound.  </li>
-<li><code>nums[high] &gt;= k</code> put all values equal to <strong>pivots</strong> values to the right partion to fulfill the requirement.  </li>
-</ol>
-<h2 id="reference"><center> reference </center></h2><p><a href="http://www.jiuzhang.com/solutions/partition-array/" target="_blank" rel="external">九章Partition Array</a><br><a href="http://xuyiruan.com/2016/08/30/Sorting-Algorithms/" target="_blank" rel="external">Sorting Algorithm</a>  </p>
+<h3 id="Time_out_ver-2">Time out ver.2</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> key: A String you should hash</span><br><span class="line">     * <span class="doctag">@param</span> HASH_SIZE: An integer</span><br><span class="line">     * <span class="doctag">@return</span> an integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">(<span class="keyword">char</span>[] key,<span class="keyword">int</span> HASH_SIZE)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        BigInteger sum = BigInteger.valueOf(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> len = key.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; len; index++) &#123;</span><br><span class="line">            <span class="keyword">char</span> curr = key[index];</span><br><span class="line">            BigInteger base = BigInteger.valueOf(<span class="number">33</span>);</span><br><span class="line">            sum = sum.add(BigInteger.valueOf((<span class="keyword">int</span>)(curr)).multiply(base.pow(len-index-<span class="number">1</span>)));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (sum.mod(BigInteger.valueOf(HASH_SIZE))).intValue();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="algorithm_correctness"><center> algorithm correctness </center></h2><p>There are two versions of implementation. The second version did <strong>not</strong> pass the test. The first version is <strong>better</strong> than second version in following:  </p>
+<ul>
+<li>using <code>long</code> instead of <code>BigInteger</code>:   </li>
+</ul>
+<p><code>long</code> type support direct arithmetic opeartion, which <code>BigInteger</code> did not support.  </p>
+<ul>
+<li>mod <code>HASH_SIZE</code> at every iteration to prevent <code>sum</code> overflow:  </li>
+</ul>
+<p>Instead of mod a huge <code>sum</code> w/ potential of <strong>overflow</strong>, we mod the HASH_SIZE with currnt <code>sum</code> at every iteration to prevent overflow.   </p>
+<h3 id="mod_property_to_prevent_overflow">mod property to prevent overflow</h3><p>Below we prove that taking [mod of sum] <strong>equals</strong> to [sum of mod of partial sum]</p>
+<p>$(7+6) \mod 5 == ((7\mod5) + 6)\mod5$<br>Left:<br>$(7+6) \mod 5 = 13\mod5 = 3$<br>Right:<br>$((7\mod5) + 6)\mod5 = 8\mod5 = 3$</p>
+<p>Therfore:<br>$left == right$  </p>
+<p>Mod <code>HASH_SIZE</code> at every iteration significant eliminate chance of overflow.</p>
+<h3 id="alteration_for_Math-pow()">alteration for Math.pow()</h3><p>Instead of using <code>Math.pow()</code> explicitly write out every terms for base 33 <strong>power</strong>.  </p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20170107/1.png" alt=""><br>We modify it to more structurized code:  </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; len; index++) &#123;</span><br><span class="line">    sum = (sum * <span class="number">33</span> + key[index]) % HASH_SIZE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>we also need to show that the for-loop from <code>line 13-15</code> in version 1 has the same result as the <code>hashcode()</code> function</p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20170107/2.png" alt=""></p>
+<h2 id="complexity_analysis"><center> complexity analysis </center></h2><p>Both algorithm result in same complexity where $n$ is length of <code>key</code>.  </p>
+<p>Time: $O(n)$<br>Space: $O(1)$</p>
+<h2 id="self_notes"><center> self notes </center></h2><h2 id="application"><center> application </center></h2><h2 id="reference"><center> reference </center></h2><p><a href="http://www.jiuzhang.com/solutions/hash-function/" target="_blank" rel="external">hash function sol</a><br><a href="http://www.jiuzhang.com/qa/1978/" target="_blank" rel="external">hash function overflow</a></p>
 
       
     </div>
@@ -357,11 +363,11 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
       
         <div class="post-tags">
           
-            <a href="/tags/Array-Numbers/" rel="tag">#Array&Numbers</a>
+            <a href="/tags/DataStructure/" rel="tag">#DataStructure</a>
+          
+            <a href="/tags/HashTable/" rel="tag">#HashTable</a>
           
             <a href="/tags/LintCode/" rel="tag">#LintCode</a>
-          
-            <a href="/tags/Sorting/" rel="tag">#Sorting</a>
           
         </div>
       
@@ -370,17 +376,13 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/29/sort-colors/" rel="next" title="LC148 - sort colors">
-                <i class="fa fa-chevron-left"></i> LC148 - sort colors
+              <a href="/2017/01/06/rehashing/" rel="next" title="LC129 - rehashing">
+                <i class="fa fa-chevron-left"></i> LC129 - rehashing
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/02/Subarray-Sum-Closest/" rel="prev" title="LC139 - subarray sum closest">
-                LC139 - subarray sum closest <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -552,7 +554,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text"> description </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> code </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm_correctness"><span class="nav-number">3.</span> <span class="nav-text"> algorithm correctness </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#line_14_:_while_(low_<=_high)_{,_why_low_<_high_is_not_sufficient?"><span class="nav-number">3.1.</span> <span class="nav-text">line 14 : while (low <= high) {, why low < high is not sufficient?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#line_15_&_line_18:_why_extra_low_<=_high?"><span class="nav-number">3.2.</span> <span class="nav-text">line 15 & line 18: why extra low <= high?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#line_26,_27_is_optional_in_this_question-"><span class="nav-number">3.3.</span> <span class="nav-text">line 26, 27 is optional in this question.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity_analysis"><span class="nav-number">4.</span> <span class="nav-text"> complexity analysis </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self_notes"><span class="nav-number">5.</span> <span class="nav-text"> self notes </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">6.</span> <span class="nav-text"> reference </span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text"> description </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> code </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ver-1"><span class="nav-number">2.1.</span> <span class="nav-text">Ver.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Time_out_ver-2"><span class="nav-number">2.2.</span> <span class="nav-text">Time out ver.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm_correctness"><span class="nav-number">3.</span> <span class="nav-text"> algorithm correctness </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mod_property_to_prevent_overflow"><span class="nav-number">3.1.</span> <span class="nav-text">mod property to prevent overflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alteration_for_Math-pow()"><span class="nav-number">3.2.</span> <span class="nav-text">alteration for Math.pow()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity_analysis"><span class="nav-number">4.</span> <span class="nav-text"> complexity analysis </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self_notes"><span class="nav-number">5.</span> <span class="nav-text"> self notes </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application"><span class="nav-number">6.</span> <span class="nav-text"> application </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text"> reference </span></a></li></ol></div>
             
           </div>
         </section>
@@ -679,9 +681,9 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
 
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
-      var disqus_identifier = '2017/01/02/partition-array/';
-      var disqus_title = "LC31 - partition array";
-      var disqus_url = 'http://www.xuyiruan.com/2017/01/02/partition-array/';
+      var disqus_identifier = '2017/01/07/hash-function/';
+      var disqus_title = "LC128 - hash function";
+      var disqus_url = 'http://www.xuyiruan.com/2017/01/07/hash-function/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
