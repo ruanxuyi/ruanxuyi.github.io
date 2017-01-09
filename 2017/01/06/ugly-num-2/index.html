@@ -339,7 +339,9 @@ Design an algorithm to find the nth ugly number. The first 10 ugly numbers are 1
 <p>After <strong>first iteration</strong>, <code>uglyList[1]</code> is valid and one of <code>p2</code>, <code>p3</code>, or <code>p5</code> will increment (ex. <code>p2=1</code>, <code>p3=0</code>, or <code>p5=0</code>). As long as index <code>p2</code>, <code>p3</code>, or <code>p5</code> returns valid value from <code>uglyList</code>, the algorithm works.   </p>
 <p>Indeed that is truth, because, assume the worst case that <code>p2</code> always get increment (<code>p2</code> is the furthest index comapre to <code>p3</code>, <code>p5</code>). If <code>p2</code> the furthest index, returns a valid value, <code>uglyList[p2]</code>. Indice <code>p3</code> and <code>p5</code> should return valid value. Therefore, the algorithm works.  </p>
 <h2 id="complexity_analysis"><center> complexity analysis </center></h2><p><strong>Time</strong>: $O(n)$ for-loop need to traverse $n$ time to get the $n$th ugly number.<br><strong>Space</strong>: $O(n)$ array of size $n$ to store existing ugly numbers.<br><a href="">github</a></p>
-<h2 id="self_notes"><center> self notes </center></h2><h2 id="application"><center> application </center></h2><h2 id="reference"><center> reference </center></h2><p><a href="http://fisherlei.blogspot.com/2015/10/leetcode-ugly-number-ii-solution.html" target="_blank" rel="external">水中的鱼[Leetcode] Ugly Number II, Solution</a><br><a href="http://www.jiuzhang.com/solutions/ugly-number-ii/" target="_blank" rel="external">九章 solution</a></p>
+<h2 id="self_notes"><center> self notes </center></h2><h2 id="application"><center> application </center></h2><p>relate question on determine whether or not a number is a ulgy number.<br><a href="http://www.lintcode.com/en/problem/ugly-number/" target="_blank" rel="external">LC517 Ugly Number</a></p>
+<p>Very <strong>elegant</strong> solution, feel free to take a look!</p>
+<h2 id="reference"><center> reference </center></h2><p><a href="http://fisherlei.blogspot.com/2015/10/leetcode-ugly-number-ii-solution.html" target="_blank" rel="external">水中的鱼[Leetcode] Ugly Number II, Solution</a><br><a href="http://www.jiuzhang.com/solutions/ugly-number-ii/" target="_blank" rel="external">九章 solution</a></p>
 
       
     </div>
@@ -457,7 +459,7 @@ Design an algorithm to find the nth ugly number. The first 10 ugly numbers are 1
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">66</span>
+              <span class="site-state-item-count">68</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -474,7 +476,7 @@ Design an algorithm to find the nth ugly number. The first 10 ugly numbers are 1
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
