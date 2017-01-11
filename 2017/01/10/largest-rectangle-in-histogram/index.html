@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BFS,DFS," />
+  <meta name="keywords" content="Array,DataStructure,LintCode,SBNN,Stack," />
 
 
 
@@ -96,15 +96,23 @@
 
 
 
-<meta name="description" content="BFS and DFSBFS">
+<meta name="description" content="description Given $n$ non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
+
+Above is a histogram where w">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BFS vs DFS">
-<meta property="og:url" content="http://www.xuyiruan.com/2016/03/28/BFS-DFS/index.html">
+<meta property="og:title" content="LC122 - largest rectangle in histogram">
+<meta property="og:url" content="http://www.xuyiruan.com/2017/01/10/largest-rectangle-in-histogram/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="BFS and DFSBFS">
+<meta property="og:description" content="description Given $n$ non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
+
+Above is a histogram where w">
+<meta property="og:image" content="http://www.lintcode.com/media/problem/histogram1.png">
+<meta property="og:image" content="http://www.lintcode.com/media/problem/histogram_area.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BFS vs DFS">
-<meta name="twitter:description" content="BFS and DFSBFS">
+<meta name="twitter:title" content="LC122 - largest rectangle in histogram">
+<meta name="twitter:description" content="description Given $n$ non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
+
+Above is a histogram where w">
 
 
 
@@ -123,7 +131,7 @@
   };
 </script>
 
-  <title> BFS vs DFS | 阮先生de小窝 </title>
+  <title> LC122 - largest rectangle in histogram | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -253,7 +261,7 @@
             
             
               
-                BFS vs DFS
+                LC122 - largest rectangle in histogram
               
             
           </h1>
@@ -265,38 +273,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-03-28T14:35:52-04:00" content="03-28-2016">
-              03-28-2016
+            <time itemprop="dateCreated" datetime="2017-01-10T23:21:45-05:00" content="01-11-2017">
+              01-11-2017
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/DataStructure/" itemprop="url" rel="index">
-                    <span itemprop="name">DataStructure</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/28/BFS-DFS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/28/BFS-DFS/" itemprop="commentsCount"></span>
+                <a href="/2017/01/10/largest-rectangle-in-histogram/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/10/largest-rectangle-in-histogram/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -306,7 +295,7 @@
 
           
           
-             <span id="/2016/03/28/BFS-DFS/" class="leancloud_visitors" data-flag-title="BFS vs DFS">
+             <span id="/2017/01/10/largest-rectangle-in-histogram/" class="leancloud_visitors" data-flag-title="LC122 - largest rectangle in histogram">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -328,9 +317,29 @@
       
 
       
-        <h1 id="BFS_and_DFS">BFS and DFS</h1><h2 id="BFS">BFS</h2><a id="more"></a>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 本代码由九章算法编辑提供。没有版权欢迎转发。</span><br><span class="line"> * - 九章算法致力于帮助更多中国人找到好的工作，教师团队均来自硅谷和国内的一线大公司在职工程师。</span><br><span class="line"> * - 现有的面试培训课程包括：九章算法班，系统设计班，BAT国内班</span><br><span class="line"> * - 更多详情请见官方网站：http://www.jiuzhang.com/</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt; levelOrder(TreeNode root) &#123;</span><br><span class="line">        ArrayList result = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">            </span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        queue.offer(root);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            ArrayList&lt;Integer&gt; level = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">            <span class="keyword">int</span> size = queue.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">                TreeNode head = queue.poll();</span><br><span class="line">                level.add(head.val);</span><br><span class="line">                <span class="keyword">if</span> (head.left != <span class="keyword">null</span>)</span><br><span class="line">                    queue.offer(head.left);</span><br><span class="line">                <span class="keyword">if</span> (head.right != <span class="keyword">null</span>)</span><br><span class="line">                    queue.offer(head.right);</span><br><span class="line">            &#125;</span><br><span class="line">            result.add(level);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="DFS">DFS</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 本代码由九章算法编辑提供。没有版权欢迎转发。</span><br><span class="line"> * - 九章算法致力于帮助更多中国人找到好的工作，教师团队均来自硅谷和国内的一线大公司在职工程师。</span><br><span class="line"> * - 现有的面试培训课程包括：九章算法班，系统设计班，BAT国内班</span><br><span class="line"> * - 更多详情请见官方网站：http://www.jiuzhang.com/</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line">Template <span class="number">1</span>: Traverse</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">traverse</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">        traverse(root.left);</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">        traverse(root.right);</span><br><span class="line">        <span class="comment">// do something with root</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Tempate <span class="number">2</span>: Divide &amp; Conquer</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultType <span class="title">traversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// null or leaf</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// do something and return;</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Divide</span></span><br><span class="line">        ResultType left = traversal(root.left);</span><br><span class="line">        ResultType right = traversal(root.right);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Conquer</span></span><br><span class="line">        ResultType result = Merge from left and right.</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="description"><center> description </center></h2><p>Given $n$ non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.</p>
+<p><img src="http://www.lintcode.com/media/problem/histogram1.png" alt=""></p>
+<p>Above is a histogram where width of each bar is 1, given height = <code>[2,1,5,6,2,3]</code>.</p>
+<p><img src="http://www.lintcode.com/media/problem/histogram_area.png" alt=""></p>
+<p>The largest rectangle is shown in the shaded area, which has area = <code>10</code> unit.</p>
+<p><strong>Example</strong><br>Given height = <code>[2,1,5,6,2,3]</code>,<br>return <code>10</code>.</p>
+<p><a href="http://www.lintcode.com/en/problem/largest-rectangle-in-histogram/" target="_blank" rel="external">LC122 largest rectangle in histogram</a></p>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> height: A list of integer</span><br><span class="line">     * <span class="doctag">@return</span>: The area of largest rectangle in the histogram</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= height.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> curr = i == height.length ? <span class="number">0</span> : height[i];</span><br><span class="line">            <span class="keyword">while</span> (!stack.empty() &amp;&amp; curr &lt; height[stack.peek()]) &#123;</span><br><span class="line">                <span class="keyword">int</span> right = i;</span><br><span class="line">                <span class="keyword">int</span> target = stack.pop();</span><br><span class="line">                <span class="keyword">int</span> left = stack.empty() ? -<span class="number">1</span> : stack.peek();</span><br><span class="line">                <span class="keyword">int</span> area = (right - left - <span class="number">1</span>) * height[target];</span><br><span class="line">                max = area &gt; max ? area : max;</span><br><span class="line">            &#125;</span><br><span class="line">            stack.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="algorithm"><center> algorithm </center></h2><h3 id="Method1_($O(n^2)$)">Method1 ($O(n^2)$)</h3><p>For each target bar, two pointers scan away from the <strong>target bar</strong> to left and right until reaching the first bar with smaller height OR pointer reach the end of array. Calculate <strong>max area</strong> with height of target bar and return the global <code>max</code> value.  </p>
+<h3 id="Method2_($O(n)$)">Method2 ($O(n)$)</h3><p>From observing method 1, we can eliminate un-necessary scan opeartion by maintaining a increment sequence in stack.  </p>
+<p>For example, given array <code>array = [1 2 3 4 5 6]</code>.  </p>
+<p>To find area of <code>bar 0 = a[0]</code>: since the height of bars are in increment order, we scan from left to right and visit 5 bars to its right.<br>To find area of <code>bar 1 = a[1]</code>: we scan from left to right visit the <strong>same bars</strong> visited last iteration.<br>We repeat the process above until we find area for all the bars.  </p>
+<h4 id="benefit_of_incremental_order">benefit of incremental order</h4><p>Notice of the <strong>duplicate</strong> scan of same bars for mulitple times from left to right in an height increment array. We <strong>avoid duplicate</strong> scan by utilizing a stack to record the index of current increment sequence until we hit a bar which its height is not continue incrementing.  </p>
+<p>Another <strong>benefit</strong> of maintaing a incremental order is it provide a general format for calculating the area. If elements in an incremental sequence index from $i$ to $j$, the <strong>widith</strong> of max area with height of <code>bar[i]</code> must extends to <code>j</code>. </p>
+<p><code>int area = (j - i + 1) * height[target];</code></p>
+<p><strong>Algorithm</strong>:   </p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="label">for</span> (int i = <span class="number">0</span><span class="comment">; i &lt;= height.length; i++)</span></span><br><span class="line">    <span class="preprocessor">If</span> (current <span class="keyword">bar </span>height $&gt;$ the <span class="keyword">bar </span>height <span class="keyword">pushed </span>previously) (maintaining increment order): </span><br><span class="line">	     -&gt; <span class="keyword">push </span>into stack  </span><br><span class="line">    <span class="preprocessor">While</span> (current <span class="keyword">bar </span>height $&lt;$ the <span class="keyword">bar </span>height <span class="keyword">pushed </span>previously) (current element will distroy increment property):  </span><br><span class="line">        -&gt; <span class="keyword">pop </span>from top of stack  </span><br><span class="line">        -&gt; calculate <span class="preprocessor">area</span> of height of <span class="keyword">pop </span>element <span class="keyword">and </span>update `max`</span><br></pre></td></tr></table></figure>
+<p>Instead of scaning from left to right for n times, this algorithm only requires 1 scan from left to right.  </p>
+<h2 id="complexity_analysis"><center> complexity analysis </center></h2><h3 id="method_1">method 1</h3><p><strong>Time</strong>:  $O(n^2)$ for each bar, we need $O(n)$ to find the max area of with that height, and we have total of $n$ bars.<br><strong>Spcce</strong>:  $O(1)$ no extra space required</p>
+<h3 id="method_2">method 2</h3><p><strong>Time</strong>:  $O(n)$ only require one scan from left to right accross each bar.<br><strong>Spcce</strong>:  $O(n)$ extra space for stack to store the incrementing sequence.  </p>
+<h2 id="self_notes"><center> self notes </center></h2><p>Another interesing by <a href="http://www.geeksforgeeks.org/largest-rectangular-area-in-a-histogram-set-1/" target="_blank" rel="external">geeksforgeeks.com</a> has $O(nlogn)$ with Divide and Conquer + Segment Tree.  </p>
+<h2 id="application"><center> application </center></h2><h2 id="reference"><center> reference </center></h2><p><a href="http://www.jiuzhang.com/solutions/largest-rectangle-in-histogram/" target="_blank" rel="external">Sol by Jiuzhang</a><br><a href="http://bangbingsyb.blogspot.com/2014/11/leetcode-largest-rectangle-in-histogram.html" target="_blank" rel="external">非常中肯的分析</a>  </p>
 
       
     </div>
@@ -352,9 +361,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/BFS/" rel="tag">#BFS</a>
+            <a href="/tags/Array/" rel="tag">#Array</a>
           
-            <a href="/tags/DFS/" rel="tag">#DFS</a>
+            <a href="/tags/DataStructure/" rel="tag">#DataStructure</a>
+          
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+            <a href="/tags/SBNN/" rel="tag">#SBNN</a>
+          
+            <a href="/tags/Stack/" rel="tag">#Stack</a>
           
         </div>
       
@@ -363,17 +378,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/28/BinarySearch/" rel="next" title="Binary Search">
-                <i class="fa fa-chevron-left"></i> Binary Search
+              <a href="/2017/01/10/implement-queue-by-two-stacks/" rel="next" title="LC40 - implement queue by two stacks">
+                <i class="fa fa-chevron-left"></i> LC40 - implement queue by two stacks
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/07/毕业之旅/" rel="prev" title="大学四年。">
-                大学四年。 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -545,7 +556,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BFS_and_DFS"><span class="nav-number">1.</span> <span class="nav-text">BFS and DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BFS"><span class="nav-number">1.1.</span> <span class="nav-text">BFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DFS"><span class="nav-number">1.2.</span> <span class="nav-text">DFS</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text"> description </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> code </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm"><span class="nav-number">3.</span> <span class="nav-text"> algorithm </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Method1_($O(n^2)$)"><span class="nav-number">3.1.</span> <span class="nav-text">Method1 ($O(n^2)$)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method2_($O(n)$)"><span class="nav-number">3.2.</span> <span class="nav-text">Method2 ($O(n)$)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#benefit_of_incremental_order"><span class="nav-number">3.2.1.</span> <span class="nav-text">benefit of incremental order</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity_analysis"><span class="nav-number">4.</span> <span class="nav-text"> complexity analysis </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#method_1"><span class="nav-number">4.1.</span> <span class="nav-text">method 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#method_2"><span class="nav-number">4.2.</span> <span class="nav-text">method 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self_notes"><span class="nav-number">5.</span> <span class="nav-text"> self notes </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application"><span class="nav-number">6.</span> <span class="nav-text"> application </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text"> reference </span></a></li></ol></div>
             
           </div>
         </section>
@@ -672,9 +683,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
-      var disqus_identifier = '2016/03/28/BFS-DFS/';
-      var disqus_title = "BFS vs DFS";
-      var disqus_url = 'http://www.xuyiruan.com/2016/03/28/BFS-DFS/';
+      var disqus_identifier = '2017/01/10/largest-rectangle-in-histogram/';
+      var disqus_title = "LC122 - largest rectangle in histogram";
+      var disqus_url = 'http://www.xuyiruan.com/2017/01/10/largest-rectangle-in-histogram/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
