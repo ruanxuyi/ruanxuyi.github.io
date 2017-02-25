@@ -256,6 +256,345 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/28/Search-Insert-Position/" itemprop="url">
+                  Lintcode 60 - Search Insert Position
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-28T15:59:15+00:00" content="06-28-2016">
+              06-28-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/28/Search-Insert-Position/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/28/Search-Insert-Position/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/28/Search-Insert-Position/" class="leancloud_visitors" data-flag-title="Lintcode 60 - Search Insert Position">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/search-insert-position/">Search Insert Position</a>  </p>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A.length == <span class="number">0</span> || target &lt; A[<span class="number">0</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// binary search;</span></span><br><span class="line">        <span class="comment">// IDEA: not find the exact pos of the target</span></span><br><span class="line">        <span class="comment">// Correct IDEA: find the first element that is larger than the target, </span></span><br><span class="line">        <span class="comment">// mark it as `end`, (if target larger than the last element in array, </span></span><br><span class="line">        <span class="comment">// keep `end` to the last element). </span></span><br><span class="line">        <span class="comment">// IDEA -&gt; try to norrow down to a regiion of possible place to insert </span></span><br><span class="line">        <span class="comment">// the target. </span></span><br><span class="line">        <span class="comment">// Possible place examples: </span></span><br><span class="line">        <span class="comment">// [1, 4, 5, 6, 7, 9] -&gt; possible place [7(start), 9(end)] target = 8</span></span><br><span class="line">        <span class="comment">// [1, 4, 5, 6, 7, 9] -&gt; possible place [7(start), 9(end)] target = 10</span></span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//int mid = low + (high - low) / 2; 这一行可以弄到下面去</span></span><br><span class="line">        <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123; <span class="comment">// to keep `start` and `end` seperate.</span></span><br><span class="line">            mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target &lt; A[mid]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; A[mid]) &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">                <span class="comment">//可能会有读者认为刚开始时就要判断相等，但毕竟数组中不相等的情况更多  </span></span><br><span class="line">                <span class="comment">//如果每次循环都判断一下是否相等，将耗费时间 </span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// both if statements have `=` because (low + 1 &lt; high) jump out before </span></span><br><span class="line">        <span class="comment">// evaluate if (target == A[mid]) &#123;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (target &lt;= A[low]) &#123;</span><br><span class="line">            <span class="comment">// if target value is smaller than the smallest value in array</span></span><br><span class="line">            <span class="keyword">return</span> low;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &lt;= A[high]) &#123;</span><br><span class="line">            <span class="comment">// if target value is in between low and high</span></span><br><span class="line">            <span class="keyword">return</span> high;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            <span class="comment">// if target larger than the largest element in array</span></span><br><span class="line">            <span class="keyword">return</span> high + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/28/Search-Insert-Position/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/28/Search-in-a-Big-Sorted-Array/" itemprop="url">
+                  Lintcode 447 - Search in a Big Sorted Array
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-28T15:57:06+00:00" content="06-28-2016">
+              06-28-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/28/Search-in-a-Big-Sorted-Array/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/28/Search-in-a-Big-Sorted-Array/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/28/Search-in-a-Big-Sorted-Array/" class="leancloud_visitors" data-flag-title="Lintcode 447 - Search in a Big Sorted Array">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/search-in-a-big-sorted-array/">Search in a Big Sorted Array</a>  </p>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchBigSortedArray</span><span class="params">(ArrayReader reader, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (reader == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = target;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     *  second tries added</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">while</span> (reader.get(high) &lt; target) &#123;</span><br><span class="line">        high += target;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">        mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt;= reader.get(mid)) &#123;</span><br><span class="line">            high = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            low = mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (reader.get(low) == target) &#123;</span><br><span class="line">        <span class="keyword">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (reader.get(high) == target) &#123;</span><br><span class="line">        <span class="keyword">return</span> high;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/28/Search-in-a-Big-Sorted-Array/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/28/Search-for-a-range/" itemprop="url">
+                  Lintcode 61 - Search For a Range
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-28T15:24:01+00:00" content="06-28-2016">
+              06-28-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/28/Search-for-a-range/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/28/Search-for-a-range/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/28/Search-for-a-range/" class="leancloud_visitors" data-flag-title="Lintcode 61 - Search For a Range">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/search-for-a-range/">Search for a Range</a>  </p>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] searchRange(<span class="keyword">int</span>[] A, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> [] result = &#123;-<span class="number">1</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> startPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> endPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">            mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target &lt;= A[mid]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// binary search end</span></span><br><span class="line">        <span class="keyword">if</span> (A[low] == target) &#123;</span><br><span class="line">            startPos = low;</span><br><span class="line">            found = <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (A[high] == target) &#123; <span class="comment">// if the target value is the LAST element, using low as startPos will not work, in this case, set startPos as the index of LAST element. </span></span><br><span class="line">            startPos = high;</span><br><span class="line">            found = <span class="keyword">true</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> (found) &#123;</span><br><span class="line">            endPos = startPos;</span><br><span class="line">            <span class="keyword">while</span> (endPos &lt; A.length &amp;&amp; A[endPos] == target) &#123;</span><br><span class="line">                endPos++;</span><br><span class="line">            &#125;</span><br><span class="line">            endPos--;</span><br><span class="line">            result[<span class="number">0</span>] = startPos;</span><br><span class="line">            result[<span class="number">1</span>] = endPos;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/28/Search-for-a-range/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/18/ML/" itemprop="url">
                   [Completed] Coursera: Machine Learning by Stanford - Part1
                 </a>
@@ -1097,404 +1436,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/02/reverse-linked-list/" itemprop="url">
-                  Reverse linkedlist
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-03-02T07:04:12+00:00" content="03-02-2016">
-              03-02-2016
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/02/reverse-linked-list/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/02/reverse-linked-list/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/03/02/reverse-linked-list/" class="leancloud_visitors" data-flag-title="Reverse linkedlist">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="206_Reverse_Linked_List">206 Reverse Linked List</h2><p><a href="https://leetcode.com/problems/reverse-linked-list/">Try it yourself</a></p>
-<h2 id="Requirment:">Requirment:</h2><p>Reverse a singly linked list.</p>
-<h2 id="Solution_1:_(Iteratively_O(N))">Solution 1: (Iteratively O(N))</h2>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/02/reverse-linked-list/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/14/my-first-android-app/" itemprop="url">
-                  StopWatch - Andriod
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-09-14T18:17:17+00:00" content="09-14-2015">
-              09-14-2015
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MoblieApplication/" itemprop="url" rel="index">
-                    <span itemprop="name">MoblieApplication</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/14/my-first-android-app/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/14/my-first-android-app/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/09/14/my-first-android-app/" class="leancloud_visitors" data-flag-title="StopWatch - Andriod">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Description:"><strong>Description:</strong></h2><p>This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of <code>Runnerable</code>, <code>Multli-threads application</code>,<code>Handler</code>, as well as <code>OnClickListener</code></p>
-<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp2.png" alt="running app" style="width:600px"/></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/14/my-first-android-app/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/08/endOfJunior/" itemprop="url">
-                  回首大三下
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-06-09T00:22:37+00:00" content="06-09-2015">
-              06-09-2015
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/RandomThought/" itemprop="url" rel="index">
-                    <span itemprop="name">RandomThought</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/06/08/endOfJunior/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/08/endOfJunior/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/06/08/endOfJunior/" class="leancloud_visitors" data-flag-title="回首大三下">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>大三上学期收获不小，GPA成功破3.7。数了数钱包，短短4个月申请了接近10张的信用卡💳。这两天刚刚接到suman教授的回信，邀请我加入他的团队，summer research也有了着落～我的小美女还有1个月就要来美国读研了。感觉一切都慢慢街上了正轨。今年暑假上一门EPD397(学术写作课)，外加另外一门网课(音乐理论课)。大四两个学期每学期只需要14个学分就可以双学位顺利毕业。</p>
-<p>大三下学期让我明白了什么是学习,我总结出自己人生的公式:<br><strong>喜欢,热爱的事情＋学习时心无旁念＝生活</strong>。</p>
-<p>不仅学习的效率也明显提升了，常旅客的学识方面慢慢跟上了前辈们的脚步。主流的信用卡，酒店，航空金卡积分都有了大概的了解，自己的视野一下子宽了许多。老爸经常爱说的一句话：“花小钱办大事” 感觉跟常旅客的精髓有一定的相似度。在跟前辈／同辈们的学期过程中懂得了常旅客的精神: 出门旅游，要自己玩的开心，住得开心，吃的开心，常旅客的精神就是最大利润回报，这里强调的是回报。我选择你们酒店，就是我看得起你，为了感谢我对你的忠诚，对于这些忠诚的客户，你们用免费住宿来回报我。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/08/endOfJunior/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1540,7 +1481,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">72</span>
+              <span class="site-state-item-count">75</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1557,7 +1498,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
