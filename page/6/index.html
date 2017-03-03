@@ -256,119 +256,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/14/Binary-Tree-Preorder-Traversal/" itemprop="url">
-                  LintCode 66 - Binary Tree Preorder Traversal
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-14T20:12:25+00:00" content="07-14-2016">
-              07-14-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/14/Binary-Tree-Preorder-Traversal/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/14/Binary-Tree-Preorder-Traversal/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/14/Binary-Tree-Preorder-Traversal/" class="leancloud_visitors" data-flag-title="LintCode 66 - Binary Tree Preorder Traversal">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/binary-tree-preorder-traversal/">Binary Tree Preorder Traversal</a></p>
-<h1 id="Code:">Code:</h1><h2 id="Version_0_(Non-recursion_Stack)_-_Recommend">Version 0 (Non-recursion Stack) - Recommend</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: Preorder in ArrayList which contains node values.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</span><br><span class="line">        ArrayList&lt;Integer&gt; preorder = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> preorder;</span><br><span class="line">        &#125;</span><br><span class="line">        stack.push(root);</span><br><span class="line">        <span class="keyword">while</span> (!stack.empty()) &#123;</span><br><span class="line">            TreeNode curr = stack.pop();</span><br><span class="line">            preorder.add(curr.val);</span><br><span class="line">            <span class="comment">// LIFO / FILO</span></span><br><span class="line">            <span class="keyword">if</span> (curr.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(curr.right);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (curr.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(curr.left);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> preorder;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/14/Binary-Tree-Preorder-Traversal/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/07/14/Lowest-Common-Ancestor/" itemprop="url">
                   LintCode 88 - Lowest Common Ancestor
                 </a>
@@ -1369,6 +1256,119 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/28/Search-Insert-Position/" itemprop="url">
+                  Lintcode 60 - Search Insert Position
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-28T15:59:15+00:00" content="06-28-2016">
+              06-28-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/28/Search-Insert-Position/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/28/Search-Insert-Position/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/28/Search-Insert-Position/" class="leancloud_visitors" data-flag-title="Lintcode 60 - Search Insert Position">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/search-insert-position/">Search Insert Position</a>  </p>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A.length == <span class="number">0</span> || target &lt; A[<span class="number">0</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// binary search;</span></span><br><span class="line">        <span class="comment">// IDEA: not find the exact pos of the target</span></span><br><span class="line">        <span class="comment">// Correct IDEA: find the first element that is larger than the target, </span></span><br><span class="line">        <span class="comment">// mark it as `end`, (if target larger than the last element in array, </span></span><br><span class="line">        <span class="comment">// keep `end` to the last element). </span></span><br><span class="line">        <span class="comment">// IDEA -&gt; try to norrow down to a regiion of possible place to insert </span></span><br><span class="line">        <span class="comment">// the target. </span></span><br><span class="line">        <span class="comment">// Possible place examples: </span></span><br><span class="line">        <span class="comment">// [1, 4, 5, 6, 7, 9] -&gt; possible place [7(start), 9(end)] target = 8</span></span><br><span class="line">        <span class="comment">// [1, 4, 5, 6, 7, 9] -&gt; possible place [7(start), 9(end)] target = 10</span></span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//int mid = low + (high - low) / 2; 这一行可以弄到下面去</span></span><br><span class="line">        <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123; <span class="comment">// to keep `start` and `end` seperate.</span></span><br><span class="line">            mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target &lt; A[mid]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; A[mid]) &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">                <span class="comment">//可能会有读者认为刚开始时就要判断相等，但毕竟数组中不相等的情况更多  </span></span><br><span class="line">                <span class="comment">//如果每次循环都判断一下是否相等，将耗费时间 </span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// both if statements have `=` because (low + 1 &lt; high) jump out before </span></span><br><span class="line">        <span class="comment">// evaluate if (target == A[mid]) &#123;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (target &lt;= A[low]) &#123;</span><br><span class="line">            <span class="comment">// if target value is smaller than the smallest value in array</span></span><br><span class="line">            <span class="keyword">return</span> low;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &lt;= A[high]) &#123;</span><br><span class="line">            <span class="comment">// if target value is in between low and high</span></span><br><span class="line">            <span class="keyword">return</span> high;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            <span class="comment">// if target larger than the largest element in array</span></span><br><span class="line">            <span class="keyword">return</span> high + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/28/Search-Insert-Position/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1414,7 +1414,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
