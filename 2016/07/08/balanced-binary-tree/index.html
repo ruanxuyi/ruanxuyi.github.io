@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BalancedTree,BinaryTree,LintCode,Recursion," />
+  <meta name="keywords" content="BalancedTree,BinaryTree,LeetCode,LintCode,Recursion," />
 
 
 
@@ -96,27 +96,27 @@
 
 
 
-<meta name="description" content="Balanced Binary Tree
+<meta name="description" content="110. Balanced Binary Tree93. Balanced Binary Tree
 Definition of Height balanced tree
 empty tree is a height balanced tree  
 left subtree is balanced, right subtree is balanced  
-left/right sub-tree’s height difference no more tha">
+left/right sub-tree’s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode 93 - Balanced Binary Tree">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/07/08/balanced-binary-tree/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="Balanced Binary Tree
+<meta property="og:description" content="110. Balanced Binary Tree93. Balanced Binary Tree
 Definition of Height balanced tree
 empty tree is a height balanced tree  
 left subtree is balanced, right subtree is balanced  
-left/right sub-tree’s height difference no more tha">
+left/right sub-tree’s">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 93 - Balanced Binary Tree">
-<meta name="twitter:description" content="Balanced Binary Tree
+<meta name="twitter:description" content="110. Balanced Binary Tree93. Balanced Binary Tree
 Definition of Height balanced tree
 empty tree is a height balanced tree  
 left subtree is balanced, right subtree is balanced  
-left/right sub-tree’s height difference no more tha">
+left/right sub-tree’s">
 
 
 
@@ -321,25 +321,39 @@ left/right sub-tree’s height difference no more tha">
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/balanced-binary-tree/" target="_blank" rel="external">Balanced Binary Tree</a></p>
+        <p><a href="https://leetcode.com/problems/balanced-binary-tree/description/" target="_blank" rel="external">110. Balanced Binary Tree</a><br><a href="http://www.lintcode.com/en/problem/balanced-binary-tree/" target="_blank" rel="external">93. Balanced Binary Tree</a></p>
 <h2 id="Definition_of_Height_balanced_tree">Definition of Height balanced tree</h2><ol>
 <li>empty tree is a height balanced tree  </li>
 <li>left subtree is balanced, right subtree is balanced  </li>
 <li>left/right sub-tree’s height difference <strong>no more than 1</strong>    </li>
 </ol>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: True if this Binary tree is Balanced, or false.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">return</span> findHeight(root) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findHeight</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (rotot == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> leftHeight = findHeight(root.left);</span><br><span class="line">        <span class="keyword">int</span> rightHeight = findHeight(root.right);</span><br><span class="line">        <span class="keyword">if</span> (leftHeight == -<span class="number">1</span> || rightHeight == -<span class="number">1</span> || Math.abs(leftHeight - rightHeight) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(leftHeight, rightHeight) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: True if this Binary tree is Balanced, or false.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">return</span> findHeight(root) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findHeight</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">if</span> (rotot == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// progree toward base case</span></span><br><span class="line">        <span class="keyword">int</span> leftHeight = findHeight(root.left);</span><br><span class="line">        <span class="keyword">int</span> rightHeight = findHeight(root.right);</span><br><span class="line">        <span class="keyword">if</span> (leftHeight == -<span class="number">1</span> || rightHeight == -<span class="number">1</span> || Math.abs(leftHeight - rightHeight) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(leftHeight, rightHeight) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h1 id="Description:">Description:</h1><p>Given a binary tree, determine if it is <strong>height-balanced</strong>.</p>
 <p>For this problem, a height-balanced binary tree is defined as a binary tree in which the <strong>depth</strong> of the two subtrees of every node <strong>never differ by more than 1</strong>.</p>
 <p><strong>Example</strong><br>Given binary tree A = <code>{3,9,20,#,#,15,7}</code>, B = <code>{3,#,20,15,7}</code></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">A)  <span class="number">3</span>            B)    <span class="number">3</span> </span><br><span class="line">   / \                  \</span><br><span class="line">  <span class="number">9</span>  <span class="number">20</span>                 <span class="number">20</span></span><br><span class="line">    /  \                / \</span><br><span class="line">   <span class="number">15</span>   <span class="number">7</span>              <span class="number">15</span>  <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A)  <span class="number">3</span>            B)    <span class="number">3</span> </span><br><span class="line">   / \                  \</span><br><span class="line">  <span class="number">9</span>  <span class="number">20</span>                 <span class="number">20</span></span><br><span class="line">    /  \                / \</span><br><span class="line">   <span class="number">15</span>   <span class="number">7</span>              <span class="number">15</span>  <span class="number">7</span></span><br></pre></td></tr></table></figure>
 <p>The binary tree A is a height-balanced binary tree, but B is not.</p>
 <h1 id="Thought_Process:">Thought Process:</h1><ul>
 <li>recursive algorithm  </li>
 <li>definition of <strong>height-balanced</strong> tree  </li>
-<li>in-order traversal vs out-of-order traversal  </li>
+<li>post-order traversal (left, right, <code>Math.max()</code>)</li>
 </ul>
-<h1 id="Corner_Case:">Corner Case:</h1>
+<p><strong>updated on: 2018-01-14</strong></p>
+<h1 id="algorithm"><center> algorithm </center></h1><h2 id="Recursive_Algorithm:">Recursive Algorithm:</h2><p>Base cases:  </p>
+<ul>
+<li><code>return 0</code> if <code>node == null</code>  </li>
+<li><code>return 1</code> if <code>node.left == null &amp;&amp; node.right == null</code>  </li>
+<li><code>return -1</code> if differnece between left and right subtree height <code>&gt; 1</code></li>
+</ul>
+<p>Progress toward basecase:  </p>
+<ul>
+<li><code>int leftHeight = findHeight(node.left);</code>  </li>
+<li><code>int rightHeight = findHeight(node.right);</code>  </li>
+</ul>
+<h1 id="complexity_analysis"><center> complexity analysis </center></h1><h2 id="Recursive_Algorithm:-1">Recursive Algorithm:</h2><p>Time complexity: $O(n)$ for traversing all nodes in tree<br>Space complexity: $O(h)$ for maintaining recursive stack</p>
+<p>where $n$ is number of nodes in tree, and $h=log(n)$ which is the height of the tree  </p>
+<h1 id="notes"><center> notes </center></h1><h1 id="application"><center> application </center></h1><h1 id="reference"><center> reference </center></h1>
       
     </div>
 
@@ -363,6 +377,8 @@ left/right sub-tree’s height difference no more tha">
             <a href="/tags/BalancedTree/" rel="tag">#BalancedTree</a>
           
             <a href="/tags/BinaryTree/" rel="tag">#BinaryTree</a>
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
           
             <a href="/tags/LintCode/" rel="tag">#LintCode</a>
           
@@ -460,7 +476,7 @@ left/right sub-tree’s height difference no more tha">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -477,7 +493,7 @@ left/right sub-tree’s height difference no more tha">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -557,7 +573,7 @@ left/right sub-tree’s height difference no more tha">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition_of_Height_balanced_tree"><span class="nav-number">1.</span> <span class="nav-text">Definition of Height balanced tree</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number"></span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number"></span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number"></span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number"></span> <span class="nav-text">Corner Case:</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition_of_Height_balanced_tree"><span class="nav-number">1.</span> <span class="nav-text">Definition of Height balanced tree</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number"></span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number"></span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number"></span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#algorithm"><span class="nav-number"></span> <span class="nav-text"> algorithm </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursive_Algorithm:"><span class="nav-number">1.</span> <span class="nav-text">Recursive Algorithm:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#complexity_analysis"><span class="nav-number"></span> <span class="nav-text"> complexity analysis </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursive_Algorithm:-1"><span class="nav-number">1.</span> <span class="nav-text">Recursive Algorithm:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#notes"><span class="nav-number"></span> <span class="nav-text"> notes </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#application"><span class="nav-number"></span> <span class="nav-text"> application </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number"></span> <span class="nav-text"> reference </span></a></div>
             
           </div>
         </section>
@@ -576,7 +592,7 @@ left/right sub-tree’s height difference no more tha">
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

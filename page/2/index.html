@@ -256,136 +256,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/06/rehashing/" itemprop="url">
-                  LC129 - rehashing
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-06T18:58:16+00:00" content="01-06-2017">
-              01-06-2017
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/06/rehashing/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/06/rehashing/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/01/06/rehashing/" class="leancloud_visitors" data-flag-title="LC129 - rehashing">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="description"><center> description </center></h2><p>The size of the hash table is not determinate at the very beginning. If the total size of keys is too large (e.g. `size &gt;= capacity / 10), we should double the size of the hash table and rehash every keys. Say you have a hash table looks like below:</p>
-<p><code>size=3, capacity=4</code></p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">[<span class="literal">null</span>, <span class="number">21</span>, <span class="number">14</span>, <span class="literal">null</span>]</span><br><span class="line">       ↓    ↓</span><br><span class="line">       <span class="number">9</span>   <span class="literal">null</span></span><br><span class="line">       ↓</span><br><span class="line">      <span class="literal">null</span></span><br></pre></td></tr></table></figure>
-<p>The hash function is:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashcode</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> key % capacity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>here we have three numbers, <code>9</code>, <code>14</code> and <code>21</code>, where <code>21</code> and <code>9</code> share the same position as they all have the same hashcode 1 (<code>21 % 4 = 9 % 4 = 1</code>). We store them in the hash table by linked list.</p>
-<p>rehashing this hash table, double the capacity, you will get:</p>
-<p><code>size=3, capacity=8</code></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">index:   <span class="number">0</span>    <span class="number">1</span>    <span class="number">2</span>    <span class="number">3</span>     <span class="number">4</span>    <span class="number">5</span>    <span class="number">6</span>   <span class="number">7</span></span><br><span class="line">hash : [null, <span class="number">9</span>, null, null, null, <span class="number">21</span>, <span class="number">14</span>, null]</span><br></pre></td></tr></table></figure>
-<p>Given the original hash table, return the new hash table after rehashing .</p>
-<p> <strong>Notice</strong>  </p>
-<p>For negative integer in hash table, the position can be calculated as follow:</p>
-<p>C++/Java: if you directly calculate <code>-4 % 3</code> you will get <code>-1</code>. You can use function: <code>a % b = (a % b + b) % b</code> to make it is a non negative integer.<br>Python: you can directly use -1 % 3, you will get 2 automatically.</p>
-<p><strong>Example</strong><br>Given <code>[null, 21-&gt;9-&gt;null, 14-&gt;null, null]</code>,</p>
-<p>return <code>[null, 9-&gt;null, null, null, null, 21-&gt;null, 14-&gt;null, null]</code></p>
-<p><a href="http://www.lintcode.com/en/problem/rehashing/">LC129 rehashing</a></p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition for ListNode</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123;</span><br><span class="line"> *         val = x;</span><br><span class="line"> *         next = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> hashTable: A list of The first node of linked list</span><br><span class="line">     * <span class="doctag">@return</span>: A list of The first node of linked list which have twice size</span><br><span class="line">     */</span>    </span><br><span class="line">    <span class="keyword">public</span> ListNode[] rehashing(ListNode[] hashTable) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> capacity = hashTable.length;</span><br><span class="line">        <span class="keyword">if</span> (capacity == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> hashTable;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// new hashtable w/ 2x size</span></span><br><span class="line">        ListNode[] rehash = <span class="keyword">new</span> ListNode[<span class="number">2</span>*capacity];</span><br><span class="line">        <span class="keyword">int</span> capacity_rehash = rehash.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (ListNode hash : hashTable) &#123;</span><br><span class="line">            <span class="keyword">while</span> (hash != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> key = hash.val;</span><br><span class="line">                <span class="keyword">int</span> index_rehash = hashcode(key, capacity_rehash);</span><br><span class="line">                <span class="keyword">if</span> (rehash[index_rehash] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rehash[index_rehash] = <span class="keyword">new</span> ListNode(key);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// chaining</span></span><br><span class="line">                    ListNode tmp;</span><br><span class="line">                    tmp = rehash[index_rehash];</span><br><span class="line">                    <span class="keyword">while</span> (tmp.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        tmp = tmp.next;</span><br><span class="line">                    &#125;</span><br><span class="line">                    tmp.next = <span class="keyword">new</span> ListNode(key);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// traverse current chaining</span></span><br><span class="line">                hash = hash.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rehash;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hashcode</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (key % capacity + capacity) % capacity;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/06/rehashing/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2017/01/06/ugly-num-2/" itemprop="url">
-                  LC4 - ugly num 2
+                  LC4 - Ugly Num 2
                 </a>
               
             
@@ -420,7 +292,7 @@
 
           
           
-             <span id="/2017/01/06/ugly-num-2/" class="leancloud_visitors" data-flag-title="LC4 - ugly num 2">
+             <span id="/2017/01/06/ugly-num-2/" class="leancloud_visitors" data-flag-title="LC4 - Ugly Num 2">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -448,7 +320,7 @@
 <p> <strong>Notice</strong><br>Note that 1 is typically treated as an ugly number.</p>
 <p><strong>Example</strong><br>If <code>n=9</code>, return <code>10</code>.</p>
 <p><a href="http://www.lintcode.com/en/problem/ugly-number-ii/">LC4 ugly num 2</a></p>
-<h2 id="code"><center> code </center></h2><h3 id=""> </h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> n an integer</span><br><span class="line">     * <span class="doctag">@return</span> the nth prime number as description.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span>[] uglyList = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        uglyList[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> p2 = <span class="number">0</span>, p3 = <span class="number">0</span>, p5 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> a2 = <span class="number">2</span>*uglyList[p2];</span><br><span class="line">            <span class="keyword">int</span> a3 = <span class="number">3</span>*uglyList[p3];</span><br><span class="line">            <span class="keyword">int</span> a5 = <span class="number">5</span>*uglyList[p5];</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">int</span> ugly_curr = Math.min(a2, Math.min(a3, a5));</span><br><span class="line">            uglyList[i] = ugly_curr;</span><br><span class="line">            <span class="comment">// increment index the one choosen (like merge sort)</span></span><br><span class="line">            <span class="keyword">if</span> (a2 == uglyList[i]) p2++;</span><br><span class="line">            <span class="keyword">if</span> (a3 == uglyList[i]) p3++;</span><br><span class="line">            <span class="keyword">if</span> (a5 == uglyList[i]) p5++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uglyList[n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><h3 id=""> </h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> n an integer</span><br><span class="line">     * <span class="doctag">@return</span> the nth prime number as description.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span>[] uglyList = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        uglyList[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> p2 = <span class="number">0</span>, p3 = <span class="number">0</span>, p5 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> a2 = <span class="number">2</span>*uglyList[p2];</span><br><span class="line">            <span class="keyword">int</span> a3 = <span class="number">3</span>*uglyList[p3];</span><br><span class="line">            <span class="keyword">int</span> a5 = <span class="number">5</span>*uglyList[p5];</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">int</span> ugly_curr = Math.min(a2, Math.min(a3, a5));</span><br><span class="line">            uglyList[i] = ugly_curr;</span><br><span class="line">            <span class="comment">// increment index the one choosen (like merge sort)</span></span><br><span class="line">            <span class="keyword">if</span> (a2 == uglyList[i]) p2++;</span><br><span class="line">            <span class="keyword">if</span> (a3 == uglyList[i]) p3++;</span><br><span class="line">            <span class="keyword">if</span> (a5 == uglyList[i]) p5++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uglyList[n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/06/ugly-num-2/#more" rel="contents">
               Read more &raquo;
@@ -564,9 +436,9 @@
 <p>It should support push, pop and min operation all in $O(1)$ cost.</p>
 <p> <strong>Notice</strong><br>min operation will never be called if there is no number in the stack.</p>
 <p><strong>Example</strong></p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">1</span>)</span></span>  </span><br><span class="line"><span class="function"><span class="title">pop</span><span class="params">()</span></span>   <span class="comment">// return 1  </span></span><br><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">2</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">3</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">min</span><span class="params">()</span></span>   <span class="comment">// return 2</span></span><br><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">1</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">min</span><span class="params">()</span></span>   <span class="comment">// return 1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">1</span>)</span></span>  </span><br><span class="line"><span class="function"><span class="title">pop</span><span class="params">()</span></span>   <span class="comment">// return 1  </span></span><br><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">2</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">3</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">min</span><span class="params">()</span></span>   <span class="comment">// return 2</span></span><br><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">1</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">min</span><span class="params">()</span></span>   <span class="comment">// return 1</span></span><br></pre></td></tr></table></figure>
 <p><a href=""></a></p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; stack = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; min = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> minIndex = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> currIndex = -<span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// do initialize if necessary</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        stack.put(++currIndex, number);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (minIndex == -<span class="number">1</span> || number &lt;= min.get(minIndex)) &#123; <span class="comment">// bug1: num &lt;= min.get</span></span><br><span class="line">            min.put(++minIndex, number);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (stack.get(currIndex).equals(min.get(minIndex))) &#123; <span class="comment">// bug2: get return object, use .equals() instead of `==` to compare.</span></span><br><span class="line">            minIndex--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.get(currIndex--);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">return</span> min.get(minIndex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; stack = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; min = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> minIndex = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> currIndex = -<span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// do initialize if necessary</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        stack.put(++currIndex, number);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (minIndex == -<span class="number">1</span> || number &lt;= min.get(minIndex)) &#123; <span class="comment">// bug1: num &lt;= min.get</span></span><br><span class="line">            min.put(++minIndex, number);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (stack.get(currIndex).equals(min.get(minIndex))) &#123; <span class="comment">// bug2: get return object, use .equals() instead of `==` to compare.</span></span><br><span class="line">            minIndex--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.get(currIndex--);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">return</span> min.get(minIndex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/05/Min-Stack/#more" rel="contents">
               Read more &raquo;
@@ -681,7 +553,7 @@
           <h2 id="description"><center> description </center></h2><p>Given two arrays, write a function to compute their intersection.<br>Intersection指的是数学里的交集($\cap$)</p>
 <p><strong>Notice</strong><br>Each element in the result must be unique.<br>The result can be in any order.</p>
 <p><a href="http://www.lintcode.com/en/problem/intersection-of-two-arrays/">LC547 Intersection of Two Arrays</a></p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums1 an integer array</span><br><span class="line">     * <span class="doctag">@param</span> nums2 an integer array</span><br><span class="line">     * <span class="doctag">@return</span> an integer array</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span> len1 = nums1.length;</span><br><span class="line">        <span class="keyword">int</span> len2 = nums2.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span> || len2 == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// checking</span></span><br><span class="line">        HashSet&lt;Integer&gt; interset = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// solution</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">            set.add(nums1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (set.contains(nums2[i])) &#123;</span><br><span class="line">                interset.add(nums2[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] sol = <span class="keyword">new</span> <span class="keyword">int</span>[interset.size()];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Integer num: interset) &#123;</span><br><span class="line">            sol[index++] = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums1 an integer array</span><br><span class="line">     * <span class="doctag">@param</span> nums2 an integer array</span><br><span class="line">     * <span class="doctag">@return</span> an integer array</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span> len1 = nums1.length;</span><br><span class="line">        <span class="keyword">int</span> len2 = nums2.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span> || len2 == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// checking</span></span><br><span class="line">        HashSet&lt;Integer&gt; interset = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// solution</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">            set.add(nums1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (set.contains(nums2[i])) &#123;</span><br><span class="line">                interset.add(nums2[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] sol = <span class="keyword">new</span> <span class="keyword">int</span>[interset.size()];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Integer num: interset) &#123;</span><br><span class="line">            sol[index++] = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/04/Intersection-of-Two-Arrays/#more" rel="contents">
               Read more &raquo;
@@ -735,7 +607,7 @@
               
                 
                 <a class="post-title-link" href="/2017/01/04/Subarray-Sum/" itemprop="url">
-                  LC138 - subarray sum
+                  LC138 - Subarray Sum
                 </a>
               
             
@@ -770,7 +642,7 @@
 
           
           
-             <span id="/2017/01/04/Subarray-Sum/" class="leancloud_visitors" data-flag-title="LC138 - subarray sum">
+             <span id="/2017/01/04/Subarray-Sum/" class="leancloud_visitors" data-flag-title="LC138 - Subarray Sum">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -797,7 +669,7 @@
 <p> <strong>Notice</strong><br>There is at least one subarray that it’s sum equals to zero.</p>
 <p><strong>Example</strong><br>Given <code>[-3, 1, 2, -3, 4]</code>, return <code>[0, 2] or [1, 3]</code>.</p>
 <p><a href="http://www.lintcode.com/en/problem/subarray-sum/">LC138 subarray sum</a></p>
-<h2 id="code"><center> code </center></h2><h3 id="solution_3:_$n$_summations">solution 3: $n$ summations</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A list of integers includes the index of the first number </span><br><span class="line">     *          and the index of the last number</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">subarraySum</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        ArrayList&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        map.put(<span class="number">0</span>, -<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(sum)) &#123;</span><br><span class="line">                res.add(<span class="number">0</span>, map.get(sum) + <span class="number">1</span>);</span><br><span class="line">                res.add(<span class="number">1</span>, i);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// add to map</span></span><br><span class="line">            map.put(sum, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><h3 id="solution_3:_$n$_summations">solution 3: $n$ summations</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A list of integers includes the index of the first number </span><br><span class="line">     *          and the index of the last number</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">subarraySum</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        ArrayList&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        map.put(<span class="number">0</span>, -<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(sum)) &#123;</span><br><span class="line">                res.add(<span class="number">0</span>, map.get(sum) + <span class="number">1</span>);</span><br><span class="line">                res.add(<span class="number">1</span>, i);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// add to map</span></span><br><span class="line">            map.put(sum, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/04/Subarray-Sum/#more" rel="contents">
               Read more &raquo;
@@ -851,7 +723,7 @@
               
                 
                 <a class="post-title-link" href="/2017/01/02/Maximum-Subarray/" itemprop="url">
-                  LC41 - maximum subarray
+                  LC41 - Maximum Subarray
                 </a>
               
             
@@ -886,7 +758,7 @@
 
           
           
-             <span id="/2017/01/02/Maximum-Subarray/" class="leancloud_visitors" data-flag-title="LC41 - maximum subarray">
+             <span id="/2017/01/02/Maximum-Subarray/" class="leancloud_visitors" data-flag-title="LC41 - Maximum Subarray">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -913,7 +785,7 @@
 <p><strong>Notice</strong><br>The subarray should contain at least one number.</p>
 <p><strong>Example</strong><br>Given the array <code>[−2,2,−3,4,−1,2,1,−5,3]</code>, the contiguous subarray <code>[4,−1,2,1]</code> has the largest <code>sum = 6</code>.</p>
 <p><a href="http://www.lintcode.com/en/problem/maximum-subarray/">LC41 maximum subarray</a></p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A integer indicate the sum of max subarray</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code</span></span><br><span class="line">        <span class="comment">// double loop -&gt; n^2</span></span><br><span class="line">        <span class="comment">// sort? nlogn NO</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> max = Integer.MIN_VALUE; <span class="comment">// if all negative values, return the smalleset neg val</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            max = Math.max(sum, max);</span><br><span class="line">            sum = Math.max(<span class="number">0</span>, sum); <span class="comment">// if sum of prev elements less than zero, rather not taken them.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A integer indicate the sum of max subarray</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code</span></span><br><span class="line">        <span class="comment">// double loop -&gt; n^2</span></span><br><span class="line">        <span class="comment">// sort? nlogn NO</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> max = Integer.MIN_VALUE; <span class="comment">// if all negative values, return the smalleset neg val</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            max = Math.max(sum, max);</span><br><span class="line">            sum = Math.max(<span class="number">0</span>, sum); <span class="comment">// if sum of prev elements less than zero, rather not taken them.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/02/Maximum-Subarray/#more" rel="contents">
               Read more &raquo;
@@ -967,7 +839,7 @@
               
                 
                 <a class="post-title-link" href="/2017/01/02/Subarray-Sum-Closest/" itemprop="url">
-                  LC139 - subarray sum closest
+                  LC139 - Subarray Sum Closest
                 </a>
               
             
@@ -1002,7 +874,7 @@
 
           
           
-             <span id="/2017/01/02/Subarray-Sum-Closest/" class="leancloud_visitors" data-flag-title="LC139 - subarray sum closest">
+             <span id="/2017/01/02/Subarray-Sum-Closest/" class="leancloud_visitors" data-flag-title="LC139 - Subarray Sum Closest">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1028,7 +900,7 @@
           <h2 id="description"><center> description </center></h2><p>Given an integer array, find a subarray with sum closest to zero. Return the indexes of the first number and last number.<br><strong>Example</strong><br>Given <code>[-3, 1, 1, -3, 5]</code>, return <code>[0, 2]</code>, <code>[1, 3]</code>, <code>[1, 1]</code>, <code>[2, 2]</code> or <code>[0, 4]</code>.  </p>
 <p><strong>Challenge</strong><br>O(nlogn) time</p>
 <p><a href="http://www.lintcode.com/en/problem/subarray-sum-closest/">LC139 subarray sum closest</a></p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A list of integers includes the index of the first number </span><br><span class="line">     *          and the index of the last number</span><br><span class="line">     */</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">NSum</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum;</span><br><span class="line">        <span class="keyword">int</span> index;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">NSum</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.sum = s;</span><br><span class="line">            <span class="keyword">this</span>.index = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] subarraySumClosest(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> max = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        NSum[] nums_aux = <span class="keyword">new</span> NSum[len + <span class="number">1</span>];</span><br><span class="line">        nums_aux[<span class="number">0</span>] = <span class="keyword">new</span> NSum(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// get sum</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">            nums_aux[i] = <span class="keyword">new</span> NSum(nums[i-<span class="number">1</span>] + nums_aux[i-<span class="number">1</span>].sum, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// sort O(nlogn)</span></span><br><span class="line">        Arrays.sort(nums_aux, <span class="keyword">new</span> Comparator&lt;NSum&gt;()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(NSum a, NSum b)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> a.sum - b.sum;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (Math.abs(nums_aux[i+<span class="number">1</span>].sum - nums_aux[i].sum) &lt; max) &#123;</span><br><span class="line">                max = Math.abs(nums_aux[i+<span class="number">1</span>].sum - nums_aux[i].sum);</span><br><span class="line">                res[<span class="number">0</span>] = Math.min(nums_aux[i].index, nums_aux[i+<span class="number">1</span>].index);</span><br><span class="line">                res[<span class="number">1</span>] = Math.max(nums_aux[i].index, nums_aux[i+<span class="number">1</span>].index) - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A list of integers includes the index of the first number </span><br><span class="line">     *          and the index of the last number</span><br><span class="line">     */</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">NSum</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum;</span><br><span class="line">        <span class="keyword">int</span> index;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">NSum</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.sum = s;</span><br><span class="line">            <span class="keyword">this</span>.index = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] subarraySumClosest(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> max = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        NSum[] nums_aux = <span class="keyword">new</span> NSum[len + <span class="number">1</span>];</span><br><span class="line">        nums_aux[<span class="number">0</span>] = <span class="keyword">new</span> NSum(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// get sum</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">            nums_aux[i] = <span class="keyword">new</span> NSum(nums[i-<span class="number">1</span>] + nums_aux[i-<span class="number">1</span>].sum, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// sort O(nlogn)</span></span><br><span class="line">        Arrays.sort(nums_aux, <span class="keyword">new</span> Comparator&lt;NSum&gt;()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(NSum a, NSum b)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> a.sum - b.sum;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (Math.abs(nums_aux[i+<span class="number">1</span>].sum - nums_aux[i].sum) &lt; max) &#123;</span><br><span class="line">                max = Math.abs(nums_aux[i+<span class="number">1</span>].sum - nums_aux[i].sum);</span><br><span class="line">                res[<span class="number">0</span>] = Math.min(nums_aux[i].index, nums_aux[i+<span class="number">1</span>].index);</span><br><span class="line">                res[<span class="number">1</span>] = Math.max(nums_aux[i].index, nums_aux[i+<span class="number">1</span>].index) - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/02/Subarray-Sum-Closest/#more" rel="contents">
               Read more &raquo;
@@ -1082,7 +954,7 @@
               
                 
                 <a class="post-title-link" href="/2017/01/02/partition-array/" itemprop="url">
-                  LC31 - partition array
+                  LC31 - Partition Array
                 </a>
               
             
@@ -1117,7 +989,7 @@
 
           
           
-             <span id="/2017/01/02/partition-array/" class="leancloud_visitors" data-flag-title="LC31 - partition array">
+             <span id="/2017/01/02/partition-array/" class="leancloud_visitors" data-flag-title="LC31 - Partition Array">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1144,7 +1016,7 @@
 <p>All elements &lt; k are moved to the <em>left</em><br>All elements &gt;= k are moved to the <em>right</em><br>Return the partitioning index, i.e the first index <em>i</em> nums[<em>i</em>] &gt;= <em>k</em>.  </p>
 <p><strong>Example</strong><br>If nums = <code>[3,2,2,1]</code> and <code>k=2</code>, a valid answer is <code>1</code>.</p>
 <p><a href="http://www.lintcode.com/en/problem/partition-array/">LC31 - partition array</a>  </p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="comment">/** </span><br><span class="line">     *<span class="doctag">@param</span> nums: The integer array you should partition</span><br><span class="line">     *<span class="doctag">@param</span> k: As description</span><br><span class="line">     *return: The index after partition</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partitionArray</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//write your code here</span></span><br><span class="line">	    <span class="keyword">if</span> (nums.length == <span class="number">0</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">	        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	    <span class="keyword">int</span> high = nums.length-<span class="number">1</span>;</span><br><span class="line">	    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[low] &lt; k) &#123;</span><br><span class="line">	            low++;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[high] &gt;= k) &#123;</span><br><span class="line">	            high--;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="comment">// swap</span></span><br><span class="line">	        <span class="keyword">if</span> (low &lt;= high) &#123;</span><br><span class="line">	            <span class="keyword">int</span> tmp = nums[high];</span><br><span class="line">	            nums[high] = nums[low];</span><br><span class="line">	            nums[low] = tmp;</span><br><span class="line">	            <span class="comment">//low++;</span></span><br><span class="line">	            <span class="comment">//high--;</span></span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> high+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="comment">/** </span><br><span class="line">     *<span class="doctag">@param</span> nums: The integer array you should partition</span><br><span class="line">     *<span class="doctag">@param</span> k: As description</span><br><span class="line">     *return: The index after partition</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partitionArray</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//write your code here</span></span><br><span class="line">	    <span class="keyword">if</span> (nums.length == <span class="number">0</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">	        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	    <span class="keyword">int</span> high = nums.length-<span class="number">1</span>;</span><br><span class="line">	    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[low] &lt; k) &#123;</span><br><span class="line">	            low++;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[high] &gt;= k) &#123;</span><br><span class="line">	            high--;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="comment">// swap</span></span><br><span class="line">	        <span class="keyword">if</span> (low &lt;= high) &#123;</span><br><span class="line">	            <span class="keyword">int</span> tmp = nums[high];</span><br><span class="line">	            nums[high] = nums[low];</span><br><span class="line">	            nums[low] = tmp;</span><br><span class="line">	            <span class="comment">//low++;</span></span><br><span class="line">	            <span class="comment">//high--;</span></span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> high+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/02/partition-array/#more" rel="contents">
               Read more &raquo;
@@ -1198,7 +1070,7 @@
               
                 
                 <a class="post-title-link" href="/2016/12/29/sort-colors/" itemprop="url">
-                  LC148 - sort colors
+                  LC148 - Sort Colors
                 </a>
               
             
@@ -1233,7 +1105,7 @@
 
           
           
-             <span id="/2016/12/29/sort-colors/" class="leancloud_visitors" data-flag-title="LC148 - sort colors">
+             <span id="/2016/12/29/sort-colors/" class="leancloud_visitors" data-flag-title="LC148 - Sort Colors">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1264,7 +1136,7 @@
 <p><strong>Example</strong><br>Given <code>[1, 0, 1, 2]</code>, sort it in-place to <code>[0, 1, 1, 2]</code>.  </p>
 <p><strong>challenge</strong><br><strong>one pass</strong> algorithm with constant space ($O(1)$)</p>
 <p><a href="http://www.lintcode.com/en/problem/sort-colors/#">LC148 sort colors</a></p>
-<h2 id="code"><center>code</center></h2><h3 id="ver3_one_pass">ver3 one pass</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> curr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (curr &lt;= high) &#123; <span class="comment">// k1: curr == high 时候 high points to unchecked value</span></span><br><span class="line">        <span class="keyword">if</span> (nums[curr] == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[left]</span></span><br><span class="line">            nums[curr] = nums[low]; <span class="comment">// curr should NOT increment to prevent skipping after swap</span></span><br><span class="line">            nums[low++] = <span class="number">0</span>;</span><br><span class="line">            curr++; <span class="comment">// k2: swapped value from left pointer is checked.</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[curr] == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[right]</span></span><br><span class="line">            nums[curr] = nums[high];</span><br><span class="line">            nums[high--] = <span class="number">2</span>;</span><br><span class="line">            <span class="comment">// NO curr++: swaped value from right pointer is unchecked, </span></span><br><span class="line">            <span class="comment">// curr pointed value (uncheck) needed to be checked</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            curr++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center>code</center></h2><h3 id="ver3_one_pass">ver3 one pass</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> curr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (curr &lt;= high) &#123; <span class="comment">// k1: curr == high 时候 high points to unchecked value</span></span><br><span class="line">        <span class="keyword">if</span> (nums[curr] == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[left]</span></span><br><span class="line">            nums[curr] = nums[low]; <span class="comment">// curr should NOT increment to prevent skipping after swap</span></span><br><span class="line">            nums[low++] = <span class="number">0</span>;</span><br><span class="line">            curr++; <span class="comment">// k2: swapped value from left pointer is checked.</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[curr] == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[right]</span></span><br><span class="line">            nums[curr] = nums[high];</span><br><span class="line">            nums[high--] = <span class="number">2</span>;</span><br><span class="line">            <span class="comment">// NO curr++: swaped value from right pointer is unchecked, </span></span><br><span class="line">            <span class="comment">// curr pointed value (uncheck) needed to be checked</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            curr++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/12/29/sort-colors/#more" rel="contents">
               Read more &raquo;
@@ -1318,7 +1190,7 @@
               
                 
                 <a class="post-title-link" href="/2016/12/29/Two-Sum-Closest/" itemprop="url">
-                  LC533 - two sum closest
+                  LC533 - Two Sum Closest
                 </a>
               
             
@@ -1353,7 +1225,7 @@
 
           
           
-             <span id="/2016/12/29/Two-Sum-Closest/" class="leancloud_visitors" data-flag-title="LC533 - two sum closest">
+             <span id="/2016/12/29/Two-Sum-Closest/" class="leancloud_visitors" data-flag-title="LC533 - Two Sum Closest">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1381,9 +1253,125 @@
 <p><strong>Example</strong><br>Given array <code>nums = [-1, 2, 1, -4]</code>, and <code>target = 4</code>.</p>
 <p>The minimum difference is <code>1</code>. (4 - (2 + 1) = 1).</p>
 <p><a href="http://www.lintcode.com/en/problem/two-sum-closest/#">LC533 Two Sum Closest</a></p>
-<h2 id="code"><center>code</center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">twoSumCloset</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span> || nums == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Arrays.sort(nums); <span class="comment">// o(nlogn)</span></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> minDif = Integer.MAX_VALUE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> twoSum = nums[left] + nums[right];</span><br><span class="line">        <span class="comment">//int currDif = Math.abs(target - twoSum);</span></span><br><span class="line">        <span class="comment">//minDif = currDif &lt; minDif ? currDif : minDif;</span></span><br><span class="line">        <span class="keyword">if</span> (twoSum &lt; target) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        minDif = Math.min(minDif, Math.abs(target - twoSum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minDif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center>code</center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">twoSumCloset</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span> || nums == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Arrays.sort(nums); <span class="comment">// o(nlogn)</span></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> minDif = Integer.MAX_VALUE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> twoSum = nums[left] + nums[right];</span><br><span class="line">        <span class="comment">//int currDif = Math.abs(target - twoSum);</span></span><br><span class="line">        <span class="comment">//minDif = currDif &lt; minDif ? currDif : minDif;</span></span><br><span class="line">        <span class="keyword">if</span> (twoSum &lt; target) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        minDif = Math.min(minDif, Math.abs(target - twoSum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minDif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/12/29/Two-Sum-Closest/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/29/2016的6个关键字/" itemprop="url">
+                  2016的6个关键字
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-12-29T17:01:08+00:00" content="12-29-2016">
+              12-29-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/29/2016的6个关键字/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/29/2016的6个关键字/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/29/2016的6个关键字/" class="leancloud_visitors" data-flag-title="2016的6个关键字">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>读了小土刀<a href="http://wdxtub.com/2015/12/31/12-keywords-2015/">年终12个关键字</a>一文。我也决定回顾下我的2016年。经历有限，就限制6个关键词好了。</p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20161229/DSC_6077-2.jpg" alt=""></p>
+<blockquote>
+<p>大和寿司@筑地市场</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/29/2016的6个关键字/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1458,7 +1446,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1475,7 +1463,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1563,7 +1551,7 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

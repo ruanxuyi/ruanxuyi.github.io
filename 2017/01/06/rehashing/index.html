@@ -98,12 +98,12 @@
 
 <meta name="description" content="description The size of the hash table is not determinate at the very beginning. If the total size of keys is too large (e.g. `size &amp;gt;= capacity / 10), we should double the size of the hash table an">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC129 - rehashing">
+<meta property="og:title" content="LC129 - Rehashing">
 <meta property="og:url" content="http://www.xuyiruan.com/2017/01/06/rehashing/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="description The size of the hash table is not determinate at the very beginning. If the total size of keys is too large (e.g. `size &amp;gt;= capacity / 10), we should double the size of the hash table an">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC129 - rehashing">
+<meta name="twitter:title" content="LC129 - Rehashing">
 <meta name="twitter:description" content="description The size of the hash table is not determinate at the very beginning. If the total size of keys is too large (e.g. `size &amp;gt;= capacity / 10), we should double the size of the hash table an">
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title> LC129 - rehashing | 阮先生de小窝 </title>
+  <title> LC129 - Rehashing | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -253,7 +253,7 @@
             
             
               
-                LC129 - rehashing
+                LC129 - Rehashing
               
             
           </h1>
@@ -287,7 +287,7 @@
 
           
           
-             <span id="/2017/01/06/rehashing/" class="leancloud_visitors" data-flag-title="LC129 - rehashing">
+             <span id="/2017/01/06/rehashing/" class="leancloud_visitors" data-flag-title="LC129 - Rehashing">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -311,13 +311,13 @@
       
         <h2 id="description"><center> description </center></h2><p>The size of the hash table is not determinate at the very beginning. If the total size of keys is too large (e.g. `size &gt;= capacity / 10), we should double the size of the hash table and rehash every keys. Say you have a hash table looks like below:</p>
 <p><code>size=3, capacity=4</code></p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">[<span class="literal">null</span>, <span class="number">21</span>, <span class="number">14</span>, <span class="literal">null</span>]</span><br><span class="line">       ↓    ↓</span><br><span class="line">       <span class="number">9</span>   <span class="literal">null</span></span><br><span class="line">       ↓</span><br><span class="line">      <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="literal">null</span>, <span class="number">21</span>, <span class="number">14</span>, <span class="literal">null</span>]</span><br><span class="line">       ↓    ↓</span><br><span class="line">       <span class="number">9</span>   <span class="literal">null</span></span><br><span class="line">       ↓</span><br><span class="line">      <span class="literal">null</span></span><br></pre></td></tr></table></figure>
 <p>The hash function is:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashcode</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> key % capacity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashcode</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> key % capacity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>here we have three numbers, <code>9</code>, <code>14</code> and <code>21</code>, where <code>21</code> and <code>9</code> share the same position as they all have the same hashcode 1 (<code>21 % 4 = 9 % 4 = 1</code>). We store them in the hash table by linked list.</p>
 <p>rehashing this hash table, double the capacity, you will get:</p>
 <p><code>size=3, capacity=8</code></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">index:   <span class="number">0</span>    <span class="number">1</span>    <span class="number">2</span>    <span class="number">3</span>     <span class="number">4</span>    <span class="number">5</span>    <span class="number">6</span>   <span class="number">7</span></span><br><span class="line">hash : [null, <span class="number">9</span>, null, null, null, <span class="number">21</span>, <span class="number">14</span>, null]</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index:   <span class="number">0</span>    <span class="number">1</span>    <span class="number">2</span>    <span class="number">3</span>     <span class="number">4</span>    <span class="number">5</span>    <span class="number">6</span>   <span class="number">7</span></span><br><span class="line">hash : [null, <span class="number">9</span>, null, null, null, <span class="number">21</span>, <span class="number">14</span>, null]</span><br></pre></td></tr></table></figure>
 <p>Given the original hash table, return the new hash table after rehashing .</p>
 <p> <strong>Notice</strong>  </p>
 <p>For negative integer in hash table, the position can be calculated as follow:</p>
@@ -325,7 +325,7 @@
 <p><strong>Example</strong><br>Given <code>[null, 21-&gt;9-&gt;null, 14-&gt;null, null]</code>,</p>
 <p>return <code>[null, 9-&gt;null, null, null, null, 21-&gt;null, 14-&gt;null, null]</code></p>
 <p><a href="http://www.lintcode.com/en/problem/rehashing/" target="_blank" rel="external">LC129 rehashing</a></p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition for ListNode</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123;</span><br><span class="line"> *         val = x;</span><br><span class="line"> *         next = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> hashTable: A list of The first node of linked list</span><br><span class="line">     * <span class="doctag">@return</span>: A list of The first node of linked list which have twice size</span><br><span class="line">     */</span>    </span><br><span class="line">    <span class="keyword">public</span> ListNode[] rehashing(ListNode[] hashTable) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> capacity = hashTable.length;</span><br><span class="line">        <span class="keyword">if</span> (capacity == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> hashTable;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// new hashtable w/ 2x size</span></span><br><span class="line">        ListNode[] rehash = <span class="keyword">new</span> ListNode[<span class="number">2</span>*capacity];</span><br><span class="line">        <span class="keyword">int</span> capacity_rehash = rehash.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (ListNode hash : hashTable) &#123;</span><br><span class="line">            <span class="keyword">while</span> (hash != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> key = hash.val;</span><br><span class="line">                <span class="keyword">int</span> index_rehash = hashcode(key, capacity_rehash);</span><br><span class="line">                <span class="keyword">if</span> (rehash[index_rehash] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rehash[index_rehash] = <span class="keyword">new</span> ListNode(key);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// chaining</span></span><br><span class="line">                    ListNode tmp;</span><br><span class="line">                    tmp = rehash[index_rehash];</span><br><span class="line">                    <span class="keyword">while</span> (tmp.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        tmp = tmp.next;</span><br><span class="line">                    &#125;</span><br><span class="line">                    tmp.next = <span class="keyword">new</span> ListNode(key);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// traverse current chaining</span></span><br><span class="line">                hash = hash.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rehash;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hashcode</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (key % capacity + capacity) % capacity;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition for ListNode</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123;</span><br><span class="line"> *         val = x;</span><br><span class="line"> *         next = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> hashTable: A list of The first node of linked list</span><br><span class="line">     * <span class="doctag">@return</span>: A list of The first node of linked list which have twice size</span><br><span class="line">     */</span>    </span><br><span class="line">    <span class="keyword">public</span> ListNode[] rehashing(ListNode[] hashTable) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> capacity = hashTable.length;</span><br><span class="line">        <span class="keyword">if</span> (capacity == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> hashTable;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// new hashtable w/ 2x size</span></span><br><span class="line">        ListNode[] rehash = <span class="keyword">new</span> ListNode[<span class="number">2</span>*capacity];</span><br><span class="line">        <span class="keyword">int</span> capacity_rehash = rehash.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (ListNode hash : hashTable) &#123;</span><br><span class="line">            <span class="keyword">while</span> (hash != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> key = hash.val;</span><br><span class="line">                <span class="keyword">int</span> index_rehash = hashcode(key, capacity_rehash);</span><br><span class="line">                <span class="keyword">if</span> (rehash[index_rehash] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rehash[index_rehash] = <span class="keyword">new</span> ListNode(key);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// chaining</span></span><br><span class="line">                    ListNode tmp;</span><br><span class="line">                    tmp = rehash[index_rehash];</span><br><span class="line">                    <span class="keyword">while</span> (tmp.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        tmp = tmp.next;</span><br><span class="line">                    &#125;</span><br><span class="line">                    tmp.next = <span class="keyword">new</span> ListNode(key);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// traverse current chaining</span></span><br><span class="line">                hash = hash.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rehash;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hashcode</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (key % capacity + capacity) % capacity;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="algorithm_correctness"><center> algorithm correctness </center></h2><h2 id="complexity_analysis"><center> complexity analysis </center></h2><p>The rehashing take $O(n)$ time complexity where $n$ is the number of exisiting itmes to rehash all the exisiting items to a new hashTable with larger size.   </p>
 <h2 id="self_notes"><center> self notes </center></h2><h2 id="application"><center> application </center></h2><h2 id="reference"><center> reference </center></h2>
@@ -362,16 +362,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/06/ugly-num-2/" rel="next" title="LC4 - ugly num 2">
-                <i class="fa fa-chevron-left"></i> LC4 - ugly num 2
+              <a href="/2017/01/06/ugly-num-2/" rel="next" title="LC4 - Ugly Num 2">
+                <i class="fa fa-chevron-left"></i> LC4 - Ugly Num 2
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/07/hash-function/" rel="prev" title="LC128 - hash function">
-                LC128 - hash function <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/07/hash-function/" rel="prev" title="LC128 - Hash Function">
+                LC128 - Hash Function <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -447,7 +447,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -464,7 +464,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -563,7 +563,7 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -672,7 +672,7 @@
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
       var disqus_identifier = '2017/01/06/rehashing/';
-      var disqus_title = "LC129 - rehashing";
+      var disqus_title = "LC129 - Rehashing";
       var disqus_url = 'http://www.xuyiruan.com/2017/01/06/rehashing/';
 
       function run_disqus_script(disqus_script){

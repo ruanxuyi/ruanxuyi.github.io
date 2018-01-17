@@ -98,7 +98,7 @@
 
 <meta name="description" content="description Given an integer array, find a subarray with sum closest to zero. Return the indexes of the first number and last number.ExampleGiven [-3, 1, 1, -3, 5], return [0, 2], [1, 3], [1, 1], [2,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC139 - subarray sum closest">
+<meta property="og:title" content="LC139 - Subarray Sum Closest">
 <meta property="og:url" content="http://www.xuyiruan.com/2017/01/02/Subarray-Sum-Closest/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="description Given an integer array, find a subarray with sum closest to zero. Return the indexes of the first number and last number.ExampleGiven [-3, 1, 1, -3, 5], return [0, 2], [1, 3], [1, 1], [2,">
@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20170104/1.jpg">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20170102/1.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC139 - subarray sum closest">
+<meta name="twitter:title" content="LC139 - Subarray Sum Closest">
 <meta name="twitter:description" content="description Given an integer array, find a subarray with sum closest to zero. Return the indexes of the first number and last number.ExampleGiven [-3, 1, 1, -3, 5], return [0, 2], [1, 3], [1, 1], [2,">
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title> LC139 - subarray sum closest | 阮先生de小窝 </title>
+  <title> LC139 - Subarray Sum Closest | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -257,7 +257,7 @@
             
             
               
-                LC139 - subarray sum closest
+                LC139 - Subarray Sum Closest
               
             
           </h1>
@@ -291,7 +291,7 @@
 
           
           
-             <span id="/2017/01/02/Subarray-Sum-Closest/" class="leancloud_visitors" data-flag-title="LC139 - subarray sum closest">
+             <span id="/2017/01/02/Subarray-Sum-Closest/" class="leancloud_visitors" data-flag-title="LC139 - Subarray Sum Closest">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -316,14 +316,14 @@
         <h2 id="description"><center> description </center></h2><p>Given an integer array, find a subarray with sum closest to zero. Return the indexes of the first number and last number.<br><strong>Example</strong><br>Given <code>[-3, 1, 1, -3, 5]</code>, return <code>[0, 2]</code>, <code>[1, 3]</code>, <code>[1, 1]</code>, <code>[2, 2]</code> or <code>[0, 4]</code>.  </p>
 <p><strong>Challenge</strong><br>O(nlogn) time</p>
 <p><a href="http://www.lintcode.com/en/problem/subarray-sum-closest/" target="_blank" rel="external">LC139 subarray sum closest</a></p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A list of integers includes the index of the first number </span><br><span class="line">     *          and the index of the last number</span><br><span class="line">     */</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">NSum</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum;</span><br><span class="line">        <span class="keyword">int</span> index;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">NSum</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.sum = s;</span><br><span class="line">            <span class="keyword">this</span>.index = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] subarraySumClosest(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> max = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        NSum[] nums_aux = <span class="keyword">new</span> NSum[len + <span class="number">1</span>];</span><br><span class="line">        nums_aux[<span class="number">0</span>] = <span class="keyword">new</span> NSum(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// get sum</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">            nums_aux[i] = <span class="keyword">new</span> NSum(nums[i-<span class="number">1</span>] + nums_aux[i-<span class="number">1</span>].sum, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// sort O(nlogn)</span></span><br><span class="line">        Arrays.sort(nums_aux, <span class="keyword">new</span> Comparator&lt;NSum&gt;()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(NSum a, NSum b)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> a.sum - b.sum;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (Math.abs(nums_aux[i+<span class="number">1</span>].sum - nums_aux[i].sum) &lt; max) &#123;</span><br><span class="line">                max = Math.abs(nums_aux[i+<span class="number">1</span>].sum - nums_aux[i].sum);</span><br><span class="line">                res[<span class="number">0</span>] = Math.min(nums_aux[i].index, nums_aux[i+<span class="number">1</span>].index);</span><br><span class="line">                res[<span class="number">1</span>] = Math.max(nums_aux[i].index, nums_aux[i+<span class="number">1</span>].index) - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A list of integers includes the index of the first number </span><br><span class="line">     *          and the index of the last number</span><br><span class="line">     */</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">NSum</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum;</span><br><span class="line">        <span class="keyword">int</span> index;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">NSum</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.sum = s;</span><br><span class="line">            <span class="keyword">this</span>.index = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] subarraySumClosest(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> max = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        NSum[] nums_aux = <span class="keyword">new</span> NSum[len + <span class="number">1</span>];</span><br><span class="line">        nums_aux[<span class="number">0</span>] = <span class="keyword">new</span> NSum(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// get sum</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">            nums_aux[i] = <span class="keyword">new</span> NSum(nums[i-<span class="number">1</span>] + nums_aux[i-<span class="number">1</span>].sum, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// sort O(nlogn)</span></span><br><span class="line">        Arrays.sort(nums_aux, <span class="keyword">new</span> Comparator&lt;NSum&gt;()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(NSum a, NSum b)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> a.sum - b.sum;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (Math.abs(nums_aux[i+<span class="number">1</span>].sum - nums_aux[i].sum) &lt; max) &#123;</span><br><span class="line">                max = Math.abs(nums_aux[i+<span class="number">1</span>].sum - nums_aux[i].sum);</span><br><span class="line">                res[<span class="number">0</span>] = Math.min(nums_aux[i].index, nums_aux[i+<span class="number">1</span>].index);</span><br><span class="line">                res[<span class="number">1</span>] = Math.max(nums_aux[i].index, nums_aux[i+<span class="number">1</span>].index) - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="algorithm_correctness"><center> algorithm correctness </center></h2><p>requirment: $O(nlogn)$ -&gt; sorting<br>apply sorting on <code>nums</code> -&gt; not helpful, original order disorder -&gt; subarray <strong>broken</strong>  </p>
 <p>Example:<br>$[-3, 1, 3, -2, 4]$</p>
 <p>all the possible combination of <strong>sub-array</strong> for particular example above include:<br>start with $1st$ element $-3$:  $[-3]$, $[-3, 1]$, $[-3,1,3]$, $[-3, 1, 3, -2]$, and $[-3, 1, 3, -2, 4]$<br>start with $2nd$ element $1$:  $[1]$, $[1, 3]$, $[1, 3, -2]$, and $[1, 3, -2, 4]$<br>start with $3rd$ element $3$:  $[3]$, $[3, -2]$, and $[3,-2,4]$<br>start with $4th$ element $-2$: $[-2]$, $[-2,4]$<br>start with $5th$ element $4$:  $[4]$  </p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20170102/1.png" alt=""></p>
 <p>All the combination above could possiblely sum up to value close to zero. We calculate all the sum for combination above and return the one that is closest to zero.  </p>
-<h3 id="解法一_two_for-loops:">解法一 two for-loops:</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; len; j++) &#123; <span class="comment">// j = i -&gt; single element should also be considered</span></span><br><span class="line">		<span class="comment">// calculate and record max sum</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解法一_two_for-loops:">解法一 two for-loops:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; len; j++) &#123; <span class="comment">// j = i -&gt; single element should also be considered</span></span><br><span class="line">		<span class="comment">// calculate and record max sum</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="解法二_改进版_$n$_summations_+_sorting:">解法二 改进版 $n$ summations + sorting:</h3><p>Second approach works like this:   </p>
 <p>1.calculate sum of index of array: </p>
 <p><code>sum1 = [0]</code>,<br><code>sum2 = [0, 1]</code>,<br><code>sum3 = [0, 1, 2]</code>,<br><code>sum4 = [0, 1, 2, 3]</code>,<br>…<br><code>sum_n = [0, 1, ... n]</code>.  </p>
@@ -378,16 +378,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/02/partition-array/" rel="next" title="LC31 - partition array">
-                <i class="fa fa-chevron-left"></i> LC31 - partition array
+              <a href="/2017/01/02/partition-array/" rel="next" title="LC31 - Partition Array">
+                <i class="fa fa-chevron-left"></i> LC31 - Partition Array
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/02/Maximum-Subarray/" rel="prev" title="LC41 - maximum subarray">
-                LC41 - maximum subarray <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/02/Maximum-Subarray/" rel="prev" title="LC41 - Maximum Subarray">
+                LC41 - Maximum Subarray <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -463,7 +463,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -480,7 +480,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -579,7 +579,7 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -688,7 +688,7 @@
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
       var disqus_identifier = '2017/01/02/Subarray-Sum-Closest/';
-      var disqus_title = "LC139 - subarray sum closest";
+      var disqus_title = "LC139 - Subarray Sum Closest";
       var disqus_url = 'http://www.xuyiruan.com/2017/01/02/Subarray-Sum-Closest/';
 
       function run_disqus_script(disqus_script){

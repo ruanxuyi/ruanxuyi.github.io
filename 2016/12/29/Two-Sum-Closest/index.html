@@ -99,13 +99,13 @@
 <meta name="description" content="descriptionGiven an array nums of n integers, find two integers in nums such that the sum is closest to a given number, target.
 Return the difference between the sum of the two integers and the target">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC533 - two sum closest">
+<meta property="og:title" content="LC533 - Two Sum Closest">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/12/29/Two-Sum-Closest/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="descriptionGiven an array nums of n integers, find two integers in nums such that the sum is closest to a given number, target.
 Return the difference between the sum of the two integers and the target">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC533 - two sum closest">
+<meta name="twitter:title" content="LC533 - Two Sum Closest">
 <meta name="twitter:description" content="descriptionGiven an array nums of n integers, find two integers in nums such that the sum is closest to a given number, target.
 Return the difference between the sum of the two integers and the target">
 
@@ -126,7 +126,7 @@ Return the difference between the sum of the two integers and the target">
   };
 </script>
 
-  <title> LC533 - two sum closest | 阮先生de小窝 </title>
+  <title> LC533 - Two Sum Closest | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -256,7 +256,7 @@ Return the difference between the sum of the two integers and the target">
             
             
               
-                LC533 - two sum closest
+                LC533 - Two Sum Closest
               
             
           </h1>
@@ -290,7 +290,7 @@ Return the difference between the sum of the two integers and the target">
 
           
           
-             <span id="/2016/12/29/Two-Sum-Closest/" class="leancloud_visitors" data-flag-title="LC533 - two sum closest">
+             <span id="/2016/12/29/Two-Sum-Closest/" class="leancloud_visitors" data-flag-title="LC533 - Two Sum Closest">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -317,7 +317,7 @@ Return the difference between the sum of the two integers and the target">
 <p><strong>Example</strong><br>Given array <code>nums = [-1, 2, 1, -4]</code>, and <code>target = 4</code>.</p>
 <p>The minimum difference is <code>1</code>. (4 - (2 + 1) = 1).</p>
 <p><a href="http://www.lintcode.com/en/problem/two-sum-closest/#" target="_blank" rel="external">LC533 Two Sum Closest</a></p>
-<h2 id="code"><center>code</center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">twoSumCloset</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span> || nums == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Arrays.sort(nums); <span class="comment">// o(nlogn)</span></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> minDif = Integer.MAX_VALUE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> twoSum = nums[left] + nums[right];</span><br><span class="line">        <span class="comment">//int currDif = Math.abs(target - twoSum);</span></span><br><span class="line">        <span class="comment">//minDif = currDif &lt; minDif ? currDif : minDif;</span></span><br><span class="line">        <span class="keyword">if</span> (twoSum &lt; target) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        minDif = Math.min(minDif, Math.abs(target - twoSum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minDif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center>code</center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">twoSumCloset</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span> || nums == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Arrays.sort(nums); <span class="comment">// o(nlogn)</span></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> minDif = Integer.MAX_VALUE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> twoSum = nums[left] + nums[right];</span><br><span class="line">        <span class="comment">//int currDif = Math.abs(target - twoSum);</span></span><br><span class="line">        <span class="comment">//minDif = currDif &lt; minDif ? currDif : minDif;</span></span><br><span class="line">        <span class="keyword">if</span> (twoSum &lt; target) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        minDif = Math.min(minDif, Math.abs(target - twoSum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minDif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="algorithm_correctness"><center>algorithm correctness</center></h2><p>Why the algorithm is correct?<br>given <code>nums = [1, 2, 4, 6, 8, 12, 13, 15]</code> and  <code>target = 17</code>;  </p>
 <p>if <code>left</code> points to <code>value = 4</code>, at next iteration, <code>left</code> points to <code>value = 6</code>. it always checks the adjecent values (16 and 18) of <code>target = 17</code>. It is sufficient to determine <code>minDif</code> for <strong>fixed</strong> right pointer’s value.</p>
@@ -375,8 +375,8 @@ Return the difference between the sum of the two integers and the target">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/29/sort-colors/" rel="prev" title="LC148 - sort colors">
-                LC148 - sort colors <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/29/sort-colors/" rel="prev" title="LC148 - Sort Colors">
+                LC148 - Sort Colors <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -452,7 +452,7 @@ Return the difference between the sum of the two integers and the target">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -469,7 +469,7 @@ Return the difference between the sum of the two integers and the target">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -568,7 +568,7 @@ Return the difference between the sum of the two integers and the target">
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -677,7 +677,7 @@ Return the difference between the sum of the two integers and the target">
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
       var disqus_identifier = '2016/12/29/Two-Sum-Closest/';
-      var disqus_title = "LC533 - two sum closest";
+      var disqus_title = "LC533 - Two Sum Closest";
       var disqus_url = 'http://www.xuyiruan.com/2016/12/29/Two-Sum-Closest/';
 
       function run_disqus_script(disqus_script){

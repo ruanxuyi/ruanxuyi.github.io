@@ -99,13 +99,13 @@
 <meta name="description" content="description As the title described, you should only use two stacks to implement a queue’s actions.
 The queue should support push(element), pop() and top() where pop is pop the first(a.k.a front) eleme">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC40 - implement queue by two stacks">
+<meta property="og:title" content="LC40 - Implement Queue by Two Stacks">
 <meta property="og:url" content="http://www.xuyiruan.com/2017/01/10/implement-queue-by-two-stacks/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="description As the title described, you should only use two stacks to implement a queue’s actions.
 The queue should support push(element), pop() and top() where pop is pop the first(a.k.a front) eleme">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC40 - implement queue by two stacks">
+<meta name="twitter:title" content="LC40 - Implement Queue by Two Stacks">
 <meta name="twitter:description" content="description As the title described, you should only use two stacks to implement a queue’s actions.
 The queue should support push(element), pop() and top() where pop is pop the first(a.k.a front) eleme">
 
@@ -126,7 +126,7 @@ The queue should support push(element), pop() and top() where pop is pop the fir
   };
 </script>
 
-  <title> LC40 - implement queue by two stacks | 阮先生de小窝 </title>
+  <title> LC40 - Implement Queue by Two Stacks | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -256,7 +256,7 @@ The queue should support push(element), pop() and top() where pop is pop the fir
             
             
               
-                LC40 - implement queue by two stacks
+                LC40 - Implement Queue by Two Stacks
               
             
           </h1>
@@ -290,7 +290,7 @@ The queue should support push(element), pop() and top() where pop is pop the fir
 
           
           
-             <span id="/2017/01/10/implement-queue-by-two-stacks/" class="leancloud_visitors" data-flag-title="LC40 - implement queue by two stacks">
+             <span id="/2017/01/10/implement-queue-by-two-stacks/" class="leancloud_visitors" data-flag-title="LC40 - Implement Queue by Two Stacks">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -316,9 +316,9 @@ The queue should support push(element), pop() and top() where pop is pop the fir
 <p>The queue should support <code>push(element)</code>, <code>pop()</code> and <code>top()</code> where pop is pop the first(a.k.a front) element in the queue.</p>
 <p>Both pop and top methods should return the value of first element.</p>
 <p><strong>Example</strong></p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">1</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">pop</span><span class="params">()</span></span>     <span class="comment">// return 1</span></span><br><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">2</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">3</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">top</span><span class="params">()</span></span>     <span class="comment">// return 2</span></span><br><span class="line"><span class="function"><span class="title">pop</span><span class="params">()</span></span>     <span class="comment">// return 2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">1</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">pop</span><span class="params">()</span></span>     <span class="comment">// return 1</span></span><br><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">2</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">push</span><span class="params">(<span class="number">3</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">top</span><span class="params">()</span></span>     <span class="comment">// return 2</span></span><br><span class="line"><span class="function"><span class="title">pop</span><span class="params">()</span></span>     <span class="comment">// return 2</span></span><br></pre></td></tr></table></figure>
 <p><a href="http://www.lintcode.com/en/problem/implement-queue-by-two-stacks/" target="_blank" rel="external">LC40 implement queue by two stacks</a>  </p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; stack1;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; stack2;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Queue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="comment">// do initialization if necessary</span></span><br><span class="line">       stack1 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">       stack2 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> element)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span> (!stack2.empty()) &#123;</span><br><span class="line">            stack1.push(stack2.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        stack1.push(element);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">            stack2.push(stack1.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">            stack2.push(stack1.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> !stack2.empty() ? stack2.peek() : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; stack1;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; stack2;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Queue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="comment">// do initialization if necessary</span></span><br><span class="line">       stack1 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">       stack2 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> element)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span> (!stack2.empty()) &#123;</span><br><span class="line">            stack1.push(stack2.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        stack1.push(element);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">            stack2.push(stack1.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">            stack2.push(stack1.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> !stack2.empty() ? stack2.peek() : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="algorithm_correctness"><center> algorithm correctness </center></h2><p>Stack is a last in first out(LIFO) datastructure. To implement Queue, which is first in first out (FIFO), with two stacks, we need to play some tricks.  </p>
 <p>Asssume we have following operations: <code>push(1), push(2), push(3), pop()</code></p>
@@ -329,11 +329,11 @@ The queue should support push(element), pop() and top() where pop is pop the fir
 <li>on <code>pop()/top()</code>, pop all current elements from <code>stack1</code> and push them into <code>stack2</code> so that the <strong>bottom element</strong> of <code>stack1</code> (first original pushed) will appear in the <strong>top</strong> of the <code>stack2</code>.  </li>
 </ol>
 <p>Example above looks like this:</p>
-<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">push(1), push(2), push(3)</span><br><span class="line"></span><br><span class="line">		stack1    stack2</span><br><span class="line">		|<span class="string"> 3 </span>|<span class="string">     </span>|<span class="string">   </span>|</span><br><span class="line">		|<span class="string"> 2 </span>|<span class="string">     </span>|<span class="string">   </span>|</span><br><span class="line">		|<span class="string">_1_</span>|<span class="string">     </span>|<span class="string">___</span>|</span><br></pre></td></tr></table></figure>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">push(1), push(2), push(3)</span><br><span class="line"></span><br><span class="line">		stack1    stack2</span><br><span class="line">		|<span class="string"> 3 </span>|<span class="string">     </span>|<span class="string">   </span>|</span><br><span class="line">		|<span class="string"> 2 </span>|<span class="string">     </span>|<span class="string">   </span>|</span><br><span class="line">		|<span class="string">_1_</span>|<span class="string">     </span>|<span class="string">___</span>|</span><br></pre></td></tr></table></figure>
 <p>On <code>pop()</code></p>
-<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">pop() -&gt; 1</span><br><span class="line"></span><br><span class="line">		stack1    stack2</span><br><span class="line">		|<span class="string">   </span>|<span class="string">     </span>|<span class="string"> 1 </span>|</span><br><span class="line">		|<span class="string">   </span>|<span class="string">     </span>|<span class="string"> 2 </span>|</span><br><span class="line">		|<span class="string">___</span>|<span class="string">     </span>|<span class="string">_3_</span>|</span><br></pre></td></tr></table></figure>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pop() -&gt; 1</span><br><span class="line"></span><br><span class="line">		stack1    stack2</span><br><span class="line">		|<span class="string">   </span>|<span class="string">     </span>|<span class="string"> 1 </span>|</span><br><span class="line">		|<span class="string">   </span>|<span class="string">     </span>|<span class="string"> 2 </span>|</span><br><span class="line">		|<span class="string">___</span>|<span class="string">     </span>|<span class="string">_3_</span>|</span><br></pre></td></tr></table></figure>
 <p>if we continue to <code>push(4)</code>, then we <strong>pop</strong> out all elements from <code>stack2</code> to <code>stack1</code> first, then <strong>push</strong> the new element.</p>
-<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">push(4)</span><br><span class="line"></span><br><span class="line">		stack1    stack2          stack1</span><br><span class="line">		|<span class="string"> 3 </span>|<span class="string">     </span>|<span class="string">   </span>|<span class="string">           </span>|<span class="string"> 4 </span>|</span><br><span class="line">		|<span class="string"> 2 </span>|<span class="string">     </span>|<span class="string">   </span>|<span class="string">     -&gt;    </span>|<span class="string"> 3 </span>|</span><br><span class="line">		|<span class="string">_1_</span>|<span class="string">     </span>|<span class="string">___</span>|<span class="string">           </span>|<span class="string"> 2 </span>|</span><br><span class="line">		                          |<span class="string">_1_</span>|</span><br></pre></td></tr></table></figure>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">push(4)</span><br><span class="line"></span><br><span class="line">		stack1    stack2          stack1</span><br><span class="line">		|<span class="string"> 3 </span>|<span class="string">     </span>|<span class="string">   </span>|<span class="string">           </span>|<span class="string"> 4 </span>|</span><br><span class="line">		|<span class="string"> 2 </span>|<span class="string">     </span>|<span class="string">   </span>|<span class="string">     -&gt;    </span>|<span class="string"> 3 </span>|</span><br><span class="line">		|<span class="string">_1_</span>|<span class="string">     </span>|<span class="string">___</span>|<span class="string">           </span>|<span class="string"> 2 </span>|</span><br><span class="line">		                          |<span class="string">_1_</span>|</span><br></pre></td></tr></table></figure>
 <h2 id="complexity_analysis"><center> complexity analysis </center></h2><p><strong>Time</strong>: all operations are $O(1)$ on average.  </p>
 <h2 id="self_notes"><center> self notes </center></h2><h2 id="application"><center> application </center></h2><h2 id="reference"><center> reference </center></h2>
       
@@ -379,8 +379,8 @@ The queue should support push(element), pop() and top() where pop is pop the fir
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/10/largest-rectangle-in-histogram/" rel="prev" title="LC122 - largest rectangle in histogram">
-                LC122 - largest rectangle in histogram <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/10/largest-rectangle-in-histogram/" rel="prev" title="LC122 - Largest Rectangle in Histogram">
+                LC122 - Largest Rectangle in Histogram <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -456,7 +456,7 @@ The queue should support push(element), pop() and top() where pop is pop the fir
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -473,7 +473,7 @@ The queue should support push(element), pop() and top() where pop is pop the fir
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -572,7 +572,7 @@ The queue should support push(element), pop() and top() where pop is pop the fir
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -681,7 +681,7 @@ The queue should support push(element), pop() and top() where pop is pop the fir
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
       var disqus_identifier = '2017/01/10/implement-queue-by-two-stacks/';
-      var disqus_title = "LC40 - implement queue by two stacks";
+      var disqus_title = "LC40 - Implement Queue by Two Stacks";
       var disqus_url = 'http://www.xuyiruan.com/2017/01/10/implement-queue-by-two-stacks/';
 
       function run_disqus_script(disqus_script){

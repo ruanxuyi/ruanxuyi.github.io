@@ -97,17 +97,17 @@
 
 
 <meta name="description" content="Lowest Common Ancestor  
-Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *         this">
+Code:123456789101112131415161718192021222324252627282930313233343536373839/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode 88 - Lowest Common Ancestor">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/07/14/Lowest-Common-Ancestor/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="Lowest Common Ancestor  
-Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *         this">
+Code:123456789101112131415161718192021222324252627282930313233343536373839/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 88 - Lowest Common Ancestor">
 <meta name="twitter:description" content="Lowest Common Ancestor  
-Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeNode left, right; *     public TreeNode(int val) &amp;#123; *         this">
+Code:123456789101112131415161718192021222324252627282930313233343536373839/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public TreeN">
 
 
 
@@ -313,13 +313,13 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
 
       
         <p><a href="http://www.lintcode.com/en/problem/lowest-common-ancestor/" target="_blank" rel="external">Lowest Common Ancestor</a>  </p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of the binary search tree.</span><br><span class="line">     * <span class="doctag">@param</span> A and B: two nodes in a Binary.</span><br><span class="line">     * <span class="doctag">@return</span>: Return the least common ancestor(LCA) of the two nodes.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode root, TreeNode A, TreeNode B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span> || root.val == A.val || root.val == B.val) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// divide</span></span><br><span class="line">        TreeNode left = lowestCommonAncestor(root.left, A, B);</span><br><span class="line">        TreeNode right = lowestCommonAncestor(root.right, A, B);</span><br><span class="line">        <span class="comment">// conquer</span></span><br><span class="line">        <span class="keyword">if</span> (left != <span class="keyword">null</span> &amp;&amp; right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of the binary search tree.</span><br><span class="line">     * <span class="doctag">@param</span> A and B: two nodes in a Binary.</span><br><span class="line">     * <span class="doctag">@return</span>: Return the least common ancestor(LCA) of the two nodes.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode root, TreeNode A, TreeNode B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span> || root.val == A.val || root.val == B.val) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// divide</span></span><br><span class="line">        TreeNode left = lowestCommonAncestor(root.left, A, B);</span><br><span class="line">        TreeNode right = lowestCommonAncestor(root.right, A, B);</span><br><span class="line">        <span class="comment">// conquer</span></span><br><span class="line">        <span class="keyword">if</span> (left != <span class="keyword">null</span> &amp;&amp; right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h1 id="Description:">Description:</h1><p>Given the root and two nodes in a Binary Tree. Find the lowest common ancestor(LCA) of the two nodes.  </p>
 <p>The lowest common ancestor is the node with largest depth which is the ancestor of both nodes. </p>
 <p><strong>Example:</strong></p>
 <p>For the following binary tree:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">  <span class="number">4</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">3</span>   <span class="number">7</span></span><br><span class="line">   / \</span><br><span class="line">  <span class="number">5</span>   <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">4</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">3</span>   <span class="number">7</span></span><br><span class="line">   / \</span><br><span class="line">  <span class="number">5</span>   <span class="number">6</span></span><br></pre></td></tr></table></figure>
 <p>LCA(3, 5) = <code>4</code></p>
 <p>LCA(5, 6) = <code>7</code></p>
 <p>LCA(6, 7) = <code>7</code></p>
@@ -447,7 +447,7 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -464,7 +464,7 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -563,7 +563,7 @@ Code:/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     publ
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

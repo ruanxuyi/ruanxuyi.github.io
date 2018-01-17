@@ -97,17 +97,17 @@
 
 
 <meta name="description" content="Search for a Range  
-Code:public int[] searchRange(int[] A, int target) &amp;#123;        // write your code here        int [] result = &amp;#123;-1, -1&amp;#125;;        if (A == null || A.length == 0) &amp;#123;">
+Code:123456789101112131415161718192021222324252627282930313233343536373839public int[] searchRange(int[] A, int target) &amp;#123;        // write your code here        int [] result">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lintcode 61 - Search For a Range">
+<meta property="og:title" content="Lintcode 61 - Search for a Range">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/06/28/Search-for-a-range/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="Search for a Range  
-Code:public int[] searchRange(int[] A, int target) &amp;#123;        // write your code here        int [] result = &amp;#123;-1, -1&amp;#125;;        if (A == null || A.length == 0) &amp;#123;">
+Code:123456789101112131415161718192021222324252627282930313233343536373839public int[] searchRange(int[] A, int target) &amp;#123;        // write your code here        int [] result">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lintcode 61 - Search For a Range">
+<meta name="twitter:title" content="Lintcode 61 - Search for a Range">
 <meta name="twitter:description" content="Search for a Range  
-Code:public int[] searchRange(int[] A, int target) &amp;#123;        // write your code here        int [] result = &amp;#123;-1, -1&amp;#125;;        if (A == null || A.length == 0) &amp;#123;">
+Code:123456789101112131415161718192021222324252627282930313233343536373839public int[] searchRange(int[] A, int target) &amp;#123;        // write your code here        int [] result">
 
 
 
@@ -126,7 +126,7 @@ Code:public int[] searchRange(int[] A, int target) &amp;#123;        // write yo
   };
 </script>
 
-  <title> Lintcode 61 - Search For a Range | 阮先生de小窝 </title>
+  <title> Lintcode 61 - Search for a Range | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -256,7 +256,7 @@ Code:public int[] searchRange(int[] A, int target) &amp;#123;        // write yo
             
             
               
-                Lintcode 61 - Search For a Range
+                Lintcode 61 - Search for a Range
               
             
           </h1>
@@ -290,7 +290,7 @@ Code:public int[] searchRange(int[] A, int target) &amp;#123;        // write yo
 
           
           
-             <span id="/2016/06/28/Search-for-a-range/" class="leancloud_visitors" data-flag-title="Lintcode 61 - Search For a Range">
+             <span id="/2016/06/28/Search-for-a-range/" class="leancloud_visitors" data-flag-title="Lintcode 61 - Search for a Range">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -313,7 +313,7 @@ Code:public int[] searchRange(int[] A, int target) &amp;#123;        // write yo
 
       
         <p><a href="http://www.lintcode.com/en/problem/search-for-a-range/" target="_blank" rel="external">Search for a Range</a>  </p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] searchRange(<span class="keyword">int</span>[] A, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> [] result = &#123;-<span class="number">1</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> startPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> endPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">            mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target &lt;= A[mid]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// binary search end</span></span><br><span class="line">        <span class="keyword">if</span> (A[low] == target) &#123;</span><br><span class="line">            startPos = low;</span><br><span class="line">            found = <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (A[high] == target) &#123; <span class="comment">// if the target value is the LAST element, using low as startPos will not work, in this case, set startPos as the index of LAST element. </span></span><br><span class="line">            startPos = high;</span><br><span class="line">            found = <span class="keyword">true</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> (found) &#123;</span><br><span class="line">            endPos = startPos;</span><br><span class="line">            <span class="keyword">while</span> (endPos &lt; A.length &amp;&amp; A[endPos] == target) &#123;</span><br><span class="line">                endPos++;</span><br><span class="line">            &#125;</span><br><span class="line">            endPos--;</span><br><span class="line">            result[<span class="number">0</span>] = startPos;</span><br><span class="line">            result[<span class="number">1</span>] = endPos;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] searchRange(<span class="keyword">int</span>[] A, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> [] result = &#123;-<span class="number">1</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> startPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> endPos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">            mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target &lt;= A[mid]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// binary search end</span></span><br><span class="line">        <span class="keyword">if</span> (A[low] == target) &#123;</span><br><span class="line">            startPos = low;</span><br><span class="line">            found = <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (A[high] == target) &#123; <span class="comment">// if the target value is the LAST element, using low as startPos will not work, in this case, set startPos as the index of LAST element. </span></span><br><span class="line">            startPos = high;</span><br><span class="line">            found = <span class="keyword">true</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> (found) &#123;</span><br><span class="line">            endPos = startPos;</span><br><span class="line">            <span class="keyword">while</span> (endPos &lt; A.length &amp;&amp; A[endPos] == target) &#123;</span><br><span class="line">                endPos++;</span><br><span class="line">            &#125;</span><br><span class="line">            endPos--;</span><br><span class="line">            result[<span class="number">0</span>] = startPos;</span><br><span class="line">            result[<span class="number">1</span>] = endPos;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h1 id="Description:">Description:</h1><p>Given a sorted array of n integers, find the starting and ending position of a given target value.  </p>
 <p>If the target is not found in the array, return <code>[-1, -1]</code>.  </p>
@@ -450,7 +450,7 @@ Code:public int[] searchRange(int[] A, int target) &amp;#123;        // write yo
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -467,7 +467,7 @@ Code:public int[] searchRange(int[] A, int target) &amp;#123;        // write yo
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -566,7 +566,7 @@ Code:public int[] searchRange(int[] A, int target) &amp;#123;        // write yo
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -675,7 +675,7 @@ Code:public int[] searchRange(int[] A, int target) &amp;#123;        // write yo
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
       var disqus_identifier = '2016/06/28/Search-for-a-range/';
-      var disqus_title = "Lintcode 61 - Search For a Range";
+      var disqus_title = "Lintcode 61 - Search for a Range";
       var disqus_url = 'http://www.xuyiruan.com/2016/06/28/Search-for-a-range/';
 
       function run_disqus_script(disqus_script){

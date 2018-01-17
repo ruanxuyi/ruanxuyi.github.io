@@ -100,7 +100,7 @@
 
 Above is a histogram where w">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC122 - largest rectangle in histogram">
+<meta property="og:title" content="LC122 - Largest Rectangle in Histogram">
 <meta property="og:url" content="http://www.xuyiruan.com/2017/01/10/largest-rectangle-in-histogram/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="description Given $n$ non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
@@ -109,7 +109,7 @@ Above is a histogram where w">
 <meta property="og:image" content="http://www.lintcode.com/media/problem/histogram1.png">
 <meta property="og:image" content="http://www.lintcode.com/media/problem/histogram_area.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC122 - largest rectangle in histogram">
+<meta name="twitter:title" content="LC122 - Largest Rectangle in Histogram">
 <meta name="twitter:description" content="description Given $n$ non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
 
 Above is a histogram where w">
@@ -131,7 +131,7 @@ Above is a histogram where w">
   };
 </script>
 
-  <title> LC122 - largest rectangle in histogram | 阮先生de小窝 </title>
+  <title> LC122 - Largest Rectangle in Histogram | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@ Above is a histogram where w">
             
             
               
-                LC122 - largest rectangle in histogram
+                LC122 - Largest Rectangle in Histogram
               
             
           </h1>
@@ -295,7 +295,7 @@ Above is a histogram where w">
 
           
           
-             <span id="/2017/01/10/largest-rectangle-in-histogram/" class="leancloud_visitors" data-flag-title="LC122 - largest rectangle in histogram">
+             <span id="/2017/01/10/largest-rectangle-in-histogram/" class="leancloud_visitors" data-flag-title="LC122 - Largest Rectangle in Histogram">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -324,7 +324,7 @@ Above is a histogram where w">
 <p>The largest rectangle is shown in the shaded area, which has area = <code>10</code> unit.</p>
 <p><strong>Example</strong><br>Given height = <code>[2,1,5,6,2,3]</code>,<br>return <code>10</code>.</p>
 <p><a href="http://www.lintcode.com/en/problem/largest-rectangle-in-histogram/" target="_blank" rel="external">LC122 largest rectangle in histogram</a></p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> height: A list of integer</span><br><span class="line">     * <span class="doctag">@return</span>: The area of largest rectangle in the histogram</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= height.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> curr = i == height.length ? <span class="number">0</span> : height[i];</span><br><span class="line">            <span class="keyword">while</span> (!stack.empty() &amp;&amp; curr &lt; height[stack.peek()]) &#123;</span><br><span class="line">                <span class="keyword">int</span> right = i;</span><br><span class="line">                <span class="keyword">int</span> target = stack.pop();</span><br><span class="line">                <span class="keyword">int</span> left = stack.empty() ? -<span class="number">1</span> : stack.peek();</span><br><span class="line">                <span class="keyword">int</span> area = (right - left - <span class="number">1</span>) * height[target];</span><br><span class="line">                max = area &gt; max ? area : max;</span><br><span class="line">            &#125;</span><br><span class="line">            stack.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> height: A list of integer</span><br><span class="line">     * <span class="doctag">@return</span>: The area of largest rectangle in the histogram</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= height.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> curr = i == height.length ? <span class="number">0</span> : height[i];</span><br><span class="line">            <span class="keyword">while</span> (!stack.empty() &amp;&amp; curr &lt; height[stack.peek()]) &#123;</span><br><span class="line">                <span class="keyword">int</span> right = i;</span><br><span class="line">                <span class="keyword">int</span> target = stack.pop();</span><br><span class="line">                <span class="keyword">int</span> left = stack.empty() ? -<span class="number">1</span> : stack.peek();</span><br><span class="line">                <span class="keyword">int</span> area = (right - left - <span class="number">1</span>) * height[target];</span><br><span class="line">                max = area &gt; max ? area : max;</span><br><span class="line">            &#125;</span><br><span class="line">            stack.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="algorithm"><center> algorithm </center></h2><h3 id="Method1_($O(n^2)$)">Method1 ($O(n^2)$)</h3><p>For each target bar, two pointers scan away from the <strong>target bar</strong> to left and right until reaching the first bar with smaller height OR pointer reach the end of array. Calculate <strong>max area</strong> with height of target bar and return the global <code>max</code> value.  </p>
 <h3 id="Method2_($O(n)$)">Method2 ($O(n)$)</h3><p>From observing method 1, we can eliminate un-necessary scan opeartion by maintaining a increment sequence in stack.  </p>
@@ -334,7 +334,7 @@ Above is a histogram where w">
 <p>Another <strong>benefit</strong> of maintaing a incremental order is it provide a general format for calculating the area. If elements in an incremental sequence index from $i$ to $j$, the <strong>widith</strong> of max area with height of <code>bar[i]</code> must extends to <code>j</code>. </p>
 <p><code>int area = (j - i + 1) * height[target];</code></p>
 <p><strong>Algorithm</strong>:   </p>
-<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="label">for</span> (int i = <span class="number">0</span><span class="comment">; i &lt;= height.length; i++)</span></span><br><span class="line">    <span class="preprocessor">If</span> (current <span class="keyword">bar </span>height $&gt;$ the <span class="keyword">bar </span>height <span class="keyword">pushed </span>previously) (maintaining increment order): </span><br><span class="line">	     -&gt; <span class="keyword">push </span>into stack  </span><br><span class="line">    <span class="preprocessor">While</span> (current <span class="keyword">bar </span>height $&lt;$ the <span class="keyword">bar </span>height <span class="keyword">pushed </span>previously) (current element will distroy increment property):  </span><br><span class="line">        -&gt; <span class="keyword">pop </span>from top of stack  </span><br><span class="line">        -&gt; calculate <span class="preprocessor">area</span> of height of <span class="keyword">pop </span>element <span class="keyword">and </span>update `max`</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">for</span> (int i = <span class="number">0</span><span class="comment">; i &lt;= height.length; i++)</span></span><br><span class="line">    <span class="preprocessor">If</span> (current <span class="keyword">bar </span>height $&gt;$ the <span class="keyword">bar </span>height <span class="keyword">pushed </span>previously) (maintaining increment order): </span><br><span class="line">	     -&gt; <span class="keyword">push </span>into stack  </span><br><span class="line">    <span class="preprocessor">While</span> (current <span class="keyword">bar </span>height $&lt;$ the <span class="keyword">bar </span>height <span class="keyword">pushed </span>previously) (current element will distroy increment property):  </span><br><span class="line">        -&gt; <span class="keyword">pop </span>from top of stack  </span><br><span class="line">        -&gt; calculate <span class="preprocessor">area</span> of height of <span class="keyword">pop </span>element <span class="keyword">and </span>update `max`</span><br></pre></td></tr></table></figure>
 <p>Instead of scaning from left to right for n times, this algorithm only requires 1 scan from left to right.  </p>
 <h2 id="complexity_analysis"><center> complexity analysis </center></h2><h3 id="method_1">method 1</h3><p><strong>Time</strong>:  $O(n^2)$ for each bar, we need $O(n)$ to find the max area of with that height, and we have total of $n$ bars.<br><strong>Spcce</strong>:  $O(1)$ no extra space required</p>
 <h3 id="method_2">method 2</h3><p><strong>Time</strong>:  $O(n)$ only require one scan from left to right accross each bar.<br><strong>Spcce</strong>:  $O(n)$ extra space for stack to store the incrementing sequence.  </p>
@@ -378,16 +378,16 @@ Above is a histogram where w">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/10/implement-queue-by-two-stacks/" rel="next" title="LC40 - implement queue by two stacks">
-                <i class="fa fa-chevron-left"></i> LC40 - implement queue by two stacks
+              <a href="/2017/01/10/implement-queue-by-two-stacks/" rel="next" title="LC40 - Implement Queue by Two Stacks">
+                <i class="fa fa-chevron-left"></i> LC40 - Implement Queue by Two Stacks
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/02/fix-philips-tooth-brash/" rel="prev" title="Sonicare 维修记 (Fix your sonicare toothbrush)">
-                Sonicare 维修记 (Fix your sonicare toothbrush) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/02/fix-philips-tooth-brash/" rel="prev" title="Sonicare 维修记 (Fix Your Sonicare Toothbrush)">
+                Sonicare 维修记 (Fix Your Sonicare Toothbrush) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -463,7 +463,7 @@ Above is a histogram where w">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -480,7 +480,7 @@ Above is a histogram where w">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -579,7 +579,7 @@ Above is a histogram where w">
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -688,7 +688,7 @@ Above is a histogram where w">
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
       var disqus_identifier = '2017/01/10/largest-rectangle-in-histogram/';
-      var disqus_title = "LC122 - largest rectangle in histogram";
+      var disqus_title = "LC122 - Largest Rectangle in Histogram";
       var disqus_url = 'http://www.xuyiruan.com/2017/01/10/largest-rectangle-in-histogram/';
 
       function run_disqus_script(disqus_script){

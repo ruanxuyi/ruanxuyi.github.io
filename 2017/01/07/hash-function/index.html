@@ -98,14 +98,14 @@
 
 <meta name="description" content="description In data structure Hash, hash function is used to convert a string(or any other type) into an integer smaller than hash size and bigger or equal to zero. The objective of designing a hash f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC128 - hash function">
+<meta property="og:title" content="LC128 - Hash Function">
 <meta property="og:url" content="http://www.xuyiruan.com/2017/01/07/hash-function/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="description In data structure Hash, hash function is used to convert a string(or any other type) into an integer smaller than hash size and bigger or equal to zero. The objective of designing a hash f">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20170107/1.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/20170107/2.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC128 - hash function">
+<meta name="twitter:title" content="LC128 - Hash Function">
 <meta name="twitter:description" content="description In data structure Hash, hash function is used to convert a string(or any other type) into an integer smaller than hash size and bigger or equal to zero. The objective of designing a hash f">
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title> LC128 - hash function | 阮先生de小窝 </title>
+  <title> LC128 - Hash Function | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -255,7 +255,7 @@
             
             
               
-                LC128 - hash function
+                LC128 - Hash Function
               
             
           </h1>
@@ -289,7 +289,7 @@
 
           
           
-             <span id="/2017/01/07/hash-function/" class="leancloud_visitors" data-flag-title="LC128 - hash function">
+             <span id="/2017/01/07/hash-function/" class="leancloud_visitors" data-flag-title="LC128 - Hash Function">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -312,15 +312,15 @@
 
       
         <h2 id="description"><center> description </center></h2><p>In data structure Hash, hash function is used to convert a string(or any other type) into an integer smaller than hash size and bigger or equal to zero. The objective of designing a hash function is to “hash” the key as unreasonable as possible. A good hash function can avoid collision as less as possible. A widely used hash function algorithm is using a magic number 33, consider any string as a 33 based big integer like follow:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">hashcode(<span class="string">"abcd"</span>) = (ascii(a) * <span class="number">333</span> + ascii(b) * <span class="number">332</span> + ascii(c) *<span class="number">33</span> + ascii(d)) % HASH_SIZE </span><br><span class="line">                             = (<span class="number">97</span>* <span class="number">333</span> + <span class="number">98</span> * <span class="number">332</span> + <span class="number">99</span> * <span class="number">33</span> +<span class="number">100</span>) % HASH_SIZE</span><br><span class="line">                             = <span class="number">3595978</span> % HASH_SIZE</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hashcode(<span class="string">"abcd"</span>) = (ascii(a) * <span class="number">333</span> + ascii(b) * <span class="number">332</span> + ascii(c) *<span class="number">33</span> + ascii(d)) % HASH_SIZE </span><br><span class="line">                             = (<span class="number">97</span>* <span class="number">333</span> + <span class="number">98</span> * <span class="number">332</span> + <span class="number">99</span> * <span class="number">33</span> +<span class="number">100</span>) % HASH_SIZE</span><br><span class="line">                             = <span class="number">3595978</span> % HASH_SIZE</span><br></pre></td></tr></table></figure>
 <p>here <code>HASH_SIZE</code> is the capacity of the hash table (you can assume a hash table is like an array with index 0 ~ <code>HASH_SIZE</code>-1).</p>
 <p>Given a string as a key and the size of hash table, return the hash value of this key.f</p>
 <p><strong>Clarification</strong><br>For this problem, you are not necessary to design your own hash algorithm or consider any collision issue, you just need to implement the algorithm as described.</p>
 <p><strong>Example</strong><br>For <code>key=&quot;abcd&quot;</code> and <code>size=100</code>, return <code>78</code></p>
 <p><a href="http://www.lintcode.com/en/problem/hash-function/" target="_blank" rel="external">LC129 hash function</a></p>
-<h2 id="code"><center> code </center></h2><h3 id="Ver-1">Ver.1</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> key: A String you should hash</span><br><span class="line">     * <span class="doctag">@param</span> HASH_SIZE: An integer</span><br><span class="line">     * <span class="doctag">@return</span> an integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">(<span class="keyword">char</span>[] key,<span class="keyword">int</span> HASH_SIZE)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = key.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; len; index++) &#123;</span><br><span class="line">            sum = (sum * <span class="number">33</span> + (<span class="keyword">int</span>)key[index]) % HASH_SIZE;  <span class="comment">//(int)'a' returns asiic of 'a'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><h3 id="Ver-1">Ver.1</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> key: A String you should hash</span><br><span class="line">     * <span class="doctag">@param</span> HASH_SIZE: An integer</span><br><span class="line">     * <span class="doctag">@return</span> an integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">(<span class="keyword">char</span>[] key,<span class="keyword">int</span> HASH_SIZE)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = key.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; len; index++) &#123;</span><br><span class="line">            sum = (sum * <span class="number">33</span> + (<span class="keyword">int</span>)key[index]) % HASH_SIZE;  <span class="comment">//(int)'a' returns asiic of 'a'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="Time_out_ver-2">Time out ver.2</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> key: A String you should hash</span><br><span class="line">     * <span class="doctag">@param</span> HASH_SIZE: An integer</span><br><span class="line">     * <span class="doctag">@return</span> an integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">(<span class="keyword">char</span>[] key,<span class="keyword">int</span> HASH_SIZE)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        BigInteger sum = BigInteger.valueOf(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> len = key.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; len; index++) &#123;</span><br><span class="line">            <span class="keyword">char</span> curr = key[index];</span><br><span class="line">            BigInteger base = BigInteger.valueOf(<span class="number">33</span>);</span><br><span class="line">            sum = sum.add(BigInteger.valueOf((<span class="keyword">int</span>)(curr)).multiply(base.pow(len-index-<span class="number">1</span>)));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (sum.mod(BigInteger.valueOf(HASH_SIZE))).intValue();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Time_out_ver-2">Time out ver.2</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> key: A String you should hash</span><br><span class="line">     * <span class="doctag">@param</span> HASH_SIZE: An integer</span><br><span class="line">     * <span class="doctag">@return</span> an integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">(<span class="keyword">char</span>[] key,<span class="keyword">int</span> HASH_SIZE)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        BigInteger sum = BigInteger.valueOf(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> len = key.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; len; index++) &#123;</span><br><span class="line">            <span class="keyword">char</span> curr = key[index];</span><br><span class="line">            BigInteger base = BigInteger.valueOf(<span class="number">33</span>);</span><br><span class="line">            sum = sum.add(BigInteger.valueOf((<span class="keyword">int</span>)(curr)).multiply(base.pow(len-index-<span class="number">1</span>)));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (sum.mod(BigInteger.valueOf(HASH_SIZE))).intValue();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="algorithm_correctness"><center> algorithm correctness </center></h2><p>There are two versions of implementation. The second version did <strong>not</strong> pass the test. The first version is <strong>better</strong> than second version in following:  </p>
 <ul>
 <li>using <code>long</code> instead of <code>BigInteger</code>:   </li>
@@ -336,7 +336,7 @@
 <p>Mod <code>HASH_SIZE</code> at every iteration significant eliminate chance of overflow.</p>
 <h3 id="alteration_for_Math-pow()">alteration for Math.pow()</h3><p>Instead of using <code>Math.pow()</code> explicitly write out every terms for base 33 <strong>power</strong>.  </p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20170107/1.png" alt=""><br>We modify it to more structurized code:  </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; len; index++) &#123;</span><br><span class="line">    sum = (sum * <span class="number">33</span> + (<span class="keyword">int</span>)key[index]) % HASH_SIZE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; len; index++) &#123;</span><br><span class="line">    sum = (sum * <span class="number">33</span> + (<span class="keyword">int</span>)key[index]) % HASH_SIZE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>we also need to show that the for-loop from <code>line 13-15</code> in version 1 has the same result as the <code>hashcode()</code> function</p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20170107/2.png" alt=""></p>
 <h2 id="complexity_analysis"><center> complexity analysis </center></h2><p>Both algorithm result in same complexity where $n$ is length of <code>key</code>.  </p>
@@ -376,16 +376,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/06/rehashing/" rel="next" title="LC129 - rehashing">
-                <i class="fa fa-chevron-left"></i> LC129 - rehashing
+              <a href="/2017/01/06/rehashing/" rel="next" title="LC129 - Rehashing">
+                <i class="fa fa-chevron-left"></i> LC129 - Rehashing
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/08/merge-k-sorted-arrays/" rel="prev" title="LC486 - merge k sorted arrays">
-                LC486 - merge k sorted arrays <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/08/merge-k-sorted-arrays/" rel="prev" title="LC486 - Merge K Sorted Arrays">
+                LC486 - Merge K Sorted Arrays <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -461,7 +461,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -478,7 +478,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -577,7 +577,7 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -686,7 +686,7 @@
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
       var disqus_identifier = '2017/01/07/hash-function/';
-      var disqus_title = "LC128 - hash function";
+      var disqus_title = "LC128 - Hash Function";
       var disqus_url = 'http://www.xuyiruan.com/2017/01/07/hash-function/';
 
       function run_disqus_script(disqus_script){

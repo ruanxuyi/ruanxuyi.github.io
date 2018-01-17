@@ -99,13 +99,13 @@
 <meta name="description" content="description Given an array nums of integers and an int k, partition the array (i.e move the elements in “nums”) such that:  
 All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved to">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC31 - partition array">
+<meta property="og:title" content="LC31 - Partition Array">
 <meta property="og:url" content="http://www.xuyiruan.com/2017/01/02/partition-array/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="description Given an array nums of integers and an int k, partition the array (i.e move the elements in “nums”) such that:  
 All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved to">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC31 - partition array">
+<meta name="twitter:title" content="LC31 - Partition Array">
 <meta name="twitter:description" content="description Given an array nums of integers and an int k, partition the array (i.e move the elements in “nums”) such that:  
 All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved to">
 
@@ -126,7 +126,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
   };
 </script>
 
-  <title> LC31 - partition array | 阮先生de小窝 </title>
+  <title> LC31 - Partition Array | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -256,7 +256,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
             
             
               
-                LC31 - partition array
+                LC31 - Partition Array
               
             
           </h1>
@@ -290,7 +290,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
 
           
           
-             <span id="/2017/01/02/partition-array/" class="leancloud_visitors" data-flag-title="LC31 - partition array">
+             <span id="/2017/01/02/partition-array/" class="leancloud_visitors" data-flag-title="LC31 - Partition Array">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -316,7 +316,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
 <p>All elements &lt; k are moved to the <em>left</em><br>All elements &gt;= k are moved to the <em>right</em><br>Return the partitioning index, i.e the first index <em>i</em> nums[<em>i</em>] &gt;= <em>k</em>.  </p>
 <p><strong>Example</strong><br>If nums = <code>[3,2,2,1]</code> and <code>k=2</code>, a valid answer is <code>1</code>.</p>
 <p><a href="http://www.lintcode.com/en/problem/partition-array/" target="_blank" rel="external">LC31 - partition array</a>  </p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="comment">/** </span><br><span class="line">     *<span class="doctag">@param</span> nums: The integer array you should partition</span><br><span class="line">     *<span class="doctag">@param</span> k: As description</span><br><span class="line">     *return: The index after partition</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partitionArray</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//write your code here</span></span><br><span class="line">	    <span class="keyword">if</span> (nums.length == <span class="number">0</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">	        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	    <span class="keyword">int</span> high = nums.length-<span class="number">1</span>;</span><br><span class="line">	    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[low] &lt; k) &#123;</span><br><span class="line">	            low++;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[high] &gt;= k) &#123;</span><br><span class="line">	            high--;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="comment">// swap</span></span><br><span class="line">	        <span class="keyword">if</span> (low &lt;= high) &#123;</span><br><span class="line">	            <span class="keyword">int</span> tmp = nums[high];</span><br><span class="line">	            nums[high] = nums[low];</span><br><span class="line">	            nums[low] = tmp;</span><br><span class="line">	            <span class="comment">//low++;</span></span><br><span class="line">	            <span class="comment">//high--;</span></span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> high+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="comment">/** </span><br><span class="line">     *<span class="doctag">@param</span> nums: The integer array you should partition</span><br><span class="line">     *<span class="doctag">@param</span> k: As description</span><br><span class="line">     *return: The index after partition</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partitionArray</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//write your code here</span></span><br><span class="line">	    <span class="keyword">if</span> (nums.length == <span class="number">0</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">	        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	    <span class="keyword">int</span> high = nums.length-<span class="number">1</span>;</span><br><span class="line">	    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[low] &lt; k) &#123;</span><br><span class="line">	            low++;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[high] &gt;= k) &#123;</span><br><span class="line">	            high--;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="comment">// swap</span></span><br><span class="line">	        <span class="keyword">if</span> (low &lt;= high) &#123;</span><br><span class="line">	            <span class="keyword">int</span> tmp = nums[high];</span><br><span class="line">	            nums[high] = nums[low];</span><br><span class="line">	            nums[low] = tmp;</span><br><span class="line">	            <span class="comment">//low++;</span></span><br><span class="line">	            <span class="comment">//high--;</span></span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> high+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="algorithm_correctness"><center> algorithm correctness </center></h2><h3 id="line_14_:_while_(low_&lt;=_high)_{,_why_low_&lt;_high_is_not_sufficient?">line 14 : <code>while (low &lt;= high) {</code>, why <code>low &lt; high</code> is not sufficient?</h3><p>partition algorithm requires partition to be done as following:<br><code>[start... high] [low... end]</code> where <code>low != high</code><br>Therefore, when <code>low == high</code>, we need to further seperate <code>low</code> with <code>high</code> to fullfill the inclusive requirement.  </p>
 <h3 id="line_15_&amp;_line_18:_why_extra_low_&lt;=_high?">line 15 &amp; line 18: why extra <code>low &lt;= high</code>?</h3><p>different from partition in quicksort algorithm, where pivot <code>p</code> at most the <strong>largest</strong> or <strong>smallest</strong> element <strong>in</strong> the array.(ex <code>[1,2,3]</code>, <code>p = 2</code>).   </p>
@@ -325,9 +325,9 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
 <span class="comment">//high--;</span>
 </code></pre><p>two lines above inside if statment is optional in this setting because while statement from line 18-20 <strong>update</strong> <code>high pointer</code> when the value is equal to the target value (pivot value).  </p>
 <p>However, this two lines are <strong>essential</strong> in quicksort becuase both while loop in quick sort did not specific what to do when <code>value == pivot</code>. </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (array[left] &lt; pivot) &#123;</span><br><span class="line">	left++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (pivot &lt; array[right]) &#123;</span><br><span class="line">	right--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (array[left] &lt; pivot) &#123;</span><br><span class="line">	left++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (pivot &lt; array[right]) &#123;</span><br><span class="line">	right--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Therefore, <strong>without</strong> two lines in if statemnt below. At time encounter values <strong>equal</strong> to pivot value, algorithm will <strong>NOT</strong> progress.  </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">	<span class="keyword">int</span> temp = array[right];</span><br><span class="line">	array[right] = array[left];</span><br><span class="line">	array[left] = temp;</span><br><span class="line">	left++; <span class="comment">// help to progress w/ piviot == array[left]</span></span><br><span class="line">	right--; <span class="comment">// help to progress w/ piviot == array[right]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">	<span class="keyword">int</span> temp = array[right];</span><br><span class="line">	array[right] = array[left];</span><br><span class="line">	array[left] = temp;</span><br><span class="line">	left++; <span class="comment">// help to progress w/ piviot == array[left]</span></span><br><span class="line">	right--; <span class="comment">// help to progress w/ piviot == array[right]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="complexity_analysis"><center> complexity analysis </center></h2><p>time $O(n)$ where n is the number of elements in array<br>space $O(1)$ no extra space needed</p>
 <p><a href="">github</a></p>
 <h2 id="self_notes"><center> self notes </center></h2><p>quick sort algorithm - PARTION 部分的 变种。  </p>
@@ -370,16 +370,16 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/29/sort-colors/" rel="next" title="LC148 - sort colors">
-                <i class="fa fa-chevron-left"></i> LC148 - sort colors
+              <a href="/2016/12/29/sort-colors/" rel="next" title="LC148 - Sort Colors">
+                <i class="fa fa-chevron-left"></i> LC148 - Sort Colors
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/02/Subarray-Sum-Closest/" rel="prev" title="LC139 - subarray sum closest">
-                LC139 - subarray sum closest <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/02/Subarray-Sum-Closest/" rel="prev" title="LC139 - Subarray Sum Closest">
+                LC139 - Subarray Sum Closest <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -455,7 +455,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -472,7 +472,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -571,7 +571,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -680,7 +680,7 @@ All elements &amp;lt; k are moved to the leftAll elements &amp;gt;= k are moved 
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
       var disqus_identifier = '2017/01/02/partition-array/';
-      var disqus_title = "LC31 - partition array";
+      var disqus_title = "LC31 - Partition Array";
       var disqus_url = 'http://www.xuyiruan.com/2017/01/02/partition-array/';
 
       function run_disqus_script(disqus_script){

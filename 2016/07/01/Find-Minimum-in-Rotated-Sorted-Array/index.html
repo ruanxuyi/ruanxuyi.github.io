@@ -97,17 +97,17 @@
 
 
 <meta name="description" content="Find Minimum in Rotated Sorted Array  
-Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (num == null || num.length == 0) &amp;#123;        return -1;    &amp;#125;    int low = 0;">
+Code:12345678910111213141516171819202122232425public int findMin(int[] num) &amp;#123;    // write your code here    if (num == null || num.length == 0) &amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode 159 - Find Minimum in Rotated Sorted Array">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/07/01/Find-Minimum-in-Rotated-Sorted-Array/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="Find Minimum in Rotated Sorted Array  
-Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (num == null || num.length == 0) &amp;#123;        return -1;    &amp;#125;    int low = 0;">
+Code:12345678910111213141516171819202122232425public int findMin(int[] num) &amp;#123;    // write your code here    if (num == null || num.length == 0) &amp;#123;">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 159 - Find Minimum in Rotated Sorted Array">
 <meta name="twitter:description" content="Find Minimum in Rotated Sorted Array  
-Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (num == null || num.length == 0) &amp;#123;        return -1;    &amp;#125;    int low = 0;">
+Code:12345678910111213141516171819202122232425public int findMin(int[] num) &amp;#123;    // write your code here    if (num == null || num.length == 0) &amp;#123;">
 
 
 
@@ -313,7 +313,7 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
 
       
         <p><a href="http://www.lintcode.com/en/problem/find-minimum-in-rotated-sorted-array/" target="_blank" rel="external">Find Minimum in Rotated Sorted Array</a>  </p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] num)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (num == <span class="keyword">null</span> || num.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = num.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">        mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (num[low] &gt; num[mid]) &#123;</span><br><span class="line">            high = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num[high] &lt; num[mid]) &#123;</span><br><span class="line">            low = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// un-rotated?? 需要考虑么?</span></span><br><span class="line">            <span class="keyword">return</span> num[low];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (num[low] &lt; num[high]) &#123;</span><br><span class="line">        <span class="keyword">return</span> num[low];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num[high];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] num)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (num == <span class="keyword">null</span> || num.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = num.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">        mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (num[low] &gt; num[mid]) &#123;</span><br><span class="line">            high = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num[high] &lt; num[mid]) &#123;</span><br><span class="line">            low = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// un-rotated?? 需要考虑么?</span></span><br><span class="line">            <span class="keyword">return</span> num[low];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (num[low] &lt; num[high]) &#123;</span><br><span class="line">        <span class="keyword">return</span> num[low];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num[high];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h1 id="Description:">Description:</h1><p>Suppose a sorted array is rotated at some pivot unknown to you beforehand.</p>
 <p>(i.e., <code>0 1 2 4 5 6 7</code> might become <code>4 5 6 7 0 1 2</code>).</p>
@@ -327,11 +327,11 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
 <li><strong>no</strong> <strong>target</strong> values given  </li>
 </ul>
 <p><code>7 8 0 **1** 2 3 4 5</code> -&gt; </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (num[low] &gt; num[mid]) &#123;</span><br><span class="line">                high = mid;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (num[low] &gt; num[mid]) &#123;</span><br><span class="line">                high = mid;</span><br></pre></td></tr></table></figure>
 <p><code>4 5 6 7 **8** 9 0 1 2</code> -&gt; </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (num[high] &lt; num[mid]) &#123;</span><br><span class="line">                low = mid;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (num[high] &lt; num[mid]) &#123;</span><br><span class="line">                low = mid;</span><br></pre></td></tr></table></figure>
 <p><code>2 3 4 5 6 7 8</code> -&gt; unrotated </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> num[low];</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> num[low];</span><br></pre></td></tr></table></figure>
 <h1 id="Corner_Case:">Corner Case:</h1><ul>
 <li><code>num == null || num.length == 0</code> </li>
 </ul>
@@ -452,7 +452,7 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -469,7 +469,7 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -568,7 +568,7 @@ Code:public int findMin(int[] num) &amp;#123;    // write your code here    if (
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

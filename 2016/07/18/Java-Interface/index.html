@@ -97,20 +97,20 @@
 
 
 <meta name="description" content="IntroductionLets look at following code: 
-List list = new ArrayList();
-The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data str">
+1List list = new ArrayList();
+The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data st">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Interface">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/07/18/Java-Interface/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="IntroductionLets look at following code: 
-List list = new ArrayList();
-The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data str">
+1List list = new ArrayList();
+The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data st">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Interface">
 <meta name="twitter:description" content="IntroductionLets look at following code: 
-List list = new ArrayList();
-The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data str">
+1List list = new ArrayList();
+The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data st">
 
 
 
@@ -316,7 +316,7 @@ The code above creates a reference of List type with variable called list, which
 
       
         <h1 id="Introduction">Introduction</h1><p>Lets look at following code: </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
 <p>The code above creates a reference of <code>List</code> type with variable called <code>list</code>, which is implemented by an internal <code>ArrayList</code> data structure.  </p>
 <p>To better understand the benefits of writing code above, I would like to first introduce few key words below: Polymorphism, Dynamic-linking, and upper casting vs lower casting.  </p>
 <h1 id="Java:_Polymorphism">Java: Polymorphism</h1><p>Polymorphism is one of the three important concepts in Java Programing language. The three essential concepts are: encapsulation, polymorphism and inheritance. We will discuss encapsulation and inheritance at a later time.  </p>
@@ -342,16 +342,16 @@ The code above creates a reference of List type with variable called list, which
 四、变量不能被重写（覆盖），”重写“的概念只针对方法，如果在子类中”重写“了父类中的变量，那么在编译时会报错。 
 五、如果子类中重载<span class="comment">(Overloading)</span>了父类中的一个方法，那么在父类的引用[无法]调用这个子类的重载方法。
 </code></pre><h1 id="Interface_-_Analysis:">Interface - Analysis:</h1><p>List - Interface, ArrayList implements the List interface.   </p>
-<h1 id="Interface_-_Flexibility">Interface - Flexibility</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
+<h1 id="Interface_-_Flexibility">Interface - Flexibility</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
 <p>is more flexible than </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ArrayList list = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList list = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
 <p>Here is an detail example:  </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">	<span class="comment">// algorithm for preorderTraversal</span></span><br><span class="line">	....</span><br><span class="line">	<span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">	<span class="comment">// algorithm for preorderTraversal</span></span><br><span class="line">	....</span><br><span class="line">	<span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>The code above creates a data that is type of <code>List</code> and with underlining data structure as <code>ArrayList</code>.</p>
 <p>For some reason, we later decide to switch the internal data strucutre from <code>ArrayList</code> to some other data structures that implements the <code>List</code> interface, <code>LinkedList</code> for example. We can easily switch to <code>LinkedList</code> by following changes: </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	List&lt;Integer&gt; list = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">	<span class="comment">// algorithm for preorderTraversal</span></span><br><span class="line">	....</span><br><span class="line">	<span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	List&lt;Integer&gt; list = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">	<span class="comment">// algorithm for preorderTraversal</span></span><br><span class="line">	....</span><br><span class="line">	<span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>And everything will remain unchange. What will happen if we did not use the Interface at the begining?  </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">	<span class="comment">// algorithm for preorderTraversal</span></span><br><span class="line">	....</span><br><span class="line">	<span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">	<span class="comment">// algorithm for preorderTraversal</span></span><br><span class="line">	....</span><br><span class="line">	<span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>1.Change return type</strong>   </p>
 <p><code>ArrayList&lt;Integer&gt;</code> to <code>LinkedList&lt;Integer&gt;</code>  </p>
 <p><strong>2.Change the declaration</strong>  </p>
@@ -486,7 +486,7 @@ The code above creates a reference of List type with variable called list, which
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -503,7 +503,7 @@ The code above creates a reference of List type with variable called list, which
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -602,7 +602,7 @@ The code above creates a reference of List type with variable called list, which
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -447,7 +447,7 @@ null keys or values NOT a">
 <p>Null value is allowed for both <em>key</em> and <em>value</em> in <em>hashMap</em>, while that is not allowed in <em>hashTable</em>. There is only <strong>one</strong> <code>key=null</code> is permited in <em>hashMap</em>, while <strong>multiple</strong> <code>value=null</code> is allowed. Becaue of that, <code>get(Object key)</code> should not be used to determine whether <em>key</em> exists in a table since a <code>&lt;key, null&gt;</code> pair is legal in <em>hashMap</em>.</p>
 <p><strong>2. Unsynchronized in multi-thread</strong></p>
 <p><em>HashMap</em> implementation of hash table is not thread safe. Manual steps are needed to ensure thread safe in multiple threads environment. The simplest way to enusre thread-safe is by warpping with <code>Collections.synchronizedMap</code> method at the create time: </p>
-<figure class="highlight lasso"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Map</span> m = Collections<span class="built_in">.</span>synchronizedMap(<span class="literal">new</span> HashMap(<span class="attribute">...</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Map</span> m = Collections<span class="built_in">.</span>synchronizedMap(<span class="literal">new</span> HashMap(<span class="attribute">...</span>));</span><br></pre></td></tr></table></figure>
 <p>The wrapping at <em>creatation time</em> prevent accidental unsynchronized behavior in multi-thread contest. </p>
 <ul>
 <li><em>Why collections class provide synchronized behavior???</em></li>
@@ -456,7 +456,7 @@ null keys or values NOT a">
 <blockquote>
 <p>The synchronization wrappers add automatic synchronization (thread-safety) to an arbitrary collection. Each of the six core collection interfaces — <em>Collection, Set, List, Map, SortedSet, and SortedMap</em></p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Collection&lt;T&gt; <span class="title">synchronizedCollection</span><span class="params">(Collection&lt;T&gt; c)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Set&lt;T&gt; <span class="title">synchronizedSet</span><span class="params">(Set&lt;T&gt; s)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">synchronizedList</span><span class="params">(List&lt;T&gt; list)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; Map&lt;K,V&gt; synchronizedMap(Map&lt;K,V&gt; m);</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">SortedSet&lt;T&gt; <span class="title">synchronizedSortedSet</span><span class="params">(SortedSet&lt;T&gt; s)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; SortedMap&lt;K,V&gt; synchronizedSortedMap(SortedMap&lt;K,V&gt; m);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Collection&lt;T&gt; <span class="title">synchronizedCollection</span><span class="params">(Collection&lt;T&gt; c)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Set&lt;T&gt; <span class="title">synchronizedSet</span><span class="params">(Set&lt;T&gt; s)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">synchronizedList</span><span class="params">(List&lt;T&gt; list)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; Map&lt;K,V&gt; synchronizedMap(Map&lt;K,V&gt; m);</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">SortedSet&lt;T&gt; <span class="title">synchronizedSortedSet</span><span class="params">(SortedSet&lt;T&gt; s)</span></span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;K,V&gt; SortedMap&lt;K,V&gt; synchronizedSortedMap(SortedMap&lt;K,V&gt; m);</span><br></pre></td></tr></table></figure>
 <p>In example above, we use <code>synchronizedMap</code> in for one of the collection interface: Map with collection wrapper to ensure thread-safe ability for HashMap .</p>
 <h2 id="Performance"><strong>Performance</strong></h2><p><strong>1. constant time operation for <code>get()</code> and <code>put()</code> operation.</strong>  </p>
 <p><strong>2. <em>initial capacity</em> and <em>load factor</em> affect the performance of HashMap.</strong>     </p>
@@ -542,11 +542,11 @@ null keys or values NOT a">
 <li>It is synchronized. So it comes with its cost. Only one thread can access in one time.</li>
 </ul>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Hashtable&lt;Integer,String&gt;; cityTable = <span class="keyword">new</span> Hashtable&lt;Integer,String&gt;();</span><br><span class="line">cityTable.put(<span class="number">1</span>, <span class="string">"Lahore"</span>);</span><br><span class="line">cityTable.put(<span class="number">2</span>, <span class="string">"Karachi"</span>);</span><br><span class="line">cityTable.put(<span class="number">3</span>, <span class="keyword">null</span>); <span class="comment">/* NullPointerEcxeption at runtime*/</span></span><br><span class="line"> </span><br><span class="line">System.out.println(cityTable.get(<span class="number">1</span>));</span><br><span class="line">System.out.println(cityTable.get(<span class="number">2</span>));</span><br><span class="line">System.out.println(cityTable.get(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Hashtable&lt;Integer,String&gt;; cityTable = <span class="keyword">new</span> Hashtable&lt;Integer,String&gt;();</span><br><span class="line">cityTable.put(<span class="number">1</span>, <span class="string">"Lahore"</span>);</span><br><span class="line">cityTable.put(<span class="number">2</span>, <span class="string">"Karachi"</span>);</span><br><span class="line">cityTable.put(<span class="number">3</span>, <span class="keyword">null</span>); <span class="comment">/* NullPointerEcxeption at runtime*/</span></span><br><span class="line"> </span><br><span class="line">System.out.println(cityTable.get(<span class="number">1</span>));</span><br><span class="line">System.out.println(cityTable.get(<span class="number">2</span>));</span><br><span class="line">System.out.println(cityTable.get(<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
 <h1 id="HashSet"><strong>HashSet</strong></h1><blockquote>
 <p>HashSet does not allow duplicate values. It provides add method rather put method. You also use its contain method to check whether the object is already available in HashSet. HashSet can be used where you want to maintain a <strong><em>unique list</em></strong>.</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">HashSet&lt;String&gt; stateSet = <span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line">stateSet.add (<span class="string">"CA"</span>);</span><br><span class="line">stateSet.add (<span class="string">"WI"</span>);</span><br><span class="line">stateSet.add (<span class="string">"NY"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> (stateSet.contains(<span class="string">"PB"</span>)) <span class="comment">/* if CA, it will not add but shows following message*/</span></span><br><span class="line">     System.out.println(<span class="string">"Already found"</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    stateSet.add(<span class="string">"PB"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HashSet&lt;String&gt; stateSet = <span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line">stateSet.add (<span class="string">"CA"</span>);</span><br><span class="line">stateSet.add (<span class="string">"WI"</span>);</span><br><span class="line">stateSet.add (<span class="string">"NY"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> (stateSet.contains(<span class="string">"PB"</span>)) <span class="comment">/* if CA, it will not add but shows following message*/</span></span><br><span class="line">     System.out.println(<span class="string">"Already found"</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    stateSet.add(<span class="string">"PB"</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="Reference">Reference</h2><p><a href="https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html" target="_blank" rel="external">Java Documentation</a><br><a href="http://blog.csdn.net/tgxblue/article/details/8479147" target="_blank" rel="external">HashMap internal data structure</a><br><a href="https://docs.oracle.com/javase/tutorial/collections/implementations/wrapper.html" target="_blank" rel="external">Collection Wrapper</a><br><a href="http://stackoverflow.com/questions/6046263/how-to-indent-a-few-lines-in-markdown-markup" target="_blank" rel="external">Markdown Indentation</a><br><a href="http://www.jianshu.com/p/q81RER" target="_blank" rel="external">Markdown excerpt</a><br><a href="https://www.quora.com/What-is-the-difference-between-HashSet-HashMap-and-hash-table-How-do-they-behave-in-a-multi-threaded-environment" target="_blank" rel="external">hasmap VS hashset VS hashtable</a><br><a href="http://www.pakzilla.com/2009/08/24/hashmap-vs-hashtable-vs-hashset/" target="_blank" rel="external">HashMap vs Hashtable vs HashSet</a>  </p>
 
       
@@ -582,8 +582,8 @@ null keys or values NOT a">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/02/reverse-linked-list/" rel="next" title="Reverse linkedlist">
-                <i class="fa fa-chevron-left"></i> Reverse linkedlist
+              <a href="/2016/03/02/reverse-linked-list/" rel="next" title="Reverse Linkedlist">
+                <i class="fa fa-chevron-left"></i> Reverse Linkedlist
               </a>
             
           </div>
@@ -667,7 +667,7 @@ null keys or values NOT a">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -684,7 +684,7 @@ null keys or values NOT a">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -783,7 +783,7 @@ null keys or values NOT a">
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

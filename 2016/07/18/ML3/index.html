@@ -665,16 +665,16 @@ Repeat {
 </ol>
 <h4 id="PCA_Algorithm">PCA Algorithm</h4><h5 id="1-_Compute_“covariance_matrix”">1. Compute “covariance matrix”</h5><p>$$\large Σ=\frac{1}{m}\sum_{i=1}^m(x^{(i)})(x^{(i)})^T$$</p>
 <p>Correspond Octave code:  </p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">Sigma = (<span class="number">1</span>/m) * X<span class="operator">'</span> * X;</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sigma = (<span class="number">1</span>/m) * X<span class="operator">'</span> * X;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Note: $x^{(i)}$ is $n \times 1$ vector. $(x^{(i)})^T$ is $1 \times n$ vector, and $X$ is $m \times n$ vector. Dimension of $\Sigma$ is $n \times n$.  </p>
 </blockquote>
-<h5 id="2-_Compute_“eigenvectors”_of_covariance_matrix_Σ">2. Compute “eigenvectors” of covariance matrix Σ</h5><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="matrix">[U,S,V]</span> = svd(Sigma);</span><br></pre></td></tr></table></figure>
+<h5 id="2-_Compute_“eigenvectors”_of_covariance_matrix_Σ">2. Compute “eigenvectors” of covariance matrix Σ</h5><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="matrix">[U,S,V]</span> = svd(Sigma);</span><br></pre></td></tr></table></figure>
 <p><code>svd()</code> is the ‘singular value decomposition’, a built-in Octave function. We are only interested in the <code>U</code> matrix of the Sigma covariance matrix: $U \in R^{n \times n}$  </p>
 <h5 id="3-_Take_the_first_k_columns_of_the_U_matrix_and_compute_z">3. Take the first k columns of the U matrix and compute z</h5><p>reduce $n$ feature dimension to $k$ feature dimension.  </p>
 <p>$$z^{(i)} = Ureduce^T*x^{(i)}$$</p>
 <p>$Ureduce^T$ is in $k \times n$, while $x^{(i)}$ will have $n \times 1$ dimension. And the product of $Ureduce^T*x^{(i)}$ will have dimension $k \times 1$</p>
-<h4 id="Summary">Summary</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">Sigma = (<span class="number">1</span>/m) * X<span class="operator">'</span> * X;  <span class="comment">% compute the covariance matrix</span></span><br><span class="line"><span class="matrix">[U,S,V]</span> = svd(Sigma);    <span class="comment">% compute our projected directions</span></span><br><span class="line">Ureduce = U(:,<span class="number">1</span>:k);      <span class="comment">% take the first k directions</span></span><br><span class="line">Z = X * Ureduce;         <span class="comment">% compute the projected data points</span></span><br></pre></td></tr></table></figure>
+<h4 id="Summary">Summary</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Sigma = (<span class="number">1</span>/m) * X<span class="operator">'</span> * X;  <span class="comment">% compute the covariance matrix</span></span><br><span class="line"><span class="matrix">[U,S,V]</span> = svd(Sigma);    <span class="comment">% compute our projected directions</span></span><br><span class="line">Ureduce = U(:,<span class="number">1</span>:k);      <span class="comment">% take the first k directions</span></span><br><span class="line">Z = X * Ureduce;         <span class="comment">% compute the projected data points</span></span><br></pre></td></tr></table></figure>
 <h1 id="Week_8:_Lesson_5">Week 8: Lesson 5</h1><h2 id="Applying_PCA">Applying PCA</h2><h3 id="Reconstruction_from_Compressed_Representation"><center>Reconstruction from Compressed Representation</center></h3><ul>
 <li>PCA compression algorithm: $n$ dimensional feature compress to $k$ dimensional feature.  </li>
 <li>Introduce way to reconstruct the approximate $n$ dimensional feature from the compressed $k$ dimensional feature.  </li>
@@ -706,7 +706,7 @@ $$\large \dfrac{\dfrac{1}{m}\sum^m_{i=1}||x^{(i)} - x_{approx}^{(i)}||^2}{\dfrac
 <li>repeat step 1-3 until smallest $k$ found that satisfy 99% of the variance retained.  </li>
 </ol>
 <p>The algorithm above works, however, it is <strong>inefficient</strong>.  </p>
-<h4 id="Algorithm_for_choosing_$k$_with_matrix_S">Algorithm for choosing $k$ with matrix S</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="matrix">[U,S,V]</span> = svd(Sigma)</span><br></pre></td></tr></table></figure>
+<h4 id="Algorithm_for_choosing_$k$_with_matrix_S">Algorithm for choosing $k$ with matrix S</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="matrix">[U,S,V]</span> = svd(Sigma)</span><br></pre></td></tr></table></figure>
 <p>It is much efficent to check for 99% of retained variance with S matrix with following:  </p>
 
 $$\dfrac{\sum_{i=1}^kS_{ii}}{\sum_{i=1}^nS_{ii}} \geq 0.99$$
@@ -883,7 +883,7 @@ $$p(x) = \displaystyle \prod^n_{j=1} p(x_j;\mu_j,\sigma_j^2) = \prod\limits^n_{j
 <li>$\sqrt(x)$  </li>
 <li>$x^{\frac{1}{3}}$</li>
 </ul>
-<h4 id="Plot_hist_on_matlab">Plot hist on matlab</h4><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">hist(x) <span class="comment">% plot feature x in histgarm</span></span><br><span class="line">hist(x, <span class="number">50</span>) <span class="comment">% plot feature x in histgarm with fine grain</span></span><br></pre></td></tr></table></figure>
+<h4 id="Plot_hist_on_matlab">Plot hist on matlab</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hist(x) <span class="comment">% plot feature x in histgarm</span></span><br><span class="line">hist(x, <span class="number">50</span>) <span class="comment">% plot feature x in histgarm with fine grain</span></span><br></pre></td></tr></table></figure>
 <h4 id="Error_analysis_for_anomaly_detection">Error analysis for anomaly detection</h4><p>If my algorithm with feature $x_1$ failing to flag a failure engine:  </p>
 <ul>
 <li>1.located the $x_1$ value of the failure engine.  </li>
@@ -1067,8 +1067,8 @@ J(x,\theta) = \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1}((\theta^{(j)})^Tx
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/18/ML4/" rel="prev" title="[Completed] Coursera: Machine Learning by Stanford - Part4">
-                [Completed] Coursera: Machine Learning by Stanford - Part4 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/18/ML2/" rel="prev" title="[Completed] Coursera: Machine Learning by Stanford - Part2">
+                [Completed] Coursera: Machine Learning by Stanford - Part2 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1144,7 +1144,7 @@ J(x,\theta) = \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1}((\theta^{(j)})^Tx
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1161,7 +1161,7 @@ J(x,\theta) = \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1}((\theta^{(j)})^Tx
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1260,7 +1260,7 @@ J(x,\theta) = \dfrac{1}{2} \displaystyle \sum_{(i,j):r(i,j)=1}((\theta^{(j)})^Tx
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -100,14 +100,14 @@
 NoticeThe subarray should contain at least one number.
 ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC41 - maximum subarray">
+<meta property="og:title" content="LC41 - Maximum Subarray">
 <meta property="og:url" content="http://www.xuyiruan.com/2017/01/02/Maximum-Subarray/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="description Given an array of integers, find a contiguous subarray which has the largest sum.
 NoticeThe subarray should contain at least one number.
 ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC41 - maximum subarray">
+<meta name="twitter:title" content="LC41 - Maximum Subarray">
 <meta name="twitter:description" content="description Given an array of integers, find a contiguous subarray which has the largest sum.
 NoticeThe subarray should contain at least one number.
 ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
@@ -129,7 +129,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
   };
 </script>
 
-  <title> LC41 - maximum subarray | 阮先生de小窝 </title>
+  <title> LC41 - Maximum Subarray | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -259,7 +259,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
             
             
               
-                LC41 - maximum subarray
+                LC41 - Maximum Subarray
               
             
           </h1>
@@ -293,7 +293,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
 
           
           
-             <span id="/2017/01/02/Maximum-Subarray/" class="leancloud_visitors" data-flag-title="LC41 - maximum subarray">
+             <span id="/2017/01/02/Maximum-Subarray/" class="leancloud_visitors" data-flag-title="LC41 - Maximum Subarray">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -319,7 +319,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
 <p><strong>Notice</strong><br>The subarray should contain at least one number.</p>
 <p><strong>Example</strong><br>Given the array <code>[−2,2,−3,4,−1,2,1,−5,3]</code>, the contiguous subarray <code>[4,−1,2,1]</code> has the largest <code>sum = 6</code>.</p>
 <p><a href="http://www.lintcode.com/en/problem/maximum-subarray/" target="_blank" rel="external">LC41 maximum subarray</a></p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A integer indicate the sum of max subarray</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code</span></span><br><span class="line">        <span class="comment">// double loop -&gt; n^2</span></span><br><span class="line">        <span class="comment">// sort? nlogn NO</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> max = Integer.MIN_VALUE; <span class="comment">// if all negative values, return the smalleset neg val</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            max = Math.max(sum, max);</span><br><span class="line">            sum = Math.max(<span class="number">0</span>, sum); <span class="comment">// if sum of prev elements less than zero, rather not taken them.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A integer indicate the sum of max subarray</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code</span></span><br><span class="line">        <span class="comment">// double loop -&gt; n^2</span></span><br><span class="line">        <span class="comment">// sort? nlogn NO</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> max = Integer.MIN_VALUE; <span class="comment">// if all negative values, return the smalleset neg val</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            max = Math.max(sum, max);</span><br><span class="line">            sum = Math.max(<span class="number">0</span>, sum); <span class="comment">// if sum of prev elements less than zero, rather not taken them.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="algorithm_correctness"><center> algorithm correctness </center></h2><h3 id="DP_Approach">DP Approach</h3><p>we iterate through the entire array and iteratively collect the <code>max</code> subarray sum up to that point.  </p>
 <p>At every iteration:<br><code>sum = sum + nums[i];</code> // nums[i] is current inspected element   </p>
@@ -386,16 +386,16 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/02/Subarray-Sum-Closest/" rel="next" title="LC139 - subarray sum closest">
-                <i class="fa fa-chevron-left"></i> LC139 - subarray sum closest
+              <a href="/2017/01/02/Subarray-Sum-Closest/" rel="next" title="LC139 - Subarray Sum Closest">
+                <i class="fa fa-chevron-left"></i> LC139 - Subarray Sum Closest
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/04/Subarray-Sum/" rel="prev" title="LC138 - subarray sum">
-                LC138 - subarray sum <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/04/Subarray-Sum/" rel="prev" title="LC138 - Subarray Sum">
+                LC138 - Subarray Sum <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -471,7 +471,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">74</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -488,7 +488,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -587,7 +587,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -696,7 +696,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
       var disqus_identifier = '2017/01/02/Maximum-Subarray/';
-      var disqus_title = "LC41 - maximum subarray";
+      var disqus_title = "LC41 - Maximum Subarray";
       var disqus_url = 'http://www.xuyiruan.com/2017/01/02/Maximum-Subarray/';
 
       function run_disqus_script(disqus_script){
