@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BinarySearch,DP,H,LintCode," />
+  <meta name="keywords" content="LintCode,BinarySearch,H,DP," />
 
 
 
@@ -96,22 +96,18 @@
 
 
 
-<meta name="description" content="http://www.lintcode.com/en/problem/longest-increasing-subsequence/#https://leetcode.com/problems/longest-increasing-subsequence/description/
-Code:Brute Force
-find ALL possible subsequence of given arr">
+<meta name="description" content="http://www.lintcode.com/en/problem/longest-increasing-subsequence/#https://leetcode.com/problems/longest-increasing-subsequence/description/ Code:Brute Force find ALL possible subsequence of given arr">
+<meta name="keywords" content="LintCode,BinarySearch,H,DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode 76 - Longest Increasing Subsequence">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/08/21/Longest-Increasing-Subsequence/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="http://www.lintcode.com/en/problem/longest-increasing-subsequence/#https://leetcode.com/problems/longest-increasing-subsequence/description/
-Code:Brute Force
-find ALL possible subsequence of given arr">
+<meta property="og:description" content="http://www.lintcode.com/en/problem/longest-increasing-subsequence/#https://leetcode.com/problems/longest-increasing-subsequence/description/ Code:Brute Force find ALL possible subsequence of given arr">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-01-19T19:18:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 76 - Longest Increasing Subsequence">
-<meta name="twitter:description" content="http://www.lintcode.com/en/problem/longest-increasing-subsequence/#https://leetcode.com/problems/longest-increasing-subsequence/description/
-Code:Brute Force
-find ALL possible subsequence of given arr">
-
+<meta name="twitter:description" content="http://www.lintcode.com/en/problem/longest-increasing-subsequence/#https://leetcode.com/problems/longest-increasing-subsequence/description/ Code:Brute Force find ALL possible subsequence of given arr">
 
 
 
@@ -271,7 +267,7 @@ find ALL possible subsequence of given arr">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-21T11:49:07-04:00" content="08-21-2016">
+            <time itemprop="dateCreated" datetime="2016-08-21T07:49:07-04:00" content="08-21-2016">
               08-21-2016
             </time>
           </span>
@@ -315,51 +311,51 @@ find ALL possible subsequence of given arr">
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/longest-increasing-subsequence/#" target="_blank" rel="external">http://www.lintcode.com/en/problem/longest-increasing-subsequence/#</a><br><a href="https://leetcode.com/problems/longest-increasing-subsequence/description/" target="_blank" rel="external">https://leetcode.com/problems/longest-increasing-subsequence/description/</a></p>
-<h1 id="Code:">Code:</h1><h2 id="Brute_Force">Brute Force</h2><ul>
+        <p><a href="http://www.lintcode.com/en/problem/longest-increasing-subsequence/#" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/longest-increasing-subsequence/#</a><br><a href="https://leetcode.com/problems/longest-increasing-subsequence/description/" target="_blank" rel="noopener">https://leetcode.com/problems/longest-increasing-subsequence/description/</a></p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h2 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute Force"></a>Brute Force</h2><ul>
 <li>find ALL possible subsequence of given array $2^n$  </li>
 <li>each subsequence, we need <code>O(n)</code> to find LIS  </li>
 <li>time complexity: $O(n * 2^n)$  </li>
 <li>space complexity: $O(n)$  </li>
 </ul>
-<h2 id="Recursive_DP">Recursive DP</h2><p><a href="https://www.geeksforgeeks.org/?p=12832" target="_blank" rel="external">https://www.geeksforgeeks.org/?p=12832</a></p>
-<h2 id="Iterative_DP">Iterative DP</h2><ul>
+<h2 id="Recursive-DP"><a href="#Recursive-DP" class="headerlink" title="Recursive DP"></a>Recursive DP</h2><p><a href="https://www.geeksforgeeks.org/?p=12832" target="_blank" rel="noopener">https://www.geeksforgeeks.org/?p=12832</a></p>
+<h2 id="Iterative-DP"><a href="#Iterative-DP" class="headerlink" title="Iterative DP"></a>Iterative DP</h2><ul>
 <li>time complexity: $O(n^2)$  </li>
 <li>space complexity: $O(n)$  </li>
 </ul>
-<h3 id="Algorithm">Algorithm</h3><ul>
+<h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><ul>
 <li>to find <code>lis[n]</code>  </li>
 <li>go through all element before <code>n</code>, find the one with <strong>max</strong> <code>lis</code> value, which value of element is also <strong>smaller</strong> than <code>nums[n]</code> and store <code>max value + 1</code> into <code>lis[n]</code>  </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLIS</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span>[] lis = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        Arrays.fill(lis, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> largest = lis[<span class="number">0</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] &gt; nums[j]) &#123;</span><br><span class="line">                    lis[i] = Math.max(lis[i], lis[j] + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            largest = Math.max(largest, lis[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> largest;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Iterative_DP_+_Binary_Search_Approach">Iterative DP + Binary Search Approach</h2><p>time complexity: $O(nlogn)$  </p>
-<p><a href="https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/" target="_blank" rel="external">https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/</a></p>
+<h2 id="Iterative-DP-Binary-Search-Approach"><a href="#Iterative-DP-Binary-Search-Approach" class="headerlink" title="Iterative DP + Binary Search Approach"></a>Iterative DP + Binary Search Approach</h2><p>time complexity: $O(nlogn)$  </p>
+<p><a href="https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/</a></p>
 <a id="more"></a>
-<h1 id="Description:">Description:</h1><p>Given a sequence of integers, find the longest increasing subsequence (LIS).<br>You code should return the length of the LIS.  </p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h1><p>Given a sequence of integers, find the longest increasing subsequence (LIS).<br>You code should return the length of the LIS.  </p>
 <p><strong>Clarification</strong>  </p>
 <p>What’s the definition of longest increasing subsequence?  </p>
 <ul>
 <li><p>The longest increasing subsequence problem is to find a subsequence of a given sequence in which the subsequence’s elements are in sorted order, lowest to highest, and in which the subsequence is as long as possible. This subsequence is not necessarily contiguous, or unique.</p>
 </li>
-<li><p><a href="https://en.wikipedia.org/wiki/Longest_increasing_subsequence" target="_blank" rel="external">Wikipedia LIS</a></p>
+<li><p><a href="https://en.wikipedia.org/wiki/Longest_increasing_subsequence" target="_blank" rel="noopener">Wikipedia LIS</a></p>
 </li>
 </ul>
 <p><strong>Example</strong><br>For <code>[5, 4, 1, 2, 3]</code>, the LIS is <code>[1, 2, 3]</code>, return <code>3</code><br>For <code>[4, 2, 4, 5, 3, 7]</code>, the LIS is <code>[2, 4, 5, 7]</code>, return <code>4</code>  </p>
-<h1 id="Thought_Process:">Thought Process:</h1><h2 id="DP_approach">DP approach</h2><p><code>state:</code> An array with length <code>nums.length</code>, which used to store number of LIS up to that index.  </p>
+<h1 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a>Thought Process:</h1><h2 id="DP-approach"><a href="#DP-approach" class="headerlink" title="DP approach"></a>DP approach</h2><p><code>state:</code> An array with length <code>nums.length</code>, which used to store number of LIS up to that index.  </p>
 <p>For example:<br><code>nums</code> = <code>[9,3,6,2,7]</code><br><code>lis</code> = <code>[1,1,2,1,3]</code>  </p>
 <p>For <code>nums[2] = 6</code>, at index <code>2</code>, we have <code>lis[2] = 2</code>, which represents for <code>nums</code> up to index <code>2</code>, (<code>nums = [9,3,6]</code>). We have max LIS of <code>2</code>. DP stores value of previous index, and the future index base on the <code>lis</code> values computed before.  </p>
 <p>For example: at index <code>2</code>, if <code>nums[2] = 6</code> is larger than <code>nums[0]</code>? No, we do nothing. Is <code>nums[2]</code> larger than <code>nums[1]</code>, if so, update <code>lis[2]</code> to <code>lis[1] + 1</code>, which we have <code>lis[2] = 2</code>. Since <code>nums[2]</code> is larger than <code>nums[1]</code>, which mean <code>3, 6</code> is the current longest increasing subsequence and therefore return the number of <code>2</code>. We follow the same process with until the last index of the array and return <code>longest</code>, the <strong>largest</strong> value record in <code>lis[]</code>.  </p>
-<h1 id="Corner_Case:">Corner Case:</h1><ul>
+<h1 id="Corner-Case"><a href="#Corner-Case" class="headerlink" title="Corner Case:"></a>Corner Case:</h1><ul>
 <li><code>nums = [1]</code>  </li>
 <li><code>nums = [1,1,1]</code>  </li>
 <li>largest LIS not necessary <strong>through</strong> the last index of the array <code>nums</code>.  </li>
 </ul>
-<h2 id="Soluton2_(returns_acutal_LIS)">Soluton2 (returns acutal LIS)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LIS</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] nums = &#123;<span class="number">15</span>, <span class="number">27</span>, <span class="number">14</span>, <span class="number">38</span>, <span class="number">26</span>, <span class="number">55</span>, <span class="number">46</span>, <span class="number">65</span>, <span class="number">85</span>&#125;;</span><br><span class="line">		String lis = findLIS(nums);</span><br><span class="line">		System.out.println(<span class="string">"longest increasing subsequence: "</span> + lis);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">findLIS</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">		String[] lis = <span class="keyword">new</span> String[nums.length];</span><br><span class="line">		<span class="comment">// initalization</span></span><br><span class="line">		lis[<span class="number">0</span>] = Integer.toString(nums[<span class="number">0</span>]);</span><br><span class="line">		<span class="comment">// subproblem</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">			lis[i] = <span class="string">""</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (nums[j] &lt; nums[i] &amp;&amp; lis[i].length() &lt; lis[j].length() + <span class="number">1</span>) &#123;</span><br><span class="line">					lis[i] = lis[j];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			lis[i] = lis[i] + Integer.toString(nums[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lis.length; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"lis["</span> + i + <span class="string">"] = "</span> + lis[i]);</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">return</span> lis[nums.length-<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="application">application</h1><ul>
+<h2 id="Soluton2-returns-acutal-LIS"><a href="#Soluton2-returns-acutal-LIS" class="headerlink" title="Soluton2 (returns acutal LIS)"></a>Soluton2 (returns acutal LIS)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LIS</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] nums = &#123;<span class="number">15</span>, <span class="number">27</span>, <span class="number">14</span>, <span class="number">38</span>, <span class="number">26</span>, <span class="number">55</span>, <span class="number">46</span>, <span class="number">65</span>, <span class="number">85</span>&#125;;</span><br><span class="line">		String lis = findLIS(nums);</span><br><span class="line">		System.out.println(<span class="string">"longest increasing subsequence: "</span> + lis);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">findLIS</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">		String[] lis = <span class="keyword">new</span> String[nums.length];</span><br><span class="line">		<span class="comment">// initalization</span></span><br><span class="line">		lis[<span class="number">0</span>] = Integer.toString(nums[<span class="number">0</span>]);</span><br><span class="line">		<span class="comment">// subproblem</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">			lis[i] = <span class="string">""</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (nums[j] &lt; nums[i] &amp;&amp; lis[i].length() &lt; lis[j].length() + <span class="number">1</span>) &#123;</span><br><span class="line">					lis[i] = lis[j];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			lis[i] = lis[i] + Integer.toString(nums[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lis.length; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"lis["</span> + i + <span class="string">"] = "</span> + lis[i]);</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">return</span> lis[nums.length-<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="application"><a href="#application" class="headerlink" title="application"></a>application</h1><ul>
 <li>stock price: only want to see progression of non-decreasing price points  </li>
 </ul>
-<h1 id="Reference:">Reference:</h1><p><a href="https://www.hackerrank.com/challenges/longest-increasing-subsequent" target="_blank" rel="external">Youtube video of a lecture from MIT’s Open-Coursware</a>  </p>
-<h1 id="Logs">Logs</h1><ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><p><a href="https://www.hackerrank.com/challenges/longest-increasing-subsequent" target="_blank" rel="noopener">Youtube video of a lecture from MIT’s Open-Coursware</a>  </p>
+<h1 id="Logs"><a href="#Logs" class="headerlink" title="Logs"></a>Logs</h1><ul>
 <li>08-21-2016: initial post  </li>
 <li>10-30-2016: update with solution returns actual LIS.  </li>
 <li>01-19-2018: clean up and update iterative DP  </li>
@@ -385,13 +381,13 @@ find ALL possible subsequence of given arr">
       
         <div class="post-tags">
           
-            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
           
-            <a href="/tags/DP/" rel="tag">#DP</a>
+            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
           
             <a href="/tags/H/" rel="tag">#H</a>
           
-            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+            <a href="/tags/DP/" rel="tag">#DP</a>
           
         </div>
       
@@ -408,7 +404,7 @@ find ALL possible subsequence of given arr">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/23/Minimum-Path-Sum/" rel="prev" title="LintCode 110 - Minimum Path Sum">
+              <a href="/2016/08/22/Minimum-Path-Sum/" rel="prev" title="LintCode 110 - Minimum Path Sum">
                 LintCode 110 - Minimum Path Sum <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -485,7 +481,7 @@ find ALL possible subsequence of given arr">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -502,7 +498,7 @@ find ALL possible subsequence of given arr">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -582,7 +578,7 @@ find ALL possible subsequence of given arr">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Brute_Force"><span class="nav-number">1.1.</span> <span class="nav-text">Brute Force</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursive_DP"><span class="nav-number">1.2.</span> <span class="nav-text">Recursive DP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Iterative_DP"><span class="nav-number">1.3.</span> <span class="nav-text">Iterative DP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.3.1.</span> <span class="nav-text">Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Iterative_DP_+_Binary_Search_Approach"><span class="nav-number">1.4.</span> <span class="nav-text">Iterative DP + Binary Search Approach</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DP_approach"><span class="nav-number">3.1.</span> <span class="nav-text">DP approach</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Soluton2_(returns_acutal_LIS)"><span class="nav-number">4.1.</span> <span class="nav-text">Soluton2 (returns acutal LIS)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#application"><span class="nav-number">5.</span> <span class="nav-text">application</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number">6.</span> <span class="nav-text">Reference:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">7.</span> <span class="nav-text">Logs</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Brute-Force"><span class="nav-number">1.1.</span> <span class="nav-text">Brute Force</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursive-DP"><span class="nav-number">1.2.</span> <span class="nav-text">Recursive DP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Iterative-DP"><span class="nav-number">1.3.</span> <span class="nav-text">Iterative DP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.3.1.</span> <span class="nav-text">Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Iterative-DP-Binary-Search-Approach"><span class="nav-number">1.4.</span> <span class="nav-text">Iterative DP + Binary Search Approach</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought-Process"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DP-approach"><span class="nav-number">3.1.</span> <span class="nav-text">DP approach</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner-Case"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Soluton2-returns-acutal-LIS"><span class="nav-number">4.1.</span> <span class="nav-text">Soluton2 (returns acutal LIS)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#application"><span class="nav-number">5.</span> <span class="nav-text">application</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">7.</span> <span class="nav-text">Logs</span></a></li></ol></div>
             
           </div>
         </section>

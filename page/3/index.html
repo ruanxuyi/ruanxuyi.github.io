@@ -102,10 +102,10 @@
 <meta property="og:url" content="http://www.xuyiruan.com/page/3/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="阮先生’s blog">
+<meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阮先生de小窝">
 <meta name="twitter:description" content="阮先生’s blog">
-
 
 
 
@@ -256,6 +256,122 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/02/partition-array/" itemprop="url">
+                  LC31 - Partition Array
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-02T12:17:39Z" content="01-02-2017">
+              01-02-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/02/partition-array/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/02/partition-array/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/02/partition-array/" class="leancloud_visitors" data-flag-title="LC31 - Partition Array">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given an array <code>nums</code> of integers and an int <code>k</code>, partition the array (i.e move the elements in “nums”) such that:  </p>
+<p>All elements &lt; k are moved to the <em>left</em><br>All elements &gt;= k are moved to the <em>right</em><br>Return the partitioning index, i.e the first index <em>i</em> nums[<em>i</em>] &gt;= <em>k</em>.  </p>
+<p><strong>Example</strong><br>If nums = <code>[3,2,2,1]</code> and <code>k=2</code>, a valid answer is <code>1</code>.</p>
+<p><a href="http://www.lintcode.com/en/problem/partition-array/" target="_blank" rel="noopener">LC31 - partition array</a>  </p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="comment">/** </span></span><br><span class="line"><span class="comment">     *<span class="doctag">@param</span> nums: The integer array you should partition</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@param</span> k: As description</span></span><br><span class="line"><span class="comment">     *return: The index after partition</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partitionArray</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//write your code here</span></span><br><span class="line">	    <span class="keyword">if</span> (nums.length == <span class="number">0</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">	        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	    <span class="keyword">int</span> high = nums.length-<span class="number">1</span>;</span><br><span class="line">	    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[low] &lt; k) &#123;</span><br><span class="line">	            low++;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[high] &gt;= k) &#123;</span><br><span class="line">	            high--;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="comment">// swap</span></span><br><span class="line">	        <span class="keyword">if</span> (low &lt;= high) &#123;</span><br><span class="line">	            <span class="keyword">int</span> tmp = nums[high];</span><br><span class="line">	            nums[high] = nums[low];</span><br><span class="line">	            nums[low] = tmp;</span><br><span class="line">	            <span class="comment">//low++;</span></span><br><span class="line">	            <span class="comment">//high--;</span></span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> high+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/02/partition-array/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/29/sort-colors/" itemprop="url">
                   LC148 - Sort Colors
                 </a>
@@ -270,8 +386,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-12-30T02:04:48+00:00" content="12-30-2016">
-              12-30-2016
+            <time itemprop="dateCreated" datetime="2016-12-29T21:04:48Z" content="12-29-2016">
+              12-29-2016
             </time>
           </span>
 
@@ -315,15 +431,15 @@
 
       
         
-          <h2 id="description"><center>description</center></h2><p>Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
+          <h2 id="description"><a href="#description" class="headerlink" title="description"></a><center>description</center></h2><p>Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
 <p>Here, we will use the integers <code>0</code>, <code>1</code>, and <code>2</code> to represent the color red, white, and blue respectively.</p>
 <blockquote>
 <p>Notice<br>You are not suppose to use the library’s sort function for this problem.<br>You should do it in-place (sort numbers in the original array).</p>
 </blockquote>
 <p><strong>Example</strong><br>Given <code>[1, 0, 1, 2]</code>, sort it in-place to <code>[0, 1, 1, 2]</code>.  </p>
 <p><strong>challenge</strong><br><strong>one pass</strong> algorithm with constant space ($O(1)$)</p>
-<p><a href="http://www.lintcode.com/en/problem/sort-colors/#">LC148 sort colors</a></p>
-<h2 id="code"><center>code</center></h2><h3 id="ver3_one_pass">ver3 one pass</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> curr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (curr &lt;= high) &#123; <span class="comment">// k1: curr == high 时候 high points to unchecked value</span></span><br><span class="line">        <span class="keyword">if</span> (nums[curr] == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[left]</span></span><br><span class="line">            nums[curr] = nums[low]; <span class="comment">// curr should NOT increment to prevent skipping after swap</span></span><br><span class="line">            nums[low++] = <span class="number">0</span>;</span><br><span class="line">            curr++; <span class="comment">// k2: swapped value from left pointer is checked.</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[curr] == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[right]</span></span><br><span class="line">            nums[curr] = nums[high];</span><br><span class="line">            nums[high--] = <span class="number">2</span>;</span><br><span class="line">            <span class="comment">// NO curr++: swaped value from right pointer is unchecked, </span></span><br><span class="line">            <span class="comment">// curr pointed value (uncheck) needed to be checked</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            curr++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.lintcode.com/en/problem/sort-colors/#" target="_blank" rel="noopener">LC148 sort colors</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a><center>code</center></h2><h3 id="ver3-one-pass"><a href="#ver3-one-pass" class="headerlink" title="ver3 one pass"></a>ver3 one pass</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> curr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (curr &lt;= high) &#123; <span class="comment">// k1: curr == high 时候 high points to unchecked value</span></span><br><span class="line">        <span class="keyword">if</span> (nums[curr] == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[left]</span></span><br><span class="line">            nums[curr] = nums[low]; <span class="comment">// curr should NOT increment to prevent skipping after swap</span></span><br><span class="line">            nums[low++] = <span class="number">0</span>;</span><br><span class="line">            curr++; <span class="comment">// k2: swapped value from left pointer is checked.</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[curr] == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[right]</span></span><br><span class="line">            nums[curr] = nums[high];</span><br><span class="line">            nums[high--] = <span class="number">2</span>;</span><br><span class="line">            <span class="comment">// NO curr++: swaped value from right pointer is unchecked, </span></span><br><span class="line">            <span class="comment">// curr pointed value (uncheck) needed to be checked</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            curr++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/12/29/sort-colors/#more" rel="contents">
               Read more &raquo;
@@ -390,8 +506,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-12-30T00:34:50+00:00" content="12-30-2016">
-              12-30-2016
+            <time itemprop="dateCreated" datetime="2016-12-29T19:34:50Z" content="12-29-2016">
+              12-29-2016
             </time>
           </span>
 
@@ -435,12 +551,12 @@
 
       
         
-          <h2 id="description"><center>description</center></h2><p>Given an array <code>nums</code> of n integers, find two integers in nums such that the sum is closest to a given number, target.</p>
+          <h2 id="description"><a href="#description" class="headerlink" title="description"></a><center>description</center></h2><p>Given an array <code>nums</code> of n integers, find two integers in nums such that the sum is closest to a given number, target.</p>
 <p>Return the difference between the sum of the two integers and the target.</p>
 <p><strong>Example</strong><br>Given array <code>nums = [-1, 2, 1, -4]</code>, and <code>target = 4</code>.</p>
 <p>The minimum difference is <code>1</code>. (4 - (2 + 1) = 1).</p>
-<p><a href="http://www.lintcode.com/en/problem/two-sum-closest/#">LC533 Two Sum Closest</a></p>
-<h2 id="code"><center>code</center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">twoSumCloset</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span> || nums == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Arrays.sort(nums); <span class="comment">// o(nlogn)</span></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> minDif = Integer.MAX_VALUE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> twoSum = nums[left] + nums[right];</span><br><span class="line">        <span class="comment">//int currDif = Math.abs(target - twoSum);</span></span><br><span class="line">        <span class="comment">//minDif = currDif &lt; minDif ? currDif : minDif;</span></span><br><span class="line">        <span class="keyword">if</span> (twoSum &lt; target) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        minDif = Math.min(minDif, Math.abs(target - twoSum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minDif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.lintcode.com/en/problem/two-sum-closest/#" target="_blank" rel="noopener">LC533 Two Sum Closest</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a><center>code</center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">twoSumCloset</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span> || nums == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Arrays.sort(nums); <span class="comment">// o(nlogn)</span></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> minDif = Integer.MAX_VALUE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> twoSum = nums[left] + nums[right];</span><br><span class="line">        <span class="comment">//int currDif = Math.abs(target - twoSum);</span></span><br><span class="line">        <span class="comment">//minDif = currDif &lt; minDif ? currDif : minDif;</span></span><br><span class="line">        <span class="keyword">if</span> (twoSum &lt; target) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        minDif = Math.min(minDif, Math.abs(target - twoSum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minDif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/12/29/Two-Sum-Closest/#more" rel="contents">
               Read more &raquo;
@@ -507,7 +623,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-12-29T17:01:08+00:00" content="12-29-2016">
+            <time itemprop="dateCreated" datetime="2016-12-29T12:01:08Z" content="12-29-2016">
               12-29-2016
             </time>
           </span>
@@ -552,7 +668,7 @@
 
       
         
-          <p>读了小土刀<a href="http://wdxtub.com/2015/12/31/12-keywords-2015/">年终12个关键字</a>一文。我也决定回顾下我的2016年。经历有限，就限制6个关键词好了。</p>
+          <p>读了小土刀<a href="http://wdxtub.com/2015/12/31/12-keywords-2015/" target="_blank" rel="noopener">年终12个关键字</a>一文。我也决定回顾下我的2016年。经历有限，就限制6个关键词好了。</p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20161229/DSC_6077-2.jpg" alt=""></p>
 <blockquote>
 <p>大和寿司@筑地市场</p>
@@ -623,7 +739,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-31T18:29:13+00:00" content="10-31-2016">
+            <time itemprop="dateCreated" datetime="2016-10-31T14:29:13Z" content="10-31-2016">
               10-31-2016
             </time>
           </span>
@@ -668,7 +784,7 @@
 
       
         
-          <h1 id="Description:"><center> Description: </center></h1><p><strong>[Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence</strong></p>
+          <h1 id="Description"><a href="#Description" class="headerlink" title=" Description: "></a><center> Description: </center></h1><p><strong>[Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence</strong></p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png" alt=""></p>
 <p>A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of palindromes are all strings of length 1, <code>civic</code>, <code>racecar</code>, and <code>aibohphobia</code> (fear of palindromes).  </p>
 <p>Give an efficient algorithm to find the <strong>longest palindrome</strong> that is a <strong>subsequence</strong> of a given input string. For example, given the input character, your algorithm should return carac. What is the running time of your algorithm?   </p>
@@ -738,7 +854,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-21T20:24:10+00:00" content="10-21-2016">
+            <time itemprop="dateCreated" datetime="2016-10-21T16:24:10Z" content="10-21-2016">
               10-21-2016
             </time>
           </span>
@@ -783,7 +899,7 @@
 
       
         
-          <h2 id="Split_String_&amp;_String_to_Int">Split String &amp; String to Int</h2><ul>
+          <h2 id="Split-String-amp-String-to-Int"><a href="#Split-String-amp-String-to-Int" class="headerlink" title="Split String &amp; String to Int"></a>Split String &amp; String to Int</h2><ul>
 <li><code>str.split(&quot; &quot;); // split string with delimiter &quot; &quot;</code></li>
 <li><p><code>Integer.parseInt(splited[0]); // string to int</code>  </p>
 </li>
@@ -792,7 +908,7 @@
 <li>extract two integers</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"13 45"</span>;</span><br><span class="line">String[] splited = str.split(<span class="string">" "</span>); <span class="comment">// splited[0] = "13", splited[1] = "45"</span></span><br><span class="line"><span class="keyword">int</span> n1 = Integer.parseInt(splited[<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">int</span> n2 = Integer.parseInt(splited[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
-<h2 id="Check_Perfect_Square">Check Perfect Square</h2><ul>
+<h2 id="Check-Perfect-Square"><a href="#Check-Perfect-Square" class="headerlink" title="Check Perfect Square"></a>Check Perfect Square</h2><ul>
 <li>check a given list of number if it is a perfect square number.  </li>
 <li>ex. given <code>[1, 2, 3, 4, 5, 6, 7, 8, 9]</code>, <code>4</code> and <code>9</code> are perfect squares.  </li>
 </ul>
@@ -863,7 +979,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-16T21:38:00+00:00" content="10-16-2016">
+            <time itemprop="dateCreated" datetime="2016-10-16T17:38:00Z" content="10-16-2016">
               10-16-2016
             </time>
           </span>
@@ -908,8 +1024,8 @@
 
       
         
-          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/remove-nth-node-from-end-of-list/">LC174:Remove Nth Node From End of List</a></p>
-<h1 id="Code:"><center> Code: </center></h1><h2 id="V0">V0</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> head: The first node of linked list.</span><br><span class="line">     * <span class="doctag">@param</span> n: An integer.</span><br><span class="line">     * <span class="doctag">@return</span>: The head of linked list.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function">ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummy.next = head;</span><br><span class="line">        </span><br><span class="line">        ListNode curr = dummy;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">            curr = curr.next;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        curr.next = curr.next.next;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">LC174:Remove Nth Node From End of List</a></p>
+<h1 id="Code"><a href="#Code" class="headerlink" title=" Code: "></a><center> Code: </center></h1><h2 id="V0"><a href="#V0" class="headerlink" title="V0"></a>V0</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> head: The first node of linked list.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n: An integer.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The head of linked list.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummy.next = head;</span><br><span class="line">        </span><br><span class="line">        ListNode curr = dummy;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">            curr = curr.next;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        curr.next = curr.next.next;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/16/Remove-Nth-Node-From-End-of-List/#more" rel="contents">
               Read more &raquo;
@@ -976,7 +1092,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-10T11:51:50+00:00" content="10-10-2016">
+            <time itemprop="dateCreated" datetime="2016-10-10T07:51:50Z" content="10-10-2016">
               10-10-2016
             </time>
           </span>
@@ -1021,17 +1137,17 @@
 
       
         
-          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/longest-common-subsequence/">Longest Common Subsequence</a></p>
-<h2 id="Description:"><center> Description: </center></h2><p>Given two strings, find the <strong><a href="https://en.wikipedia.org/wiki/Longest_common_subsequence_problem">longest common subsequence(LCS)</a></strong>.<br>Your code should return the length of LCS.</p>
+          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/longest-common-subsequence/" target="_blank" rel="noopener">Longest Common Subsequence</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title=" Description: "></a><center> Description: </center></h2><p>Given two strings, find the <strong><a href="https://en.wikipedia.org/wiki/Longest_common_subsequence_problem" target="_blank" rel="noopener">longest common subsequence(LCS)</a></strong>.<br>Your code should return the length of LCS.</p>
 <p><strong>Example</strong><br>For <code>&quot;ABCD&quot;</code> and <code>&quot;EDCA&quot;</code>, the LCS is <code>&quot;A&quot; (or &quot;D&quot;, &quot;C&quot;),</code> return <code>1</code>.</p>
 <p>For <code>&quot;ABCD&quot;</code> and <code>&quot;EACB&quot;</code>, the LCS is <code>&quot;AC&quot;</code>, return <code>2</code>.</p>
-<h2 id="Process:"><center> Process: </center></h2><h3 id="State">State</h3><p>1.<code>lcs[m + 1][n + 1]</code><br>2.<code>lcs[i][j]</code> stores current number of LCS for <code>s1[0,i-1]</code> and <code>s2[0, j-1]</code></p>
-<h3 id="Initialization">Initialization</h3><p>1.initialize zero-value for first col/row.  </p>
-<h3 id="Function">Function</h3><p><code>lcs[i][j] = A.charAt(i-1) == B.charAt(j-1) ? lcs[i-1][j-1] + 1 : Math.max(lcs[i-1][j], lcs[i][j-1]);</code></p>
+<h2 id="Process"><a href="#Process" class="headerlink" title=" Process: "></a><center> Process: </center></h2><h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>1.<code>lcs[m + 1][n + 1]</code><br>2.<code>lcs[i][j]</code> stores current number of LCS for <code>s1[0,i-1]</code> and <code>s2[0, j-1]</code></p>
+<h3 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h3><p>1.initialize zero-value for first col/row.  </p>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><p><code>lcs[i][j] = A.charAt(i-1) == B.charAt(j-1) ? lcs[i-1][j-1] + 1 : Math.max(lcs[i-1][j], lcs[i][j-1]);</code></p>
 <p>1.from <code>s1[0,i-1]</code> <code>s2[0,j-1]</code> to <code>s1[0,i]</code> <code>s2[0,j]</code><br>if <code>charAt(i)</code> is identical to <code>charAt(j)</code>, <code>lcs[i][j] = lcs[i-1][j-1] + 1</code> </p>
 <p>2.otherwise, <strong>adding</strong> extra irrelevant chars will not affect # of LCS.  </p>
-<h3 id="Result">Result</h3><p>1.return <code>lcs[m][n]</code></p>
-<h2 id="Code:"><center> Code: </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> A, B: Two strings.</span><br><span class="line">     * <span class="doctag">@return</span>: The length of longest common subsequence of A and B.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestCommonSubsequence</span><span class="params">(String A, String B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A.length() == <span class="number">0</span> || B.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> m = A.length();</span><br><span class="line">        <span class="keyword">int</span> n = B.length();</span><br><span class="line">        <span class="comment">// state</span></span><br><span class="line">        <span class="keyword">int</span>[][] lcs = <span class="keyword">new</span> <span class="keyword">int</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n + <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span> || j == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="comment">// initialization</span></span><br><span class="line">                    lcs[i][j] = <span class="number">0</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// fucntion</span></span><br><span class="line">                    lcs[i][j] = A.charAt(i-<span class="number">1</span>) == B.charAt(j-<span class="number">1</span>) ? lcs[i-<span class="number">1</span>][j-<span class="number">1</span>] + <span class="number">1</span> : Math.max(lcs[i-<span class="number">1</span>][j], lcs[i][j-<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// result</span></span><br><span class="line">        <span class="keyword">return</span> lcs[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>1.return <code>lcs[m][n]</code></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title=" Code: "></a><center> Code: </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A, B: Two strings.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The length of longest common subsequence of A and B.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestCommonSubsequence</span><span class="params">(String A, String B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A.length() == <span class="number">0</span> || B.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> m = A.length();</span><br><span class="line">        <span class="keyword">int</span> n = B.length();</span><br><span class="line">        <span class="comment">// state</span></span><br><span class="line">        <span class="keyword">int</span>[][] lcs = <span class="keyword">new</span> <span class="keyword">int</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n + <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span> || j == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="comment">// initialization</span></span><br><span class="line">                    lcs[i][j] = <span class="number">0</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// fucntion</span></span><br><span class="line">                    lcs[i][j] = A.charAt(i-<span class="number">1</span>) == B.charAt(j-<span class="number">1</span>) ? lcs[i-<span class="number">1</span>][j-<span class="number">1</span>] + <span class="number">1</span> : Math.max(lcs[i-<span class="number">1</span>][j], lcs[i][j-<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// result</span></span><br><span class="line">        <span class="keyword">return</span> lcs[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/10/Longest-Common-Subsequence/#more" rel="contents">
               Read more &raquo;
@@ -1084,7 +1200,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/10/Longest-Common-Substring/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/09/Longest-Common-Substring/" itemprop="url">
                   Longest Common Substring
                 </a>
               
@@ -1098,7 +1214,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-10T05:15:21+00:00" content="10-10-2016">
+            <time itemprop="dateCreated" datetime="2016-10-10T01:15:21Z" content="10-10-2016">
               10-10-2016
             </time>
           </span>
@@ -1109,8 +1225,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/10/Longest-Common-Substring/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/10/Longest-Common-Substring/" itemprop="commentsCount"></span>
+                <a href="/2016/10/09/Longest-Common-Substring/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/09/Longest-Common-Substring/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1120,7 +1236,7 @@
 
           
           
-             <span id="/2016/10/10/Longest-Common-Substring/" class="leancloud_visitors" data-flag-title="Longest Common Substring">
+             <span id="/2016/10/09/Longest-Common-Substring/" class="leancloud_visitors" data-flag-title="Longest Common Substring">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1143,26 +1259,26 @@
 
       
         
-          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/longest-common-substring/">Longest Common Substring</a>  </p>
-<h2 id="Description:"><center>Description: </center></h2><p>Given two strings, find the longest common substring.<br>Return the length of it.</p>
+          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/longest-common-substring/" target="_blank" rel="noopener">Longest Common Substring</a>  </p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description: "></a><center>Description: </center></h2><p>Given two strings, find the longest common substring.<br>Return the length of it.</p>
 <p><strong>Notice</strong><br>The characters in substring should occur continuously in original string. This is different with subsequence.</p>
 <p><strong>Example</strong><br>Given A = <code>&quot;ABCD&quot;</code>, B = <code>&quot;CBCE&quot;</code>, return <code>2</code>.</p>
 <p><strong>Challenge</strong><br><code>O(n x m)</code> time and memory.</p>
-<h2 id="Thought_Process:"><center>Thought Process:</center></h2><p>DP:  </p>
-<h3 id="State">State</h3><ul>
+<h2 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a><center>Thought Process:</center></h2><p>DP:  </p>
+<h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><ul>
 <li><code>dp[i][j]</code> stores longest common substring from <code>A.substring(0,i)</code> and <code>B.substring(0,j)</code>.  </li>
 </ul>
-<h3 id="Initialzation">Initialzation</h3><ul>
+<h3 id="Initialzation"><a href="#Initialzation" class="headerlink" title="Initialzation"></a>Initialzation</h3><ul>
 <li><code>dp[i][j] = 0</code> for first column &amp; row.</li>
 </ul>
-<h3 id="Function">Function</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] = A.charAt(i - <span class="number">1</span>) == B.charAt(j - <span class="number">1</span>)? dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span> : <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="Result">Result</h3><ul>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] = A.charAt(i - <span class="number">1</span>) == B.charAt(j - <span class="number">1</span>)? dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span> : <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><ul>
 <li><code>dp[i][j]</code> has non-zero value only when substring occur <strong>continuously</strong>.  </li>
 <li><code>max</code> store global maximun of LCS.  </li>
 <li><code>return max</code>  </li>
 </ul>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/10/Longest-Common-Substring/#more" rel="contents">
+            <a class="btn" href="/2016/10/09/Longest-Common-Substring/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1227,8 +1343,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-10T00:41:58+00:00" content="10-10-2016">
-              10-10-2016
+            <time itemprop="dateCreated" datetime="2016-10-09T20:41:58Z" content="10-09-2016">
+              10-09-2016
             </time>
           </span>
 
@@ -1272,131 +1388,18 @@
 
       
         
-          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/palindrome-partitioning-ii/">Palindrome Partitioning II</a></p>
-<h2 id="Description:"><center>Description:</center></h2><p>Given a string s, cut s into some substrings such that every substring is a palindrome.<br>Return the <strong>minimum</strong> cuts needed for a palindrome partitioning of s.  </p>
+          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/palindrome-partitioning-ii/" target="_blank" rel="noopener">Palindrome Partitioning II</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a><center>Description:</center></h2><p>Given a string s, cut s into some substrings such that every substring is a palindrome.<br>Return the <strong>minimum</strong> cuts needed for a palindrome partitioning of s.  </p>
 <p><strong>Example</strong><br>Given <code>s = &quot;aab&quot;</code>,</p>
 <p>Return <code>1</code> since the palindrome partitioning <code>[&quot;aa&quot;, &quot;b&quot;]</code> could be produced using <code>1</code> cut.</p>
-<h2 id="Thought_Process:"><center>Thought Process:</center></h2><h3 id="State">State</h3><p>1.<code>pal[s.length() + 1]</code></p>
+<h2 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a><center>Thought Process:</center></h2><h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>1.<code>pal[s.length() + 1]</code></p>
 <p><code>pal[i]</code> stores minimum cuts for string <code>s[0, i-1]</code> that every substrings is an palindrome.  </p>
 <p>2.<code>dp[s.length()][s.length()]</code>  </p>
 <p><code>dp[j][i-1]</code> stores if <code>s[j, i-1]</code> a palindrome. trade <strong>space</strong> for <strong>time</strong> (dp).  </p>
-<h3 id="Initialization">Initialization</h3><p>1.<code>pal[0] = -1</code> // set as -1 so that <code>pal[1] = 0</code>.<br>2.<code>pal[i] = Integer.MAX_VALUE</code>. // more than one way to partition a string, desire the <strong>minimum</strong> cuts.  </p>
+<h3 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h3><p>1.<code>pal[0] = -1</code> // set as -1 so that <code>pal[1] = 0</code>.<br>2.<code>pal[i] = Integer.MAX_VALUE</code>. // more than one way to partition a string, desire the <strong>minimum</strong> cuts.  </p>
 <p>3.<code>dp[j][i-1] = false</code>  </p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/09/palindrome-partitioning-II/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/05/word-break/" itemprop="url">
-                  LintCode 107 - Word Break
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T18:39:46+00:00" content="10-05-2016">
-              10-05-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/05/word-break/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/05/word-break/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/05/word-break/" class="leancloud_visitors" data-flag-title="LintCode 107 - Word Break">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/word-break/">http://www.lintcode.com/en/problem/word-break/</a></p>
-<h1 id="Code:"><center> Code: </center></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> s: A string s</span><br><span class="line">     * <span class="doctag">@param</span> dict: A dictionary of words dict</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getMaxWordLength</span><span class="params">(Set&lt;String&gt; dict)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxLength = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (String word : dict) &#123;</span><br><span class="line">            maxLength = Math.max(maxLength, word.length());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLength;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">wordBreak</span><span class="params">(String s, Set&lt;String&gt; dict)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span> || dict == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> maxLen = getMaxWordLength(dict);</span><br><span class="line">        <span class="keyword">boolean</span>[] locs = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length() + <span class="number">1</span>];</span><br><span class="line">        <span class="comment">// initializaiton</span></span><br><span class="line">        locs[<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">// function</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s.length(); i++) &#123;</span><br><span class="line">            locs[i] = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;=<span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((i - j) &gt; maxLen) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (locs[j] &amp;&amp; dict.contains(s.substring(j, i))) &#123;</span><br><span class="line">                    locs[i] = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> locs[s.length()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/05/word-break/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1471,7 +1474,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1488,7 +1491,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

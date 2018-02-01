@@ -96,28 +96,18 @@
 
 
 
-<meta name="description" content="Split String &amp;amp; String to Int
-str.split(&amp;quot; &amp;quot;); // split string with delimiter &amp;quot; &amp;quot;
-Integer.parseInt(splited[0]); // string to int  
-
-given string has two integers seperate by a sp">
+<meta name="description" content="Split String &amp;amp; String to Int str.split(&amp;quot; &amp;quot;); // split string with delimiter &amp;quot; &amp;quot; Integer.parseInt(splited[0]); // string to int    given string has two integers seperate by a sp">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础语法模块">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/10/21/Java基础语法/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="Split String &amp;amp; String to Int
-str.split(&amp;quot; &amp;quot;); // split string with delimiter &amp;quot; &amp;quot;
-Integer.parseInt(splited[0]); // string to int  
-
-given string has two integers seperate by a sp">
+<meta property="og:description" content="Split String &amp;amp; String to Int str.split(&amp;quot; &amp;quot;); // split string with delimiter &amp;quot; &amp;quot; Integer.parseInt(splited[0]); // string to int    given string has two integers seperate by a sp">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-01-06T18:35:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础语法模块">
-<meta name="twitter:description" content="Split String &amp;amp; String to Int
-str.split(&amp;quot; &amp;quot;); // split string with delimiter &amp;quot; &amp;quot;
-Integer.parseInt(splited[0]); // string to int  
-
-given string has two integers seperate by a sp">
-
+<meta name="twitter:description" content="Split String &amp;amp; String to Int str.split(&amp;quot; &amp;quot;); // split string with delimiter &amp;quot; &amp;quot; Integer.parseInt(splited[0]); // string to int    given string has two integers seperate by a sp">
 
 
 
@@ -277,7 +267,7 @@ given string has two integers seperate by a sp">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-21T16:24:10-04:00" content="10-21-2016">
+            <time itemprop="dateCreated" datetime="2016-10-21T12:24:10-04:00" content="10-21-2016">
               10-21-2016
             </time>
           </span>
@@ -321,7 +311,7 @@ given string has two integers seperate by a sp">
       
 
       
-        <h2 id="Split_String_&amp;_String_to_Int">Split String &amp; String to Int</h2><ul>
+        <h2 id="Split-String-amp-String-to-Int"><a href="#Split-String-amp-String-to-Int" class="headerlink" title="Split String &amp; String to Int"></a>Split String &amp; String to Int</h2><ul>
 <li><code>str.split(&quot; &quot;); // split string with delimiter &quot; &quot;</code></li>
 <li><p><code>Integer.parseInt(splited[0]); // string to int</code>  </p>
 </li>
@@ -330,36 +320,36 @@ given string has two integers seperate by a sp">
 <li>extract two integers</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"13 45"</span>;</span><br><span class="line">String[] splited = str.split(<span class="string">" "</span>); <span class="comment">// splited[0] = "13", splited[1] = "45"</span></span><br><span class="line"><span class="keyword">int</span> n1 = Integer.parseInt(splited[<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">int</span> n2 = Integer.parseInt(splited[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
-<h2 id="Check_Perfect_Square">Check Perfect Square</h2><ul>
+<h2 id="Check-Perfect-Square"><a href="#Check-Perfect-Square" class="headerlink" title="Check Perfect Square"></a>Check Perfect Square</h2><ul>
 <li>check a given list of number if it is a perfect square number.  </li>
 <li>ex. given <code>[1, 2, 3, 4, 5, 6, 7, 8, 9]</code>, <code>4</code> and <code>9</code> are perfect squares.  </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">perfectSquare</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sqrt = (<span class="keyword">int</span>) Math.sqrt(num);</span><br><span class="line">	<span class="keyword">return</span> num == sqrt * sqrt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="Read_from_STDIN">Read from STDIN</h2><ul>
+<h2 id="Read-from-STDIN"><a href="#Read-from-STDIN" class="headerlink" title="Read from STDIN"></a>Read from STDIN</h2><ul>
 <li><code>Scanner in = new Scanner(System.in); // Scanner</code></li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="keyword">while</span> (in.hasNext()) &#123;</span><br><span class="line">	<span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Files_access">Files access</h2><h3 id="Read_from_file">Read from file</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">File inFile = <span class="keyword">new</span> File(<span class="string">"infile.txt"</span>);</span><br><span class="line">Scanner sc = <span class="keyword">new</span> Scanner(inFile);</span><br><span class="line"><span class="keyword">while</span> (in.hasNextLine()) &#123;</span><br><span class="line">	<span class="comment">// do something...</span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">TODO: add <span class="keyword">catch</span> block</span><br></pre></td></tr></table></figure>
-<h3 id="Write_to_file">Write to file</h3><h2 id="Remove_whitespace_in_String">Remove whitespace in String</h2><ul>
+<h2 id="Files-access"><a href="#Files-access" class="headerlink" title="Files access"></a>Files access</h2><h3 id="Read-from-file"><a href="#Read-from-file" class="headerlink" title="Read from file"></a>Read from file</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">File inFile = <span class="keyword">new</span> File(<span class="string">"infile.txt"</span>);</span><br><span class="line">Scanner sc = <span class="keyword">new</span> Scanner(inFile);</span><br><span class="line"><span class="keyword">while</span> (in.hasNextLine()) &#123;</span><br><span class="line">	<span class="comment">// do something...</span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">TODO: add <span class="keyword">catch</span> block</span><br></pre></td></tr></table></figure>
+<h3 id="Write-to-file"><a href="#Write-to-file" class="headerlink" title="Write to file"></a>Write to file</h3><h2 id="Remove-whitespace-in-String"><a href="#Remove-whitespace-in-String" class="headerlink" title="Remove whitespace in String"></a>Remove whitespace in String</h2><ul>
 <li><code>str.replaceAll(&quot;src&quot;, &quot;target&quot;); // replace &quot;src&quot; with &quot;target&quot; in str</code>  </li>
 </ul>
 <p>Given <code>s1 = 1110  0001  0000  0010</code>, want <code>1110000100000010</code>  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">"1110 0001 0000 0010"</span>;</span><br><span class="line">s1 = s1.replaceAll(<span class="string">"\\s+"</span>, <span class="string">""</span>);</span><br></pre></td></tr></table></figure>
 <p><code>\s</code> - whiltespace,<br><code>+</code> - more than one white space  </p>
-<h2 id="String_to_int">String to int</h2><ul>
+<h2 id="String-to-int"><a href="#String-to-int" class="headerlink" title="String to int"></a>String to int</h2><ul>
 <li><code>Integer.parseInt(&quot;21&quot;); // string to int</code>  </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> twenty_one = Integer.parseInt(<span class="string">"21"</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="int_to_String">int to String</h2><ul>
+<h2 id="int-to-String"><a href="#int-to-String" class="headerlink" title="int to String"></a>int to String</h2><ul>
 <li><code>Integer.toString(21); // int to string</code>  </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String twenty_one = Integer.toString(<span class="number">21</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="char_to_int">char to int</h2><ul>
+<h2 id="char-to-int"><a href="#char-to-int" class="headerlink" title="char to int"></a>char to int</h2><ul>
 <li><code>Character.getNumericValue(&#39;2&#39;); // char to int</code> </li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	int two = Character.getNumericValue('2')`</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">## XOR operation</span><br><span class="line"></span><br><span class="line">Given   </span><br><span class="line">`String in1 = "0001 1111 0000 0111 0001 0100 0000 1100";` and `String in2 = "1101 0110 1000 1101 1101 0000 0010 0010";`  </span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">		for (int i = 0; i &lt; in1.length(); i++) &#123;</span><br><span class="line">			int in_1 = Character.getNumericValue(in1.charAt(i));</span><br><span class="line">			int in_2 = Character.getNumericValue(in2.charAt(i));</span><br><span class="line">			xor += Integer.toString((in_1 + in_2) % 2);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Standardize_input_format">Standardize input format</h2><ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">int</span> two = Character.getNumericValue(<span class="string">'2'</span>)`</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">## XOR operation</span><br><span class="line"></span><br><span class="line">Given   </span><br><span class="line">`String in1 = <span class="string">"0001 1111 0000 0111 0001 0100 0000 1100"</span>;` and `String in2 = <span class="string">"1101 0110 1000 1101 1101 0000 0010 0010"</span>;`  </span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; in1.length(); i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> in_1 = Character.getNumericValue(in1.charAt(i));</span><br><span class="line">			<span class="keyword">int</span> in_2 = Character.getNumericValue(in2.charAt(i));</span><br><span class="line">			xor += Integer.toString((in_1 + in_2) % <span class="number">2</span>);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Standardize-input-format"><a href="#Standardize-input-format" class="headerlink" title="Standardize input format"></a>Standardize input format</h2><ul>
 <li><code>str.trim(); // remove white spaces from head and tail</code>  </li>
 <li><code>str.split(&quot; +&quot;); // // split string into string array with only numbers</code>  </li>
 </ul>
@@ -369,7 +359,7 @@ given string has two integers seperate by a sp">
 <p>We want to extract only the integers numbers.  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">strIn = strIn.trim(); <span class="comment">// omit heading and tailing spaces </span></span><br><span class="line">strIn_array = strIn.split(<span class="string">" +"</span>); <span class="comment">// split string into string array with only numbers</span></span><br></pre></td></tr></table></figure>
 <p>Result: <code>strIn_array = [&quot;32&quot;, &quot;1&quot;, &quot;2&quot; ... &quot;1&quot;];</code></p>
-<h2 id="Methods_and_complexity">Methods and complexity</h2><table>
+<h2 id="Methods-and-complexity"><a href="#Methods-and-complexity" class="headerlink" title="Methods and complexity"></a>Methods and complexity</h2><table>
 <thead>
 <tr>
 <th>HashTable</th>
@@ -405,8 +395,8 @@ given string has two integers seperate by a sp">
 </tr>
 </tbody>
 </table>
-<h1 id="Reference:">Reference:</h1><p><a href="http://stackoverflow.com/questions/4968323/java-parse-int-value-from-a-char" target="_blank" rel="external">Stackoverflow: parse int value from a char</a><br><a href="http://stackoverflow.com/questions/10079415/splitting-a-string-with-multiple-spaces" target="_blank" rel="external">stackoverflow: Splitting a string with multiple spaces</a>  </p>
-<h1 id="Logs:">Logs:</h1><ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><p><a href="http://stackoverflow.com/questions/4968323/java-parse-int-value-from-a-char" target="_blank" rel="noopener">Stackoverflow: parse int value from a char</a><br><a href="http://stackoverflow.com/questions/10079415/splitting-a-string-with-multiple-spaces" target="_blank" rel="noopener">stackoverflow: Splitting a string with multiple spaces</a>  </p>
+<h1 id="Logs"><a href="#Logs" class="headerlink" title="Logs:"></a>Logs:</h1><ul>
 <li>2016/10/21: doc created  </li>
 <li>2016/10/25: update: trim, split, XOR, char to int, int to String, Remove whitespaces in string.  </li>
 </ul>
@@ -525,7 +515,7 @@ given string has two integers seperate by a sp">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -542,7 +532,7 @@ given string has two integers seperate by a sp">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -622,7 +612,7 @@ given string has two integers seperate by a sp">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Split_String_&_String_to_Int"><span class="nav-number">1.</span> <span class="nav-text">Split String & String to Int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Check_Perfect_Square"><span class="nav-number">2.</span> <span class="nav-text">Check Perfect Square</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Read_from_STDIN"><span class="nav-number">3.</span> <span class="nav-text">Read from STDIN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Files_access"><span class="nav-number">4.</span> <span class="nav-text">Files access</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read_from_file"><span class="nav-number">4.1.</span> <span class="nav-text">Read from file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Write_to_file"><span class="nav-number">4.2.</span> <span class="nav-text">Write to file</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remove_whitespace_in_String"><span class="nav-number">5.</span> <span class="nav-text">Remove whitespace in String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String_to_int"><span class="nav-number">6.</span> <span class="nav-text">String to int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#int_to_String"><span class="nav-number">7.</span> <span class="nav-text">int to String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#char_to_int"><span class="nav-number">8.</span> <span class="nav-text">char to int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Standardize_input_format"><span class="nav-number">9.</span> <span class="nav-text">Standardize input format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods_and_complexity"><span class="nav-number">10.</span> <span class="nav-text">Methods and complexity</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number"></span> <span class="nav-text">Reference:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs:"><span class="nav-number"></span> <span class="nav-text">Logs:</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Split-String-amp-String-to-Int"><span class="nav-number">1.</span> <span class="nav-text">Split String &amp; String to Int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Check-Perfect-Square"><span class="nav-number">2.</span> <span class="nav-text">Check Perfect Square</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Read-from-STDIN"><span class="nav-number">3.</span> <span class="nav-text">Read from STDIN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Files-access"><span class="nav-number">4.</span> <span class="nav-text">Files access</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-from-file"><span class="nav-number">4.1.</span> <span class="nav-text">Read from file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Write-to-file"><span class="nav-number">4.2.</span> <span class="nav-text">Write to file</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remove-whitespace-in-String"><span class="nav-number">5.</span> <span class="nav-text">Remove whitespace in String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-to-int"><span class="nav-number">6.</span> <span class="nav-text">String to int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#int-to-String"><span class="nav-number">7.</span> <span class="nav-text">int to String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#char-to-int"><span class="nav-number">8.</span> <span class="nav-text">char to int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Standardize-input-format"><span class="nav-number">9.</span> <span class="nav-text">Standardize input format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods-and-complexity"><span class="nav-number">10.</span> <span class="nav-text">Methods and complexity</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number"></span> <span class="nav-text">Reference:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number"></span> <span class="nav-text">Logs:</span></a></div>
             
           </div>
         </section>

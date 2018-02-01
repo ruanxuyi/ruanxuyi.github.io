@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="DP,H,LintCode,String," />
+  <meta name="keywords" content="LintCode,H,DP,String," />
 
 
 
@@ -96,20 +96,20 @@
 
 
 
-<meta name="description" content="http://www.lintcode.com/en/problem/word-break/
- Code: 1234567891011121314151617181920212223242526272829303132333435363738public class Solution &amp;#123;    /**     * @param s: A string s     * @param dic">
+<meta name="description" content="http://www.lintcode.com/en/problem/word-break/  Code: 1234567891011121314151617181920212223242526272829303132333435363738public class Solution &amp;#123;    /**     * @param s: A string s     * @param dic">
+<meta name="keywords" content="LintCode,H,DP,String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode 107 - Word Break">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/10/05/word-break/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="http://www.lintcode.com/en/problem/word-break/
- Code: 1234567891011121314151617181920212223242526272829303132333435363738public class Solution &amp;#123;    /**     * @param s: A string s     * @param dic">
+<meta property="og:description" content="http://www.lintcode.com/en/problem/word-break/  Code: 1234567891011121314151617181920212223242526272829303132333435363738public class Solution &amp;#123;    /**     * @param s: A string s     * @param dic">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2016001005/wb.jpg">
+<meta property="og:updated_time" content="2018-01-19T15:57:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 107 - Word Break">
-<meta name="twitter:description" content="http://www.lintcode.com/en/problem/word-break/
- Code: 1234567891011121314151617181920212223242526272829303132333435363738public class Solution &amp;#123;    /**     * @param s: A string s     * @param dic">
-
+<meta name="twitter:description" content="http://www.lintcode.com/en/problem/word-break/  Code: 1234567891011121314151617181920212223242526272829303132333435363738public class Solution &amp;#123;    /**     * @param s: A string s     * @param dic">
+<meta name="twitter:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2016001005/wb.jpg">
 
 
 
@@ -269,7 +269,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-05T14:39:46-04:00" content="10-05-2016">
+            <time itemprop="dateCreated" datetime="2016-10-05T10:39:46-04:00" content="10-05-2016">
               10-05-2016
             </time>
           </span>
@@ -313,22 +313,22 @@
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/word-break/" target="_blank" rel="external">http://www.lintcode.com/en/problem/word-break/</a></p>
-<h1 id="Code:"><center> Code: </center></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> s: A string s</span><br><span class="line">     * <span class="doctag">@param</span> dict: A dictionary of words dict</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getMaxWordLength</span><span class="params">(Set&lt;String&gt; dict)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxLength = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (String word : dict) &#123;</span><br><span class="line">            maxLength = Math.max(maxLength, word.length());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLength;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">wordBreak</span><span class="params">(String s, Set&lt;String&gt; dict)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span> || dict == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> maxLen = getMaxWordLength(dict);</span><br><span class="line">        <span class="keyword">boolean</span>[] locs = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length() + <span class="number">1</span>];</span><br><span class="line">        <span class="comment">// initializaiton</span></span><br><span class="line">        locs[<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">// function</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s.length(); i++) &#123;</span><br><span class="line">            locs[i] = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;=<span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((i - j) &gt; maxLen) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (locs[j] &amp;&amp; dict.contains(s.substring(j, i))) &#123;</span><br><span class="line">                    locs[i] = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> locs[s.length()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://www.lintcode.com/en/problem/word-break/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/word-break/</a></p>
+<h1 id="Code"><a href="#Code" class="headerlink" title=" Code: "></a><center> Code: </center></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> s: A string s</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dict: A dictionary of words dict</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getMaxWordLength</span><span class="params">(Set&lt;String&gt; dict)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxLength = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (String word : dict) &#123;</span><br><span class="line">            maxLength = Math.max(maxLength, word.length());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLength;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">wordBreak</span><span class="params">(String s, Set&lt;String&gt; dict)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span> || dict == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> maxLen = getMaxWordLength(dict);</span><br><span class="line">        <span class="keyword">boolean</span>[] locs = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length() + <span class="number">1</span>];</span><br><span class="line">        <span class="comment">// initializaiton</span></span><br><span class="line">        locs[<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="comment">// function</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s.length(); i++) &#123;</span><br><span class="line">            locs[i] = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;=<span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((i - j) &gt; maxLen) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (locs[j] &amp;&amp; dict.contains(s.substring(j, i))) &#123;</span><br><span class="line">                    locs[i] = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> locs[s.length()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="Description:"><center>Description:</center></h1><p>Given a string s and a dictionary of words dict, determine if s can be break into a space-separated sequence of one or more dictionary words.</p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description:"></a><center>Description:</center></h1><p>Given a string s and a dictionary of words dict, determine if s can be break into a space-separated sequence of one or more dictionary words.</p>
 <p>Example<br>Given <code>s = &quot;lintcode&quot;</code>, <code>dict = [&quot;lint&quot;, &quot;code&quot;]</code>.</p>
 <p>Return true because <code>&quot;lintcode&quot;</code> can be break as <code>&quot;lint code&quot;</code>.</p>
-<h1 id="Thought_Process:"><center>Thought Process:</center></h1><ul>
+<h1 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a><center>Thought Process:</center></h1><ul>
 <li>imagine cutting a word into <strong>two pieces</strong> with a knife  </li>
 <li>if the <strong>left</strong> half is cuttable (<code>locs[j] == true</code>), and the <strong>right</strong> half exists in dictionary.  </li>
 <li>we said the substring is cuttable -&gt; return <code>true</code>  </li>
 </ul>
-<h2 id="State">State</h2><ul>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><ul>
 <li>construct a <code>boolean</code> array <code>locs</code> of size <code>s.length() + 1</code>  </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span>[] locs = <span class="keyword">new</span> <span class="keyword">boolean</span>[s.length() + <span class="number">1</span>];</span><br></pre></td></tr></table></figure>
-<h2 id="Function">Function</h2><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/2016001005/wb.jpg" alt=""></p>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/2016001005/wb.jpg" alt=""></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locs[i] = locs[j] &amp;&amp; dict.contains(s.substring(j, i));</span><br></pre></td></tr></table></figure>
 <ul>
 <li>imgine we cut the word at <code>j</code></li>
@@ -336,18 +336,18 @@
 <li>&amp;&amp; dictionary contains <code>s.substring(j, i)</code>.</li>
 <li>we can then say <code>s.substring(0, i)</code> is cuttale.  </li>
 </ul>
-<h2 id="Initialization">Initialization</h2><ul>
+<h2 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h2><ul>
 <li><code>locs[0] = true</code>  </li>
 <li>if the <strong>first</strong> char of the word <code>s.substring(0,1)</code> exists in dictionary.  </li>
 <li>locs[0] has to be forced to <code>true</code>. </li>
 </ul>
-<h2 id="Result:">Result:</h2><ul>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result:"></a>Result:</h2><ul>
 <li><code>return locs[s.length()];</code></li>
 </ul>
-<h1 id="Corner_Case:"><center>Corner Case:</center></h1><ul>
+<h1 id="Corner-Case"><a href="#Corner-Case" class="headerlink" title="Corner Case:"></a><center>Corner Case:</center></h1><ul>
 <li><code>j &lt; i</code> -&gt;  if we use <code>j &lt;= i</code> -&gt; when j == i, <code>s.substring(j, i)</code> will be not meaningful.</li>
 </ul>
-<h1 id="Reference:"><center>Reference:</center></h1><p><a href="https://github.com/yuzhangcmu/LeetCode/blob/master/dp/WordBreak.java" target="_blank" rel="external">WordBreak.java</a><br><a href="http://blog.sina.com.cn/s/blog_eb52001d0102v2hp.html" target="_blank" rel="external">【Leetcode-Medium】Word Break 解题报告</a><br><a href="http://www.jiuzhang.com/qa/1745/" target="_blank" rel="external"> Word break优化解法</a>  </p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a><center>Reference:</center></h1><p><a href="https://github.com/yuzhangcmu/LeetCode/blob/master/dp/WordBreak.java" target="_blank" rel="noopener">WordBreak.java</a><br><a href="http://blog.sina.com.cn/s/blog_eb52001d0102v2hp.html" target="_blank" rel="noopener">【Leetcode-Medium】Word Break 解题报告</a><br><a href="http://www.jiuzhang.com/qa/1745/" target="_blank" rel="noopener"> Word break优化解法</a>  </p>
 
       
     </div>
@@ -369,11 +369,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/DP/" rel="tag">#DP</a>
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
           
             <a href="/tags/H/" rel="tag">#H</a>
           
-            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+            <a href="/tags/DP/" rel="tag">#DP</a>
           
             <a href="/tags/String/" rel="tag">#String</a>
           
@@ -469,7 +469,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -486,7 +486,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -566,7 +566,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text"> Code: </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#State"><span class="nav-number">3.1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">3.2.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initialization"><span class="nav-number">3.3.</span> <span class="nav-text">Initialization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result:"><span class="nav-number">3.4.</span> <span class="nav-text">Result:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number">5.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text"> Code: </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought-Process"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#State"><span class="nav-number">3.1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">3.2.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initialization"><span class="nav-number">3.3.</span> <span class="nav-text">Initialization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result"><span class="nav-number">3.4.</span> <span class="nav-text">Result:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner-Case"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
             
           </div>
         </section>

@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Array&Numbers,DP,LintCode,SBNN,Subarray," />
+  <meta name="keywords" content="LintCode,DP,Array&Numbers,Subarray,SBNN," />
 
 
 
@@ -96,22 +96,18 @@
 
 
 
-<meta name="description" content="description Given an array of integers, find a contiguous subarray which has the largest sum.
-NoticeThe subarray should contain at least one number.
-ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
+<meta name="description" content="description Given an array of integers, find a contiguous subarray which has the largest sum. NoticeThe subarray should contain at least one number. ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], th">
+<meta name="keywords" content="LintCode,DP,Array&amp;Numbers,Subarray,SBNN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LC41 - Maximum Subarray">
 <meta property="og:url" content="http://www.xuyiruan.com/2017/01/02/Maximum-Subarray/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="description Given an array of integers, find a contiguous subarray which has the largest sum.
-NoticeThe subarray should contain at least one number.
-ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
+<meta property="og:description" content="description Given an array of integers, find a contiguous subarray which has the largest sum. NoticeThe subarray should contain at least one number. ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], th">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-01-04T21:00:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LC41 - Maximum Subarray">
-<meta name="twitter:description" content="description Given an array of integers, find a contiguous subarray which has the largest sum.
-NoticeThe subarray should contain at least one number.
-ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
-
+<meta name="twitter:description" content="description Given an array of integers, find a contiguous subarray which has the largest sum. NoticeThe subarray should contain at least one number. ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], th">
 
 
 
@@ -271,7 +267,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-02T15:20:18-05:00" content="01-02-2017">
+            <time itemprop="dateCreated" datetime="2017-01-02T10:20:18-05:00" content="01-02-2017">
               01-02-2017
             </time>
           </span>
@@ -315,13 +311,13 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
       
 
       
-        <h2 id="description"><center> description </center></h2><p>Given an array of integers, find a contiguous subarray which has the largest sum.</p>
+        <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given an array of integers, find a contiguous subarray which has the largest sum.</p>
 <p><strong>Notice</strong><br>The subarray should contain at least one number.</p>
 <p><strong>Example</strong><br>Given the array <code>[−2,2,−3,4,−1,2,1,−5,3]</code>, the contiguous subarray <code>[4,−1,2,1]</code> has the largest <code>sum = 6</code>.</p>
-<p><a href="http://www.lintcode.com/en/problem/maximum-subarray/" target="_blank" rel="external">LC41 maximum subarray</a></p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums: A list of integers</span><br><span class="line">     * <span class="doctag">@return</span>: A integer indicate the sum of max subarray</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code</span></span><br><span class="line">        <span class="comment">// double loop -&gt; n^2</span></span><br><span class="line">        <span class="comment">// sort? nlogn NO</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> max = Integer.MIN_VALUE; <span class="comment">// if all negative values, return the smalleset neg val</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            max = Math.max(sum, max);</span><br><span class="line">            sum = Math.max(<span class="number">0</span>, sum); <span class="comment">// if sum of prev elements less than zero, rather not taken them.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.lintcode.com/en/problem/maximum-subarray/" target="_blank" rel="noopener">LC41 maximum subarray</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums: A list of integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: A integer indicate the sum of max subarray</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code</span></span><br><span class="line">        <span class="comment">// double loop -&gt; n^2</span></span><br><span class="line">        <span class="comment">// sort? nlogn NO</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> max = Integer.MIN_VALUE; <span class="comment">// if all negative values, return the smalleset neg val</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            max = Math.max(sum, max);</span><br><span class="line">            sum = Math.max(<span class="number">0</span>, sum); <span class="comment">// if sum of prev elements less than zero, rather not taken them.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="algorithm_correctness"><center> algorithm correctness </center></h2><h3 id="DP_Approach">DP Approach</h3><p>we iterate through the entire array and iteratively collect the <code>max</code> subarray sum up to that point.  </p>
+<h2 id="algorithm-correctness"><a href="#algorithm-correctness" class="headerlink" title=" algorithm correctness "></a><center> algorithm correctness </center></h2><h3 id="DP-Approach"><a href="#DP-Approach" class="headerlink" title="DP Approach"></a>DP Approach</h3><p>we iterate through the entire array and iteratively collect the <code>max</code> subarray sum up to that point.  </p>
 <p>At every iteration:<br><code>sum = sum + nums[i];</code> // nums[i] is current inspected element   </p>
 <p>we have following <strong>two conditions</strong>:  </p>
 <ul>
@@ -345,9 +341,9 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
 <blockquote>
 <p>Note: if we use an array to record <code>max</code> values of every iteration. we will able to recall subarray max sum up to the corresponding index of array (Dynamic Programming).  </p>
 </blockquote>
-<h2 id="complexity_analysis"><center> complexity analysis </center></h2><p>time: $O(n)$ takes one scan for entire array of n elements<br>space: $O(1)$ constant space required. (dp approach require O(n) space)</p>
+<h2 id="complexity-analysis"><a href="#complexity-analysis" class="headerlink" title=" complexity analysis "></a><center> complexity analysis </center></h2><p>time: $O(n)$ takes one scan for entire array of n elements<br>space: $O(1)$ constant space required. (dp approach require O(n) space)</p>
 <p><a href="">github</a></p>
-<h2 id="application"><center> application </center></h2><h2 id="self_notes"><center> self notes </center></h2><h2 id="reference"><center> reference </center></h2><p><a href="http://www.jiuzhang.com/solutions/maximum-subarray/" target="_blank" rel="external">九章</a>  </p>
+<h2 id="application"><a href="#application" class="headerlink" title=" application "></a><center> application </center></h2><h2 id="self-notes"><a href="#self-notes" class="headerlink" title=" self notes "></a><center> self notes </center></h2><h2 id="reference"><a href="#reference" class="headerlink" title=" reference "></a><center> reference </center></h2><p><a href="http://www.jiuzhang.com/solutions/maximum-subarray/" target="_blank" rel="noopener">九章</a>  </p>
 
       
     </div>
@@ -369,15 +365,15 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
       
         <div class="post-tags">
           
-            <a href="/tags/Array-Numbers/" rel="tag">#Array&Numbers</a>
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
           
             <a href="/tags/DP/" rel="tag">#DP</a>
           
-            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
-          
-            <a href="/tags/SBNN/" rel="tag">#SBNN</a>
+            <a href="/tags/Array-Numbers/" rel="tag">#Array&Numbers</a>
           
             <a href="/tags/Subarray/" rel="tag">#Subarray</a>
+          
+            <a href="/tags/SBNN/" rel="tag">#SBNN</a>
           
         </div>
       
@@ -471,7 +467,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -488,7 +484,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -568,7 +564,7 @@ ExampleGiven the array [−2,2,−3,4,−1,2,1,−5,3], the">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text"> description </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> code </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm_correctness"><span class="nav-number">3.</span> <span class="nav-text"> algorithm correctness </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DP_Approach"><span class="nav-number">3.1.</span> <span class="nav-text">DP Approach</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity_analysis"><span class="nav-number">4.</span> <span class="nav-text"> complexity analysis </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application"><span class="nav-number">5.</span> <span class="nav-text"> application </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self_notes"><span class="nav-number">6.</span> <span class="nav-text"> self notes </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text"> reference </span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text"> description </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> code </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm-correctness"><span class="nav-number">3.</span> <span class="nav-text"> algorithm correctness </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DP-Approach"><span class="nav-number">3.1.</span> <span class="nav-text">DP Approach</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity-analysis"><span class="nav-number">4.</span> <span class="nav-text"> complexity analysis </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application"><span class="nav-number">5.</span> <span class="nav-text"> application </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self-notes"><span class="nav-number">6.</span> <span class="nav-text"> self notes </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text"> reference </span></a></li></ol></div>
             
           </div>
         </section>

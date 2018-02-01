@@ -96,22 +96,18 @@
 
 
 
-<meta name="description" content="IntroductionLets look at following code: 
-1List list = new ArrayList();
-The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data st">
+<meta name="description" content="IntroductionLets look at following code:  1List list = new ArrayList(); The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data st">
+<meta name="keywords" content="Java,Polymorphism">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Interface">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/07/18/Java-Interface/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="IntroductionLets look at following code: 
-1List list = new ArrayList();
-The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data st">
+<meta property="og:description" content="IntroductionLets look at following code:  1List list = new ArrayList(); The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data st">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-07-19T06:07:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Interface">
-<meta name="twitter:description" content="IntroductionLets look at following code: 
-1List list = new ArrayList();
-The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data st">
-
+<meta name="twitter:description" content="IntroductionLets look at following code:  1List list = new ArrayList(); The code above creates a reference of List type with variable called list, which is implemented by an internal ArrayList data st">
 
 
 
@@ -271,7 +267,7 @@ The code above creates a reference of List type with variable called list, which
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-18T17:54:44-04:00" content="07-18-2016">
+            <time itemprop="dateCreated" datetime="2016-07-18T13:54:44-04:00" content="07-18-2016">
               07-18-2016
             </time>
           </span>
@@ -315,12 +311,12 @@ The code above creates a reference of List type with variable called list, which
       
 
       
-        <h1 id="Introduction">Introduction</h1><p>Lets look at following code: </p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Lets look at following code: </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
 <p>The code above creates a reference of <code>List</code> type with variable called <code>list</code>, which is implemented by an internal <code>ArrayList</code> data structure.  </p>
 <p>To better understand the benefits of writing code above, I would like to first introduce few key words below: Polymorphism, Dynamic-linking, and upper casting vs lower casting.  </p>
-<h1 id="Java:_Polymorphism">Java: Polymorphism</h1><p>Polymorphism is one of the three important concepts in Java Programing language. The three essential concepts are: encapsulation, polymorphism and inheritance. We will discuss encapsulation and inheritance at a later time.  </p>
-<p><a href="http://blog.csdn.net/gideal_wang/article/details/4913965" target="_blank" rel="external">父类引用指向子类对象</a></p>
+<h1 id="Java-Polymorphism"><a href="#Java-Polymorphism" class="headerlink" title="Java: Polymorphism"></a>Java: Polymorphism</h1><p>Polymorphism is one of the three important concepts in Java Programing language. The three essential concepts are: encapsulation, polymorphism and inheritance. We will discuss encapsulation and inheritance at a later time.  </p>
+<p><a href="http://blog.csdn.net/gideal_wang/article/details/4913965" target="_blank" rel="noopener">父类引用指向子类对象</a></p>
 <p>多态性  </p>
 <p>父类引用指向子类对象指的是：</p>
 <p>例如父类Animal，子类Cat,Dog。其中Animal可以是类也可以是<strong>接口</strong>，Cat和Dog是继承或<strong>实现</strong>Animal的子类。</p>
@@ -328,21 +324,21 @@ The code above creates a reference of List type with variable called list, which
 <p>和其中的</p>
 <p>动态链接，</p>
 <p>向上转型：</p>
-<h2 id="Benefit_of_Polymorphism:">Benefit of Polymorphism:</h2><ul>
+<h2 id="Benefit-of-Polymorphism"><a href="#Benefit-of-Polymorphism" class="headerlink" title="Benefit of Polymorphism:"></a>Benefit of Polymorphism:</h2><ul>
 <li>使用所有父亲有的方法(methods)</li>
 </ul>
-<h1 id="Polymorphism:_父类引用指向子类对象">Polymorphism: 父类引用指向子类对象</h1><p>2、[不能]把父类对象引用赋给子类对象引用变量 </p>
+<h1 id="Polymorphism-父类引用指向子类对象"><a href="#Polymorphism-父类引用指向子类对象" class="headerlink" title="Polymorphism: 父类引用指向子类对象"></a>Polymorphism: 父类引用指向子类对象</h1><p>2、[不能]把父类对象引用赋给子类对象引用变量 </p>
 <p>BaseClass a2=new BaseClass();<br>DerivedC c1=a2;//出错 </p>
 <p>在java里面，向上转型是自动进行的,但是向下转型却不是，需要我们自己定义强制进行。<br>c1=(DerivedC)a2; 进行强制转化,也就是向下转型. </p>
-<h1 id="Polymorphism:_动态链接">Polymorphism: 动态链接</h1><h1 id="Polymorphism:_向上/向下转型">Polymorphism: 向上/向下转型</h1><p><a href="http://www.iteye.com/problems/96789" target="_blank" rel="external">强制类型转换去调用(ArrayList)list.clone()</a></p>
-<h1 id="Polymorphism:_Summary">Polymorphism: Summary</h1><p>   对于多态，可以总结以下几点：</p>
+<h1 id="Polymorphism-动态链接"><a href="#Polymorphism-动态链接" class="headerlink" title="Polymorphism: 动态链接"></a>Polymorphism: 动态链接</h1><h1 id="Polymorphism-向上-向下转型"><a href="#Polymorphism-向上-向下转型" class="headerlink" title="Polymorphism: 向上/向下转型"></a>Polymorphism: 向上/向下转型</h1><p><a href="http://www.iteye.com/problems/96789" target="_blank" rel="noopener">强制类型转换去调用(ArrayList)list.clone()</a></p>
+<h1 id="Polymorphism-Summary"><a href="#Polymorphism-Summary" class="headerlink" title="Polymorphism: Summary"></a>Polymorphism: Summary</h1><p>   对于多态，可以总结以下几点：</p>
 <pre><code>一、使用父类类型的引用指向子类的对象； 
 二、该引用只能调用父类中定义的方法和变量； 
-三、如果子类中重写<span class="comment">(Overriding)</span>了父类中的一个方法，那么在调用这个方法的时候，将会调用子类中的这个方法；（动态连接、动态调用） 
+三、如果子类中重写(Overriding)了父类中的一个方法，那么在调用这个方法的时候，将会调用子类中的这个方法；（动态连接、动态调用） 
 四、变量不能被重写（覆盖），”重写“的概念只针对方法，如果在子类中”重写“了父类中的变量，那么在编译时会报错。 
-五、如果子类中重载<span class="comment">(Overloading)</span>了父类中的一个方法，那么在父类的引用[无法]调用这个子类的重载方法。
-</code></pre><h1 id="Interface_-_Analysis:">Interface - Analysis:</h1><p>List - Interface, ArrayList implements the List interface.   </p>
-<h1 id="Interface_-_Flexibility">Interface - Flexibility</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
+五、如果子类中重载(Overloading)了父类中的一个方法，那么在父类的引用[无法]调用这个子类的重载方法。
+</code></pre><h1 id="Interface-Analysis"><a href="#Interface-Analysis" class="headerlink" title="Interface - Analysis:"></a>Interface - Analysis:</h1><p>List - Interface, ArrayList implements the List interface.   </p>
+<h1 id="Interface-Flexibility"><a href="#Interface-Flexibility" class="headerlink" title="Interface - Flexibility"></a>Interface - Flexibility</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
 <p>is more flexible than </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList list = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
 <p>Here is an detail example:  </p>
@@ -360,15 +356,15 @@ The code above creates a reference of List type with variable called list, which
 <p>Since the return type of method <code>perorderTraversal()</code> changed to <code>LinkedList&lt;Integer&gt;</code> now, any upper level code that depends on <code>perorderTraversal()</code> method should be modified to adapt the new return data type. And this will not be acceptable.  </p>
 <p>Code without using the interface <code>List</code> is much less flexible than the one with interface.  </p>
 <blockquote>
-<p>…it will allow you to make implementation-specific changes later without breaking existing code (<a href="http://stackoverflow.com/questions/9852831/polymorphism-why-use-list-list-new-arraylist-instead-of-arraylist-list-n" target="_blank" rel="external">StackOverflow</a>).</p>
+<p>…it will allow you to make implementation-specific changes later without breaking existing code (<a href="http://stackoverflow.com/questions/9852831/polymorphism-why-use-list-list-new-arraylist-instead-of-arraylist-list-n" target="_blank" rel="noopener">StackOverflow</a>).</p>
 </blockquote>
 <p>It will be helpful, if possible, to <code>new</code> something, use <code>Interface</code> on the left side to maximize the flexibility of the program.  </p>
-<h1 id="Interface_-_Analogy">Interface - Analogy</h1><p>One of the analogy I really like was introduced by the following website in Chinese [<a href="http://www.cnblogs.com/leoo2sk/archive/2008/04/10/1146447.html" target="_blank" rel="external">面向接口编程详解（一）——思想基础</a>]  </p>
+<h1 id="Interface-Analogy"><a href="#Interface-Analogy" class="headerlink" title="Interface - Analogy"></a>Interface - Analogy</h1><p>One of the analogy I really like was introduced by the following website in Chinese [<a href="http://www.cnblogs.com/leoo2sk/archive/2008/04/10/1146447.html" target="_blank" rel="noopener">面向接口编程详解（一）——思想基础</a>]  </p>
 <p>The artical uses the following analogy to help us better understand the idea of interface.  </p>
 <p>Imagine your laptop’s is excited about getting a new harddisk, which has a larger capacity and a faster speed, and maybe an even larger caches. You will imagine that switching from a 60GB hardisk to a 500GB one will not break normal function of the computer, which should be true in general.  </p>
 <p>The reason behind this is the interface (<code>SATA</code>) provide to conenct differnt type of hard-disk is identical. Switching from 60GB to 500GB (<code>ArrayList</code> to <code>LinkedList</code>) should not break the normal functionality of the machine (program).  </p>
 <p>That analogy really helps to better explain the underline idea of interface in a more interesting way.  </p>
-<h1 id="Reference:">Reference:</h1><p><a href="http://stackoverflow.com/questions/9852831/polymorphism-why-use-list-list-new-arraylist-instead-of-arraylist-list-n" target="_blank" rel="external">StackOverflow</a><br><a href="http://blog.csdn.net/bobge/article/details/3298728" target="_blank" rel="external">详细说明 List list = new ArrayList()</a><br><a href="http://www.cnblogs.com/leoo2sk/archive/2008/04/10/1146447.html" target="_blank" rel="external">面向接口编程详解（一）——思想基础</a><br><a href="http://blog.csdn.net/gideal_wang/article/details/4913965" target="_blank" rel="external">父类引用指向子类对象</a></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><p><a href="http://stackoverflow.com/questions/9852831/polymorphism-why-use-list-list-new-arraylist-instead-of-arraylist-list-n" target="_blank" rel="noopener">StackOverflow</a><br><a href="http://blog.csdn.net/bobge/article/details/3298728" target="_blank" rel="noopener">详细说明 List list = new ArrayList()</a><br><a href="http://www.cnblogs.com/leoo2sk/archive/2008/04/10/1146447.html" target="_blank" rel="noopener">面向接口编程详解（一）——思想基础</a><br><a href="http://blog.csdn.net/gideal_wang/article/details/4913965" target="_blank" rel="noopener">父类引用指向子类对象</a></p>
 
       
     </div>
@@ -486,7 +482,7 @@ The code above creates a reference of List type with variable called list, which
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -503,7 +499,7 @@ The code above creates a reference of List type with variable called list, which
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -583,7 +579,7 @@ The code above creates a reference of List type with variable called list, which
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java:_Polymorphism"><span class="nav-number">2.</span> <span class="nav-text">Java: Polymorphism</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Benefit_of_Polymorphism:"><span class="nav-number">2.1.</span> <span class="nav-text">Benefit of Polymorphism:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Polymorphism:_父类引用指向子类对象"><span class="nav-number">3.</span> <span class="nav-text">Polymorphism: 父类引用指向子类对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Polymorphism:_动态链接"><span class="nav-number">4.</span> <span class="nav-text">Polymorphism: 动态链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Polymorphism:_向上/向下转型"><span class="nav-number">5.</span> <span class="nav-text">Polymorphism: 向上/向下转型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Polymorphism:_Summary"><span class="nav-number">6.</span> <span class="nav-text">Polymorphism: Summary</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interface_-_Analysis:"><span class="nav-number">7.</span> <span class="nav-text">Interface - Analysis:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interface_-_Flexibility"><span class="nav-number">8.</span> <span class="nav-text">Interface - Flexibility</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interface_-_Analogy"><span class="nav-number">9.</span> <span class="nav-text">Interface - Analogy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number">10.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-Polymorphism"><span class="nav-number">2.</span> <span class="nav-text">Java: Polymorphism</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Benefit-of-Polymorphism"><span class="nav-number">2.1.</span> <span class="nav-text">Benefit of Polymorphism:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Polymorphism-父类引用指向子类对象"><span class="nav-number">3.</span> <span class="nav-text">Polymorphism: 父类引用指向子类对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Polymorphism-动态链接"><span class="nav-number">4.</span> <span class="nav-text">Polymorphism: 动态链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Polymorphism-向上-向下转型"><span class="nav-number">5.</span> <span class="nav-text">Polymorphism: 向上/向下转型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Polymorphism-Summary"><span class="nav-number">6.</span> <span class="nav-text">Polymorphism: Summary</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interface-Analysis"><span class="nav-number">7.</span> <span class="nav-text">Interface - Analysis:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interface-Flexibility"><span class="nav-number">8.</span> <span class="nav-text">Interface - Flexibility</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interface-Analogy"><span class="nav-number">9.</span> <span class="nav-text">Interface - Analogy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">10.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
             
           </div>
         </section>

@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Array&Numbers,LintCode," />
+  <meta name="keywords" content="LintCode,Array&Numbers," />
 
 
 
@@ -96,22 +96,18 @@
 
 
 
-<meta name="description" content="description Given two arrays, write a function to compute their intersection.Intersection指的是数学里的交集($\cap$)
-NoticeEach element in the result must be unique.The result can be in any order.
-LC547 Interse">
+<meta name="description" content="description Given two arrays, write a function to compute their intersection.Intersection指的是数学里的交集($\cap$) NoticeEach element in the result must be unique.The result can be in any order. LC547 Inters">
+<meta name="keywords" content="LintCode,Array&amp;Numbers">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LC547 - Intersection of Two Arrays">
 <meta property="og:url" content="http://www.xuyiruan.com/2017/01/04/Intersection-of-Two-Arrays/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="description Given two arrays, write a function to compute their intersection.Intersection指的是数学里的交集($\cap$)
-NoticeEach element in the result must be unique.The result can be in any order.
-LC547 Interse">
+<meta property="og:description" content="description Given two arrays, write a function to compute their intersection.Intersection指的是数学里的交集($\cap$) NoticeEach element in the result must be unique.The result can be in any order. LC547 Inters">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-01-05T18:20:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LC547 - Intersection of Two Arrays">
-<meta name="twitter:description" content="description Given two arrays, write a function to compute their intersection.Intersection指的是数学里的交集($\cap$)
-NoticeEach element in the result must be unique.The result can be in any order.
-LC547 Interse">
-
+<meta name="twitter:description" content="description Given two arrays, write a function to compute their intersection.Intersection指的是数学里的交集($\cap$) NoticeEach element in the result must be unique.The result can be in any order. LC547 Inters">
 
 
 
@@ -271,7 +267,7 @@ LC547 Interse">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-04T16:07:04-05:00" content="01-04-2017">
+            <time itemprop="dateCreated" datetime="2017-01-04T11:07:04-05:00" content="01-04-2017">
               01-04-2017
             </time>
           </span>
@@ -315,18 +311,18 @@ LC547 Interse">
       
 
       
-        <h2 id="description"><center> description </center></h2><p>Given two arrays, write a function to compute their intersection.<br>Intersection指的是数学里的交集($\cap$)</p>
+        <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given two arrays, write a function to compute their intersection.<br>Intersection指的是数学里的交集($\cap$)</p>
 <p><strong>Notice</strong><br>Each element in the result must be unique.<br>The result can be in any order.</p>
-<p><a href="http://www.lintcode.com/en/problem/intersection-of-two-arrays/" target="_blank" rel="external">LC547 Intersection of Two Arrays</a></p>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> nums1 an integer array</span><br><span class="line">     * <span class="doctag">@param</span> nums2 an integer array</span><br><span class="line">     * <span class="doctag">@return</span> an integer array</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span> len1 = nums1.length;</span><br><span class="line">        <span class="keyword">int</span> len2 = nums2.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span> || len2 == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// checking</span></span><br><span class="line">        HashSet&lt;Integer&gt; interset = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// solution</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">            set.add(nums1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (set.contains(nums2[i])) &#123;</span><br><span class="line">                interset.add(nums2[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] sol = <span class="keyword">new</span> <span class="keyword">int</span>[interset.size()];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Integer num: interset) &#123;</span><br><span class="line">            sol[index++] = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.lintcode.com/en/problem/intersection-of-two-arrays/" target="_blank" rel="noopener">LC547 Intersection of Two Arrays</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums1 an integer array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums2 an integer array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span> len1 = nums1.length;</span><br><span class="line">        <span class="keyword">int</span> len2 = nums2.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span> || len2 == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// checking</span></span><br><span class="line">        HashSet&lt;Integer&gt; interset = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// solution</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">            set.add(nums1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (set.contains(nums2[i])) &#123;</span><br><span class="line">                interset.add(nums2[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] sol = <span class="keyword">new</span> <span class="keyword">int</span>[interset.size()];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Integer num: interset) &#123;</span><br><span class="line">            sol[index++] = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="algorithm_correctness"><center> algorithm correctness </center></h2><p>Choose one of the array and add all its elements into a HashSet datastructure. HashSet only keeps single copy of the data disregard how many <strong>duplicated</strong> items are added. Since the question ask for unique intersect, we can simply use two hashSets: one for <strong>checking</strong> hashSet, another one <strong>solution</strong> hashSet.  </p>
-<h2 id="complexity_analysis"><center> complexity analysis </center></h2><p>Assume <code>nums1.length == n</code> and <code>nums2.length == m</code></p>
+<h2 id="algorithm-correctness"><a href="#algorithm-correctness" class="headerlink" title=" algorithm correctness "></a><center> algorithm correctness </center></h2><p>Choose one of the array and add all its elements into a HashSet datastructure. HashSet only keeps single copy of the data disregard how many <strong>duplicated</strong> items are added. Since the question ask for unique intersect, we can simply use two hashSets: one for <strong>checking</strong> hashSet, another one <strong>solution</strong> hashSet.  </p>
+<h2 id="complexity-analysis"><a href="#complexity-analysis" class="headerlink" title=" complexity analysis "></a><center> complexity analysis </center></h2><p>Assume <code>nums1.length == n</code> and <code>nums2.length == m</code></p>
 <p><code>hashset.add()</code>: $O(1)$<br><code>hashset.contains()</code>: $O(1)$ </p>
 <p><strong>Time</strong>: the first for loop cost $n \times O(1) = O(n)$ to add all items in <code>nums1</code> and second forloop costs $m \times O(1) = O(m)$ to check for intersection. The last forloop add all intersect items (less than either <code>n</code> or <code>m</code>) into an array <code>sol</code>.<br>The total time complexity will be $O(n + m)$  </p>
 <p><strong>Space</strong>: total space complexity will be approx. $O(n + m)$  </p>
-<h2 id="self_notes"><center> self notes </center></h2><h2 id="application"><center> application </center></h2><p>To find the union $\cup$ of two arrays, simply add all items from both array into <strong>one</strong> HashSet.</p>
-<h2 id="reference"><center> reference </center></h2><p><a href="http://infotechgems.blogspot.com/2011/11/java-collections-performance-time.html" target="_blank" rel="external">Java Collections – Performance (Time Complexity)</a></p>
+<h2 id="self-notes"><a href="#self-notes" class="headerlink" title=" self notes "></a><center> self notes </center></h2><h2 id="application"><a href="#application" class="headerlink" title=" application "></a><center> application </center></h2><p>To find the union $\cup$ of two arrays, simply add all items from both array into <strong>one</strong> HashSet.</p>
+<h2 id="reference"><a href="#reference" class="headerlink" title=" reference "></a><center> reference </center></h2><p><a href="http://infotechgems.blogspot.com/2011/11/java-collections-performance-time.html" target="_blank" rel="noopener">Java Collections – Performance (Time Complexity)</a></p>
 
       
     </div>
@@ -348,9 +344,9 @@ LC547 Interse">
       
         <div class="post-tags">
           
-            <a href="/tags/Array-Numbers/" rel="tag">#Array&Numbers</a>
-          
             <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+            <a href="/tags/Array-Numbers/" rel="tag">#Array&Numbers</a>
           
         </div>
       
@@ -444,7 +440,7 @@ LC547 Interse">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -461,7 +457,7 @@ LC547 Interse">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -541,7 +537,7 @@ LC547 Interse">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text"> description </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> code </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm_correctness"><span class="nav-number">3.</span> <span class="nav-text"> algorithm correctness </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity_analysis"><span class="nav-number">4.</span> <span class="nav-text"> complexity analysis </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self_notes"><span class="nav-number">5.</span> <span class="nav-text"> self notes </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application"><span class="nav-number">6.</span> <span class="nav-text"> application </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text"> reference </span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text"> description </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> code </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm-correctness"><span class="nav-number">3.</span> <span class="nav-text"> algorithm correctness </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity-analysis"><span class="nav-number">4.</span> <span class="nav-text"> complexity analysis </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self-notes"><span class="nav-number">5.</span> <span class="nav-text"> self notes </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application"><span class="nav-number">6.</span> <span class="nav-text"> application </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text"> reference </span></a></li></ol></div>
             
           </div>
         </section>

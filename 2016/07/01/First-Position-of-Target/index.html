@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BinarySearch,LintCode," />
+  <meta name="keywords" content="LintCode,BinarySearch," />
 
 
 
@@ -96,19 +96,18 @@
 
 
 
-<meta name="description" content="First Position of Target  
-Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums, int target) &amp;#123;    //write your code here    // dupliacte, first index, high = mid    if">
+<meta name="description" content="First Position of Target   Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums, int target) &amp;#123;    //write your code here    // dupliacte, first index, high = mid    if">
+<meta name="keywords" content="LintCode,BinarySearch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode 14 - First Position of Target">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/07/01/First-Position-of-Target/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="First Position of Target  
-Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums, int target) &amp;#123;    //write your code here    // dupliacte, first index, high = mid    if">
+<meta property="og:description" content="First Position of Target   Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums, int target) &amp;#123;    //write your code here    // dupliacte, first index, high = mid    if">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-07-01T15:26:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 14 - First Position of Target">
-<meta name="twitter:description" content="First Position of Target  
-Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums, int target) &amp;#123;    //write your code here    // dupliacte, first index, high = mid    if">
-
+<meta name="twitter:description" content="First Position of Target   Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums, int target) &amp;#123;    //write your code here    // dupliacte, first index, high = mid    if">
 
 
 
@@ -268,7 +267,7 @@ Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-01T11:16:34-04:00" content="07-01-2016">
+            <time itemprop="dateCreated" datetime="2016-07-01T07:16:34-04:00" content="07-01-2016">
               07-01-2016
             </time>
           </span>
@@ -312,17 +311,17 @@ Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/first-position-of-target/" target="_blank" rel="external">First Position of Target</a>  </p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//write your code here</span></span><br><span class="line">    <span class="comment">// dupliacte, first index, high = mid</span></span><br><span class="line">    <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">        mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt;= nums[mid]) &#123;</span><br><span class="line">            high = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            low = mid;</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span> (nums[low] == target) &#123;</span><br><span class="line">         <span class="keyword">return</span> low;</span><br><span class="line">     &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[high] == target) &#123;</span><br><span class="line">         <span class="keyword">return</span> high;</span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://www.lintcode.com/en/problem/first-position-of-target/" target="_blank" rel="noopener">First Position of Target</a>  </p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//write your code here</span></span><br><span class="line">    <span class="comment">// dupliacte, first index, high = mid</span></span><br><span class="line">    <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">        mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt;= nums[mid]) &#123;</span><br><span class="line">            high = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            low = mid;</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span> (nums[low] == target) &#123;</span><br><span class="line">         <span class="keyword">return</span> low;</span><br><span class="line">     &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[high] == target) &#123;</span><br><span class="line">         <span class="keyword">return</span> high;</span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="Description:">Description:</h1><p>For a given sorted array (ascending order) and a <code>target</code> number, find the first index of this number in <code>O(log n)</code> time complexity.</p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h1><p>For a given sorted array (ascending order) and a <code>target</code> number, find the first index of this number in <code>O(log n)</code> time complexity.</p>
 <p>If the target number does not exist in the array, return <code>-1</code>.</p>
 <p><strong>Example</strong><br>If the array is <code>[1, 2, 3, 3, 4, 5, 10]</code>, for given target <code>3</code>, return <code>2</code>.</p>
-<h1 id="Thought_Process:">Thought Process:</h1><ul>
+<h1 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a>Thought Process:</h1><ul>
 <li><strong>binary search</strong> algorithm + <strong>duplication</strong> allowed.  </li>
 <li>need to return the index of the <strong>first</strong> meet target value.<code>target &lt;= nums[mid]</code> with <code>high = mid</code>.  </li>
 </ul>
-<h1 id="Corner_Case:">Corner Case:</h1><ul>
+<h1 id="Corner-Case"><a href="#Corner-Case" class="headerlink" title="Corner Case:"></a>Corner Case:</h1><ul>
 <li><code>nums == null || nums.length == 0</code></li>
 </ul>
 
@@ -346,9 +345,9 @@ Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums
       
         <div class="post-tags">
           
-            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
-          
             <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
           
         </div>
       
@@ -442,7 +441,7 @@ Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -459,7 +458,7 @@ Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -539,7 +538,7 @@ Code:12345678910111213141516171819202122232425public int binarySearch(int[] nums
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought-Process"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner-Case"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
             
           </div>
         </section>

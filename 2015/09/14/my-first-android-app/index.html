@@ -97,17 +97,20 @@
 
 
 <meta name="description" content="Description:This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of Runnerable, Multli-threads ap">
+<meta name="keywords" content="AndroidStudio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="StopWatch - Andriod">
 <meta property="og:url" content="http://www.xuyiruan.com/2015/09/14/my-first-android-app/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="Description:This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of Runnerable, Multli-threads ap">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp2.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp1.png">
+<meta property="og:updated_time" content="2015-09-14T14:17:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="StopWatch - Andriod">
 <meta name="twitter:description" content="Description:This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of Runnerable, Multli-threads ap">
-
+<meta name="twitter:image" content="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp2.png">
 
 
 
@@ -267,7 +270,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-09-14T14:17:17-04:00" content="09-14-2015">
+            <time itemprop="dateCreated" datetime="2015-09-14T10:17:17-04:00" content="09-14-2015">
               09-14-2015
             </time>
           </span>
@@ -330,15 +333,15 @@
       
 
       
-        <h2 id="Description:"><strong>Description:</strong></h2><p>This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of <code>Runnerable</code>, <code>Multli-threads application</code>,<code>Handler</code>, as well as <code>OnClickListener</code></p>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a><strong>Description:</strong></h2><p>This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of <code>Runnerable</code>, <code>Multli-threads application</code>,<code>Handler</code>, as well as <code>OnClickListener</code></p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp2.png" alt="running app" style="width:600px"></p>
 <a id="more"></a>
-<h3 id="Key_components:"><strong>Key components:</strong></h3><p>When a new Handler Object is instantaited, a stand alone thread and a conressponding message queue is created. Handler object now can push/send either <code>Message Object</code> or <code>Runnable Object</code> into the message queue. Each Handler has its own seperate message queue, however, the Main UI thread is able to access and dequeue message/runnable from those queue from Handler. There are following two ways to send message/runnable to the queue: <code>Post</code> and <code>sendMessage()</code>.</p>
+<h3 id="Key-components"><a href="#Key-components" class="headerlink" title="Key components:"></a><strong>Key components:</strong></h3><p>When a new Handler Object is instantaited, a stand alone thread and a conressponding message queue is created. Handler object now can push/send either <code>Message Object</code> or <code>Runnable Object</code> into the message queue. Each Handler has its own seperate message queue, however, the Main UI thread is able to access and dequeue message/runnable from those queue from Handler. There are following two ways to send message/runnable to the queue: <code>Post</code> and <code>sendMessage()</code>.</p>
 <!-- more -->
-<h2 id="TODO"><strong>TODO</strong></h2><p>~~pause then resume result in negative values ~~<br>~~handle zero appending for digits in millisecond ~~<br>~~stop pause from starting the count ~~</p>
-<h2 id="Related_Methods"><strong>Related Methods</strong></h2><p>I will briefly introduce the following methods below.</p>
-<h3 id="Runnerable:"><strong>Runnerable:</strong></h3><p>Runnerable is the most common API that can be used to implemented multi-threading development.</p>
-<h3 id="Handler:"><strong>Handler:</strong></h3><p>Handler - communicate from other threads with main UI-thread.</p>
+<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a><strong>TODO</strong></h2><p>~~pause then resume result in negative values ~~<br>~~handle zero appending for digits in millisecond ~~<br>~~stop pause from starting the count ~~</p>
+<h2 id="Related-Methods"><a href="#Related-Methods" class="headerlink" title="Related Methods"></a><strong>Related Methods</strong></h2><p>I will briefly introduce the following methods below.</p>
+<h3 id="Runnerable"><a href="#Runnerable" class="headerlink" title="Runnerable:"></a><strong>Runnerable:</strong></h3><p>Runnerable is the most common API that can be used to implemented multi-threading development.</p>
+<h3 id="Handler"><a href="#Handler" class="headerlink" title="Handler:"></a><strong>Handler:</strong></h3><p>Handler - communicate from other threads with main UI-thread.</p>
 <p>Handler push either message or runnerable to the queue by following two methods:</p>
 <ol>
 <li>Post()<br><code>post(Runable)</code>,<br><code>postAtTime(Runnable,long)</code>,<br><code>postDelayed(Runnable, long)</code>  - handle runnable after specfic time.</li>
@@ -348,33 +351,33 @@
 <li>sendMessage()  </li>
 </ol>
 <p>SendMessage() is the other approach to communicate with the main UI thread. Since I am mainly using post() to send runnable to the message queue, therefore will not go into detail in this post.</p>
-<h3 id="OnclickListener"><strong>OnclickListener</strong></h3><p>Setup the buttons: </p>
+<h3 id="OnclickListener"><a href="#OnclickListener" class="headerlink" title="OnclickListener"></a><strong>OnclickListener</strong></h3><p>Setup the buttons: </p>
 <p>Define button/message object to connect elements in UI layout.</p>
-<pre><code>startBtn = (Button)findViewById(R.<span class="property">id</span>.ui_startBtn);
+<pre><code>startBtn = (Button)findViewById(R.id.ui_startBtn);
 </code></pre><p>Set up Button detection when Buttons click</p>
 <pre><code>startBtn.setOnClickListener(ClickDetect);
 </code></pre><p>Once button clicked, it goes to the function below. </p>
-<pre><code><span class="keyword">private</span> OnClickListener ClickDetect = <span class="keyword">new</span> OnClickListener(){
-    <span class="annotation">@Override</span>
-    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span>
-    </span>{
-        <span class="comment">// check which button is pushed</span>
-        <span class="keyword">if</span>(v.getId() == startBtn.getId())
+<pre><code>private OnClickListener ClickDetect = new OnClickListener(){
+    @Override
+    public void onClick(View v)
+    {
+        // check which button is pushed
+        if(v.getId() == startBtn.getId())
         {
             startTime = System.currentTimeMillis();
-            <span class="keyword">handler</span>.removeCallbacks(updateTimer);
-            <span class="keyword">handler</span>.postDelayed(updateTimer, <span class="number">1</span>);
-            <span class="comment">// reset all the record</span>
-            count = <span class="number">0</span>;
-            pausedStart = <span class="number">0</span>;
-            pausedEnd = <span class="number">0</span>;
-            <span class="comment">// make button invisible after click</span>
+            handler.removeCallbacks(updateTimer);
+            handler.postDelayed(updateTimer, 1);
+            // reset all the record
+            count = 0;
+            pausedStart = 0;
+            pausedEnd = 0;
+            // make button invisible after click
             startBtn.setVisibility(View.INVISIBLE);
         }
 </code></pre><p>Attach the code for the this stopwatch applications. Hope you enjoy your first android app as well!</p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp1.png" alt="stopWatch UI" style="width:600px;"></p>
-<h3 id="Codes"><strong> Codes </strong></h3><p><a href="https://github.com/ruanxuyi/ece454minilab2" target="_blank" rel="external">Click here for Code!</a></p>
-<h3 id="Reference:"><strong>Reference: </strong></h3><p><a href="http://www.cnblogs.com/plokmju/p/android_handler.html" target="_blank" rel="external">Android—多线程之Handler</a><br><a href="http://guess740111.blogspot.com/2013/10/android-button-onclicklistener.html" target="_blank" rel="external">Android Button OnClickListener 使用方法(一)</a><br><a href="http://developer.51cto.com/art/201203/321042.htm" target="_blank" rel="external">Java中Runnable和Thread的区别</a><br><a href="http://www.cnblogs.com/plokmju/p/android_Handler.html" target="_blank" rel="external">Android—多线程之Handler</a><br><a href="http://cooking-java.blogspot.com/2010/04/android-timer.html" target="_blank" rel="external">Android學習筆記 - 計時器(Timer)</a><br><a href="http://gengbiao.me/android/android_定时器/" target="_blank" rel="external">Android 定时器 Handler与sleep(long)方法</a></p>
+<h3 id="Codes"><a href="#Codes" class="headerlink" title=" Codes "></a><strong> Codes </strong></h3><p><a href="https://github.com/ruanxuyi/ece454minilab2" target="_blank" rel="noopener">Click here for Code!</a></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference: "></a><strong>Reference: </strong></h3><p><a href="http://www.cnblogs.com/plokmju/p/android_handler.html" target="_blank" rel="noopener">Android–多线程之Handler</a><br><a href="http://guess740111.blogspot.com/2013/10/android-button-onclicklistener.html" target="_blank" rel="noopener">Android Button OnClickListener 使用方法(一)</a><br><a href="http://developer.51cto.com/art/201203/321042.htm" target="_blank" rel="noopener">Java中Runnable和Thread的区别</a><br><a href="http://www.cnblogs.com/plokmju/p/android_Handler.html" target="_blank" rel="noopener">Android–多线程之Handler</a><br><a href="http://cooking-java.blogspot.com/2010/04/android-timer.html" target="_blank" rel="noopener">Android學習筆記 - 計時器(Timer)</a><br><a href="http://gengbiao.me/android/android_定时器/" target="_blank" rel="noopener">Android 定时器 Handler与sleep(long)方法</a></p>
 
       
     </div>
@@ -413,7 +416,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/02/reverse-linked-list/" rel="prev" title="Reverse Linkedlist">
+              <a href="/2016/03/01/reverse-linked-list/" rel="prev" title="Reverse Linkedlist">
                 Reverse Linkedlist <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -490,7 +493,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -507,7 +510,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -587,7 +590,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description:"><span class="nav-number">1.</span> <span class="nav-text">Description:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Key_components:"><span class="nav-number">1.1.</span> <span class="nav-text">Key components:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-number">2.</span> <span class="nav-text">TODO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related_Methods"><span class="nav-number">3.</span> <span class="nav-text">Related Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Runnerable:"><span class="nav-number">3.1.</span> <span class="nav-text">Runnerable:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Handler:"><span class="nav-number">3.2.</span> <span class="nav-text">Handler:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OnclickListener"><span class="nav-number">3.3.</span> <span class="nav-text">OnclickListener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Codes"><span class="nav-number">3.4.</span> <span class="nav-text"> Codes </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference:"><span class="nav-number">3.5.</span> <span class="nav-text">Reference: </span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-components"><span class="nav-number">1.1.</span> <span class="nav-text">Key components:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-number">2.</span> <span class="nav-text">TODO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-Methods"><span class="nav-number">3.</span> <span class="nav-text">Related Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Runnerable"><span class="nav-number">3.1.</span> <span class="nav-text">Runnerable:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Handler"><span class="nav-number">3.2.</span> <span class="nav-text">Handler:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OnclickListener"><span class="nav-number">3.3.</span> <span class="nav-text">OnclickListener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Codes"><span class="nav-number">3.4.</span> <span class="nav-text"> Codes </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">3.5.</span> <span class="nav-text">Reference: </span></a></li></ol></li></ol></div>
             
           </div>
         </section>

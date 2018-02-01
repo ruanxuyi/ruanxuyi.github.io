@@ -96,22 +96,18 @@
 
 
 
-<meta name="description" content="description https://leetcode.com/problems/generate-parentheses/description/
-Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
-For example, given n">
+<meta name="description" content="description https://leetcode.com/problems/generate-parentheses/description/ Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given">
+<meta name="keywords" content="LeetCode,LintCode,Parentheses Related">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode22 - Generate Parentheses">
 <meta property="og:url" content="http://www.xuyiruan.com/2018/01/19/Generate-Parentheses/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="description https://leetcode.com/problems/generate-parentheses/description/
-Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
-For example, given n">
+<meta property="og:description" content="description https://leetcode.com/problems/generate-parentheses/description/ Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-01-19T19:10:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode22 - Generate Parentheses">
-<meta name="twitter:description" content="description https://leetcode.com/problems/generate-parentheses/description/
-Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
-For example, given n">
-
+<meta name="twitter:description" content="description https://leetcode.com/problems/generate-parentheses/description/ Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given">
 
 
 
@@ -271,7 +267,7 @@ For example, given n">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-01-19T13:19:12-05:00" content="01-19-2018">
+            <time itemprop="dateCreated" datetime="2018-01-19T08:19:12-05:00" content="01-19-2018">
               01-19-2018
             </time>
           </span>
@@ -315,13 +311,13 @@ For example, given n">
       
 
       
-        <h2 id="description"><center> description </center></h2><p><a href="https://leetcode.com/problems/generate-parentheses/description/" target="_blank" rel="external">https://leetcode.com/problems/generate-parentheses/description/</a></p>
+        <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p><a href="https://leetcode.com/problems/generate-parentheses/description/" target="_blank" rel="noopener">https://leetcode.com/problems/generate-parentheses/description/</a></p>
 <p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
 <p>For example, given <code>n = 3</code>, a solution set is:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="string">"((()))"</span>,</span><br><span class="line">  <span class="string">"(()())"</span>,</span><br><span class="line">  <span class="string">"(())()"</span>,</span><br><span class="line">  <span class="string">"()(())"</span>,</span><br><span class="line">  <span class="string">"()()()"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h2 id="code"><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; result = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        helper(n-<span class="number">1</span>, n, <span class="string">"("</span>, result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span> left, <span class="keyword">int</span> right, String temp, List&lt;String&gt; result)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left == <span class="number">0</span> &amp;&amp; right == <span class="number">0</span>) &#123;</span><br><span class="line">            result.add(temp);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (left &gt; right || left &lt; <span class="number">0</span> || right &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// function</span></span><br><span class="line">        helper(left-<span class="number">1</span>,right,temp+<span class="string">"("</span>,result);</span><br><span class="line">        helper(left,right-<span class="number">1</span>,temp+<span class="string">")"</span>,result);        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &quot;((()))&quot;,</span><br><span class="line">  &quot;(()())&quot;,</span><br><span class="line">  &quot;(())()&quot;,</span><br><span class="line">  &quot;()(())&quot;,</span><br><span class="line">  &quot;()()()&quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; result = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        helper(n-<span class="number">1</span>, n, <span class="string">"("</span>, result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span> left, <span class="keyword">int</span> right, String temp, List&lt;String&gt; result)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left == <span class="number">0</span> &amp;&amp; right == <span class="number">0</span>) &#123;</span><br><span class="line">            result.add(temp);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (left &gt; right || left &lt; <span class="number">0</span> || right &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// function</span></span><br><span class="line">        helper(left-<span class="number">1</span>,right,temp+<span class="string">"("</span>,result);</span><br><span class="line">        helper(left,right-<span class="number">1</span>,temp+<span class="string">")"</span>,result);        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="algorithm"><center> algorithm </center></h2><p>example: <code>n = 3</code> means we have 3 <code>&#39;(&#39;</code> and 3 <code>&#39;)&#39;</code>, how to combine all 6 of them to make a valid combination of parentheses  </p>
+<h2 id="algorithm"><a href="#algorithm" class="headerlink" title=" algorithm "></a><center> algorithm </center></h2><p>example: <code>n = 3</code> means we have 3 <code>&#39;(&#39;</code> and 3 <code>&#39;)&#39;</code>, how to combine all 6 of them to make a valid combination of parentheses  </p>
 <p>at each step, we have following <strong>two choices</strong>:  </p>
 <ol>
 <li>add a <code>&#39;(&#39;</code> if we still have left parentheses  </li>
@@ -330,13 +326,13 @@ For example, given n">
 <p>when we use up all left and right aprentheses, we can add it to result  </p>
 <p>Note, we need to put <code>&#39;(&#39;</code> at the first step since it is invalid to start with <code>&#39;)&#39;</code>  </p>
 <p>The recursive tree looks like this:  </p>
-<h2 id="complexity_analysis"><center> complexity analysis </center></h2><p><strong>time</strong>: $O(c)$ where <code>c</code> is the number of total strings in which parens are matched.  <code>c</code> is known as Catalan number, whose complexity order is $O(3^n)$  </p>
+<h2 id="complexity-analysis"><a href="#complexity-analysis" class="headerlink" title=" complexity analysis "></a><center> complexity analysis </center></h2><p><strong>time</strong>: $O(c)$ where <code>c</code> is the number of total strings in which parens are matched.  <code>c</code> is known as Catalan number, whose complexity order is $O(3^n)$  </p>
 <p><strong>space</strong>: $O(n)$</p>
-<h2 id="summary"><center> summary </center></h2><p>括号相关的题目  </p>
+<h2 id="summary"><a href="#summary" class="headerlink" title=" summary "></a><center> summary </center></h2><p>括号相关的题目  </p>
 <ul>
-<li><h1 id="of_左括弧_&gt;_右括弧">of 左括弧 &gt; 右括弧</h1></li>
+<li><h1 id="of-左括弧-gt-右括弧"><a href="#of-左括弧-gt-右括弧" class="headerlink" title="of 左括弧 &gt; 右括弧"></a>of 左括弧 &gt; 右括弧</h1></li>
 </ul>
-<h2 id="application"><center> application </center></h2><h2 id="reference"><center> reference </center></h2>
+<h2 id="application"><a href="#application" class="headerlink" title=" application "></a><center> application </center></h2><h2 id="reference"><a href="#reference" class="headerlink" title=" reference "></a><center> reference </center></h2>
       
     </div>
 
@@ -455,7 +451,7 @@ For example, given n">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -472,7 +468,7 @@ For example, given n">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -552,7 +548,7 @@ For example, given n">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text"> description </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> code </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm"><span class="nav-number">3.</span> <span class="nav-text"> algorithm </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity_analysis"><span class="nav-number">4.</span> <span class="nav-text"> complexity analysis </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">5.</span> <span class="nav-text"> summary </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#of_左括弧_>_右括弧"><span class="nav-number"></span> <span class="nav-text">of 左括弧 > 右括弧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#application"><span class="nav-number">1.</span> <span class="nav-text"> application </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">2.</span> <span class="nav-text"> reference </span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text"> description </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> code </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm"><span class="nav-number">3.</span> <span class="nav-text"> algorithm </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity-analysis"><span class="nav-number">4.</span> <span class="nav-text"> complexity analysis </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#summary"><span class="nav-number">5.</span> <span class="nav-text"> summary </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#of-左括弧-gt-右括弧"><span class="nav-number"></span> <span class="nav-text">of 左括弧 &gt; 右括弧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#application"><span class="nav-number">1.</span> <span class="nav-text"> application </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">2.</span> <span class="nav-text"> reference </span></a></li></ol></div>
             
           </div>
         </section>

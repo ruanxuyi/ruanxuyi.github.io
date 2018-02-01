@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="DP,H,LintCode,Recursive," />
+  <meta name="keywords" content="LintCode,H,DP,Recursive," />
 
 
 
@@ -96,19 +96,18 @@
 
 
 
-<meta name="description" content="Climbing Stairs
-Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public class Solution &amp;#123;    /**     * @param n: An integer     * @return: An integer     */    public int">
+<meta name="description" content="Climbing Stairs Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public class Solution &amp;#123;    /**     * @param n: An integer     * @return: An integer     */    public int">
+<meta name="keywords" content="LintCode,H,DP,Recursive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode 111 - Climbing Stairs">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/08/16/Climbing-Stairs/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="Climbing Stairs
-Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public class Solution &amp;#123;    /**     * @param n: An integer     * @return: An integer     */    public int">
+<meta property="og:description" content="Climbing Stairs Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public class Solution &amp;#123;    /**     * @param n: An integer     * @return: An integer     */    public int">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-08-16T03:55:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 111 - Climbing Stairs">
-<meta name="twitter:description" content="Climbing Stairs
-Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public class Solution &amp;#123;    /**     * @param n: An integer     * @return: An integer     */    public int">
-
+<meta name="twitter:description" content="Climbing Stairs Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public class Solution &amp;#123;    /**     * @param n: An integer     * @return: An integer     */    public int">
 
 
 
@@ -268,7 +267,7 @@ Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-16T11:12:48-04:00" content="08-16-2016">
+            <time itemprop="dateCreated" datetime="2016-08-16T07:12:48-04:00" content="08-16-2016">
               08-16-2016
             </time>
           </span>
@@ -312,17 +311,17 @@ Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/climbing-stairs/" target="_blank" rel="external">Climbing Stairs</a></p>
-<h1 id="Code:">Code:</h1><h2 id="Recursive_V0_(time_limited_NOT_passed)">Recursive V0 (time limited NOT passed)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> n: An integer</span><br><span class="line">     * <span class="doctag">@return</span>: An integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> climbStairs(n - <span class="number">1</span>) + climbStairs(n - <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Iterative_V1:">Iterative V1:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> n: An integer</span><br><span class="line">     * <span class="doctag">@return</span>: An integer</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> last = <span class="number">1</span>, lastlast = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> current = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            current = last + lastlast;</span><br><span class="line">            lastlast = last;</span><br><span class="line">            last = current;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://www.lintcode.com/en/problem/climbing-stairs/" target="_blank" rel="noopener">Climbing Stairs</a></p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h2 id="Recursive-V0-time-limited-NOT-passed"><a href="#Recursive-V0-time-limited-NOT-passed" class="headerlink" title="Recursive V0 (time limited NOT passed)"></a>Recursive V0 (time limited NOT passed)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n: An integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> climbStairs(n - <span class="number">1</span>) + climbStairs(n - <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Iterative-V1"><a href="#Iterative-V1" class="headerlink" title="Iterative V1:"></a>Iterative V1:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n: An integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> last = <span class="number">1</span>, lastlast = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> current = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            current = last + lastlast;</span><br><span class="line">            lastlast = last;</span><br><span class="line">            last = current;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="Description:">Description:</h1><p>You are climbing a stair case. It takes n steps to reach to the top.</p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h1><p>You are climbing a stair case. It takes n steps to reach to the top.</p>
 <p>Each time you can either climb <code>1</code> or <code>2</code> steps. In how many distinct ways can you climb to the top?</p>
 <p><strong>Example</strong>  </p>
 <blockquote>
 <p>Given an example <code>n=3</code> , <code>1+1+1=2+1=1+2=3</code><br>return <code>3</code>  </p>
 </blockquote>
-<h1 id="Thought_Process:">Thought Process:</h1><p>If <code>n = 1</code>, we have <code>1</code> way to get to top.<br>If <code>n = 2</code>, we hvae <code>1+1=2</code> ways to get to top.<br>If <code>n = 3</code>, we have <code>1+2=3</code> ways to get to top.<br>If <code>n = 4</code>, we have <code>2+3=5</code> ways to get to top.<br>If <code>n = 5</code>, we have <code>3+5=8</code> ways to get to top…  </p>
+<h1 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a>Thought Process:</h1><p>If <code>n = 1</code>, we have <code>1</code> way to get to top.<br>If <code>n = 2</code>, we hvae <code>1+1=2</code> ways to get to top.<br>If <code>n = 3</code>, we have <code>1+2=3</code> ways to get to top.<br>If <code>n = 4</code>, we have <code>2+3=5</code> ways to get to top.<br>If <code>n = 5</code>, we have <code>3+5=8</code> ways to get to top…  </p>
 <p>We can see above analysis is very similar to Fibonacci sequence. </p>
 <p>Instead of for Fibonacci sequence: </p>
 <p>$$Fib(1)=1,Fib(2)=1$$</p>
@@ -330,7 +329,7 @@ Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public
 <p>$$Fib(1)=1,Fib(2)=2$$</p>
 <p>$$Fib(4)=Fib(3)+Fib(2)=(Fib(1)+Fib(2))+Fib(2)=2+2+1=5$$</p>
 <p>Above can also be calculated by manually list out all possible <strong>permutation</strong> of <code>1&#39;s</code> and <code>2&#39;s</code>.  </p>
-<h1 id="Corner_Case:">Corner Case:</h1><p>NA</p>
+<h1 id="Corner-Case"><a href="#Corner-Case" class="headerlink" title="Corner Case:"></a>Corner Case:</h1><p>NA</p>
 
       
     </div>
@@ -352,11 +351,11 @@ Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public
       
         <div class="post-tags">
           
-            <a href="/tags/DP/" rel="tag">#DP</a>
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
           
             <a href="/tags/H/" rel="tag">#H</a>
           
-            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+            <a href="/tags/DP/" rel="tag">#DP</a>
           
             <a href="/tags/Recursive/" rel="tag">#Recursive</a>
           
@@ -452,7 +451,7 @@ Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -469,7 +468,7 @@ Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -549,7 +548,7 @@ Code:Recursive V0 (time limited NOT passed)1234567891011121314151617181920public
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursive_V0_(time_limited_NOT_passed)"><span class="nav-number">1.1.</span> <span class="nav-text">Recursive V0 (time limited NOT passed)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Iterative_V1:"><span class="nav-number">1.2.</span> <span class="nav-text">Iterative V1:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursive-V0-time-limited-NOT-passed"><span class="nav-number">1.1.</span> <span class="nav-text">Recursive V0 (time limited NOT passed)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Iterative-V1"><span class="nav-number">1.2.</span> <span class="nav-text">Iterative V1:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought-Process"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner-Case"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
             
           </div>
         </section>

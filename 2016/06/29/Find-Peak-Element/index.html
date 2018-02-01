@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BinarySearch,LintCode," />
+  <meta name="keywords" content="LintCode,BinarySearch," />
 
 
 
@@ -96,19 +96,18 @@
 
 
 
-<meta name="description" content="Find Peak Element  
-Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252627282930313233public int findPeak(int[] A) &amp;#123;    // write your code here    if (A == null || A.">
+<meta name="description" content="Find Peak Element   Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252627282930313233public int findPeak(int[] A) &amp;#123;    // write your code here    if (A == null || A.">
+<meta name="keywords" content="LintCode,BinarySearch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode 75 - Find Peak Element">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/06/29/Find-Peak-Element/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="Find Peak Element  
-Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252627282930313233public int findPeak(int[] A) &amp;#123;    // write your code here    if (A == null || A.">
+<meta property="og:description" content="Find Peak Element   Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252627282930313233public int findPeak(int[] A) &amp;#123;    // write your code here    if (A == null || A.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-06-29T21:25:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 75 - Find Peak Element">
-<meta name="twitter:description" content="Find Peak Element  
-Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252627282930313233public int findPeak(int[] A) &amp;#123;    // write your code here    if (A == null || A.">
-
+<meta name="twitter:description" content="Find Peak Element   Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252627282930313233public int findPeak(int[] A) &amp;#123;    // write your code here    if (A == null || A.">
 
 
 
@@ -268,7 +267,7 @@ Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-29T10:31:10-04:00" content="06-29-2016">
+            <time itemprop="dateCreated" datetime="2016-06-29T06:31:10-04:00" content="06-29-2016">
               06-29-2016
             </time>
           </span>
@@ -312,11 +311,11 @@ Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/find-peak-element/#" target="_blank" rel="external">Find Peak Element</a>  </p>
-<h1 id="Code:">Code:</h1><h2 id="Binary_Search_Version_(O(Log(N)))">Binary Search Version (O(Log(N)))</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findPeak</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (A.length == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">        mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (A[mid] &lt; A[mid - <span class="number">1</span>]) &#123; <span class="comment">// 6 5 4 当发现有descend的时候, 将high index 往左缩进。</span></span><br><span class="line">            high = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">// 4 5 6 其他的时候，因为最后array最后肯定有peak, 因此update low index 往右缩进。</span></span><br><span class="line">            low = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// since A[0] &lt; A[1] &amp;&amp; A[A.length - 2] &gt; A[A.length - 1].</span></span><br><span class="line">        <span class="comment">// therefore, there must be a peak in at the end of the array. </span></span><br><span class="line">        <span class="comment">// that is the reason we set low = mid;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (low &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[low] &gt; A[low - <span class="number">1</span>] &amp;&amp; A[low] &gt; A[low + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> low;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (high &lt; (A.length - <span class="number">1</span>)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[high] &gt; A[high - <span class="number">1</span>] &amp;&amp; A[high] &gt; A[high + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> high;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://www.lintcode.com/en/problem/find-peak-element/#" target="_blank" rel="noopener">Find Peak Element</a>  </p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h2 id="Binary-Search-Version-O-Log-N"><a href="#Binary-Search-Version-O-Log-N" class="headerlink" title="Binary Search Version (O(Log(N)))"></a>Binary Search Version (O(Log(N)))</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findPeak</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (A.length == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">        mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (A[mid] &lt; A[mid - <span class="number">1</span>]) &#123; <span class="comment">// 6 5 4 当发现有descend的时候, 将high index 往左缩进。</span></span><br><span class="line">            high = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">// 4 5 6 其他的时候，因为最后array最后肯定有peak, 因此update low index 往右缩进。</span></span><br><span class="line">            low = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// since A[0] &lt; A[1] &amp;&amp; A[A.length - 2] &gt; A[A.length - 1].</span></span><br><span class="line">        <span class="comment">// therefore, there must be a peak in at the end of the array. </span></span><br><span class="line">        <span class="comment">// that is the reason we set low = mid;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (low &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[low] &gt; A[low - <span class="number">1</span>] &amp;&amp; A[low] &gt; A[low + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> low;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (high &lt; (A.length - <span class="number">1</span>)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[high] &gt; A[high - <span class="number">1</span>] &amp;&amp; A[high] &gt; A[high + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> high;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="Traversal_Version_(O(N))">Traversal Version (O(N))</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> currIndex = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (currIndex &lt; A.length - <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (A[currIndex] &gt; A[currIndex - <span class="number">1</span>] &amp;&amp; A[currIndex] &gt; A[currIndex + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="keyword">return</span> currIndex;</span><br><span class="line">    &#125;</span><br><span class="line">    currIndex++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Description:">Description:</h1><p>There is an integer array which has the <strong>following features</strong>:</p>
+<h2 id="Traversal-Version-O-N"><a href="#Traversal-Version-O-N" class="headerlink" title="Traversal Version (O(N))"></a>Traversal Version (O(N))</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> currIndex = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (currIndex &lt; A.length - <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (A[currIndex] &gt; A[currIndex - <span class="number">1</span>] &amp;&amp; A[currIndex] &gt; A[currIndex + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="keyword">return</span> currIndex;</span><br><span class="line">    &#125;</span><br><span class="line">    currIndex++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h1><p>There is an integer array which has the <strong>following features</strong>:</p>
 <ul>
 <li>The numbers in adjacent positions are different.  </li>
 <li>A[0] &lt; A[1] &amp;&amp; A[A.length - 2] &gt; A[A.length - 1].<br>We define a position P is a peek if:</li>
@@ -327,7 +326,7 @@ Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252
 </blockquote>
 <p><strong>Example</strong><br>Given <code>[1, 2, 1, 3, 4, 5, 7, 6]</code></p>
 <p>Return index <code>1</code> (which is number 2) or <code>6</code> (which is number 7)</p>
-<h1 id="Thought_Process:">Thought Process:</h1><ul>
+<h1 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a>Thought Process:</h1><ul>
 <li>since it has at least one peak, and we <strong>clearly</strong> know the peak will be near the end of the array.  </li>
 <li>we use binary search algorithm to find location where array descend (which mean peak exists on the left side of the <code>middle</code> index).  </li>
 <li>otherwise, we goes to the right half of the array, since we know there exist a peak at the end of the array.  </li>
@@ -346,7 +345,7 @@ Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252
 <p>HOW to make sure dont miss the case where<br>[1,2,1,3,4,5,6,7] ???what if you go to the right, then you miss peak =2 on the left, right?? </p>
 </blockquote>
 <p>OK.. Please read the question more careful. The second feature indicates that <code>A[0] &lt; A[1] &amp;&amp; A[A.length - 2] &gt; A[A.length - 1]</code> </p>
-<h1 id="Corner_Case:">Corner Case:</h1><p>NA</p>
+<h1 id="Corner-Case"><a href="#Corner-Case" class="headerlink" title="Corner Case:"></a>Corner Case:</h1><p>NA</p>
 
       
     </div>
@@ -368,9 +367,9 @@ Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252
       
         <div class="post-tags">
           
-            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
-          
             <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
           
         </div>
       
@@ -464,7 +463,7 @@ Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -481,7 +480,7 @@ Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -561,7 +560,7 @@ Code:Binary Search Version (O(Log(N)))123456789101112131415161718192021222324252
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary_Search_Version_(O(Log(N)))"><span class="nav-number">1.1.</span> <span class="nav-text">Binary Search Version (O(Log(N)))</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Traversal_Version_(O(N))"><span class="nav-number">1.2.</span> <span class="nav-text">Traversal Version (O(N))</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Search-Version-O-Log-N"><span class="nav-number">1.1.</span> <span class="nav-text">Binary Search Version (O(Log(N)))</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Traversal-Version-O-N"><span class="nav-number">1.2.</span> <span class="nav-text">Traversal Version (O(N))</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought-Process"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner-Case"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
             
           </div>
         </section>

@@ -96,24 +96,21 @@
 
 
 
-<meta name="description" content="Description: [Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence
-
-A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of pali">
+<meta name="description" content="Description: [Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence  A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of pal">
+<meta name="keywords" content="DP,Palindrome">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Longest Palindrome Subsequence">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/10/31/LPS/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="Description: [Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence
-
-A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of pali">
+<meta property="og:description" content="Description: [Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence  A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of pal">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png">
+<meta property="og:updated_time" content="2016-11-01T00:04:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Longest Palindrome Subsequence">
-<meta name="twitter:description" content="Description: [Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence
-
-A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of pali">
-
+<meta name="twitter:description" content="Description: [Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence  A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of pal">
+<meta name="twitter:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png">
 
 
 
@@ -273,7 +270,7 @@ A palindrome is a nonempty string over some alphabet that reads the same forward
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-31T14:29:13-04:00" content="10-31-2016">
+            <time itemprop="dateCreated" datetime="2016-10-31T10:29:13-04:00" content="10-31-2016">
               10-31-2016
             </time>
           </span>
@@ -317,12 +314,12 @@ A palindrome is a nonempty string over some alphabet that reads the same forward
       
 
       
-        <h1 id="Description:"><center> Description: </center></h1><p><strong>[Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence</strong></p>
+        <h1 id="Description"><a href="#Description" class="headerlink" title=" Description: "></a><center> Description: </center></h1><p><strong>[Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence</strong></p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png" alt=""></p>
 <p>A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of palindromes are all strings of length 1, <code>civic</code>, <code>racecar</code>, and <code>aibohphobia</code> (fear of palindromes).  </p>
 <p>Give an efficient algorithm to find the <strong>longest palindrome</strong> that is a <strong>subsequence</strong> of a given input string. For example, given the input character, your algorithm should return carac. What is the running time of your algorithm?   </p>
 <a id="more"></a>
-<h1 id="Iterative_approach:_$O(2^n)$"><center> Iterative approach: $O(2^n)$</center></h1><p>we can simply list out all the possible <strong>subsequence</strong> of a given string. However, the time complexity for that is exponential time $O(2^n)$, where N is the number of character in the string. </p>
+<h1 id="Iterative-approach-O-2-n"><a href="#Iterative-approach-O-2-n" class="headerlink" title=" Iterative approach: $O(2^n)$"></a><center> Iterative approach: $O(2^n)$</center></h1><p>we can simply list out all the possible <strong>subsequence</strong> of a given string. However, the time complexity for that is exponential time $O(2^n)$, where N is the number of character in the string. </p>
 <blockquote>
 <p>Note: for string <code>abc</code>, we have following subsequence: <code>a</code>, <code>b</code>, <code>c</code>, <code>ab</code>, <code>ac</code>, <code>bc</code>, <code>abc</code>. total $2^n -1$ subsequences. ($2^3 - 1 = 7$)</p>
 </blockquote>
@@ -330,20 +327,20 @@ A palindrome is a nonempty string over some alphabet that reads the same forward
 <blockquote>
 <p>Note: be careful not to mix up substring with subsequence.<br>number of subsequence of a size <code>n</code> string = $2^n-1$<br>number of substring of a size <code>n</code> string = $n \times(n+1)\over2$  </p>
 </blockquote>
-<p><a href="http://www.geeksforgeeks.org/subarraysubstring-vs-subsequence-and-programs-to-generate-them/" target="_blank" rel="external">Godo aritcle on substring vs subsequence</a>  </p>
-<h1 id="DP_approach:_$O(n^2)$"><center> DP approach: $O(n^2)$ </center></h1><h2 id="State">State</h2><ul>
+<p><a href="http://www.geeksforgeeks.org/subarraysubstring-vs-subsequence-and-programs-to-generate-them/" target="_blank" rel="noopener">Godo aritcle on substring vs subsequence</a>  </p>
+<h1 id="DP-approach-O-n-2"><a href="#DP-approach-O-n-2" class="headerlink" title=" DP approach: $O(n^2)$ "></a><center> DP approach: $O(n^2)$ </center></h1><h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><ul>
 <li>2D array <code>int[][] lps</code>  </li>
 <li><code>lps[i][j]</code> stores number of LPS for substring of <code>str</code> from index <code>i</code> to <code>j</code>.  </li>
 </ul>
 <p>ex. <code>str = &quot;abcdcde&quot;</code>, <code>lps[2][4] = 3</code> means for current string <code>str[2:4] = abcdc</code>, the number of longest palidrome subsequence is 3 (<code>cdc</code>).  </p>
-<h2 id="Initialziation">Initialziation</h2><ul>
+<h2 id="Initialziation"><a href="#Initialziation" class="headerlink" title="Initialziation"></a>Initialziation</h2><ul>
 <li>single character has size <code>1</code> of LPS.  </li>
 </ul>
 <p>ex. for given <code>str = &quot;abcdcde&quot;</code>, <code>a</code>, <code>b</code>, <code>c</code>, <code>d</code> … all has a LPS = 1. </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">	lps[i][i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Result:  </p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  a|<span class="string">b</span>|<span class="string">c</span>|<span class="string">d</span>|<span class="string">c</span>|<span class="string">d</span>|<span class="string">e</span>|</span><br><span class="line">a|<span class="string">1</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|</span><br><span class="line">b|<span class="string">0</span>|<span class="string">1</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|</span><br><span class="line">c|<span class="string">0</span>|<span class="string">0</span>|<span class="string">1</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|</span><br><span class="line">d|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">1</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|</span><br><span class="line">c|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">1</span>|<span class="string">0</span>|<span class="string">0</span>|</span><br><span class="line">d|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">1</span>|<span class="string">0</span>|</span><br><span class="line">e|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">0</span>|<span class="string">1</span>|</span><br></pre></td></tr></table></figure>
-<h2 id="Function">Function</h2><ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  a|b|c|d|c|d|e|</span><br><span class="line">a|1|0|0|0|0|0|0|</span><br><span class="line">b|0|1|0|0|0|0|0|</span><br><span class="line">c|0|0|1|0|0|0|0|</span><br><span class="line">d|0|0|0|1|0|0|0|</span><br><span class="line">c|0|0|0|0|1|0|0|</span><br><span class="line">d|0|0|0|0|0|1|0|</span><br><span class="line">e|0|0|0|0|0|0|1|</span><br></pre></td></tr></table></figure>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><ul>
 <li>DP approach trades space for time. ($O(2^n)$ -&gt; $O(n^2)$)</li>
 <li>for subproblem at <code>lps[i][j]</code> we use following equation:  </li>
 </ul>
@@ -352,26 +349,26 @@ A palindrome is a nonempty string over some alphabet that reads the same forward
 <ul>
 <li>If both characters are the same ($str[i] == str[j]$), we added 2 to the result.  </li>
 </ul>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  0   1   2   3   4   5   6</span><br><span class="line">_____________________________</span><br><span class="line">|<span class="string"> a </span>|<span class="string"> b </span>|<span class="string"> c </span>|<span class="string"> d </span>|<span class="string"> c </span>|<span class="string"> d </span>|<span class="string"> e </span>|</span><br><span class="line">-----------------------------</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  0   1   2   3   4   5   6</span><br><span class="line">_____________________________</span><br><span class="line">| a | b | c | d | c | d | e |</span><br><span class="line">-----------------------------</span><br></pre></td></tr></table></figure>
 <p>$str[2] == str[4]$, <code>lps[2][4] = lps[3][3] + 2</code></p>
 <ul>
 <li>When $str[i] != str[j]$, we can find <code>lps[i][j]</code> by two seperate computations:   </li>
 </ul>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  0   1   2   3   4   5   6</span><br><span class="line">      |<span class="string">-----------</span>|</span><br><span class="line">______|<span class="string">___________</span>|__________</span><br><span class="line">|<span class="string"> a </span>|<span class="string"> b </span>|<span class="string"> c </span>|<span class="string"> d </span>|<span class="string"> c </span>|<span class="string"> d </span>|<span class="string"> e </span>|</span><br><span class="line">--|<span class="string">------------</span>|<span class="string">-------------</span><br><span class="line">  </span>|<span class="string">------------</span>|</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  0   1   2   3   4   5   6</span><br><span class="line">      |-----------|</span><br><span class="line">______|___________|__________</span><br><span class="line">| a | b | c | d | c | d | e |</span><br><span class="line">--|------------|-------------</span><br><span class="line">  |------------|</span><br></pre></td></tr></table></figure>
 <ul>
 <li>When $str[0] != str[4]$,<br>To find $lps[0][4]$ for string <code>&quot;abcdc&quot;</code>, we look for the maximum LPS from $lps[1][4]$ and $lps[0][3]$, (since we already computed values for $lps[1][4]$ and $lps[0][3]$ in the last iteration)  </li>
 </ul>
 <blockquote>
 <p>Note: string <code>&quot;abcdc&quot;</code> length 5 can be achieved by length 4 string <strong>append</strong> one character in either front/back of the length 4 string (either <code>&quot;abcd&quot;</code> $lps[0][3]$ or <code>&quot;bcdc&quot;</code> $lps[1][4]$). </p>
 </blockquote>
-<h2 id="Result">Result</h2><p>The function returns the max length of the LPS, but we can also easily track back the actual LPS sequence by looking at the 2d-matrices.</p>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>The function returns the max length of the LPS, but we can also easily track back the actual LPS sequence by looking at the 2d-matrices.</p>
 <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png" alt=""></p>
 <p>if <code>str.charAt(i) == str.charAt(j)</code>, diagonal cross -&gt; <code>i++, j--</code><br>else choose route for the <code>max(lps[i][j-1], lps[i+1][j])</code></p>
 <p>LPS for String abcdcde is: “cdc” OR “dcd”</p>
-<h1 id="Source_Code:"><center> Source Code: </center></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">LPS_dp</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// state</span></span><br><span class="line">	<span class="keyword">int</span>[][] lps = <span class="keyword">new</span> <span class="keyword">int</span>[str.length()][str.length()];</span><br><span class="line">	<span class="comment">// intialization, len = 1</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">		lps[i][i] = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	printMatrices(lps, str);</span><br><span class="line">	<span class="comment">// function</span></span><br><span class="line">	<span class="keyword">int</span> len;</span><br><span class="line">	<span class="keyword">for</span> (len = <span class="number">2</span>; len &lt;= str.length(); len++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = i + len - <span class="number">1</span>; j &lt; str.length(); ++i, j = i + len - <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (str.charAt(i) == str.charAt(j)) &#123;</span><br><span class="line">				lps[i][j] = lps[i+<span class="number">1</span>][j-<span class="number">1</span>] + <span class="number">2</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				lps[i][j] = Math.max(lps[i][j-<span class="number">1</span>], lps[i+<span class="number">1</span>][j]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	traceBackLPS(lps, str); <span class="comment">// trace back to find LPS</span></span><br><span class="line">	printMatrices(lps, str); <span class="comment">// print dp matrices</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> lps[<span class="number">0</span>][str.length()-<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/ruanxuyi/codings/blob/master/src/dp/LPS.java" target="_blank" rel="external">github</a></p>
-<h1 id="Reference:"><center> Reference: </center></h1><p><a href="http://algorithms.tutorialhorizon.com/longest-palindromic-subsequence/" target="_blank" rel="external">Longest Palindromic Subsequence Graphical interperation</a><br><a href="http://www.geeksforgeeks.org/dynamic-programming-set-12-longest-palindromic-subsequence/" target="_blank" rel="external">Dynamic Programming | Set 12 (Longest Palindromic Subsequence)</a><br><a href="https://www.youtube.com/watch?v=_nCsPn7_OgI" target="_blank" rel="external">Youtube Vedio Lecture</a></p>
-<h1 id="Logs:"><center> Logs: </center></h1><ul>
+<h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title=" Source Code: "></a><center> Source Code: </center></h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">LPS_dp</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// state</span></span><br><span class="line">	<span class="keyword">int</span>[][] lps = <span class="keyword">new</span> <span class="keyword">int</span>[str.length()][str.length()];</span><br><span class="line">	<span class="comment">// intialization, len = 1</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">		lps[i][i] = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	printMatrices(lps, str);</span><br><span class="line">	<span class="comment">// function</span></span><br><span class="line">	<span class="keyword">int</span> len;</span><br><span class="line">	<span class="keyword">for</span> (len = <span class="number">2</span>; len &lt;= str.length(); len++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = i + len - <span class="number">1</span>; j &lt; str.length(); ++i, j = i + len - <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (str.charAt(i) == str.charAt(j)) &#123;</span><br><span class="line">				lps[i][j] = lps[i+<span class="number">1</span>][j-<span class="number">1</span>] + <span class="number">2</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				lps[i][j] = Math.max(lps[i][j-<span class="number">1</span>], lps[i+<span class="number">1</span>][j]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	traceBackLPS(lps, str); <span class="comment">// trace back to find LPS</span></span><br><span class="line">	printMatrices(lps, str); <span class="comment">// print dp matrices</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> lps[<span class="number">0</span>][str.length()-<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/ruanxuyi/codings/blob/master/src/dp/LPS.java" target="_blank" rel="noopener">github</a></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title=" Reference: "></a><center> Reference: </center></h1><p><a href="http://algorithms.tutorialhorizon.com/longest-palindromic-subsequence/" target="_blank" rel="noopener">Longest Palindromic Subsequence Graphical interperation</a><br><a href="http://www.geeksforgeeks.org/dynamic-programming-set-12-longest-palindromic-subsequence/" target="_blank" rel="noopener">Dynamic Programming | Set 12 (Longest Palindromic Subsequence)</a><br><a href="https://www.youtube.com/watch?v=_nCsPn7_OgI" target="_blank" rel="noopener">Youtube Vedio Lecture</a></p>
+<h1 id="Logs"><a href="#Logs" class="headerlink" title=" Logs: "></a><center> Logs: </center></h1><ul>
 <li>2016/10/31: initial post  </li>
 </ul>
 
@@ -491,7 +488,7 @@ A palindrome is a nonempty string over some alphabet that reads the same forward
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -508,7 +505,7 @@ A palindrome is a nonempty string over some alphabet that reads the same forward
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -588,7 +585,7 @@ A palindrome is a nonempty string over some alphabet that reads the same forward
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">1.</span> <span class="nav-text"> Description: </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Iterative_approach:_$O(2^n)$"><span class="nav-number">2.</span> <span class="nav-text"> Iterative approach: $O(2^n)$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DP_approach:_$O(n^2)$"><span class="nav-number">3.</span> <span class="nav-text"> DP approach: $O(n^2)$ </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#State"><span class="nav-number">3.1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initialziation"><span class="nav-number">3.2.</span> <span class="nav-text">Initialziation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">3.3.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result"><span class="nav-number">3.4.</span> <span class="nav-text">Result</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Source_Code:"><span class="nav-number">4.</span> <span class="nav-text"> Source Code: </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number">5.</span> <span class="nav-text"> Reference: </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs:"><span class="nav-number">6.</span> <span class="nav-text"> Logs: </span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text"> Description: </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Iterative-approach-O-2-n"><span class="nav-number">2.</span> <span class="nav-text"> Iterative approach: $O(2^n)$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DP-approach-O-n-2"><span class="nav-number">3.</span> <span class="nav-text"> DP approach: $O(n^2)$ </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#State"><span class="nav-number">3.1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initialziation"><span class="nav-number">3.2.</span> <span class="nav-text">Initialziation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">3.3.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result"><span class="nav-number">3.4.</span> <span class="nav-text">Result</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Source-Code"><span class="nav-number">4.</span> <span class="nav-text"> Source Code: </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text"> Reference: </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">6.</span> <span class="nav-text"> Logs: </span></a></li></ol></div>
             
           </div>
         </section>

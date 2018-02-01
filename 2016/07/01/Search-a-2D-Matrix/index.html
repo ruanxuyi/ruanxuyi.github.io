@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BinarySearch,LintCode," />
+  <meta name="keywords" content="LintCode,BinarySearch," />
 
 
 
@@ -96,19 +96,18 @@
 
 
 
-<meta name="description" content="Search a 2D Matrix  
-Code:12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // write your code">
+<meta name="description" content="Search a 2D Matrix   Code:12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // write your code">
+<meta name="keywords" content="LintCode,BinarySearch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode 28 - Search a 2D Matrix">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/07/01/Search-a-2D-Matrix/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="Search a 2D Matrix  
-Code:12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // write your code">
+<meta property="og:description" content="Search a 2D Matrix   Code:12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // write your code">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-07-01T15:37:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 28 - Search a 2D Matrix">
-<meta name="twitter:description" content="Search a 2D Matrix  
-Code:12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // write your code">
-
+<meta name="twitter:description" content="Search a 2D Matrix   Code:12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public boolean searchMatrix(int[][] matrix, int target) &amp;#123;    // write your code">
 
 
 
@@ -268,7 +267,7 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-01T11:27:35-04:00" content="07-01-2016">
+            <time itemprop="dateCreated" datetime="2016-07-01T07:27:35-04:00" content="07-01-2016">
               07-01-2016
             </time>
           </span>
@@ -312,25 +311,25 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/search-a-2d-matrix/" target="_blank" rel="external">Search a 2D Matrix</a>  </p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> rowLow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> rowMid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> rowHigh = matrix.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> rowIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colLow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colMid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colHigh = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (rowLow + <span class="number">1</span> &lt; rowHigh) &#123;</span><br><span class="line">        rowMid = rowLow + (rowHigh - rowLow) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt; matrix[rowMid][<span class="number">0</span>]) &#123;</span><br><span class="line">            rowHigh = rowMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowMid][<span class="number">0</span>]) &#123;</span><br><span class="line">            rowLow = rowMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (target &gt; matrix[rowLow][<span class="number">0</span>] &amp;&amp; target &lt; matrix[rowHigh][<span class="number">0</span>]) &#123;</span><br><span class="line">        rowIndex = rowLow;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowHigh][<span class="number">0</span>]) &#123;</span><br><span class="line">        rowIndex = rowHigh;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target == matrix[rowLow][<span class="number">0</span>] || target == matrix[rowHigh][<span class="number">0</span>])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// (target &lt; matrix[rowLow][0]</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (colLow + <span class="number">1</span> &lt; colHigh) &#123;</span><br><span class="line">        colMid = colLow + (colHigh - colLow) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt; matrix[rowIndex][colMid]) &#123;</span><br><span class="line">            colHigh = colMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowIndex][colMid]) &#123;</span><br><span class="line">            colLow = colMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (target == matrix[rowIndex][colLow] || target == matrix[rowIndex][colHigh]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://www.lintcode.com/en/problem/search-a-2d-matrix/" target="_blank" rel="noopener">Search a 2D Matrix</a>  </p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> rowLow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> rowMid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> rowHigh = matrix.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> rowIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colLow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colMid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colHigh = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (rowLow + <span class="number">1</span> &lt; rowHigh) &#123;</span><br><span class="line">        rowMid = rowLow + (rowHigh - rowLow) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt; matrix[rowMid][<span class="number">0</span>]) &#123;</span><br><span class="line">            rowHigh = rowMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowMid][<span class="number">0</span>]) &#123;</span><br><span class="line">            rowLow = rowMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (target &gt; matrix[rowLow][<span class="number">0</span>] &amp;&amp; target &lt; matrix[rowHigh][<span class="number">0</span>]) &#123;</span><br><span class="line">        rowIndex = rowLow;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowHigh][<span class="number">0</span>]) &#123;</span><br><span class="line">        rowIndex = rowHigh;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target == matrix[rowLow][<span class="number">0</span>] || target == matrix[rowHigh][<span class="number">0</span>])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// (target &lt; matrix[rowLow][0]</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (colLow + <span class="number">1</span> &lt; colHigh) &#123;</span><br><span class="line">        colMid = colLow + (colHigh - colLow) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt; matrix[rowIndex][colMid]) &#123;</span><br><span class="line">            colHigh = colMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowIndex][colMid]) &#123;</span><br><span class="line">            colLow = colMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (target == matrix[rowIndex][colLow] || target == matrix[rowIndex][colHigh]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="Description:">Description:</h1><p>Write an efficient algorithm that searches for a value in an <code>m x n</code> matrix.  </p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h1><p>Write an efficient algorithm that searches for a value in an <code>m x n</code> matrix.  </p>
 <p>This matrix has the following properties:  </p>
 <ul>
 <li>Integers in each row are sorted from left to right.  </li>
 <li>The first integer of each row is greater than the last integer of the previous row.  </li>
 </ul>
-<p><strong>Example</strong><br>Consider the following matrix:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>],</span><br><span class="line">    [<span class="number">10</span>, <span class="number">11</span>, <span class="number">16</span>, <span class="number">20</span>],</span><br><span class="line">    [<span class="number">23</span>, <span class="number">30</span>, <span class="number">34</span>, <span class="number">50</span>]</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example</strong><br>Consider the following matrix:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    [1, 3, 5, 7],</span><br><span class="line">    [10, 11, 16, 20],</span><br><span class="line">    [23, 30, 34, 50]</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
 <p>Given <code>target = 3</code>, return <code>true</code>.</p>
-<h1 id="Thought_Process:">Thought Process:</h1><ul>
+<h1 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a>Thought Process:</h1><ul>
 <li>binary search algorithm </li>
 <li><strong>2D-array</strong> matrix length/size  </li>
 <li>perform binary search <strong>two times</strong>  </li>
 <li>first binary search <strong>find</strong> the possible target’s <strong>row index</strong>    </li>
 <li>second binary search <strong>find</strong> the possible <strong>column index</strong>  </li>
 </ul>
-<h1 id="Corner_Case:">Corner Case:</h1><ul>
+<h1 id="Corner-Case"><a href="#Corner-Case" class="headerlink" title="Corner Case:"></a>Corner Case:</h1><ul>
 <li><code>matrix == null || matrix.length == 0</code>  </li>
 </ul>
 
@@ -354,9 +353,9 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
       
         <div class="post-tags">
           
-            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
-          
             <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
           
         </div>
       
@@ -450,7 +449,7 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -467,7 +466,7 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -547,7 +546,7 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought-Process"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner-Case"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
             
           </div>
         </section>

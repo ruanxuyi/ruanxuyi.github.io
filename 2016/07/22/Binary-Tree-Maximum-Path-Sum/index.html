@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BinaryTree,Divide&Conquer,H,LintCode,Recursion," />
+  <meta name="keywords" content="LintCode,BinaryTree,Recursion,Divide&Conquer,H," />
 
 
 
@@ -96,19 +96,18 @@
 
 
 
-<meta name="description" content="Binary Tree Maximum Path Sum
-Code:1234567891011121314151617181920212223242526272829303132333435363738/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public Tre">
+<meta name="description" content="Binary Tree Maximum Path Sum Code:1234567891011121314151617181920212223242526272829303132333435363738/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public Tre">
+<meta name="keywords" content="LintCode,BinaryTree,Recursion,Divide&amp;Conquer,H">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LintCode 94 - Binary Tree Maximum Path Sum">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/07/22/Binary-Tree-Maximum-Path-Sum/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="Binary Tree Maximum Path Sum
-Code:1234567891011121314151617181920212223242526272829303132333435363738/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public Tre">
+<meta property="og:description" content="Binary Tree Maximum Path Sum Code:1234567891011121314151617181920212223242526272829303132333435363738/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public Tre">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-07-25T07:37:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LintCode 94 - Binary Tree Maximum Path Sum">
-<meta name="twitter:description" content="Binary Tree Maximum Path Sum
-Code:1234567891011121314151617181920212223242526272829303132333435363738/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public Tre">
-
+<meta name="twitter:description" content="Binary Tree Maximum Path Sum Code:1234567891011121314151617181920212223242526272829303132333435363738/** * Definition of TreeNode: * public class TreeNode &amp;#123; *     public int val; *     public Tre">
 
 
 
@@ -268,7 +267,7 @@ Code:1234567891011121314151617181920212223242526272829303132333435363738/** * De
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-22T17:14:17-04:00" content="07-22-2016">
+            <time itemprop="dateCreated" datetime="2016-07-22T13:14:17-04:00" content="07-22-2016">
               07-22-2016
             </time>
           </span>
@@ -312,15 +311,15 @@ Code:1234567891011121314151617181920212223242526272829303132333435363738/** * De
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/binary-tree-maximum-path-sum/" target="_blank" rel="external">Binary Tree Maximum Path Sum</a></p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     public int val;</span><br><span class="line"> *     public TreeNode left, right;</span><br><span class="line"> *     public TreeNode(int val) &#123;</span><br><span class="line"> *         this.val = val;</span><br><span class="line"> *         this.left = this.right = null;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">import</span> java.lang.Integer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> root: The root of binary tree.</span><br><span class="line">     * <span class="doctag">@return</span>: An integer.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxPathSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	    calculateSum(root);</span><br><span class="line">	    <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculateSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">		    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">    	<span class="keyword">int</span> leftSum = calculateSum(root.left);</span><br><span class="line">	    <span class="keyword">int</span> rightSum = calculateSum(root.right);</span><br><span class="line">	    <span class="keyword">int</span> current = Math.max(root.val, Math.max(root.val + leftSum, root.val + rightSum));</span><br><span class="line">	    <span class="comment">// updat max value</span></span><br><span class="line">	    max = Math.max(max, Math.max(current, leftSum + root.val + rightSum));</span><br><span class="line">    	<span class="comment">// return sum to parents</span></span><br><span class="line">    	<span class="keyword">return</span> current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://www.lintcode.com/en/problem/binary-tree-maximum-path-sum/" target="_blank" rel="noopener">Binary Tree Maximum Path Sum</a></p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition of TreeNode:</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     public int val;</span></span><br><span class="line"><span class="comment"> *     public TreeNode left, right;</span></span><br><span class="line"><span class="comment"> *     public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.left = this.right = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.lang.Integer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> root: The root of binary tree.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxPathSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	    calculateSum(root);</span><br><span class="line">	    <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculateSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">		    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">    	<span class="keyword">int</span> leftSum = calculateSum(root.left);</span><br><span class="line">	    <span class="keyword">int</span> rightSum = calculateSum(root.right);</span><br><span class="line">	    <span class="keyword">int</span> current = Math.max(root.val, Math.max(root.val + leftSum, root.val + rightSum));</span><br><span class="line">	    <span class="comment">// updat max value</span></span><br><span class="line">	    max = Math.max(max, Math.max(current, leftSum + root.val + rightSum));</span><br><span class="line">    	<span class="comment">// return sum to parents</span></span><br><span class="line">    	<span class="keyword">return</span> current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="Description:">Description:</h1><p>Given a binary tree, find the maximum path sum.</p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h1><p>Given a binary tree, find the maximum path sum.</p>
 <p>The path may start and end at any node in the tree.</p>
 <p><strong>Example</strong><br>Given the below binary tree:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">1</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">2</span>   <span class="number">3</span></span><br></pre></td></tr></table></figure>
 <p>return 6.</p>
-<h1 id="Thought_Process:">Thought Process:</h1><p>This problem is particular interesting, since the max path is not limited with any start and end point.  </p>
+<h1 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a>Thought Process:</h1><p>This problem is particular interesting, since the max path is not limited with any start and end point.  </p>
 <ul>
 <li>Break problem into smaller pieces (fundmental parts).    </li>
 <li>The fundmental part for this problem build with, <code>root</code>, <code>root.left</code>, and <code>root.right</code>  </li>
@@ -337,7 +336,7 @@ Code:1234567891011121314151617181920212223242526272829303132333435363738/** * De
 </ul>
 <p>We returned the max of the three above to the previous recursive call.  </p>
 <p>One last step: Since the max path could start and end in <strong>any</strong> nodes of the tree. It could be the case that max path connect both paths with the same LCA(lowest common ancester). Therefore, we should also record <code>root.val + rightSum + leftSum</code> seperately.  </p>
-<h1 id="Corner_Case:">Corner Case:</h1><h1 id="Reference:">Reference:</h1><p><a href="http://www.programcreek.com/2013/02/leetcode-binary-tree-maximum-path-sum-java/" target="_blank" rel="external">LeetCode – Binary Tree Maximum Path Sum (Java)</a></p>
+<h1 id="Corner-Case"><a href="#Corner-Case" class="headerlink" title="Corner Case:"></a>Corner Case:</h1><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><p><a href="http://www.programcreek.com/2013/02/leetcode-binary-tree-maximum-path-sum-java/" target="_blank" rel="noopener">LeetCode – Binary Tree Maximum Path Sum (Java)</a></p>
 
       
     </div>
@@ -359,15 +358,15 @@ Code:1234567891011121314151617181920212223242526272829303132333435363738/** * De
       
         <div class="post-tags">
           
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
             <a href="/tags/BinaryTree/" rel="tag">#BinaryTree</a>
+          
+            <a href="/tags/Recursion/" rel="tag">#Recursion</a>
           
             <a href="/tags/Divide-Conquer/" rel="tag">#Divide&Conquer</a>
           
             <a href="/tags/H/" rel="tag">#H</a>
-          
-            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
-          
-            <a href="/tags/Recursion/" rel="tag">#Recursion</a>
           
         </div>
       
@@ -461,7 +460,7 @@ Code:1234567891011121314151617181920212223242526272829303132333435363738/** * De
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -478,7 +477,7 @@ Code:1234567891011121314151617181920212223242526272829303132333435363738/** * De
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -558,7 +557,7 @@ Code:1234567891011121314151617181920212223242526272829303132333435363738/** * De
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference:"><span class="nav-number">5.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought-Process"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner-Case"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
             
           </div>
         </section>

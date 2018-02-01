@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BinarySearch,LintCode," />
+  <meta name="keywords" content="LintCode,BinarySearch," />
 
 
 
@@ -96,19 +96,18 @@
 
 
 
-<meta name="description" content="Search Insert Position  
-Code:123456789101112131415161718192021222324252627282930313233343536373839404142434445public int searchInsert(int[] A, int target) &amp;#123;        // write your code here">
+<meta name="description" content="Search Insert Position   Code:123456789101112131415161718192021222324252627282930313233343536373839404142434445public int searchInsert(int[] A, int target) &amp;#123;        // write your code here">
+<meta name="keywords" content="LintCode,BinarySearch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lintcode 60 - Search Insert Position">
 <meta property="og:url" content="http://www.xuyiruan.com/2016/06/28/Search-Insert-Position/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="Search Insert Position  
-Code:123456789101112131415161718192021222324252627282930313233343536373839404142434445public int searchInsert(int[] A, int target) &amp;#123;        // write your code here">
+<meta property="og:description" content="Search Insert Position   Code:123456789101112131415161718192021222324252627282930313233343536373839404142434445public int searchInsert(int[] A, int target) &amp;#123;        // write your code here">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-06-29T21:21:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lintcode 60 - Search Insert Position">
-<meta name="twitter:description" content="Search Insert Position  
-Code:123456789101112131415161718192021222324252627282930313233343536373839404142434445public int searchInsert(int[] A, int target) &amp;#123;        // write your code here">
-
+<meta name="twitter:description" content="Search Insert Position   Code:123456789101112131415161718192021222324252627282930313233343536373839404142434445public int searchInsert(int[] A, int target) &amp;#123;        // write your code here">
 
 
 
@@ -268,7 +267,7 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-28T11:59:15-04:00" content="06-28-2016">
+            <time itemprop="dateCreated" datetime="2016-06-28T07:59:15-04:00" content="06-28-2016">
               06-28-2016
             </time>
           </span>
@@ -312,26 +311,26 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/search-insert-position/" target="_blank" rel="external">Search Insert Position</a>  </p>
-<h1 id="Code:">Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A.length == <span class="number">0</span> || target &lt; A[<span class="number">0</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// binary search;</span></span><br><span class="line">        <span class="comment">// IDEA: not find the exact pos of the target</span></span><br><span class="line">        <span class="comment">// Correct IDEA: find the first element that is larger than the target, </span></span><br><span class="line">        <span class="comment">// mark it as `end`, (if target larger than the last element in array, </span></span><br><span class="line">        <span class="comment">// keep `end` to the last element). </span></span><br><span class="line">        <span class="comment">// IDEA -&gt; try to norrow down to a regiion of possible place to insert </span></span><br><span class="line">        <span class="comment">// the target. </span></span><br><span class="line">        <span class="comment">// Possible place examples: </span></span><br><span class="line">        <span class="comment">// [1, 4, 5, 6, 7, 9] -&gt; possible place [7(start), 9(end)] target = 8</span></span><br><span class="line">        <span class="comment">// [1, 4, 5, 6, 7, 9] -&gt; possible place [7(start), 9(end)] target = 10</span></span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//int mid = low + (high - low) / 2; 这一行可以弄到下面去</span></span><br><span class="line">        <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123; <span class="comment">// to keep `start` and `end` seperate.</span></span><br><span class="line">            mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target &lt; A[mid]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; A[mid]) &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">                <span class="comment">//可能会有读者认为刚开始时就要判断相等，但毕竟数组中不相等的情况更多  </span></span><br><span class="line">                <span class="comment">//如果每次循环都判断一下是否相等，将耗费时间 </span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// both if statements have `=` because (low + 1 &lt; high) jump out before </span></span><br><span class="line">        <span class="comment">// evaluate if (target == A[mid]) &#123;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (target &lt;= A[low]) &#123;</span><br><span class="line">            <span class="comment">// if target value is smaller than the smallest value in array</span></span><br><span class="line">            <span class="keyword">return</span> low;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &lt;= A[high]) &#123;</span><br><span class="line">            <span class="comment">// if target value is in between low and high</span></span><br><span class="line">            <span class="keyword">return</span> high;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            <span class="comment">// if target larger than the largest element in array</span></span><br><span class="line">            <span class="keyword">return</span> high + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://www.lintcode.com/en/problem/search-insert-position/" target="_blank" rel="noopener">Search Insert Position</a>  </p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A.length == <span class="number">0</span> || target &lt; A[<span class="number">0</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// binary search;</span></span><br><span class="line">        <span class="comment">// IDEA: not find the exact pos of the target</span></span><br><span class="line">        <span class="comment">// Correct IDEA: find the first element that is larger than the target, </span></span><br><span class="line">        <span class="comment">// mark it as `end`, (if target larger than the last element in array, </span></span><br><span class="line">        <span class="comment">// keep `end` to the last element). </span></span><br><span class="line">        <span class="comment">// IDEA -&gt; try to norrow down to a regiion of possible place to insert </span></span><br><span class="line">        <span class="comment">// the target. </span></span><br><span class="line">        <span class="comment">// Possible place examples: </span></span><br><span class="line">        <span class="comment">// [1, 4, 5, 6, 7, 9] -&gt; possible place [7(start), 9(end)] target = 8</span></span><br><span class="line">        <span class="comment">// [1, 4, 5, 6, 7, 9] -&gt; possible place [7(start), 9(end)] target = 10</span></span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//int mid = low + (high - low) / 2; 这一行可以弄到下面去</span></span><br><span class="line">        <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123; <span class="comment">// to keep `start` and `end` seperate.</span></span><br><span class="line">            mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target &lt; A[mid]) &#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; A[mid]) &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">                <span class="comment">//可能会有读者认为刚开始时就要判断相等，但毕竟数组中不相等的情况更多  </span></span><br><span class="line">                <span class="comment">//如果每次循环都判断一下是否相等，将耗费时间 </span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// both if statements have `=` because (low + 1 &lt; high) jump out before </span></span><br><span class="line">        <span class="comment">// evaluate if (target == A[mid]) &#123;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (target &lt;= A[low]) &#123;</span><br><span class="line">            <span class="comment">// if target value is smaller than the smallest value in array</span></span><br><span class="line">            <span class="keyword">return</span> low;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &lt;= A[high]) &#123;</span><br><span class="line">            <span class="comment">// if target value is in between low and high</span></span><br><span class="line">            <span class="keyword">return</span> high;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            <span class="comment">// if target larger than the largest element in array</span></span><br><span class="line">            <span class="keyword">return</span> high + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="Description:">Description:</h1><p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h1><p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
 <p>You may assume <strong>NO duplicates</strong> in the array.</p>
 <p><strong>Example</strong>: </p>
 <p><code>[1,3,5,6]</code>, 5 → 2  </p>
 <p><code>[1,3,5,6]</code>, 2 → 1  </p>
 <p><code>[1,3,5,6]</code>, 7 → 4  </p>
 <p><code>[1,3,5,6]</code>, 0 → 0  </p>
-<h1 id="Thought_Process:">Thought Process:</h1><ul>
+<h1 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a>Thought Process:</h1><ul>
 <li>binary search algorithm  </li>
 <li>return found target index inside BS algorthm  </li>
 <li>BS algorithm fails to capture the target if the target value fall right into either <code>low</code> or <code>high</code> index and leave <code>while</code> loop.  </li>
 <li>Further evaluate if target value match <code>low</code> or <code>high</code> index.  </li>
-<li>need to <strong>insert</strong> into <strong>corresponding index</strong> location if target value not exist in the current array.  <pre><code>[ * <span class="localvars">|low|</span> * <span class="localvars">|high|</span> * ]   
+<li>need to <strong>insert</strong> into <strong>corresponding index</strong> location if target value not exist in the current array.  <pre><code>[ * |low| * |high| * ]   
 * indicate possible place to insert
 </code></pre></li>
 </ul>
-<h1 id="Corner_Case:">Corner Case:</h1><ul>
+<h1 id="Corner-Case"><a href="#Corner-Case" class="headerlink" title="Corner Case:"></a>Corner Case:</h1><ul>
 <li>if target smaller than first element in array, insert it into index 0.  </li>
 <li></li>
 </ul>
@@ -356,9 +355,9 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
       
         <div class="post-tags">
           
-            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
-          
             <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+            <a href="/tags/BinarySearch/" rel="tag">#BinarySearch</a>
           
         </div>
       
@@ -452,7 +451,7 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -469,7 +468,7 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -549,7 +548,7 @@ Code:123456789101112131415161718192021222324252627282930313233343536373839404142
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code:"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description:"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought_Process:"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner_Case:"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thought-Process"><span class="nav-number">3.</span> <span class="nav-text">Thought Process:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner-Case"><span class="nav-number">4.</span> <span class="nav-text">Corner Case:</span></a></li></ol></div>
             
           </div>
         </section>
