@@ -5,9 +5,11 @@ tags:
 - LintCode
 - BalancedTree
 - Recursion
+- LeetCode
 ---
 
-[Balanced Binary Tree](http://www.lintcode.com/en/problem/balanced-binary-tree/)
+[110. Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/description/)  
+[93. Balanced Binary Tree](http://www.lintcode.com/en/problem/balanced-binary-tree/)
 
 ## Definition of Height balanced tree
 1. empty tree is a height balanced tree  
@@ -38,12 +40,15 @@ public class Solution {
         return findHeight(root) != -1;
     }
     private int findHeight(TreeNode root) {
+        // base case
         if (rotot == null) {
             return 0;
         }
         if (root.left == null && root.right == null) {
             return 1;
         }
+        
+        // progree toward base case
         int leftHeight = findHeight(root.left);
         int rightHeight = findHeight(root.right);
         if (leftHeight == -1 || rightHeight == -1 || Math.abs(leftHeight - rightHeight) > 1) {
@@ -80,8 +85,33 @@ The binary tree A is a height-balanced binary tree, but B is not.
 # Thought Process:
 - recursive algorithm  
 - definition of **height-balanced** tree  
-- in-order traversal vs out-of-order traversal  
+- post-order traversal (left, right, `Math.max()`)
 
 
-# Corner Case:
+**updated on: 2018-01-14**
 
+# <center> algorithm </center>
+
+## Recursive Algorithm:
+
+Base cases:  
+- `return 0` if `node == null`  
+- `return 1` if `node.left == null && node.right == null`  
+- `return -1` if differnece between left and right subtree height `> 1`
+
+Progress toward basecase:  
+- `int leftHeight = findHeight(node.left);`  
+- `int rightHeight = findHeight(node.right);`  
+
+
+# <center> complexity analysis </center>
+
+## Recursive Algorithm:
+Time complexity: $O(n)$ for traversing all nodes in tree  
+Space complexity: $O(h)$ for maintaining recursive stack
+
+where $n$ is number of nodes in tree, and $h=log(n)$ which is the height of the tree  
+
+# <center> notes </center>
+# <center> application </center>
+# <center> reference </center>

@@ -29,10 +29,33 @@ tags:
 
 ## Depth-First Traversal  
 
-Three types of depth-first traversal are available:  
+Three main types of depth-first traversal are available:  
 - PreOrder Traversal  
-- InOrder Traversal  
+- InOrder Traversal@  
 - PostOrder Traversal  
+
+> Note: **depth-limited searches** is a hybrid of both depth-first and breath first.
+
+> @Note: in-order traversal on a **search tree** retreives data in **sorted** order).  
+
+### Euler tour
+- faster way to wirte out different order of depth-first traversal  
+
+![](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/traversalEuler.bmp)   
+
+- each nodes were visited three times during the traversal  
+- follow the purple lines to take the **tour**(you cannot cross the edges)  
+- Each node will be visited either on the **left**, **below**, or **right**.  
+- The Euler tour in which we visited nodes **on the left** produced **preorder traversal**.  
+- When we visited nodes **under below** the nodes, we got **in-order traversal**.  
+- When we visited nodes **on the right** of the nodes, we got **post-order traversal**.  
+
+### Time complexity
+The time complexity for all three traversal algorithm have run time of $O(n)$ where n is the number of nodes in the tree.  
+
+Two explainations:  
+1.The algorithm needs to visit **every node** $(n)$ exactly once $O(n)$.  
+2.The algorithm needs to visit **every edges** $(n-1)$ exactly twices $O(2 (n - 1)) = O(n)$. 
 
 ### PreOrder Traversal
 Parent value read **first**(Pre(first) -> parent, left, right)  
@@ -59,7 +82,7 @@ Parent value read **first**(Pre(first) -> parent, left, right)
     
 ```
 
-### InOrder Traversal
+### InOrder Traversal (result in sorted order on search tree)
 parent Value read in the **middle**(In -> left, parent, right)  
 
 ```java
@@ -109,31 +132,7 @@ parent Value read in the end(Post -> last read -> left, right, parent)
     
 ```
 
-### Recursive Implementation(pre-order)
-
-```java
-
-    public ArrayList<Integer> preorderTraversal(TreeNode root) {
-        // write your code here
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        getValue(root, list);
-        return list;
-    }
-    private void getValue(TreeNode root, ArrayList<Integer> list) {
-        // base case
-        if (root == null) {
-            return;
-        }
-        // pre-oder traversal
-        list.add(root.val);
-        getValue(root.left, list);
-        getValue(root.right, list);
-        return;
-    }
-    
-```
-
-### Non-recursive Implementation(pre-order)
+### Preorder traversal (Iterative)
 
 ```java
 
@@ -147,18 +146,53 @@ parent Value read in the end(Post -> last read -> left, right, parent)
         stack.push(root);
         while (!stack.empty()) {
             TreeNode curr = stack.pop();
-            preorder.add(curr.val);
+            preorder.add(curr.val); // visit
             // LIFO / FILO
-            if (curr.right != null) {
+            if (curr.right != null) { // right, (right first since FILO)
                 stack.push(curr.right);
             }
-            if (curr.left != null) {
+            if (curr.left != null) { // left
                 stack.push(curr.left);
             }
         }
         return preorder;
     }
 
+```
+
+### Inorder traversal (Iterative)
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        // write your code here
+        
+        // iterative approach
+        List<Integer> list = new ArrayList<Integer>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode curr = root;
+        
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.push(curr); // push left
+                curr = curr.left;
+            }
+            curr = stack.pop(); // visit
+            list.add(curr.val);
+            curr = curr.right; // (push) right
+        }
+        return list;
+    }
+}
 ```
 
 ## Breath-First Traversal(Level-Order)  
@@ -227,21 +261,6 @@ PreOrder - `8, 5, 9, 7, 1, 12, 2, 4, 11, 3`
 InOrder - `9, 5, 1, 7, 2, 12, 8, 4, 3, 11`   
 PostOrder - `9, 1, 2, 12, 7, 5, 3, 11, 4, 8`   
 LevelOrder - `8, 5, 4, 9, 7, 11, 1, 12, 3, 2`  
-
-
-
-## Euler tour
-- faster way to wirte out different order of depth-first traversal  
-
-![](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Trees/pix/traversalEuler.bmp)   
-
-- each nodes were visited three times during the traversal  
-- follow the purple lines to take the **tour**(you cannot cross the edges)  
-- Each node will be visited either on the **left**, **below**, or **right**.  
-- The Euler tour in which we visited nodes **on the left** produced **preorder traversal**.  
-- When we visited nodes **under below** the nodes, we got **in-order traversal**.  
-- When we visited nodes **on the right** of the nodes, we got **post-order traversal**.  
-
 
 
 
@@ -374,6 +393,9 @@ Since **all the nodes** in the tree maintain height-balanced property. This is a
 - 07/15/2016: updated implementation for traversal algorithm(pre/in/post order traversal)  
 - 07/15/2016: updated implementation for traversal algorithm(recursive & non-recursive)  
 - 07/18/2016: updated implementation for level-order traversal  
+- 10/22/2016: traversal algorithms complexity update  
+- 01/07/2018: add iterative approach for preorder, inorder, 
+
 
 
 

@@ -1,0 +1,6 @@
+{
+    "src_dir"           : "/Users/xruan/myBlog/images/upload/2017/life",
+    "bucket"            : "myblog",
+    "skip_suffixes"     : ".DS_Store",
+    "ignore_dir"        : true
+}

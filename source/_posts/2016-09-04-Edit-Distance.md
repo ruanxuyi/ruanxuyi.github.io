@@ -2,11 +2,13 @@ title: "LintCode 119 - Edit Distance"
 date: 2016-09-04 22:27:24
 tags:
 - LintCode
+- LeetCode
 - DP
 - H
 ---
 
-[Edit Distance](http://www.lintcode.com/en/problem/edit-distance/)
+Lintcode: http://www.lintcode.com/en/problem/edit-distance/
+Leetcode: https://leetcode.com/problems/edit-distance/description/
 
 # Code: 
 
@@ -160,6 +162,15 @@ You have the following 3 operations permitted on a word:
 Given `word1` = `"mart"` and `word2` = `"karma"`, return `3`.
 
 # Thought Process:
+
+1. find **minimum** step number -> DP approach  
+2. 2 strings -> construct 2D matrix `int[][] dp` 
+3. observation: if `w1.charAt(i) == w2.charAt(j)`, we have `dp[i][j] = dp[i-1][j-1]` since no edit is needed  
+4. otherwise, we can perform either of the three ops and take one with min edit distance.  
+
+
+
+
 
 It is overall a very comprehensive problem and it tests not only skill in using DP for the particualr problem, it also tests knowledge in manpulation of `String` type in Java programming. Familair with `compareTo()`, `equals()` and `charAt()` methods from `String` types as well as `==` operators comparison on primitive types are essential for this problem.  
 

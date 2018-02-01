@@ -29,7 +29,7 @@ categories: DataStructure
 
 ## **Internal Data Structure**
 
-There are two type of internal data structure in Java programming. *Array* and *linked-list*. 
+There are two types of internal data structure in Java programming. *Array* and *linked-list*. 
 
 *Array*'s query can complete in constant time, however, operations such as add or remove certain elements result large overhead (rearranging elements within array). 
 
@@ -41,8 +41,16 @@ Below is a graphical represetation of a Hashtable.
 
 ![HashMap internal data structure](http://img.my.csdn.net/uploads/201211/17/1353118778_2052.png)
 
-As more and more *key value* pair 'put' into the hash table. It is very likely that different key values will result into the same location of the arrray cell - which is also called collision. A chain bucket was implemented with *linked-list*. As the number of collisions into the same array cell increased, the time to treverse the *linked-list* to look for the specified *key* value will increase. Once the size of the chain-bucket linked-list exceeds the *threadshold* ( threadshold = capacity * loadFactor). The size of the capacity (size of array) will increase from default capacity of 16 to 32 to reduce the overhead of treverse the long *linkedlist*. 
+As more and more *key value* pair 'put' into the hash table. It is very likely that different key values will result into the same location of the arrray cell - which is also called **collision**.  
 
+There are two types of solution for collision:   
+- chain buckets (memory overhead, external datastructure)
+- open addressing (no extra memory overhead, hashtable itself)
+
+A chain bucket was implemented with *linked-list*. As the number of collisions into the same array cell increased, the time to treverse the *linked-list* to look for the specified *key* value will increase. Once the size of the chain-bucket linked-list exceeds the *threadshold* ( threadshold = capacity * loadFactor). The size of the capacity (size of array) will increase from default capacity of 16 to 32 to reduce the overhead of treverse the long *linkedlist*. 
+
+> Open addressing strategy requires, that hash function has additional properties. In addition to performing uniform distribution, it should also avoid clustering of hash values, which are consequent in probe's order.
+[read here for detail](http://www.algolist.net/Data_structures/Hash_table/Open_addressing)
 
 
 ## **Characterstics**
@@ -211,11 +219,11 @@ else
 
 ## Reference
 
-[Java Documentation](https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html)
-[HashMap internal data structure](http://blog.csdn.net/tgxblue/article/details/8479147)
-[Collection Wrapper](https://docs.oracle.com/javase/tutorial/collections/implementations/wrapper.html)
+[Java Documentation](https://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html)  
+[HashMap internal data structure](http://blog.csdn.net/tgxblue/article/details/8479147)  
+[Collection Wrapper](https://docs.oracle.com/javase/tutorial/collections/implementations/wrapper.html)  
 [Markdown Indentation](http://stackoverflow.com/questions/6046263/how-to-indent-a-few-lines-in-markdown-markup)
-[Markdown excerpt](http://www.jianshu.com/p/q81RER)
-[hasmap VS hashset VS hashtable](https://www.quora.com/What-is-the-difference-between-HashSet-HashMap-and-hash-table-How-do-they-behave-in-a-multi-threaded-environment)
-[HashMap vs Hashtable vs HashSet](http://www.pakzilla.com/2009/08/24/hashmap-vs-hashtable-vs-hashset/)
+[Markdown excerpt](http://www.jianshu.com/p/q81RER)  
+[hasmap VS hashset VS hashtable](https://www.quora.com/What-is-the-difference-between-HashSet-HashMap-and-hash-table-How-do-they-behave-in-a-multi-threaded-environment)  
+[HashMap vs Hashtable vs HashSet](http://www.pakzilla.com/2009/08/24/hashmap-vs-hashtable-vs-hashset/)  
 

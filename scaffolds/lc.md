@@ -1,19 +1,26 @@
 title: {{ title }}
 date: {{ date }}
 tags:
+- LeetCode
 - LintCode
 - tag2
 ---
 
+
+## <center> description </center>
+
 []()
 
-# Code: 
+## <center> code </center>
 
 <!--more-->
 
-# Description: 
+## <center> algorithm </center>
 
-# Thought Process:
+## <center> complexity analysis </center>
 
-# Corner Case:
+[github]()
 
+## <center> notes </center>
+## <center> application </center>
+## <center> reference </center>

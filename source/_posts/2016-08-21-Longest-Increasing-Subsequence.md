@@ -7,229 +7,66 @@ tags:
 - BinarySearch
 ---
 
-[Longest Increasing Subsequence](http://www.lintcode.com/en/problem/longest-increasing-subsequence/#)
+http://www.lintcode.com/en/problem/longest-increasing-subsequence/#
+https://leetcode.com/problems/longest-increasing-subsequence/description/
 
 # Code: 
 
-## DP Approach
+## Brute Force
+- find ALL possible subsequence of given array $2^n$  
+- each subsequence, we need `O(n)` to find LIS  
+- time complexity: $O(n * 2^n)$  
+- space complexity: $O(n)$  
+
+## Recursive DP
+https://www.geeksforgeeks.org/?p=12832
+
+
+## Iterative DP
+- time complexity: $O(n^2)$  
+- space complexity: $O(n)$  
+
+### Algorithm
+- to find `lis[n]`  
+- go through all element before `n`, find the one with **max** `lis` value, which value of element is also **smaller** than `nums[n]` and store `max value + 1` into `lis[n]`  
+
 
 ```java
 
-public class Solution {
-    /**
-     * @param nums: The integer array
-     * @return: The length of LIS (longest increasing subsequence)
-     */
-    public int longestIncreasingSubsequence(int[] nums) {
-        // write your code here
+class Solution {
+    public int lengthOfLIS(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        int[] lis = new int[nums.length];
-        int longest = 1;
-        for (int i = 0; i < nums.length; i++) {
-            lis[i] = 1; // nums[i] < nums[j]
-            for (int j = 0; j < i; j++) {
+        int len = nums.length;
+        int[] lis = new int[len];
+        Arrays.fill(lis, 1);
+        int largest = lis[0];
+        
+        for (int i = 1; i < len; i++) {
+            for (int j = i - 1; j >= 0; j--) {
                 if (nums[i] > nums[j]) {
-                    if (lis[j] + 1 > lis[i]) {
-                        lis[i] = lis[j] + 1;
-                    }
-                } else if (nums[i] == nums[j]) {
-                    lis[i] = lis[j];
+                    lis[i] = Math.max(lis[i], lis[j] + 1);
                 }
             }
-            if (lis[i] > longest) {
-                longest = lis[i];
-            }
+            largest = Math.max(largest, lis[i]);
         }
-        return longest;
+        
+        return largest;
     }
 }
 
-
 ```
+
+## Iterative DP + Binary Search Approach
+time complexity: $O(nlogn)$  
+
+https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
 
 <!--more-->
 
-
-## First try: Err1
-
-```java
-public class Solution {
-    /**
-     * @param nums: The integer array
-     * @return: The length of LIS (longest increasing subsequence)
-     */
-    public int longestIncreasingSubsequence(int[] nums) {
-        // write your code here
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-        int[] lis = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            lis[i] = 1; // nums[i] < nums[j]
-            for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j] && lis[j] + 1 > lis[i]) {
-                        lis[i] = lis[j] + 1;
-                    }
-                } else if (nums[i] == nums[j]) {
-                    lis[i] = lis[j];
-                } else {
-                	lis[i] = 1; // nums[i] < nums[j]
-                }
-            }
-        }
-        //for (int i = 0; i < nums.length; i++) {
-        //    System.out.println(lis[i]);
-        //}
-        return lis[nums.length - 1];
-    }
-}
-
-
-```
-
-## Err2
-
-```java
-
-public class Solution {
-    /**
-     * @param nums: The integer array
-     * @return: The length of LIS (longest increasing subsequence)
-     */
-    public int longestIncreasingSubsequence(int[] nums) {
-        // write your code here
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-        int[] lis = new int[nums.length];
-        lis[0] = 1;
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) { // <--
-                    if (lis[j] + 1 > lis[i]) { // <--
-                        lis[i] = lis[j] + 1; // <--
-                    }
-                } else if (nums[i] == nums[j]) {
-                    lis[i] = lis[j];
-                } else {
-                		lis[i] = 1; // nums[i] < nums[j]
-                }
-            }
-        }
-        //for (int i = 0; i < nums.length; i++) {
-        //    System.out.println(lis[i]);
-        //}
-        return lis[nums.length - 1];
-    }
-}
-
-
-```
-
-## Err3
-
-```java
-
-public class Solution {
-    /**
-     * @param nums: The integer array
-     * @return: The length of LIS (longest increasing subsequence)
-     */
-    public int longestIncreasingSubsequence(int[] nums) {
-        // write your code here
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-        int[] lis = new int[nums.length];
-        // lis[0] = 1; <--
-        for (int i = 0; i < nums.length; i++) {
-        	  lis[i] = 1; // <--
-            for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) {
-                    if (lis[j] + 1 > lis[i]) {
-                        lis[i] = lis[j] + 1;
-                    }
-                } else if (nums[i] == nums[j]) {
-                    lis[i] = lis[j];
-                } //else { <--
-                //		lis[i] = 1; // nums[i] < nums[j] <--
-                //} <--
-            }
-        }
-        //for (int i = 0; i < nums.length; i++) {
-        //    System.out.println(lis[i]);
-        //}
-        return lis[nums.length - 1];
-    }
-}
-
-
-```
-
-Error Msg: 
-
-```java
-
-[88,4,24,82,86,1,56,74,71,9,8,18,26,53,77,87,60]
-
-Your input
-[88,4,24,82,86,1,56,74,71,9,8,18,26,53,77,87,60]
-Your output
-6
-Expected
-7
-
-```
-
-![](http://7xihzu.com1.z0.glb.clouddn.com/20160823/lis.jpg)
-
-Analysis: longest path not necessary through the **last index** of `lis[]` array.  
-
-Solution: continous update the longest value and return global int`longest`.  
-
-## Past solution: 
-
-```java
-
-public class Solution {
-    /**
-     * @param nums: The integer array
-     * @return: The length of LIS (longest increasing subsequence)
-     */
-    public int longestIncreasingSubsequence(int[] nums) {
-        // write your code here
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-        int[] lis = new int[nums.length];
-        int longest = 1; // <--
-        for (int i = 0; i < nums.length; i++) {
-            lis[i] = 1; // nums[i] < nums[j]
-            for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) {
-                    if (lis[j] + 1 > lis[i]) {
-                        lis[i] = lis[j] + 1;
-                    }
-                } else if (nums[i] == nums[j]) {
-                    lis[i] = lis[j];
-                }
-            }
-            if (lis[i] > longest) { // <--
-                longest = lis[i]; // <--
-            } // <--
-        }
-        return longest; // <--
-    }
-}
-
-
-```
-
 # Description: 
 Given a sequence of integers, find the longest increasing subsequence (LIS).  
-
 You code should return the length of the LIS.  
 
 **Clarification**  
@@ -243,6 +80,7 @@ What's the definition of longest increasing subsequence?
 **Example**  
 For `[5, 4, 1, 2, 3]`, the LIS is `[1, 2, 3]`, return `3`  
 For `[4, 2, 4, 5, 3, 7]`, the LIS is `[2, 4, 5, 7]`, return `4`  
+
 
 # Thought Process:
 
@@ -264,4 +102,51 @@ For example: at index `2`, if `nums[2] = 6` is larger than `nums[0]`? No, we do 
 - `nums = [1,1,1]`  
 - largest LIS not necessary **through** the last index of the array `nums`.  
 
+
+## Soluton2 (returns acutal LIS)
+```java
+
+public class LIS {
+	public static void main (String[] args) {
+		int[] nums = {15, 27, 14, 38, 26, 55, 46, 65, 85};
+		String lis = findLIS(nums);
+		System.out.println("longest increasing subsequence: " + lis);
+	}
+	private static String findLIS(int[] nums) {
+		String[] lis = new String[nums.length];
+		// initalization
+		lis[0] = Integer.toString(nums[0]);
+		// subproblem
+		for (int i = 1; i < nums.length; i++) {
+			lis[i] = "";
+			for (int j = 0; j < i; j++) {
+				if (nums[j] < nums[i] && lis[i].length() < lis[j].length() + 1) {
+					lis[i] = lis[j];
+				}
+			}
+			lis[i] = lis[i] + Integer.toString(nums[i]);
+		}
+		for (int i = 0; i < lis.length; i++) {
+			System.out.println("lis[" + i + "] = " + lis[i]);
+		} 
+		return lis[nums.length-1];
+	}
+}
+
+
+```
+
+# application 
+- stock price: only want to see progression of non-decreasing price points  
+
+
+
+# Reference:
+[Youtube video of a lecture from MIT's Open-Coursware](https://www.hackerrank.com/challenges/longest-increasing-subsequent)  
+
+
+# Logs
+- 08-21-2016: initial post  
+- 10-30-2016: update with solution returns actual LIS.  
+- 01-19-2018: clean up and update iterative DP  
 

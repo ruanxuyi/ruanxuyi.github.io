@@ -5,10 +5,198 @@ tags:
 - Sorting
 ---
 
+# <center>bubble sort</center>
 
-# Quick Sort
+## algorithm
+- start from **first** element, swap first two element if the value of first is larger than second  
+- continue with the **next** pair and so on   
+- repeat first two step unitl all element in list is sorted  
+- in doing so, the **smaller/larger** item slowly "bubble" up/down to the **front/back** of the list  
+
+## complexity
+- **Time** $O(n^2)$  
+- **Space** $O(1)$  
+
+## code
+
+```java
+package sorting;
+/**
+ * 
+ * @author xruan
+ *
+ * key idea:
+ * - two for loops (O(n^2))
+ * - each inner loop from start to end, compare and swap if a[i] > a[j]
+ * - each inner loop will put current largest element of the sub-array to the end (1 element sorted)
+ * 
+ * 
+ * example:
+ * 
+ * 1, 1, 3, 10, 3, 4, 2, 5 O(n)
+ * 1, 1, 3, 3, 4, 2, 5, [10] O(n)
+ * 1, 1, 3, 3, 2, 4, [5, 10] O(n)
+ * 1, 1, 3, 2, 3, [4, 5, 10] O(n)
+ * 1, 1, 2, 3, [3, 4, 5, 10] O(n)
+ * 1, 1, 2, [3, 3, 4, 5, 10] O(n)
+ * break // less than O(n*n) with break check 
+ * 
+ * pesudo code:
+ * for i in range(0, len - 1):
+ * 		for j in range(0, len - 1 - i):
+ * 			if a[j] > a[j+1]:
+ * 				swap
+ * 		if no swap: // already in sorted order
+ * 			break
+ * 			
+ */
+
+public class BubbleSort {
+	public static void main(String[] args) {
+		int[] array = new int[]{1, 1, 3, 10, 3, 4, 2, 5};
+
+		int[] sortedArray = sort(array);
+		for (int i = 0; i < sortedArray.length; i++) {
+			System.out.print(sortedArray[i]);
+			if (i != sortedArray.length - 1) {
+				System.out.print(", ");
+			}
+		}
+		
+	}
+	public static int[] sort(int[] array) {
+		// [4, 3, 2, 1]
+		int length = array.length;
+		boolean swapped = false;
+		for (int i = 0; i < length - 1; i++) {
+			for (int j = 0; j < length - i - 1; j++) { 
+				if (array[j] > array[j + 1]) {
+					int temp = array[j];
+					array[j] = array[j + 1];
+					array[j + 1] = temp;
+					swapped = true;
+				}
+			}
+			if (swapped == false) {
+				break;
+			}
+		}
+		return array;
+	}
+}
+```
+
+
+# <center>selection sort</center>
+## algorithm
+- find the **smallest** element using linear scan and move it to the front (via swapping)  
+- find the second smallest with same process and move it to the next postion  
+- repeat above steps unitl array is sorted   
+
+
+
+## complexity
+- **Time**:  $O(n^2)$  
+- **Spcae**: $O(1)$ no extra space required
+
+## code
+```java
+	public static void selSort(int[] array) {
+		if (array.length == 0 || array.length == 1) {
+			return;
+		}
+		int len = array.length;
+		int sorted = 0;
+		for (int i = 0; i < len; i++) {
+			int min = i;
+			for (int j = i; j < len; j++) {
+				min = array[j] < array[min] ? j : min;
+			}
+			// swap min to sorted
+			int tmp = array[min];
+			array[min] = array[sorted];
+			array[sorted] = tmp;
+			sorted++;
+		}
+	}
+```
+
+# <center>merge sort</center>
+
+![](http://7xihzu.com1.z0.glb.clouddn.com/201600919/merge-sort.jpg)
+
+## Algorithm
+- break down the entire array until it has single.   
+- compare and merge the elements in the same group (activation record).  
+- after the last merge, you will get a sorted array.  
+
+## complexity
+- Time: $O(nlog(n))$ in worst case.  
+- Space: $O(n)$ auxiliary. 
+
+## Code
+```java
+public class MergeSort {
+	public static void main(String[] args) {
+	    int[] array = {5, 5, 4, 3, 1, 3, 1, 0, 5};
+	    int[] sorted = new int[array.length];
+	    System.out.println("Original Array: ");
+	    String sep = "";
+	    for (int n : array) {
+	    	System.out.print(sep + n);
+	    	sep = ",";
+	    }
+	    mergeSort(array, 0, array.length -1, sorted);
+	    System.out.println("\nSorted Array: ");
+	    sep = "";
+	    for (int i = 0; i < array.length; i++) {
+	    	System.out.print(sep + array[i]);
+	    	sep = ",";
+	    }
+	}
+	public static void mergeSort(int[] array, int start, int end, int[] sorted) {
+	    if (end - start >= 1) {
+	         int mid = start + (end - start) / 2;
+	         mergeSort(array, start, mid, sorted);
+	         mergeSort(array, mid+1, end, sorted);
+	         merge(array, start, mid, end, sorted);
+	    }
+	}
+	
+	public static void merge(int[] array, int start, int mid, int end, int[] sorted) {
+	    int i = start;
+	    int j = mid+1;
+	    int k = 0;
+	    while (i <= mid && j <= end) {
+	        if (array[i] <= array[j]) {
+	            sorted[k++] = array[i++];
+	        } else {
+	            sorted[k++] = array[j++];
+	        }
+	    } 
+	    while (i <= mid) {
+	        sorted[k++] = array[i++];
+	    }
+	    while (j <= end) {
+	        sorted[k++] = array[j++];
+	    }
+	    for (int v = 0; v < k; v++) {
+	        array[v+start] = sorted[v];
+	    }
+	}
+}
+```
+
+
+# <center>quick sort</center>
 
 ![](http://7xihzu.com1.z0.glb.clouddn.com/quickSort.jpg)
+
+## key idea  
+- after every operation, **the piviot element will be in place** (sorted, sit at correct index)  
+- each operation takes $O(n)$ (to compare every element with choosen piviot)  
+- the height of the tree is $log(n)$  
+- hence, total time complexity is $nlog(n)$  
 
 ## How to choose the piviot element? 
 
@@ -36,13 +224,15 @@ pivit split array evenly so the number of steps is less. From $n -> n/2->n/4 \do
 
 ```java
 public void quickSort(int[] array, int start, int end) {
-	if (start >= end | start < 0 | end < 0) {
+	// ########## very important check ###########
+	if (start >= end) { 
 		return;
-	}
+	} 
+	// ########## very important check ###########
 	int left = start;
 	int right = end;
-	int pivot = array[end - (end - start)/2];
-	while (left <= right) {
+	int pivot = array[end - (end - start) / 2];
+	while (left <= right) { // to put right ptr to right place. [1,2,3], piv = 2
 		while (array[left] < pivot) {
 			left++;
 		}
@@ -53,12 +243,12 @@ public void quickSort(int[] array, int start, int end) {
 			int temp = array[right];
 			array[right] = array[left];
 			array[left] = temp;
-			left++;
-			right--;
+			left++; // help to progress w/ piviot == array[left]
+			right--; // help to progress w/ piviot == array[right]
 		}
 	}
-	quickSort(array, start, right);
-	quickSort(array, left, end);
+	quickSort(array, start, right); // check at start, no need to check here
+	quickSort(array, left, end); // check at astart, no need to check here
 }
 
 ```
@@ -138,75 +328,35 @@ public class QuickSort {
 
 ```
 
-# Merge Sort
+# <center>radix/bucket sort</center>
 
-![](http://7xihzu.com1.z0.glb.clouddn.com/201600919/merge-sort.jpg)
+## key idea
+- integer has finite bit  
+- during each pass, order of lower bit **perserve** while new pass for higher bit is performing  
+- list in sort order once **all bits** are passed once  
 
-## Algorithm
-- break down the entire array until it has single.   
-- compare and merge the elements in the same group (activation record).  
-- after the last merge, you will get a sorted array.  
+## algorithms  
+- find **largest** element, ex. 100  
+- number of passes `k`, determine by the number of digit of largest element, in this example, `k=3`  
+- **zero pad** all smaller values with less than `k` bit  
+- prepare **10 buckets** (queue, for example, since need to retrive value from buttom after each pass)  
+- each pass, put value with corresponding digit into corresponding bucket.  
 
-## Analysis
-- Time complextiy: $O(nlog(n))$ in worst case.  
-- Space complexity: $O(n)$ auxiliary. 
+for example `23, 12, 100`. At first pass:   
+- `23` will put into bucket 3  
+- `12` puts into bucket 2  
+- `100` put into bucket 0  
 
-## Code
-```java
-public class MergeSort {
-	public static void main(String[] args) {
-	    int[] array = {5, 5, 4, 3, 1, 3, 1, 0, 5};
-	    int[] sorted = new int[array.length];
-	    System.out.println("Original Array: ");
-	    String sep = "";
-	    for (int n : array) {
-	    	System.out.print(sep + n);
-	    	sep = ",";
-	    }
-	    mergeSort(array, 0, array.length -1, sorted);
-	    System.out.println("\nSorted Array: ");
-	    sep = "";
-	    for (int i = 0; i < array.length; i++) {
-	    	System.out.print(sep + array[i]);
-	    	sep = ",";
-	    }
-	}
-	public static void mergeSort(int[] array, int start, int end, int[] sorted) {
-	    if (end - start >= 1) {
-	         int mid = start + (end - start) / 2;
-	         mergeSort(array, start, mid, sorted);
-	         mergeSort(array, mid+1, end, sorted);
-	         merge(array, start, mid, end, sorted);
-	    }
-	}
-	
-	public static void merge(int[] array, int start, int mid, int end, int[] sorted) {
-	    int i = start;
-	    int j = mid+1;
-	    int k = 0;
-	    while (i <= mid && j <= end) {
-	        if (array[i] <= array[j]) {
-	            sorted[k++] = array[i++];
-	        } else {
-	            sorted[k++] = array[j++];
-	        }
-	    } 
-	    while (i <= mid) {
-	        sorted[k++] = array[i++];
-	    }
-	    while (j <= end) {
-	        sorted[k++] = array[j++];
-	    }
-	    for (int v = 0; v < k; v++) {
-	        array[v+start] = sorted[v];
-	    }
-	}
-}
-```
+repeat above process for all `k` passes will result in sorted order  
+
+https://www.youtube.com/watch?v=YXFI4osELGU
+
+## complexity
+time: $O(kn)$  
+space: $O(1)$  
 
 
-
-# Insertion Sort
+# <center>Insertion Sort</center>
 
 ![](http://7xihzu.com1.z0.glb.clouddn.com/insertionSort.jpg)
 
@@ -270,7 +420,18 @@ public class MergeSort {
 
 ```
 
+
+
+# logs
+- created on 08/30/2016
+- updated quick sort 01/02/2017
+- added selection sort  
+- 01/23/18 add bubble sort  
+- 01/23/18 add radix/bucket sort  
+- 01/23/18 add "key idea" for quicksort  
+
+
 # Reference: 
 
 [经典排序算法 - 归并排序Merge sort](http://www.cnblogs.com/kkun/archive/2011/11/23/merge_sort.html)  
-
+[Selection Sort](https://www.youtube.com/watch?v=f8hXR_Hvybo)

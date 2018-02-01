@@ -1,0 +1,6 @@
+{
+    "src": "/Users/xruan/myBlog/images/upload",
+    "dest": "qiniu:access_key=<A5zjcCLA3b2sWiQJCMF1GCXZZRxVAdbzbqBoJFp2>&secret_key=<dBJ9iO-RVFJL4Keay0UYPh8jri_ITVfJkaoYtsY4>&bucket=<myblog>&key_prefix=<KeyPrefix>&persistent_ops=<PersistentOps>&persistent_pipeline=<PersistentPipeline>&persistent_notify_url=<PersistentNotifyUrl>&...",
+    "deletable": 0,
+    "debug_level": 1
+}

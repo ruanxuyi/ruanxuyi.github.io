@@ -6,7 +6,34 @@ tags:
 - Algorithm
 ---
 
-## Binary Search Templete
+## binary search templete 1 (preferred)
+
+```java
+    public int binarySearch(int[] nums, int target) {
+        // write your code here
+        if (nums == null || nums.length == 0) {
+        	 return -1;
+        }
+	
+        int low = 0;
+        int mid = 0;
+        int high = nums.length - 1;
+        
+         while (low <= high) {
+            mid = low + (high - low) / 2;
+            if (target < nums[mid]) {
+                high = mid - 1;
+            } else if (target > nums[mid]) {
+                low = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
+    }
+```
+
+## Binary Search Templete 2
 
 ```java
 	public static int binarySearch(int[] nums, int target) {
@@ -390,7 +417,7 @@ public class Solution {
 -  03/28/2016: first post created  
 -  06/22/2016: update: added both methods, decided to use the first implementation, added sample example  
 -  06/23/2016: update: updated templete 1 while duplication is allowed  
--  
+-  01/25/2018: add binary search update version  
 
 
 #Reference: 
