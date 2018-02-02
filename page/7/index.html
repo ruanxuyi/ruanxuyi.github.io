@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next muse use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -112,7 +112,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -234,6 +234,119 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/01/Search-a-2D-Matrix/" itemprop="url">
+                  LintCode 28 - Search a 2D Matrix
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-01T11:27:35Z" content="07-01-2016">
+              07-01-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/01/Search-a-2D-Matrix/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/01/Search-a-2D-Matrix/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/01/Search-a-2D-Matrix/" class="leancloud_visitors" data-flag-title="LintCode 28 - Search a 2D Matrix">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/search-a-2d-matrix/" target="_blank" rel="noopener">Search a 2D Matrix</a>  </p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> rowLow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> rowMid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> rowHigh = matrix.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> rowIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colLow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colMid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> colHigh = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (rowLow + <span class="number">1</span> &lt; rowHigh) &#123;</span><br><span class="line">        rowMid = rowLow + (rowHigh - rowLow) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt; matrix[rowMid][<span class="number">0</span>]) &#123;</span><br><span class="line">            rowHigh = rowMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowMid][<span class="number">0</span>]) &#123;</span><br><span class="line">            rowLow = rowMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (target &gt; matrix[rowLow][<span class="number">0</span>] &amp;&amp; target &lt; matrix[rowHigh][<span class="number">0</span>]) &#123;</span><br><span class="line">        rowIndex = rowLow;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowHigh][<span class="number">0</span>]) &#123;</span><br><span class="line">        rowIndex = rowHigh;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target == matrix[rowLow][<span class="number">0</span>] || target == matrix[rowHigh][<span class="number">0</span>])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// (target &lt; matrix[rowLow][0]</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (colLow + <span class="number">1</span> &lt; colHigh) &#123;</span><br><span class="line">        colMid = colLow + (colHigh - colLow) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt; matrix[rowIndex][colMid]) &#123;</span><br><span class="line">            colHigh = colMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[rowIndex][colMid]) &#123;</span><br><span class="line">            colLow = colMid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (target == matrix[rowIndex][colLow] || target == matrix[rowIndex][colHigh]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/01/Search-a-2D-Matrix/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -1250,119 +1363,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/07/毕业之旅/" itemprop="url">
-                  大学四年。
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-07T17:39:48Z" content="06-07-2016">
-              06-07-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/07/毕业之旅/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/07/毕业之旅/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/06/07/毕业之旅/" class="leancloud_visitors" data-flag-title="大学四年。">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="提要"><a href="#提要" class="headerlink" title="提要"></a>提要</h1><p><img src="http://www.meghan-hintz.com/wp-content/uploads/2015/04/UW-Madison-Logo.jpg" alt="meghan-hintz.com"></p>
-<p>summer刚开始没几天，今天一早来到图书馆，可并不想学习😳。吃过午饭后在图书馆呆了一会儿，可心已经游离到到窗外美国小伙伴们玩耍追逐的身影。可能是这几天来一直坚持从公寓走到校园(来回两个小时)的疲倦，也许就是今天不太适合学习(一星期里总会有一两天)。走出图书馆，坐在学生活动中心stamp的大门前，傻傻的望着天。回想起两个星期前，自己困在在毕业典礼的”冰窟”里(威斯康辛州是美国最冷的一个粥，没有之一！！5月中的毕业典礼竟然下起了冰雹，也是醉了)。研究生两年将要在马里兰大学College Park 度过。真庆幸自己终于逃离了麦迪逊，但其实说这句话的时候还有点怀念麦屯的。因为那里有美丽的mendota 湖, 威斯康辛的本地人也是总体来说非常的nice的，当然还少不了美味的自己造的雪糕。怎么游跑题了。。哈。。很开心爸爸妈妈还有我妹子都来参加了我的大学毕业典礼。典礼结束当天又马不停蹄的赶往迈阿密，参加4天3夜的加勒比邮轮，紧接着又是奥兰多4日游。马不停蹄的节奏仿佛又回到了大四下学期敢计算机构架课赶项目deadline的紧张感。难得有时间静下来，写写四年来的点点滴滴的，为四年的大学生涯补画上一枚圆满的句号。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/07/毕业之旅/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1408,7 +1408,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">78</span>
+              <span class="site-state-item-count">79</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1527,7 +1527,7 @@
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Muse
   </a>
 </div>
 
@@ -1592,13 +1592,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
-
 
   
 
