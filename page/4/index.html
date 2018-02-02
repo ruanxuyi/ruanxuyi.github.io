@@ -256,6 +256,135 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/09/Longest-Common-Substring/" itemprop="url">
+                  Longest Common Substring
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-10T01:15:21Z" content="10-10-2016">
+              10-10-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/09/Longest-Common-Substring/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/09/Longest-Common-Substring/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/09/Longest-Common-Substring/" class="leancloud_visitors" data-flag-title="Longest Common Substring">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/longest-common-substring/" target="_blank" rel="noopener">Longest Common Substring</a>  </p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description: "></a><center>Description: </center></h2><p>Given two strings, find the longest common substring.<br>Return the length of it.</p>
+<p><strong>Notice</strong><br>The characters in substring should occur continuously in original string. This is different with subsequence.</p>
+<p><strong>Example</strong><br>Given A = <code>&quot;ABCD&quot;</code>, B = <code>&quot;CBCE&quot;</code>, return <code>2</code>.</p>
+<p><strong>Challenge</strong><br><code>O(n x m)</code> time and memory.</p>
+<h2 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a><center>Thought Process:</center></h2><p>DP:  </p>
+<h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><ul>
+<li><code>dp[i][j]</code> stores longest common substring from <code>A.substring(0,i)</code> and <code>B.substring(0,j)</code>.  </li>
+</ul>
+<h3 id="Initialzation"><a href="#Initialzation" class="headerlink" title="Initialzation"></a>Initialzation</h3><ul>
+<li><code>dp[i][j] = 0</code> for first column &amp; row.</li>
+</ul>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] = A.charAt(i - <span class="number">1</span>) == B.charAt(j - <span class="number">1</span>)? dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span> : <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><ul>
+<li><code>dp[i][j]</code> has non-zero value only when substring occur <strong>continuously</strong>.  </li>
+<li><code>max</code> store global maximun of LCS.  </li>
+<li><code>return max</code>  </li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/09/Longest-Common-Substring/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/09/palindrome-partitioning-II/" itemprop="url">
                   Palindrome Partitioning II
                 </a>
@@ -1269,136 +1398,6 @@ continue with the next pair and so
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/21/Longest-Increasing-Subsequence/" itemprop="url">
-                  LintCode 76 - Longest Increasing Subsequence
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-21T11:49:07Z" content="08-21-2016">
-              08-21-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/21/Longest-Increasing-Subsequence/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/21/Longest-Increasing-Subsequence/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/21/Longest-Increasing-Subsequence/" class="leancloud_visitors" data-flag-title="LintCode 76 - Longest Increasing Subsequence">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/longest-increasing-subsequence/#" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/longest-increasing-subsequence/#</a><br><a href="https://leetcode.com/problems/longest-increasing-subsequence/description/" target="_blank" rel="noopener">https://leetcode.com/problems/longest-increasing-subsequence/description/</a></p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h2 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute Force"></a>Brute Force</h2><ul>
-<li>find ALL possible subsequence of given array $2^n$  </li>
-<li>each subsequence, we need <code>O(n)</code> to find LIS  </li>
-<li>time complexity: $O(n * 2^n)$  </li>
-<li>space complexity: $O(n)$  </li>
-</ul>
-<h2 id="Recursive-DP"><a href="#Recursive-DP" class="headerlink" title="Recursive DP"></a>Recursive DP</h2><p><a href="https://www.geeksforgeeks.org/?p=12832" target="_blank" rel="noopener">https://www.geeksforgeeks.org/?p=12832</a></p>
-<h2 id="Iterative-DP"><a href="#Iterative-DP" class="headerlink" title="Iterative DP"></a>Iterative DP</h2><ul>
-<li>time complexity: $O(n^2)$  </li>
-<li>space complexity: $O(n)$  </li>
-</ul>
-<h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><ul>
-<li>to find <code>lis[n]</code>  </li>
-<li>go through all element before <code>n</code>, find the one with <strong>max</strong> <code>lis</code> value, which value of element is also <strong>smaller</strong> than <code>nums[n]</code> and store <code>max value + 1</code> into <code>lis[n]</code>  </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLIS</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span>[] lis = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        Arrays.fill(lis, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> largest = lis[<span class="number">0</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] &gt; nums[j]) &#123;</span><br><span class="line">                    lis[i] = Math.max(lis[i], lis[j] + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            largest = Math.max(largest, lis[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> largest;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Iterative-DP-Binary-Search-Approach"><a href="#Iterative-DP-Binary-Search-Approach" class="headerlink" title="Iterative DP + Binary Search Approach"></a>Iterative DP + Binary Search Approach</h2><p>time complexity: $O(nlogn)$  </p>
-<p><a href="https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/</a></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/21/Longest-Increasing-Subsequence/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1444,7 +1443,7 @@ continue with the next pair and so
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">79</span>
+              <span class="site-state-item-count">80</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1461,7 +1460,7 @@ continue with the next pair and so
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">65</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

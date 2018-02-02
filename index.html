@@ -256,6 +256,121 @@
             
               
                 
+                <a class="post-title-link" href="/2018/02/02/check-string-rotation/" itemprop="url">
+                  CTCI1.9 - Check String Rotation
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-02-02T14:10:01Z" content="02-02-2018">
+              02-02-2018
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/02/02/check-string-rotation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/02/check-string-rotation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/02/02/check-string-rotation/" class="leancloud_visitors" data-flag-title="CTCI1.9 - Check String Rotation">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>#1.9 </p>
+<p>Assume you have a method <code>isSubstring</code> which checks if one word is a<br>substring of another. Given two strings, <code>s1</code> and <code>s2</code>, write code to check if <code>s2</code> is a rotation of <code>s1</code> using only <strong>one</strong> call to <code>isSubstring</code> (e.g.,”waterbottle” is a rotation of “erbottlewat”). </p>
+<p>(Assume an empty string is a rotation of an empty string.)</p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Question9</span>	 </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isRotation</span><span class="params">(String s1, String s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s1 == <span class="keyword">null</span> || s2 == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (s1.length() != s2.length()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> isSubstring(s1 + s1, s2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isSubstring</span><span class="params">(String s1, String s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s1.contains(s2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/02/02/check-string-rotation/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/02/02/Set-Matrix-Zeroes/" itemprop="url">
                   Leetcode73 - Set Matrix Zeroes
                 </a>
@@ -315,9 +430,9 @@
 
       
         
-          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given a <code>m x n</code> matrix, if an element is 0, set its entire row and column to 0. Do it in place.  </p>
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p><a href="https://leetcode.com/problems/set-matrix-zeroes/description/" target="_blank" rel="noopener">https://leetcode.com/problems/set-matrix-zeroes/description/</a></p>
+<p>Given a <code>m x n</code> matrix, if an element is 0, set its entire row and column to 0. Do it in place.  </p>
 <p><strong>Follow up:</strong><br>Did you use extra space?<br>A straight forward solution using <code>O(mn)</code> space is probably a bad idea.<br>A simple improvement uses <code>O(m + n)</code> space, but still not the best solution.<br>Could you devise a constant space solution?</p>
-<p><a href="https://leetcode.com/problems/set-matrix-zeroes/description/" target="_blank" rel="noopener">https://leetcode.com/problems/set-matrix-zeroes/description/</a></p>
 <h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setZeroes</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// time: O(mn)</span></span><br><span class="line">        <span class="comment">// space: O(m + n)</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[] row = <span class="keyword">new</span> <span class="keyword">int</span>[matrix.length];</span><br><span class="line">        <span class="keyword">int</span>[] col = <span class="keyword">new</span> <span class="keyword">int</span>[matrix[<span class="number">0</span>].length];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j  = <span class="number">0</span>; j &lt; matrix[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (matrix[i][j] == <span class="number">0</span>) &#123;</span><br><span class="line">                    row[i] = <span class="number">1</span>;</span><br><span class="line">                    col[j] = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j  = <span class="number">0</span>; j &lt; matrix[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (row[i] == <span class="number">0</span> &amp;&amp; col[j] == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                matrix[i][j] = <span class="number">0</span>;       </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2018/02/02/Set-Matrix-Zeroes/#more" rel="contents">
@@ -487,7 +602,7 @@
               
                 
                 <a class="post-title-link" href="/2018/01/19/N-Queens/" itemprop="url">
-                  N-Queens
+                  LeetCode51 - N-Queens
                 </a>
               
             
@@ -522,7 +637,7 @@
 
           
           
-             <span id="/2018/01/19/N-Queens/" class="leancloud_visitors" data-flag-title="N-Queens">
+             <span id="/2018/01/19/N-Queens/" class="leancloud_visitors" data-flag-title="LeetCode51 - N-Queens">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1280,124 +1395,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/09/2016年point-miles总结/" itemprop="url">
-                  开心旅行指南
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-10T01:53:18Z" content="01-10-2017">
-              01-10-2017
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/09/2016年point-miles总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/09/2016年point-miles总结/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/01/09/2016年point-miles总结/" class="leancloud_visitors" data-flag-title="开心旅行指南">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="开心旅行指南"><a href="#开心旅行指南" class="headerlink" title="开心旅行指南"></a><center>开心旅行指南</center></h1><p>2016年是我接触里程积分接近2周年。在短短的一年里从各大论坛网站向前辈们学习。通过实践和操作切身体会到了 &lt;花小钱办大事&gt; &lt;点点滴滴的积累&gt; 的力量。每一次旅行不再是充满疲惫，相反带来的是更多的惊喜和喜悦。这篇文章作为2016年的信用卡，航空和酒店的总结。希望点点滴滴的积累也能对大家的出行带来惊喜～ 更多的经验会在后续的文章中介绍～</p>
-<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20170109/2016-flight-map.png" alt=""><br>2016年飞行纪录  </p>
-<ul>
-<li>13趟本地飞行(西雅图，三藩市，洛杉矶，芝加哥，麦迪逊，迈阿密，佛罗里达，华盛顿，费城，纽约)  </li>
-<li>13趟国际旅行(香港，东京，多伦多，温哥华，北京，波多黎各)  </li>
-</ul>
-<p>2016年总共有6.6天的时间都在飞机上度过，总里程绕了地球2.5圈～ 跟里程界的前辈们比，我的这点飞行估计只能作为他们的零头哈哈。  </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/09/2016年point-miles总结/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1443,7 +1440,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">79</span>
+              <span class="site-state-item-count">80</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1460,7 +1457,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">65</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

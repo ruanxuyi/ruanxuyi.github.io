@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LeetCode," />
+  <meta name="keywords" content="LeetCode,CrackingCodeInterview," />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="description Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.   Follow up:Did you use extra space?A straight forward solution using O(mn) space is probably">
-<meta name="keywords" content="LeetCode">
+<meta name="description" content="description https://leetcode.com/problems/set-matrix-zeroes/description/ Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.   Follow up:Did you use extra sp">
+<meta name="keywords" content="LeetCode,CrackingCodeInterview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode73 - Set Matrix Zeroes">
 <meta property="og:url" content="http://www.xuyiruan.com/2018/02/02/Set-Matrix-Zeroes/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="description Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.   Follow up:Did you use extra space?A straight forward solution using O(mn) space is probably">
+<meta property="og:description" content="description https://leetcode.com/problems/set-matrix-zeroes/description/ Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.   Follow up:Did you use extra sp">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-02-02T18:50:20.000Z">
+<meta property="og:updated_time" content="2018-02-02T19:11:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode73 - Set Matrix Zeroes">
-<meta name="twitter:description" content="description Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.   Follow up:Did you use extra space?A straight forward solution using O(mn) space is probably">
+<meta name="twitter:description" content="description https://leetcode.com/problems/set-matrix-zeroes/description/ Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.   Follow up:Did you use extra sp">
 
 
 
@@ -311,9 +311,9 @@
       
 
       
-        <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given a <code>m x n</code> matrix, if an element is 0, set its entire row and column to 0. Do it in place.  </p>
+        <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p><a href="https://leetcode.com/problems/set-matrix-zeroes/description/" target="_blank" rel="noopener">https://leetcode.com/problems/set-matrix-zeroes/description/</a></p>
+<p>Given a <code>m x n</code> matrix, if an element is 0, set its entire row and column to 0. Do it in place.  </p>
 <p><strong>Follow up:</strong><br>Did you use extra space?<br>A straight forward solution using <code>O(mn)</code> space is probably a bad idea.<br>A simple improvement uses <code>O(m + n)</code> space, but still not the best solution.<br>Could you devise a constant space solution?</p>
-<p><a href="https://leetcode.com/problems/set-matrix-zeroes/description/" target="_blank" rel="noopener">https://leetcode.com/problems/set-matrix-zeroes/description/</a></p>
 <h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setZeroes</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// time: O(mn)</span></span><br><span class="line">        <span class="comment">// space: O(m + n)</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[] row = <span class="keyword">new</span> <span class="keyword">int</span>[matrix.length];</span><br><span class="line">        <span class="keyword">int</span>[] col = <span class="keyword">new</span> <span class="keyword">int</span>[matrix[<span class="number">0</span>].length];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j  = <span class="number">0</span>; j &lt; matrix[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (matrix[i][j] == <span class="number">0</span>) &#123;</span><br><span class="line">                    row[i] = <span class="number">1</span>;</span><br><span class="line">                    col[j] = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; matrix.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j  = <span class="number">0</span>; j &lt; matrix[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (row[i] == <span class="number">0</span> &amp;&amp; col[j] == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                matrix[i][j] = <span class="number">0</span>;       </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="algorithm"><a href="#algorithm" class="headerlink" title=" algorithm "></a><center> algorithm </center></h2><p>observation: if an element is 0, then the <strong>entire</strong> col and row all set to zero. Hence, we just need two 1D array to record zero information. </p>
@@ -342,6 +342,8 @@
           
             <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
           
+            <a href="/tags/CrackingCodeInterview/" rel="tag">#CrackingCodeInterview</a>
+          
         </div>
       
 
@@ -356,6 +358,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/02/check-string-rotation/" rel="prev" title="CTCI1.9 - Check String Rotation">
+                CTCI1.9 - Check String Rotation <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -430,7 +436,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">79</span>
+              <span class="site-state-item-count">80</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -447,7 +453,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">65</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
