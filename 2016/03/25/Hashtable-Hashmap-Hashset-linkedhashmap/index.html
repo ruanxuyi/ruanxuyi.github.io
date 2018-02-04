@@ -105,7 +105,7 @@
 <meta property="og:description" content="HashTable, HashMap, HashSet   HashTable HashMap HashSet     synchronized not synchronized not synchronized   duplicate key allow duplicate key allow duplicate key NOT allow   null keys or values NOT a">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201211/17/1353118778_2052.png">
-<meta property="og:updated_time" content="2016-03-25T14:35:52.000Z">
+<meta property="og:updated_time" content="2018-02-04T16:23:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hashtable vs Hashmap vs Hashset">
 <meta name="twitter:description" content="HashTable, HashMap, HashSet   HashTable HashMap HashSet     synchronized not synchronized not synchronized   duplicate key allow duplicate key allow duplicate key NOT allow   null keys or values NOT a">
@@ -275,25 +275,6 @@
           </span>
 
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/DataStructure/" itemprop="url" rel="index">
-                    <span itemprop="name">DataStructure</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
 
           
             
@@ -369,6 +350,23 @@
 </tbody>
 </table>
 <a id="more"></a>
+<h1 id="Hashmap-vs-Hashtable-Updated-2018-02-04"><a href="#Hashmap-vs-Hashtable-Updated-2018-02-04" class="headerlink" title="Hashmap vs Hashtable Updated 2018-02-04"></a>Hashmap vs Hashtable Updated 2018-02-04</h1><p><a href="https://www.geeksforgeeks.org/differences-between-hashmap-and-hashtable-in-java/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/differences-between-hashmap-and-hashtable-in-java/</a></p>
+<p>Use HashTable when:  </p>
+<ol>
+<li>Multi-thread is not used. HashMap is not-thread safe and can’t be shared between many threads without proper synchronization code whereas Hashtable is synchronized. Hashtable is thread-safe and can be shared with many threads.</li>
+<li>Null key/value is possible. HashMap allows <strong>one null key</strong> and <strong>multiple null values</strong> whereas Hashtable doesn’t allow any null key or value.</li>
+<li>HashMap is generally <strong>preferred</strong> over HashTable if thread synchronization is not needed</li>
+</ol>
+<p>Why HashTable doesn’t allow null and HashMap does?<br>To successfully store and retrieve objects from a HashTable, the objects used as keys must implement the hashCode method and the equals method. Since null is not an object, it can’t implement these methods. HashMap is an <strong>advanced version</strong> and improvement on the Hashtable. HashMap was created later.</p>
+<p><a href="https://stackoverflow.com/questions/9536077/when-should-i-use-a-hashtable-versus-a-hashmap" target="_blank" rel="noopener">https://stackoverflow.com/questions/9536077/when-should-i-use-a-hashtable-versus-a-hashmap</a></p>
+<p>Use HashTable only:  </p>
+<ol>
+<li>When you want to run on Java 1.1  </li>
+<li>When you want each operation to be synchronized (getting you a form of thread safety, so long as you never iterate over it) - and for some reason don’t want to use <code>Collections.synchronizedMap</code> over a <code>HashMap</code></li>
+<li>When you don’t want to be able to store null values  </li>
+<li>When the memory difference is actually significant (only after you’ve proved this is the case) - I wasn’t even aware of this difference, personally…  </li>
+<li>When you’re forced to by a nasty API which returns or takes Hashtable (relatively rare, fortunately)  </li>
+</ol>
 <h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a><strong>HashMap</strong></h1><h2 id="Internal-Data-Structure"><a href="#Internal-Data-Structure" class="headerlink" title="Internal Data Structure"></a><strong>Internal Data Structure</strong></h2><p>There are two types of internal data structure in Java programming. <em>Array</em> and <em>linked-list</em>. </p>
 <p><em>Array</em>‘s query can complete in constant time, however, operations such as add or remove certain elements result large overhead (rearranging elements within array). </p>
 <p>On the other hand, <em>linked-list</em> has huge overhead in query (treverse whole linked-list) however, the pure operation of add/delete in <em>linked-list</em> data structure (by maniuplating the pointer) is much easier comparing to <em>array</em>. </p>
@@ -533,8 +531,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/28/BFS-DFS/" rel="prev" title="BFS vs DFS">
-                BFS vs DFS <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/28/BinarySearch/" rel="prev" title="Binary Search">
+                Binary Search <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -610,7 +608,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">81</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -627,7 +625,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -707,7 +705,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HashTable-HashMap-HashSet"><span class="nav-number">1.</span> <span class="nav-text">HashTable, HashMap, HashSet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Internal-Data-Structure"><span class="nav-number">2.1.</span> <span class="nav-text">Internal Data Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Characterstics"><span class="nav-number">2.2.</span> <span class="nav-text">Characterstics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Performance"><span class="nav-number">2.3.</span> <span class="nav-text">Performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Constructors"><span class="nav-number">2.4.</span> <span class="nav-text">Constructors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">2.5.</span> <span class="nav-text">Methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashTable"><span class="nav-number">3.</span> <span class="nav-text">HashTable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashSet"><span class="nav-number">4.</span> <span class="nav-text">HashSet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.1.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HashTable-HashMap-HashSet"><span class="nav-number">1.</span> <span class="nav-text">HashTable, HashMap, HashSet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hashmap-vs-Hashtable-Updated-2018-02-04"><span class="nav-number">2.</span> <span class="nav-text">Hashmap vs Hashtable Updated 2018-02-04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap"><span class="nav-number">3.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Internal-Data-Structure"><span class="nav-number">3.1.</span> <span class="nav-text">Internal Data Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Characterstics"><span class="nav-number">3.2.</span> <span class="nav-text">Characterstics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Performance"><span class="nav-number">3.3.</span> <span class="nav-text">Performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Constructors"><span class="nav-number">3.4.</span> <span class="nav-text">Constructors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">3.5.</span> <span class="nav-text">Methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashTable"><span class="nav-number">4.</span> <span class="nav-text">HashTable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashSet"><span class="nav-number">5.</span> <span class="nav-text">HashSet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.1.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

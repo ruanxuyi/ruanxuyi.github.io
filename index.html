@@ -256,6 +256,241 @@
             
               
                 
+                <a class="post-title-link" href="/2018/02/04/167-Two-Sum-II-Input-array-is-sorted/" itemprop="url">
+                  LeetCode167 - Two Sum II - Input Array Is Sorted
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-02-04T16:08:56Z" content="02-04-2018">
+              02-04-2018
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/02/04/167-Two-Sum-II-Input-array-is-sorted/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/04/167-Two-Sum-II-Input-array-is-sorted/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/02/04/167-Two-Sum-II-Input-array-is-sorted/" class="leancloud_visitors" data-flag-title="LeetCode167 - Two Sum II - Input Array Is Sorted">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p><a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/" target="_blank" rel="noopener">https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/</a></p>
+<p>Given an array of integers that is already <strong>sorted in ascending order</strong>, find two numbers such that they add up to a specific target number.</p>
+<p>The function twoSum should return indices of the two numbers such that they add up to the target, where <code>index1</code> must be less than <code>index2</code>. Please note that your returned answers (both <code>index1</code> and <code>index2</code>) are not zero-based.</p>
+<p>You may assume that each input would have exactly one solution and you may not use the same element twice.</p>
+<p>Input: numbers=<code>{2, 7, 11, 15}</code>, target=<code>9</code><br>Output: <code>index1=1, index2=2</code>  </p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><p>hashmap vs hashtable ??? </p>
+<h3 id="O-n-time-O-n-space-hashmap"><a href="#O-n-time-O-n-space-hashmap" class="headerlink" title="O(n) time O(n) space hashmap"></a>O(n) time O(n) space hashmap</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line"></span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] indices = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(numbers[i])) &#123;</span><br><span class="line">                indices = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;map.get(numbers[i]), i+<span class="number">1</span>&#125;;</span><br><span class="line">                <span class="comment">// break;</span></span><br><span class="line">            &#125;</span><br><span class="line">            map.put(target - numbers[i], i+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> indices;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="O-n-time-O-1-space-2ptrs"><a href="#O-n-time-O-1-space-2ptrs" class="headerlink" title="O(n) time O(1) space 2ptrs"></a>O(n) time O(1) space 2ptrs</h3><p><a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/discuss/51282/Simple-8-line-Java-solution-with-explanation.-O(n)" target="_blank" rel="noopener">https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/discuss/51282/Simple-8-line-Java-solution-with-explanation.-O(n)</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = numbers.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span>[] indices = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (numbers[left] + numbers[right] == target) &#123;</span><br><span class="line">                indices = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;left+<span class="number">1</span>, right+<span class="number">1</span>&#125;;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (numbers[left] + numbers[right] &gt; target) right--;</span><br><span class="line">            <span class="keyword">else</span> left++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> indices;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/02/04/167-Two-Sum-II-Input-array-is-sorted/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/02/04/my-tool-box/" itemprop="url">
+                  Algorithmic Toolbox
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-02-04T14:17:09Z" content="02-04-2018">
+              02-04-2018
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/02/04/my-tool-box/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/04/my-tool-box/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/02/04/my-tool-box/" class="leancloud_visitors" data-flag-title="Algorithmic Toolbox">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          descriptionThis post documents basic, but important algorithmic techniques for solving computational problems and building box for real world problems
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/02/04/my-tool-box/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/02/04/reverse-linked-list/" itemprop="url">
                   LeetCode206 - Reverse Linkedlist
                 </a>
@@ -1166,233 +1401,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/21/2017-summer-intern/" itemprop="url">
-                  亚马逊实习
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-08-21T22:04:20Z" content="08-21-2017">
-              08-21-2017
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/08/21/2017-summer-intern/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/21/2017-summer-intern/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/08/21/2017-summer-intern/" class="leancloud_visitors" data-flag-title="亚马逊实习">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20170802/Amazon-logo.png" alt=""></p>
-<h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>研究生的第一个暑假是在西雅图度过的。人生第一次实习献给了亚马逊。1月中面试开始，2月初结束面试，2月中接到offer。除了投简历到收到回复过程历时2个月，面试流程还是非常高效的。拿到offer后就要选定自己的实习小组，HR一开始给了三个跟自己背景毫不相关的小组。通过跟HR的唇枪舌剑，分到一个相对满意的小组。小组是在信息安全部门下做内部工具的研发和维护的。项目最后完成90%，经理和导师表示就差那么一点就能拿到return offer的标准。现实是残酷的，尽管最后没有拿到return offer，但收获很多，也渐渐爱上了『夏天的』西雅图。  </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/08/21/2017-summer-intern/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/02/fix-philips-tooth-brash/" itemprop="url">
-                  Sonicare 维修记 (Fix Your Sonicare Toothbrush)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-03-02T23:24:58Z" content="03-02-2017">
-              03-02-2017
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/03/02/fix-philips-tooth-brash/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/02/fix-philips-tooth-brash/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/03/02/fix-philips-tooth-brash/" class="leancloud_visitors" data-flag-title="Sonicare 维修记 (Fix Your Sonicare Toothbrush)">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>前段时间很失落。心爱的philips sonicare牙刷开始发出一些奇怪的响声，震动的感觉也和原来大不相同。症状是牙刷头的那条金属棒(shaft)开始摇摇晃晃, 松动的牙刷头导致超声波震动的效果大大降低。后来越来越松，最后完全不震动了。。160刀的牙刷说罢工就罢工了。用了4年的牙刷，难道真的是老了要退役了嘛，有点不舍。</p>
-<p>网上逛了圈，新的sonicare价格还是居高不下。心有不甘。网上搜了下，很多难兄难弟跟我同样遭遇。I am not alone! 如果你也有相似的问题，千万不要扔掉心爱的牙刷。只需要动动手，拧一拧，可以省下100多刀！</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_G1JJ6l7N0I" frameborder="0" allowfullscreen></iframe>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/03/02/fix-philips-tooth-brash/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1438,7 +1446,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">81</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1455,7 +1463,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

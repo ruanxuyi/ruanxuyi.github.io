@@ -256,6 +256,241 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/06/ugly-num-2/" itemprop="url">
+                  LC4 - Ugly Num 2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-06T10:07:31Z" content="01-06-2017">
+              01-06-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/06/ugly-num-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/06/ugly-num-2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/06/ugly-num-2/" class="leancloud_visitors" data-flag-title="LC4 - Ugly Num 2">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Ugly number is a number that only have <strong>factors</strong> <code>2</code>, <code>3</code> and <code>5</code>.</p>
+<p>Design an algorithm to find the nth ugly number. The first 10 ugly numbers are <code>1, 2, 3, 4, 5, 6, 8, 9, 10, 12...</code></p>
+<p> <strong>Notice</strong><br>Note that 1 is typically treated as an ugly number.</p>
+<p><strong>Example</strong><br>If <code>n=9</code>, return <code>10</code>.</p>
+<p><a href="http://www.lintcode.com/en/problem/ugly-number-ii/" target="_blank" rel="noopener">LC4 ugly num 2</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><p>###<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n an integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> the nth prime number as description.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span>[] uglyList = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        uglyList[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> p2 = <span class="number">0</span>, p3 = <span class="number">0</span>, p5 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> a2 = <span class="number">2</span>*uglyList[p2];</span><br><span class="line">            <span class="keyword">int</span> a3 = <span class="number">3</span>*uglyList[p3];</span><br><span class="line">            <span class="keyword">int</span> a5 = <span class="number">5</span>*uglyList[p5];</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">int</span> ugly_curr = Math.min(a2, Math.min(a3, a5));</span><br><span class="line">            uglyList[i] = ugly_curr;</span><br><span class="line">            <span class="comment">// increment index the one choosen (like merge sort)</span></span><br><span class="line">            <span class="keyword">if</span> (a2 == uglyList[i]) p2++;</span><br><span class="line">            <span class="keyword">if</span> (a3 == uglyList[i]) p3++;</span><br><span class="line">            <span class="keyword">if</span> (a5 == uglyList[i]) p5++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uglyList[n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/06/ugly-num-2/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/05/Min-Stack/" itemprop="url">
+                  LC12 - Min Stack
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-05T13:19:45Z" content="01-05-2017">
+              01-05-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/05/Min-Stack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/05/Min-Stack/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/05/Min-Stack/" class="leancloud_visitors" data-flag-title="LC12 - Min Stack">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Implement a stack with <code>min()</code> function, which will return the smallest number in the stack.</p>
+<p>It should support push, pop and min operation all in $O(1)$ cost.</p>
+<p> <strong>Notice</strong><br>min operation will never be called if there is no number in the stack.</p>
+<p><strong>Example</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">push(1)  </span><br><span class="line">pop()   // return 1  </span><br><span class="line">push(2)</span><br><span class="line">push(3)</span><br><span class="line">min()   // return 2</span><br><span class="line">push(1)</span><br><span class="line">min()   // return 1</span><br></pre></td></tr></table></figure>
+<p><a href=""></a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; stack = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; min = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> minIndex = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> currIndex = -<span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// do initialize if necessary</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        stack.put(++currIndex, number);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (minIndex == -<span class="number">1</span> || number &lt;= min.get(minIndex)) &#123; <span class="comment">// bug1: num &lt;= min.get</span></span><br><span class="line">            min.put(++minIndex, number);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (stack.get(currIndex).equals(min.get(minIndex))) &#123; <span class="comment">// bug2: get return object, use .equals() instead of `==` to compare.</span></span><br><span class="line">            minIndex--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.get(currIndex--);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">return</span> min.get(minIndex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/05/Min-Stack/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/04/Intersection-of-Two-Arrays/" itemprop="url">
                   LC547 - Intersection of Two Arrays
                 </a>
@@ -1166,246 +1401,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/31/LPS/" itemprop="url">
-                  Longest Palindrome Subsequence
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-31T14:29:13Z" content="10-31-2016">
-              10-31-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/31/LPS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/31/LPS/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/31/LPS/" class="leancloud_visitors" data-flag-title="Longest Palindrome Subsequence">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Description"><a href="#Description" class="headerlink" title=" Description: "></a><center> Description: </center></h1><p><strong>[Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence</strong></p>
-<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png" alt=""></p>
-<p>A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of palindromes are all strings of length 1, <code>civic</code>, <code>racecar</code>, and <code>aibohphobia</code> (fear of palindromes).  </p>
-<p>Give an efficient algorithm to find the <strong>longest palindrome</strong> that is a <strong>subsequence</strong> of a given input string. For example, given the input character, your algorithm should return carac. What is the running time of your algorithm?   </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/31/LPS/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/21/Java基础语法/" itemprop="url">
-                  Java基础语法模块
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-21T16:24:10Z" content="10-21-2016">
-              10-21-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/21/Java基础语法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/21/Java基础语法/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/21/Java基础语法/" class="leancloud_visitors" data-flag-title="Java基础语法模块">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Split-String-amp-String-to-Int"><a href="#Split-String-amp-String-to-Int" class="headerlink" title="Split String &amp; String to Int"></a>Split String &amp; String to Int</h2><ul>
-<li><code>str.split(&quot; &quot;); // split string with delimiter &quot; &quot;</code></li>
-<li><p><code>Integer.parseInt(splited[0]); // string to int</code>  </p>
-</li>
-<li><p>given string has two integers seperate by a space. <code>str = &quot;13 45&quot;</code></p>
-</li>
-<li>extract two integers</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"13 45"</span>;</span><br><span class="line">String[] splited = str.split(<span class="string">" "</span>); <span class="comment">// splited[0] = "13", splited[1] = "45"</span></span><br><span class="line"><span class="keyword">int</span> n1 = Integer.parseInt(splited[<span class="number">0</span>]);</span><br><span class="line"><span class="keyword">int</span> n2 = Integer.parseInt(splited[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
-<h2 id="Check-Perfect-Square"><a href="#Check-Perfect-Square" class="headerlink" title="Check Perfect Square"></a>Check Perfect Square</h2><ul>
-<li>check a given list of number if it is a perfect square number.  </li>
-<li>ex. given <code>[1, 2, 3, 4, 5, 6, 7, 8, 9]</code>, <code>4</code> and <code>9</code> are perfect squares.  </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">perfectSquare</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sqrt = (<span class="keyword">int</span>) Math.sqrt(num);</span><br><span class="line">	<span class="keyword">return</span> num == sqrt * sqrt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/21/Java基础语法/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1451,7 +1446,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">81</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1468,7 +1463,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
