@@ -256,6 +256,122 @@
             
               
                 
+                <a class="post-title-link" href="/2018/01/17/backpack/" itemprop="url">
+                  LintCode92 - Backpack
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-01-17T14:57:07Z" content="01-17-2018">
+              01-17-2018
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/01/17/backpack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/17/backpack/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/01/17/backpack/" class="leancloud_visitors" data-flag-title="LintCode92 - Backpack">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p><a href="http://www.lintcode.com/en/problem/backpack/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/backpack/</a></p>
+<p>Given <code>n</code> items with size $A_i$, an integer <code>m</code> denotes the size of a backpack. How full you can fill this backpack?</p>
+<p>If we have 4 items with size <code>[2, 3, 5, 7]</code>, the backpack size is <code>11</code>, we can select <code>[2, 3, 5]</code>, so that the max size we can fill this backpack is 10. If the backpack size is 12. we can select <code>[2, 3, 7]</code> so that we can fulfill the backpack.</p>
+<p>You function should return the max size we can fill in the given backpack.</p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> m: An integer m denotes the size of a backpack</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A: Given n items with size A[i]</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The maximum size</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">backPack</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span> || m == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[A.length+<span class="number">1</span>][m+<span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// initialization</span></span><br><span class="line">        <span class="comment">// for (int i = 0; i &lt; m+1; i++) &#123;</span></span><br><span class="line">        <span class="comment">//     dp[0][i] = 0;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// function</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length+<span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m+<span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &lt; A[i-<span class="number">1</span>]) &#123;</span><br><span class="line">                    dp[i][j] = dp[i-<span class="number">1</span>][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = Math.max(A[i-<span class="number">1</span>] + dp[i-<span class="number">1</span>][j-A[i-<span class="number">1</span>]], dp[i-<span class="number">1</span>][j]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// solution</span></span><br><span class="line">        <span class="keyword">return</span> dp[A.length][m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/01/17/backpack/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/21/2017-summer-intern/" itemprop="url">
                   亚马逊实习
                 </a>
@@ -1285,134 +1401,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/06/rehashing/" itemprop="url">
-                  LC129 - Rehashing
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-06T13:58:16Z" content="01-06-2017">
-              01-06-2017
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/06/rehashing/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/06/rehashing/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/01/06/rehashing/" class="leancloud_visitors" data-flag-title="LC129 - Rehashing">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>The size of the hash table is not determinate at the very beginning. If the total size of keys is too large (e.g. `size &gt;= capacity / 10), we should double the size of the hash table and rehash every keys. Say you have a hash table looks like below:</p>
-<p><code>size=3, capacity=4</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[null, 21, 14, null]</span><br><span class="line">       ↓    ↓</span><br><span class="line">       9   null</span><br><span class="line">       ↓</span><br><span class="line">      null</span><br></pre></td></tr></table></figure>
-<p>The hash function is:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashcode</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> key % capacity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>here we have three numbers, <code>9</code>, <code>14</code> and <code>21</code>, where <code>21</code> and <code>9</code> share the same position as they all have the same hashcode 1 (<code>21 % 4 = 9 % 4 = 1</code>). We store them in the hash table by linked list.</p>
-<p>rehashing this hash table, double the capacity, you will get:</p>
-<p><code>size=3, capacity=8</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">index:   0    1    2    3     4    5    6   7</span><br><span class="line">hash : [null, 9, null, null, null, 21, 14, null]</span><br></pre></td></tr></table></figure>
-<p>Given the original hash table, return the new hash table after rehashing .</p>
-<p> <strong>Notice</strong>  </p>
-<p>For negative integer in hash table, the position can be calculated as follow:</p>
-<p>C++/Java: if you directly calculate <code>-4 % 3</code> you will get <code>-1</code>. You can use function: <code>a % b = (a % b + b) % b</code> to make it is a non negative integer.<br>Python: you can directly use -1 % 3, you will get 2 automatically.</p>
-<p><strong>Example</strong><br>Given <code>[null, 21-&gt;9-&gt;null, 14-&gt;null, null]</code>,</p>
-<p>return <code>[null, 9-&gt;null, null, null, null, 21-&gt;null, 14-&gt;null, null]</code></p>
-<p><a href="http://www.lintcode.com/en/problem/rehashing/" target="_blank" rel="noopener">LC129 rehashing</a></p>
-<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for ListNode</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123;</span></span><br><span class="line"><span class="comment"> *         val = x;</span></span><br><span class="line"><span class="comment"> *         next = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> hashTable: A list of The first node of linked list</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: A list of The first node of linked list which have twice size</span></span><br><span class="line"><span class="comment">     */</span>    </span><br><span class="line">    <span class="keyword">public</span> ListNode[] rehashing(ListNode[] hashTable) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> capacity = hashTable.length;</span><br><span class="line">        <span class="keyword">if</span> (capacity == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> hashTable;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// new hashtable w/ 2x size</span></span><br><span class="line">        ListNode[] rehash = <span class="keyword">new</span> ListNode[<span class="number">2</span>*capacity];</span><br><span class="line">        <span class="keyword">int</span> capacity_rehash = rehash.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (ListNode hash : hashTable) &#123;</span><br><span class="line">            <span class="keyword">while</span> (hash != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> key = hash.val;</span><br><span class="line">                <span class="keyword">int</span> index_rehash = hashcode(key, capacity_rehash);</span><br><span class="line">                <span class="keyword">if</span> (rehash[index_rehash] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    rehash[index_rehash] = <span class="keyword">new</span> ListNode(key);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// chaining</span></span><br><span class="line">                    ListNode tmp;</span><br><span class="line">                    tmp = rehash[index_rehash];</span><br><span class="line">                    <span class="keyword">while</span> (tmp.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        tmp = tmp.next;</span><br><span class="line">                    &#125;</span><br><span class="line">                    tmp.next = <span class="keyword">new</span> ListNode(key);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// traverse current chaining</span></span><br><span class="line">                hash = hash.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rehash;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hashcode</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (key % capacity + capacity) % capacity;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/06/rehashing/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1458,7 +1446,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">83</span>
+              <span class="site-state-item-count">84</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1475,7 +1463,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">65</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
