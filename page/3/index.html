@@ -256,6 +256,125 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/07/hash-function/" itemprop="url">
+                  LC128 - Hash Function
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-07T14:13:47Z" content="01-07-2017">
+              01-07-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/07/hash-function/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/07/hash-function/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/07/hash-function/" class="leancloud_visitors" data-flag-title="LC128 - Hash Function">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>In data structure Hash, hash function is used to convert a string(or any other type) into an integer smaller than hash size and bigger or equal to zero. The objective of designing a hash function is to “hash” the key as unreasonable as possible. A good hash function can avoid collision as less as possible. A widely used hash function algorithm is using a magic number 33, consider any string as a 33 based big integer like follow:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hashcode(&quot;abcd&quot;) = (ascii(a) * 333 + ascii(b) * 332 + ascii(c) *33 + ascii(d)) % HASH_SIZE </span><br><span class="line">                             = (97* 333 + 98 * 332 + 99 * 33 +100) % HASH_SIZE</span><br><span class="line">                             = 3595978 % HASH_SIZE</span><br></pre></td></tr></table></figure>
+<p>here <code>HASH_SIZE</code> is the capacity of the hash table (you can assume a hash table is like an array with index 0 ~ <code>HASH_SIZE</code>-1).</p>
+<p>Given a string as a key and the size of hash table, return the hash value of this key.f</p>
+<p><strong>Clarification</strong><br>For this problem, you are not necessary to design your own hash algorithm or consider any collision issue, you just need to implement the algorithm as described.</p>
+<p><strong>Example</strong><br>For <code>key=&quot;abcd&quot;</code> and <code>size=100</code>, return <code>78</code></p>
+<p><a href="http://www.lintcode.com/en/problem/hash-function/" target="_blank" rel="noopener">LC129 hash function</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><h3 id="Ver-1"><a href="#Ver-1" class="headerlink" title="Ver.1"></a>Ver.1</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> key: A String you should hash</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> HASH_SIZE: An integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">(<span class="keyword">char</span>[] key,<span class="keyword">int</span> HASH_SIZE)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = key.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; len; index++) &#123;</span><br><span class="line">            sum = (sum * <span class="number">33</span> + (<span class="keyword">int</span>)key[index]) % HASH_SIZE;  <span class="comment">//(int)'a' returns asiic of 'a'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/07/hash-function/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/06/rehashing/" itemprop="url">
                   LC129 - Rehashing
                 </a>
@@ -798,7 +917,8 @@
 <p>Given two arrays, write a function to compute their intersection.<br>Intersection指的是数学里的交集($\cap$)</p>
 <p><strong>Notice</strong><br>Each element in the result must be unique.<br>The result can be in any order.</p>
 <p><a href="http://www.lintcode.com/en/problem/intersection-of-two-arrays/" target="_blank" rel="noopener">LC547 Intersection of Two Arrays</a></p>
-<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums1 an integer array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums2 an integer array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span> len1 = nums1.length;</span><br><span class="line">        <span class="keyword">int</span> len2 = nums2.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span> || len2 == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// checking</span></span><br><span class="line">        HashSet&lt;Integer&gt; interset = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// solution</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">            set.add(nums1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (set.contains(nums2[i])) &#123;</span><br><span class="line">                interset.add(nums2[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] sol = <span class="keyword">new</span> <span class="keyword">int</span>[interset.size()];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Integer num: interset) &#123;</span><br><span class="line">            sol[index++] = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><h3 id="Two-HashSet-O-n-m-space-O-n-m-time"><a href="#Two-HashSet-O-n-m-space-O-n-m-time" class="headerlink" title="Two HashSet O(n + m) space O(n + m) time"></a>Two HashSet O(n + m) space O(n + m) time</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums1 an integer array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums2 an integer array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span> len1 = nums1.length;</span><br><span class="line">        <span class="keyword">int</span> len2 = nums2.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span> || len2 == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// checking</span></span><br><span class="line">        HashSet&lt;Integer&gt; interset = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// solution</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">            set.add(nums1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (set.contains(nums2[i])) &#123;</span><br><span class="line">                interset.add(nums2[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] sol = <span class="keyword">new</span> <span class="keyword">int</span>[interset.size()];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Integer num: interset) &#123;</span><br><span class="line">            sol[index++] = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Two-pointer-O-n-m-time-O-1-space"><a href="#Two-pointer-O-n-m-time-O-1-space" class="headerlink" title="Two pointer O(n + m) time, O(1) space"></a>Two pointer O(n + m) time, O(1) space</h3><p><a href="https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/</a></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/01/04/Intersection-of-Two-Arrays/#more" rel="contents">
               Read more &raquo;
@@ -1297,123 +1417,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/29/Two-Sum-Closest/" itemprop="url">
-                  LC533 - Two Sum Closest
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-12-29T19:34:50Z" content="12-29-2016">
-              12-29-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/29/Two-Sum-Closest/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/29/Two-Sum-Closest/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/12/29/Two-Sum-Closest/" class="leancloud_visitors" data-flag-title="LC533 - Two Sum Closest">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="description"><a href="#description" class="headerlink" title="description"></a><center>description</center></h2><p>Given an array <code>nums</code> of n integers, find two integers in nums such that the sum is closest to a given number, target.</p>
-<p>Return the difference between the sum of the two integers and the target.</p>
-<p><strong>Example</strong><br>Given array <code>nums = [-1, 2, 1, -4]</code>, and <code>target = 4</code>.</p>
-<p>The minimum difference is <code>1</code>. (4 - (2 + 1) = 1).</p>
-<p><a href="http://www.lintcode.com/en/problem/two-sum-closest/#" target="_blank" rel="noopener">LC533 Two Sum Closest</a></p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a><center>code</center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">twoSumCloset</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span> || nums == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Arrays.sort(nums); <span class="comment">// o(nlogn)</span></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> minDif = Integer.MAX_VALUE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> twoSum = nums[left] + nums[right];</span><br><span class="line">        <span class="comment">//int currDif = Math.abs(target - twoSum);</span></span><br><span class="line">        <span class="comment">//minDif = currDif &lt; minDif ? currDif : minDif;</span></span><br><span class="line">        <span class="keyword">if</span> (twoSum &lt; target) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        minDif = Math.min(minDif, Math.abs(target - twoSum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minDif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/29/Two-Sum-Closest/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1459,7 +1462,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">84</span>
+              <span class="site-state-item-count">85</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

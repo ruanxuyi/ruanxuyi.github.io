@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="DataStructure,LintCode,Stack,Queue," />
+  <meta name="keywords" content="Algorithm,CrackingCodeInterview,Everyday," />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="description As the title described, you should only use two stacks to implement a queue’s actions. The queue should support push(element), pop() and top() where pop is pop the first(a.k.a front) elem">
-<meta name="keywords" content="DataStructure,LintCode,Stack,Queue">
+<meta name="description" content="This post documents all concepts which not spark myself up at the first glance, especially during a coding interview. Read daily, ‘strangers’ eventually became best friends, one day.   Permutation of">
+<meta name="keywords" content="Algorithm,CrackingCodeInterview,Everyday">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC40 - Implement Queue by Two Stacks">
-<meta property="og:url" content="http://www.xuyiruan.com/2017/01/10/implement-queue-by-two-stacks/index.html">
+<meta property="og:title" content="My Best Stranger Friends">
+<meta property="og:url" content="http://www.xuyiruan.com/2018/02/06/my-best-stranger-friends/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="description As the title described, you should only use two stacks to implement a queue’s actions. The queue should support push(element), pop() and top() where pop is pop the first(a.k.a front) elem">
+<meta property="og:description" content="This post documents all concepts which not spark myself up at the first glance, especially during a coding interview. Read daily, ‘strangers’ eventually became best friends, one day.   Permutation of">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-01-10T16:06:20.000Z">
+<meta property="og:updated_time" content="2018-02-08T05:31:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC40 - Implement Queue by Two Stacks">
-<meta name="twitter:description" content="description As the title described, you should only use two stacks to implement a queue’s actions. The queue should support push(element), pop() and top() where pop is pop the first(a.k.a front) elem">
+<meta name="twitter:title" content="My Best Stranger Friends">
+<meta name="twitter:description" content="This post documents all concepts which not spark myself up at the first glance, especially during a coding interview. Read daily, ‘strangers’ eventually became best friends, one day.   Permutation of">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title> LC40 - Implement Queue by Two Stacks | 阮先生de小窝 </title>
+  <title> My Best Stranger Friends | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -255,7 +255,7 @@
             
             
               
-                LC40 - Implement Queue by Two Stacks
+                My Best Stranger Friends
               
             
           </h1>
@@ -267,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-10T05:47:57-05:00" content="01-10-2017">
-              01-10-2017
+            <time itemprop="dateCreated" datetime="2018-02-06T20:32:35-05:00" content="02-07-2018">
+              02-07-2018
             </time>
           </span>
 
@@ -278,8 +278,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/10/implement-queue-by-two-stacks/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/10/implement-queue-by-two-stacks/" itemprop="commentsCount"></span>
+                <a href="/2018/02/06/my-best-stranger-friends/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/06/my-best-stranger-friends/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -289,7 +289,7 @@
 
           
           
-             <span id="/2017/01/10/implement-queue-by-two-stacks/" class="leancloud_visitors" data-flag-title="LC40 - Implement Queue by Two Stacks">
+             <span id="/2018/02/06/my-best-stranger-friends/" class="leancloud_visitors" data-flag-title="My Best Stranger Friends">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -311,30 +311,11 @@
       
 
       
-        <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>As the title described, you should only use two stacks to implement a queue’s actions.</p>
-<p>The queue should support <code>push(element)</code>, <code>pop()</code> and <code>top()</code> where pop is pop the first(a.k.a front) element in the queue.</p>
-<p>Both pop and top methods should return the value of first element.</p>
-<p><strong>Example</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">push(1)</span><br><span class="line">pop()     // return 1</span><br><span class="line">push(2)</span><br><span class="line">push(3)</span><br><span class="line">top()     // return 2</span><br><span class="line">pop()     // return 2</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.lintcode.com/en/problem/implement-queue-by-two-stacks/" target="_blank" rel="noopener">LC40 implement queue by two stacks</a>  </p>
-<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; stack1;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; stack2;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Queue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="comment">// do initialization if necessary</span></span><br><span class="line">       stack1 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">       stack2 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> element)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span> (!stack2.empty()) &#123;</span><br><span class="line">            stack1.push(stack2.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        stack1.push(element);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">            stack2.push(stack1.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">            stack2.push(stack1.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> !stack2.empty() ? stack2.peek() : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="algorithm-correctness"><a href="#algorithm-correctness" class="headerlink" title=" algorithm correctness "></a><center> algorithm correctness </center></h2><p>Stack is a last in first out(LIFO) datastructure. To implement Queue, which is first in first out (FIFO), with two stacks, we need to play some tricks.  </p>
-<p>Asssume we have following operations: <code>push(1), push(2), push(3), pop()</code></p>
-<p>In Queue, <code>pop()</code> operation should return <code>1</code>. However, a single Stack only allow us to retrive <code>3</code> with <code>pop()</code> operation. Since we have two Stacks, we can use the first stack <code>stack1</code> as the <strong>push stack</strong>, and the other stack <code>stack2</code> as the <strong>pop/top stack</strong>. </p>
-<p>Here is the alagorithm:  </p>
-<ol>
-<li>on <code>push()</code> add element to <code>stack1</code> if <code>stack2</code> is empty.  </li>
-<li>on <code>pop()/top()</code>, pop all current elements from <code>stack1</code> and push them into <code>stack2</code> so that the <strong>bottom element</strong> of <code>stack1</code> (first original pushed) will appear in the <strong>top</strong> of the <code>stack2</code>.  </li>
-</ol>
-<p>Example above looks like this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">push(1), push(2), push(3)</span><br><span class="line"></span><br><span class="line">		stack1    stack2</span><br><span class="line">		| 3 |     |   |</span><br><span class="line">		| 2 |     |   |</span><br><span class="line">		|_1_|     |___|</span><br></pre></td></tr></table></figure>
-<p>On <code>pop()</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pop() -&gt; 1</span><br><span class="line"></span><br><span class="line">		stack1    stack2</span><br><span class="line">		|   |     | 1 |</span><br><span class="line">		|   |     | 2 |</span><br><span class="line">		|___|     |_3_|</span><br></pre></td></tr></table></figure>
-<p>if we continue to <code>push(4)</code>, then we <strong>pop</strong> out all elements from <code>stack2</code> to <code>stack1</code> first, then <strong>push</strong> the new element.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">push(4)</span><br><span class="line"></span><br><span class="line">		stack1    stack2          stack1</span><br><span class="line">		| 3 |     |   |           | 4 |</span><br><span class="line">		| 2 |     |   |     -&gt;    | 3 |</span><br><span class="line">		|_1_|     |___|           | 2 |</span><br><span class="line">		                          |_1_|</span><br></pre></td></tr></table></figure>
-<h2 id="complexity-analysis"><a href="#complexity-analysis" class="headerlink" title=" complexity analysis "></a><center> complexity analysis </center></h2><p><strong>Time</strong>: all operations are $O(1)$ on average.  </p>
-<h2 id="self-notes"><a href="#self-notes" class="headerlink" title=" self notes "></a><center> self notes </center></h2><h2 id="application"><a href="#application" class="headerlink" title=" application "></a><center> application </center></h2><h2 id="reference"><a href="#reference" class="headerlink" title=" reference "></a><center> reference </center></h2>
+        <p>This post documents all concepts which not spark myself up at the first glance, especially during a coding interview. Read daily, ‘strangers’ eventually became best friends, one day.  </p>
+<h2 id="Permutation-of-string"><a href="#Permutation-of-string" class="headerlink" title="Permutation of string"></a>Permutation of string</h2><p><a href="https://www.google.com/search?source=hp&amp;ei=1Jx6WqrsBMmB5wK_0KOoCQ&amp;q=permutation+of+string&amp;oq=permutation+of+string&amp;gs_l=psy-ab.3...141.2519.0.2666.0.0.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..0.0.0....0.xi9Jj2EyrVk" target="_blank" rel="noopener">https://www.google.com/search?source=hp&amp;ei=1Jx6WqrsBMmB5wK_0KOoCQ&amp;q=permutation+of+string&amp;oq=permutation+of+string&amp;gs_l=psy-ab.3...141.2519.0.2666.0.0.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..0.0.0....0.xi9Jj2EyrVk</a></p>
+<h2 id="Anagram-of-string"><a href="#Anagram-of-string" class="headerlink" title="Anagram of string"></a>Anagram of string</h2><h2 id="coding-straties"><a href="#coding-straties" class="headerlink" title="coding straties"></a>coding straties</h2><p>3 Algorithm Strategies<br><a href="https://www.youtube.com/watch?time_continue=54&amp;v=84UYVCluClQ" target="_blank" rel="noopener">https://www.youtube.com/watch?time_continue=54&amp;v=84UYVCluClQ</a></p>
+<p>7 Steps to Solve Algorithm Problems<br><a href="https://www.youtube.com/watch?time_continue=18&amp;v=GKgAVjJxh9w" target="_blank" rel="noopener">https://www.youtube.com/watch?time_continue=18&amp;v=GKgAVjJxh9w</a></p>
+
       
     </div>
 
@@ -355,13 +336,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/DataStructure/" rel="tag">#DataStructure</a>
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
           
-            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+            <a href="/tags/CrackingCodeInterview/" rel="tag">#CrackingCodeInterview</a>
           
-            <a href="/tags/Stack/" rel="tag">#Stack</a>
-          
-            <a href="/tags/Queue/" rel="tag">#Queue</a>
+            <a href="/tags/Everyday/" rel="tag">#Everyday</a>
           
         </div>
       
@@ -370,17 +349,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/09/2016年point-miles总结/" rel="next" title="开心旅行指南">
-                <i class="fa fa-chevron-left"></i> 开心旅行指南
+              <a href="/2018/02/04/103-Binary-Tree-Zigzag-Level-Order-Traversal/" rel="next" title="LeetCode103 - Binary Tree Zigzag Level Order Traversal">
+                <i class="fa fa-chevron-left"></i> LeetCode103 - Binary Tree Zigzag Level Order Traversal
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/10/largest-rectangle-in-histogram/" rel="prev" title="LC122 - Largest Rectangle in Histogram">
-                LC122 - Largest Rectangle in Histogram <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -552,7 +527,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-number">1.</span> <span class="nav-text"> description </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text"> code </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm-correctness"><span class="nav-number">3.</span> <span class="nav-text"> algorithm correctness </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity-analysis"><span class="nav-number">4.</span> <span class="nav-text"> complexity analysis </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self-notes"><span class="nav-number">5.</span> <span class="nav-text"> self notes </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#application"><span class="nav-number">6.</span> <span class="nav-text"> application </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text"> reference </span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Permutation-of-string"><span class="nav-number">1.</span> <span class="nav-text">Permutation of string</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anagram-of-string"><span class="nav-number">2.</span> <span class="nav-text">Anagram of string</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#coding-straties"><span class="nav-number">3.</span> <span class="nav-text">coding straties</span></a></li></ol></div>
             
           </div>
         </section>
@@ -672,9 +647,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
-      var disqus_identifier = '2017/01/10/implement-queue-by-two-stacks/';
-      var disqus_title = "LC40 - Implement Queue by Two Stacks";
-      var disqus_url = 'http://www.xuyiruan.com/2017/01/10/implement-queue-by-two-stacks/';
+      var disqus_identifier = '2018/02/06/my-best-stranger-friends/';
+      var disqus_title = "My Best Stranger Friends";
+      var disqus_url = 'http://www.xuyiruan.com/2018/02/06/my-best-stranger-friends/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
