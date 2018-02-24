@@ -256,6 +256,239 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/04/Intersection-of-Two-Arrays/" itemprop="url">
+                  LeetCode547 - Intersection of Two Arrays
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-04T11:07:04Z" content="01-04-2017">
+              01-04-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/04/Intersection-of-Two-Arrays/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/04/Intersection-of-Two-Arrays/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/04/Intersection-of-Two-Arrays/" class="leancloud_visitors" data-flag-title="LeetCode547 - Intersection of Two Arrays">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p><a href="https://leetcode.com/problems/intersection-of-two-arrays/description/" target="_blank" rel="noopener">https://leetcode.com/problems/intersection-of-two-arrays/description/</a></p>
+<p>Given two arrays, write a function to compute their intersection.<br>Intersection指的是数学里的交集($\cap$)</p>
+<p><strong>Notice</strong><br>Each element in the result must be unique.<br>The result can be in any order.</p>
+<p><a href="http://www.lintcode.com/en/problem/intersection-of-two-arrays/" target="_blank" rel="noopener">LC547 Intersection of Two Arrays</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><h3 id="Two-HashSet-O-n-m-space-O-n-m-time"><a href="#Two-HashSet-O-n-m-space-O-n-m-time" class="headerlink" title="Two HashSet O(n + m) space O(n + m) time"></a>Two HashSet O(n + m) space O(n + m) time</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums1 an integer array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums2 an integer array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span> len1 = nums1.length;</span><br><span class="line">        <span class="keyword">int</span> len2 = nums2.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span> || len2 == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// checking</span></span><br><span class="line">        HashSet&lt;Integer&gt; interset = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// solution</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">            set.add(nums1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (set.contains(nums2[i])) &#123;</span><br><span class="line">                interset.add(nums2[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] sol = <span class="keyword">new</span> <span class="keyword">int</span>[interset.size()];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Integer num: interset) &#123;</span><br><span class="line">            sol[index++] = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Two-pointer-O-n-m-time-O-1-space"><a href="#Two-pointer-O-n-m-time-O-1-space" class="headerlink" title="Two pointer O(n + m) time, O(1) space"></a>Two pointer O(n + m) time, O(1) space</h3><p><a href="https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/</a></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/04/Intersection-of-Two-Arrays/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/02/Maximum-Subarray/" itemprop="url">
+                  LC41 - Maximum Subarray
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-02T15:20:18Z" content="01-02-2017">
+              01-02-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/02/Maximum-Subarray/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/02/Maximum-Subarray/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/02/Maximum-Subarray/" class="leancloud_visitors" data-flag-title="LC41 - Maximum Subarray">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given an array of integers, find a contiguous subarray which has the largest sum.</p>
+<p><strong>Notice</strong><br>The subarray should contain at least one number.</p>
+<p><strong>Example</strong><br>Given the array <code>[−2,2,−3,4,−1,2,1,−5,3]</code>, the contiguous subarray <code>[4,−1,2,1]</code> has the largest <code>sum = 6</code>.</p>
+<p><a href="http://www.lintcode.com/en/problem/maximum-subarray/" target="_blank" rel="noopener">LC41 maximum subarray</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums: A list of integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: A integer indicate the sum of max subarray</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code</span></span><br><span class="line">        <span class="comment">// double loop -&gt; n^2</span></span><br><span class="line">        <span class="comment">// sort? nlogn NO</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> max = Integer.MIN_VALUE; <span class="comment">// if all negative values, return the smalleset neg val</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            max = Math.max(sum, max);</span><br><span class="line">            sum = Math.max(<span class="number">0</span>, sum); <span class="comment">// if sum of prev elements less than zero, rather not taken them.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/02/Maximum-Subarray/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/02/Subarray-Sum-Closest/" itemprop="url">
                   LC139 - Subarray Sum Closest
                 </a>
@@ -1172,257 +1405,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/10/Longest-Common-Subsequence/" itemprop="url">
-                  Longest Common Subsequence
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-10T07:51:50Z" content="10-10-2016">
-              10-10-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/10/Longest-Common-Subsequence/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/10/Longest-Common-Subsequence/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/10/Longest-Common-Subsequence/" class="leancloud_visitors" data-flag-title="Longest Common Subsequence">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/longest-common-subsequence/" target="_blank" rel="noopener">Longest Common Subsequence</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title=" Description: "></a><center> Description: </center></h2><p>Given two strings, find the <strong><a href="https://en.wikipedia.org/wiki/Longest_common_subsequence_problem" target="_blank" rel="noopener">longest common subsequence(LCS)</a></strong>.<br>Your code should return the length of LCS.</p>
-<p><strong>Example</strong><br>For <code>&quot;ABCD&quot;</code> and <code>&quot;EDCA&quot;</code>, the LCS is <code>&quot;A&quot; (or &quot;D&quot;, &quot;C&quot;),</code> return <code>1</code>.</p>
-<p>For <code>&quot;ABCD&quot;</code> and <code>&quot;EACB&quot;</code>, the LCS is <code>&quot;AC&quot;</code>, return <code>2</code>.</p>
-<h2 id="Process"><a href="#Process" class="headerlink" title=" Process: "></a><center> Process: </center></h2><h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>1.<code>lcs[m + 1][n + 1]</code><br>2.<code>lcs[i][j]</code> stores current number of LCS for <code>s1[0,i-1]</code> and <code>s2[0, j-1]</code></p>
-<h3 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h3><p>1.initialize zero-value for first col/row.  </p>
-<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><p><code>lcs[i][j] = A.charAt(i-1) == B.charAt(j-1) ? lcs[i-1][j-1] + 1 : Math.max(lcs[i-1][j], lcs[i][j-1]);</code></p>
-<p>1.from <code>s1[0,i-1]</code> <code>s2[0,j-1]</code> to <code>s1[0,i]</code> <code>s2[0,j]</code><br>if <code>charAt(i)</code> is identical to <code>charAt(j)</code>, <code>lcs[i][j] = lcs[i-1][j-1] + 1</code> </p>
-<p>2.otherwise, <strong>adding</strong> extra irrelevant chars will not affect # of LCS.  </p>
-<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>1.return <code>lcs[m][n]</code></p>
-<h2 id="Code"><a href="#Code" class="headerlink" title=" Code: "></a><center> Code: </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A, B: Two strings.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The length of longest common subsequence of A and B.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestCommonSubsequence</span><span class="params">(String A, String B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A.length() == <span class="number">0</span> || B.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> m = A.length();</span><br><span class="line">        <span class="keyword">int</span> n = B.length();</span><br><span class="line">        <span class="comment">// state</span></span><br><span class="line">        <span class="keyword">int</span>[][] lcs = <span class="keyword">new</span> <span class="keyword">int</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n + <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span> || j == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="comment">// initialization</span></span><br><span class="line">                    lcs[i][j] = <span class="number">0</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// fucntion</span></span><br><span class="line">                    lcs[i][j] = A.charAt(i-<span class="number">1</span>) == B.charAt(j-<span class="number">1</span>) ? lcs[i-<span class="number">1</span>][j-<span class="number">1</span>] + <span class="number">1</span> : Math.max(lcs[i-<span class="number">1</span>][j], lcs[i][j-<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// result</span></span><br><span class="line">        <span class="keyword">return</span> lcs[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/10/Longest-Common-Subsequence/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/09/Longest-Common-Substring/" itemprop="url">
-                  Longest Common Substring
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-10T01:15:21Z" content="10-10-2016">
-              10-10-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/09/Longest-Common-Substring/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/09/Longest-Common-Substring/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/09/Longest-Common-Substring/" class="leancloud_visitors" data-flag-title="Longest Common Substring">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/longest-common-substring/" target="_blank" rel="noopener">Longest Common Substring</a>  </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description: "></a><center>Description: </center></h2><p>Given two strings, find the longest common substring.<br>Return the length of it.</p>
-<p><strong>Notice</strong><br>The characters in substring should occur continuously in original string. This is different with subsequence.</p>
-<p><strong>Example</strong><br>Given A = <code>&quot;ABCD&quot;</code>, B = <code>&quot;CBCE&quot;</code>, return <code>2</code>.</p>
-<p><strong>Challenge</strong><br><code>O(n x m)</code> time and memory.</p>
-<h2 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a><center>Thought Process:</center></h2><p>DP:  </p>
-<h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><ul>
-<li><code>dp[i][j]</code> stores longest common substring from <code>A.substring(0,i)</code> and <code>B.substring(0,j)</code>.  </li>
-</ul>
-<h3 id="Initialzation"><a href="#Initialzation" class="headerlink" title="Initialzation"></a>Initialzation</h3><ul>
-<li><code>dp[i][j] = 0</code> for first column &amp; row.</li>
-</ul>
-<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] = A.charAt(i - <span class="number">1</span>) == B.charAt(j - <span class="number">1</span>)? dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span> : <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><ul>
-<li><code>dp[i][j]</code> has non-zero value only when substring occur <strong>continuously</strong>.  </li>
-<li><code>max</code> store global maximun of LCS.  </li>
-<li><code>return max</code>  </li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/09/Longest-Common-Substring/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1468,7 +1450,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">88</span>
+              <span class="site-state-item-count">90</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1485,7 +1467,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
