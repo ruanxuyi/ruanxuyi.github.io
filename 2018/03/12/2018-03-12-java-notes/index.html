@@ -1,0 +1,941 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Bree Serif:300,300italic,400,400italic,700,700italic|Arimo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,Everyday," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/sushi.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="keywords" content="Java,Everyday">
+<meta property="og:type" content="article">
+<meta property="og:title" content="All You Can Eat - Java">
+<meta property="og:url" content="http://www.xuyiruan.com/2018/03/12/2018-03-12-java-notes/index.html">
+<meta property="og:site_name" content="阮先生de小窝">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/12/java-notes.png">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/03/int-string-char.png">
+<meta property="og:updated_time" content="2018-03-13T00:49:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="All You Can Eat - Java">
+<meta name="twitter:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/12/java-notes.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> All You Can Eat - Java | 阮先生de小窝 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">阮先生de小窝</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">多读书 多思考 少吃零食 多睡觉</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                All You Can Eat - Java
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-03-12T16:35:09-04:00" content="03-12-2018">
+              03-12-2018
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/03/12/2018-03-12-java-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/12/2018-03-12-java-notes/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/03/12/2018-03-12-java-notes/" class="leancloud_visitors" data-flag-title="All You Can Eat - Java">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/12/java-notes.png" alt=""></p>
+<a id="more"></a>
+<h3 id="Traversal-Iteration-for-Array-and-List"><a href="#Traversal-Iteration-for-Array-and-List" class="headerlink" title="Traversal/Iteration for Array and List"></a>Traversal/Iteration for Array and List</h3><p><code>Array</code>  </p>
+<p>Method1: Basic for-loop:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.len; i++) &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Method2: Enhanced for-loop (<strong>implicit</strong> iteratior):</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> n : nums) &#123; </span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>List</code></p>
+<p>Method1: Basic for-loop:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">	E element = list.get(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Method2: Enhanced for-loop:  </p>
+<blockquote>
+<p>Note: The enhanced for statement is equivalent to a basic iterator form:<br><a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.14.2" target="_blank" rel="noopener">https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.14.2</a></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (E e : list) &#123; </span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Method3: Iterator:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;String&gt; it = list.iterator();  </span><br><span class="line"><span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">	it.next();</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Iterator&lt;String&gt; it = list.iterator(); it.hasNext(); ) &#123;</span><br><span class="line">	it.next();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Note: for list, <strong>Method2 and 3</strong> lock data, hence, remove perform via <code>it.remove()</code>, should NOT use <code>list.remove()</code>. <strong>Method1</strong> does not lock data, hence better perforamnce, more suitable for simple iteration. </p>
+</blockquote>
+<p><strong>Reference</strong>:<br><a href="http://blog.csdn.net/yasi_xi/article/details/24797807" target="_blank" rel="noopener">http://blog.csdn.net/yasi_xi/article/details/24797807</a></p>
+<blockquote>
+<p>已知可用enhanced forloop的数据结构 (array/collection)：array, HashMap, HashSet  </p>
+</blockquote>
+<h3 id="Modify-element-while-iterating-List"><a href="#Modify-element-while-iterating-List" class="headerlink" title="Modify element while iterating List"></a>Modify element while iterating List</h3><ul>
+<li>this not changing structure of the list (ex. NOT add or remove element from list)  </li>
+<li>using <strong>enhanced for-loop</strong> in this case is <strong>NOT</strong> recommand since we are not using the iteration feature provided by enhanced for-loop. </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">	<span class="keyword">if</span> (list.get(i) == <span class="string">'C'</span>) &#123;</span><br><span class="line">		list.set(i) = <span class="string">'D'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ref: <a href="https://stackoverflow.com/questions/20639098/in-java-can-you-modify-a-list-while-iterating-through-it" target="_blank" rel="noopener">https://stackoverflow.com/questions/20639098/in-java-can-you-modify-a-list-while-iterating-through-it</a></p>
+<h3 id="Add-Remove-element-while-iterating-List"><a href="#Add-Remove-element-while-iterating-List" class="headerlink" title="Add/Remove element while iterating List"></a>Add/Remove element while iterating List</h3><h4 id="Approach-1-Collect-and-Remove-removeAll"><a href="#Approach-1-Collect-and-Remove-removeAll" class="headerlink" title="Approach 1: Collect and Remove (removeAll)"></a>Approach 1: Collect and Remove (<code>removeAll</code>)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">List&lt;Book&gt; books = <span class="keyword">new</span> ArrayList&lt;Book&gt;();</span><br><span class="line">books.add(<span class="keyword">new</span> Book(<span class="keyword">new</span> ISBN(<span class="string">"0-201-63361-2"</span>)));</span><br><span class="line">books.add(<span class="keyword">new</span> Book(<span class="keyword">new</span> ISBN(<span class="string">"0-201-63361-3"</span>)));</span><br><span class="line">books.add(<span class="keyword">new</span> Book(<span class="keyword">new</span> ISBN(<span class="string">"0-201-63361-4"</span>)));</span><br><span class="line"></span><br><span class="line">ISBN isbn = <span class="keyword">new</span> ISBN(<span class="string">"0-201-63361-2"</span>);</span><br><span class="line">List&lt;Book&gt; found = <span class="keyword">new</span> ArrayList&lt;Book&gt;();</span><br><span class="line"><span class="keyword">for</span>(Book book : books)&#123;</span><br><span class="line">    <span class="keyword">if</span>(book.getIsbn().equals(isbn))&#123;</span><br><span class="line">        found.add(book);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">books.removeAll(found);</span><br></pre></td></tr></table></figure>
+<p>ref: <a href="https://docs.oracle.com/javase/7/docs/api/java/util/ListIterator.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/7/docs/api/java/util/ListIterator.html</a></p>
+<h4 id="Approach-2-Using-ListIterator"><a href="#Approach-2-Using-ListIterator" class="headerlink" title="Approach 2: Using ListIterator"></a>Approach 2: Using <code>ListIterator</code></h4><ul>
+<li><code>ListIterator</code> supports both <code>add()</code> and <code>remove()</code> while iterating a list  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ListIterator&lt;Integer&gt; iter = list.listIterator();</span><br><span class="line"><span class="keyword">while</span>(iter.hasNext())&#123;</span><br><span class="line">    <span class="keyword">if</span>(iter.next().equals(<span class="number">2</span>))&#123;</span><br><span class="line">        iter.remove();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ref: <a href="https://stackoverflow.com/questions/10431981/remove-elements-from-collection-while-iterating" target="_blank" rel="noopener">https://stackoverflow.com/questions/10431981/remove-elements-from-collection-while-iterating</a></p>
+<h3 id="Element-e-vs-Object-o-TODO"><a href="#Element-e-vs-Object-o-TODO" class="headerlink" title="Element e vs Object o TODO"></a><code>Element e</code> vs <code>Object o</code> TODO</h3><h3 id="Trap-of-equals-vs"><a href="#Trap-of-equals-vs" class="headerlink" title="Trap of equals vs =="></a>Trap of <code>equals</code> vs <code>==</code></h3><p>Java primitative type includes: <code>int</code>, <code>float</code>, <code>double</code>, <code>short</code>, <code>long</code>, <code>byte</code>, <code>char</code>, and <code>boolean</code></p>
+<p>Primitative type stores actual <strong>value</strong> in variable, non-primitative type stores <strong>reference</strong> to the data. Hence, <code>==</code> can be used to compare value for primitative type. <code>==</code> only compares address for non-primitative type. Non-primitative type uses/override <code>equals()</code> to compare <strong>content</strong>.  </p>
+<p>Examples:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> == <span class="number">1</span> <span class="comment">// return true</span></span><br><span class="line"></span><br><span class="line">str1 = <span class="string">"123"</span>;</span><br><span class="line">str2 = <span class="string">"123"</span>;</span><br><span class="line">str1 == str2; <span class="comment">// return fales</span></span><br><span class="line">str1.equals(str2); <span class="comment">// return true</span></span><br></pre></td></tr></table></figure>
+<h3 id="Trap-of-Arrays-asList"><a href="#Trap-of-Arrays-asList" class="headerlink" title="Trap of Arrays.asList()"></a>Trap of Arrays.asList()</h3><p>We all knows <code>Arrays.asList()</code> convert an array to a List representation of the array. List allows us to manipulate elements within array (<code>add</code>/<code>remove</code>) which cannot be achived easily with array.  </p>
+<p>Here is an important detail when passing <strong>primitive</strong> type array to <code>Arrays.asList()</code>:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;; <span class="comment">// primitive type array</span></span><br><span class="line">Integer[] array2 = <span class="keyword">new</span> Integer[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;; <span class="comment">// Wrapper type array</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(Object i : Arrays.asList(array)) &#123; <span class="comment">// only print ONCE</span></span><br><span class="line">	print (i); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(Object i : Arrays.asList(array2)) &#123; <span class="comment">// prints all element</span></span><br><span class="line">	print (i); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(Object i : Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)) &#123; <span class="comment">// prints all element w/ auto-boxing</span></span><br><span class="line">	print (i); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Arrays.asList(T... a)</code>   </p>
+<ul>
+<li>if <code>a</code> is a primitive type array (<code>int[]{1,2,3}</code>): it treats the entire array reference as ONE element in new list  </li>
+<li>if <code>a</code> is a wrapper type array (<code>Integer[]{1,2,3}</code>): each element within array will be added to new list  </li>
+<li>if <code>a</code> is a list of primitive values <code>(1,2,3)</code>: each primitive value first auto-box to wrapper type and be added to new list.  </li>
+</ul>
+<p><strong>References</strong>:<br><a href="http://blog.csdn.net/champgauss/article/details/50183523" target="_blank" rel="noopener">http://blog.csdn.net/champgauss/article/details/50183523</a><br><a href="http://blog.csdn.net/cntanghai/article/details/7188296" target="_blank" rel="noopener">http://blog.csdn.net/cntanghai/article/details/7188296</a><br><a href="http://blog.csdn.net/chenleixing/article/details/43775127" target="_blank" rel="noopener">http://blog.csdn.net/chenleixing/article/details/43775127</a></p>
+<h3 id="Convert-between-String-lt-gt-int"><a href="#Convert-between-String-lt-gt-int" class="headerlink" title="Convert between String &lt;-&gt; int"></a>Convert between String &lt;-&gt; int</h3><h4 id="String-to-int"><a href="#String-to-int" class="headerlink" title="String to int"></a>String to int</h4><ul>
+<li><code>int i = Integer.parseInt(str)</code> // <strong>preferred</strong>: support binary/hex form</li>
+<li><code>int i = Integer.valueOf(str).intValue()</code>  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parseInt(<span class="string">"-0"</span>, <span class="number">10</span>) returns <span class="number">0</span></span><br><span class="line">parseInt(<span class="string">"-FF"</span>, <span class="number">16</span>) returns -<span class="number">255</span></span><br><span class="line">parseInt(<span class="string">"1100110"</span>, <span class="number">2</span>) returns <span class="number">102</span></span><br></pre></td></tr></table></figure>
+<h4 id="int-to-String"><a href="#int-to-String" class="headerlink" title="int to String"></a>int to String</h4><ul>
+<li><code>String s = String.valueOf(i);</code>    </li>
+<li><code>String s = Integer.toString(i);</code> // <strong>preferred</strong>  </li>
+</ul>
+<p><strong>References:</strong><br><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html#parseInt(java.lang.String,%20int" target="_blank" rel="noopener">https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html#parseInt(java.lang.String,%20int</a>)<br><a href="http://blog.csdn.net/memray/article/details/7312817/" target="_blank" rel="noopener">http://blog.csdn.net/memray/article/details/7312817/</a></p>
+<h3 id="Convert-between-char-lt-gt-int"><a href="#Convert-between-char-lt-gt-int" class="headerlink" title="Convert between char &lt;-&gt; int"></a>Convert between char &lt;-&gt; int</h3><h4 id="char-to-int"><a href="#char-to-int" class="headerlink" title="char to int"></a>char to int</h4><ul>
+<li>char -&gt; charArray -&gt; String -&gt; <code>Integer.parseInt(str)</code>  </li>
+<li><code>Character.getNumericValue(numChar))</code> // <strong>preferred</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> numChar = <span class="string">'9'</span>;</span><br><span class="line"><span class="keyword">int</span> intNum = (<span class="keyword">int</span>)numChar;</span><br><span class="line">System.out.println(numChar + <span class="string">": "</span> + intNum); <span class="comment">// numChar: 57 (ASCII)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// method1: new instance, memory consummed</span></span><br><span class="line"><span class="keyword">char</span>[] charArray = &#123;numChar&#125;;  </span><br><span class="line">intNum = Integer.parseInt(<span class="keyword">new</span> String(charArray));  </span><br><span class="line">System.out.println(<span class="string">"method 1: "</span> + numChar + <span class="string">":"</span> + intNum);  </span><br><span class="line"></span><br><span class="line"><span class="comment">// method2: static method, Preferred!</span></span><br><span class="line">System.out.println(<span class="string">"method 2: "</span> + numChar + <span class="string">":"</span> + Character.getNumericValue(numChar));</span><br></pre></td></tr></table></figure>
+<h4 id="int-to-char"><a href="#int-to-char" class="headerlink" title="int to char"></a>int to char</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">String aStr = Integer.toString(a);</span><br><span class="line"><span class="keyword">for</span> (Character c : aStr.toCharArray()) &#123;</span><br><span class="line">	print(c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>References:</strong><br><a href="http://blog.csdn.net/sxb0841901116/article/details/20623123" target="_blank" rel="noopener">http://blog.csdn.net/sxb0841901116/article/details/20623123</a>  </p>
+<h3 id="Convert-between-String-lt-gt-char-charArray"><a href="#Convert-between-String-lt-gt-char-charArray" class="headerlink" title="Convert between String &lt;-&gt; char/charArray"></a>Convert between String &lt;-&gt; char/charArray</h3><h4 id="String-to-char"><a href="#String-to-char" class="headerlink" title="String to char"></a>String to char</h4><p>For string <code>String str = &quot;string&quot;</code></p>
+<ul>
+<li><code>char c = str.charAt(index);</code></li>
+</ul>
+<h4 id="String-to-charArray"><a href="#String-to-charArray" class="headerlink" title="String to charArray"></a>String to charArray</h4><ul>
+<li><code>char[] c_array = str.toCharArray();</code><br>example: <a href="http://www.lintcode.com/en/problem/expression-expand/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/expression-expand/</a></li>
+</ul>
+<h4 id="char-to-String"><a href="#char-to-String" class="headerlink" title="char to String"></a>char to String</h4><ul>
+<li><code>String s1 = String.valueOf(&#39;c&#39;);</code> // <strong>prefered</strong></li>
+<li><code>String s2 = String.valueOf(&#39;abc&#39;);</code>  </li>
+<li><code>String s3 = Character.toString(&#39;c&#39;);</code> // easier to remember, call <code>String.valueOf()</code> implicitly</li>
+</ul>
+<p><strong>Reference:</strong><br><a href="http://blog.csdn.net/yaokai_assultmaster/article/details/52082763" target="_blank" rel="noopener">http://blog.csdn.net/yaokai_assultmaster/article/details/52082763</a></p>
+<h3 id="Convert-String-int-char-summary"><a href="#Convert-String-int-char-summary" class="headerlink" title="Convert String, int, char summary"></a>Convert String, int, char summary</h3><p><img src="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/03/int-string-char.png" alt=""></p>
+<h3 id="java-util-Arrays-vs-java-lang-reflect-Array"><a href="#java-util-Arrays-vs-java-lang-reflect-Array" class="headerlink" title="java.util.Arrays vs java.lang.reflect.Array"></a>java.util.Arrays vs java.lang.reflect.Array</h3><p><code>java.lang.reflect.Array</code> is a data type  </p>
+<p><code>java.util.Arrays</code> provides useful methods for <code>Array</code> data type  </p>
+<ul>
+<li><code>Arrays.fill(array)</code> // good way to initialize array with same default value  </li>
+<li><code>Arrays.asList(stringArray)</code> // convert to <code>List</code> data type for more functionalities  </li>
+<li><code>Arrays.toString(intArray)</code> // without using for loop to print array  </li>
+<li><code>Arrays.sort()</code>  </li>
+</ul>
+<h4 id="Fill-array-with-default-values"><a href="#Fill-array-with-default-values" class="headerlink" title="Fill array with default values"></a>Fill array with default values</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">Arrays.fill(a, <span class="number">10</span>);</span><br><span class="line"><span class="comment">// output</span></span><br><span class="line">a = [<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<p>more: <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html</a></p>
+<h3 id="int-vs-long-vs-BigInteger"><a href="#int-vs-long-vs-BigInteger" class="headerlink" title="int vs long vs BigInteger"></a><code>int</code> vs <code>long</code> vs <code>BigInteger</code></h3><ul>
+<li><code>int</code>: $[-2^{31}, 2^{31}-1]$ (32bit)  </li>
+<li><code>BigInteger</code> class: unlimited size via dynamic memory  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum = sum.add(BigInteger.valueOf(i))</span><br></pre></td></tr></table></figure>
+<h3 id="How-to-sort-a-String-in-Java"><a href="#How-to-sort-a-String-in-Java" class="headerlink" title="How to sort a String in Java"></a>How to sort a String in Java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sortString</span><span class="params">(String inputString)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="comment">// convert input string to char array</span></span><br><span class="line">     <span class="keyword">char</span> tempArray[] = inputString.toCharArray();</span><br><span class="line">      </span><br><span class="line">     <span class="comment">// sort tempArray</span></span><br><span class="line">     Arrays.sort(tempArray);</span><br><span class="line">      </span><br><span class="line">     <span class="comment">// return new sorted string</span></span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">new</span> String(tempArray);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Recursion-vs-Iteration"><a href="#Recursion-vs-Iteration" class="headerlink" title="Recursion vs Iteration"></a>Recursion vs Iteration</h3><p>Recursion cleaner than Iteration, is recursion faster than iteration? </p>
+<p><a href="https://leetcode.com/problems/add-two-numbers/description/" target="_blank" rel="noopener">https://leetcode.com/problems/add-two-numbers/description/</a></p>
+<p>recursive approach faster than iterative approach. (Dont it is correct, I dont think we can conclude that just from the run time from leetcode, could be the case when your solution is running, executation server is under heavy load. etc)</p>
+<p>Below is what is the main difference between iteration and recursion from my other post: <a href="http://xuyiruan.com/2018/02/24/five-most-frequent-use-alogrithms-1-divide-and-conquer/" target="_blank" rel="noopener">http://xuyiruan.com/2018/02/24/five-most-frequent-use-alogrithms-1-divide-and-conquer/</a></p>
+<p><strong>difference between iteration and recurrsion?</strong></p>
+<p>why manual stack is better than recursion (callstack):</p>
+<p>非递归其实是模拟递归用的stack</p>
+<p>为什么自己模拟的可以, 调用计算机的就不行呢?</p>
+<p>因为我们new出来的stack在heap memory里面, 能用的空间≈ memory size</p>
+<p>stack memory ≈ process memory是计算机分给每个程序的一个很小的独占的空间,所以递归的深度太深,就不够用了</p>
+<h3 id="How-to-properly-compare-two-Integers-in-Java"><a href="#How-to-properly-compare-two-Integers-in-Java" class="headerlink" title="How to properly compare two Integers in Java?"></a>How to properly compare two Integers in Java?</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Stack&lt;Integer&gt; stack;</span><br><span class="line">Stack&lt;Integer&gt; min;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!stack.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (stack.peek() == min.peek()) &#123; <span class="comment">// wrong, returns false most of time</span></span><br><span class="line">            min.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        stack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Integer</code> is a wrapper class for <code>int</code>, only primitive type can be compared with <code>==</code> for eqaulity. Non-primitive type should use <code>.equals()</code> to compare.  </p>
+<h3 id="Package-in-Java"><a href="#Package-in-Java" class="headerlink" title="Package in Java"></a>Package in Java</h3><ul>
+<li><code>import java.util.*</code> will import all classes in <code>util</code> package. However, subpackages within <code>util</code> will NOT be imported. ex, <code>java.util.searchUtil</code> will not be imported.  </li>
+<li>using <code>*</code> is not always recommanded to avoid conflict of libraries in different packeage with the same name.  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">//And then use Date class , then we will get a compile time error :</span></span><br><span class="line"></span><br><span class="line">Date today ; <span class="comment">//ERROR-- java.util.Date or java.sql.Date?</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>how to create new class in a new package<br><a href="https://www.geeksforgeeks.org/packages-in-java/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/packages-in-java/</a></li>
+</ul>
+<h3 id="Compare-Integer-in-Java"><a href="#Compare-Integer-in-Java" class="headerlink" title="Compare Integer in Java"></a>Compare Integer in Java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; pList = levelOrderTraversal(p);</span><br><span class="line">List&lt;Integer&gt; qList = levelOrderTraversal(q);</span><br><span class="line"></span><br><span class="line"><span class="comment">// check pList identical to qList</span></span><br><span class="line"><span class="keyword">if</span> (pList.size() != qList.size()) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pList.size(); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (pList.get(i) != qList.get(i)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br></pre></td></tr></table></figure>
+<p>code snippet above compares if content of two lists <code>pList</code>, <code>qList</code> are identical. However, line 5 has some bug. Since <code>get()</code> returns <code>Integer</code> type, which is boxed value for int. Direct using <code>==</code> to compare <code>Integer</code> is comparing reference of <code>Integer</code>. Hence, we need to use <code>intValue()</code> to convert <code>Integer</code> type to <code>int</code> before comparison w/ <code>==</code>.  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (pList.get(i).intValue() != qList.get(i).intValue()) &#123;</span><br></pre></td></tr></table></figure>
+<h3 id="diamond-operator-lt-gt-in-JDK7"><a href="#diamond-operator-lt-gt-in-JDK7" class="headerlink" title="diamond operator &lt;&gt; in JDK7"></a>diamond operator <code>&lt;&gt;</code> in JDK7</h3><p>instead of writing </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Box&lt;Integer&gt; integerBox = <span class="keyword">new</span> Box&lt;Integer&gt;();</span><br></pre></td></tr></table></figure>
+<p>you could replace explicit declaration on the right with diamond operator <code>&lt;&gt;</code>  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Box&lt;Integer&gt; integerBox = <span class="keyword">new</span> Box&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<p>compiler will infer the type arguments from the context.</p>
+<h3 id="keyword-abstract"><a href="#keyword-abstract" class="headerlink" title="keyword: abstract"></a>keyword: abstract</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// no abstract method</span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>another example with abstract method:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	...</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// abstract method</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="title">makeNoise</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123; System.out.println (<span class="string">"Bark! Bark!"</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeNoise</span><span class="params">()</span> </span>&#123; System.out.println (<span class="string">"Mua~! Mua~"</span>); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Declaring a class abstract only means that you don’t allow it to be instantiated on its own.</p>
+<p>Declaring a method abstract means that subclasses <strong>have to</strong> provide an implementation for that method.</p>
+</blockquote>
+<p><a href="https://stackoverflow.com/questions/6007089/how-and-when-to-use-an-abstract-class" target="_blank" rel="noopener">https://stackoverflow.com/questions/6007089/how-and-when-to-use-an-abstract-class</a></p>
+<h3 id="keyword-static"><a href="#keyword-static" class="headerlink" title="keyword: static"></a>keyword: static</h3><h4 id="static-variable"><a href="#static-variable" class="headerlink" title="static variable"></a>static variable</h4><ul>
+<li>static variable create only one copy and share among all instances  </li>
+<li>global variable usually defined as <code>static</code>  </li>
+</ul>
+<p><strong>Static variable initialization</strong></p>
+<ul>
+<li>Static variables are initialized <strong>when</strong> class is loaded.</li>
+<li>Static variables are initialized <strong>before</strong> any object of that class is created.</li>
+<li>Static variables are initialized <strong>before</strong> any static method of the class executes.</li>
+</ul>
+<p>ref: <a href="https://beginnersbook.com/2013/05/static-variable/" target="_blank" rel="noopener">https://beginnersbook.com/2013/05/static-variable/</a></p>
+<h4 id="static-method"><a href="#static-method" class="headerlink" title="static method"></a>static method</h4><h3 id="key-word-final"><a href="#key-word-final" class="headerlink" title="key word: final"></a>key word: final</h3>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/Everyday/" rel="tag">#Everyday</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/24/five-most-frequent-use-algorithms-2-dp/" rel="next" title="Top 5 Frequently Used Algorithms: #2 Dynamic Programming">
+                <i class="fa fa-chevron-left"></i> Top 5 Frequently Used Algorithms: #2 Dynamic Programming
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.jpg"
+               alt="🍣之神" />
+          <p class="site-author-name" itemprop="name">🍣之神</p>
+          <p class="site-description motion-element" itemprop="description">阮先生’s blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ruanxuyi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/xuyiruan/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/xuyi-ruan-a728a889" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mszhuchinese.com" title="MsZhuChinese" target="_blank">MsZhuChinese</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.winniebabe.com" title="WinnieBabe" target="_blank">WinnieBabe</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suncuss.me" title="BossSun" target="_blank">BossSun</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Traversal-Iteration-for-Array-and-List"><span class="nav-number">1.</span> <span class="nav-text">Traversal/Iteration for Array and List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modify-element-while-iterating-List"><span class="nav-number">2.</span> <span class="nav-text">Modify element while iterating List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-Remove-element-while-iterating-List"><span class="nav-number">3.</span> <span class="nav-text">Add/Remove element while iterating List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Approach-1-Collect-and-Remove-removeAll"><span class="nav-number">3.1.</span> <span class="nav-text">Approach 1: Collect and Remove (removeAll)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Approach-2-Using-ListIterator"><span class="nav-number">3.2.</span> <span class="nav-text">Approach 2: Using ListIterator</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-e-vs-Object-o-TODO"><span class="nav-number">4.</span> <span class="nav-text">Element e vs Object o TODO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trap-of-equals-vs"><span class="nav-number">5.</span> <span class="nav-text">Trap of equals vs ==</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trap-of-Arrays-asList"><span class="nav-number">6.</span> <span class="nav-text">Trap of Arrays.asList()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-between-String-lt-gt-int"><span class="nav-number">7.</span> <span class="nav-text">Convert between String &lt;-&gt; int</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String-to-int"><span class="nav-number">7.1.</span> <span class="nav-text">String to int</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int-to-String"><span class="nav-number">7.2.</span> <span class="nav-text">int to String</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-between-char-lt-gt-int"><span class="nav-number">8.</span> <span class="nav-text">Convert between char &lt;-&gt; int</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#char-to-int"><span class="nav-number">8.1.</span> <span class="nav-text">char to int</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#int-to-char"><span class="nav-number">8.2.</span> <span class="nav-text">int to char</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-between-String-lt-gt-char-charArray"><span class="nav-number">9.</span> <span class="nav-text">Convert between String &lt;-&gt; char/charArray</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String-to-char"><span class="nav-number">9.1.</span> <span class="nav-text">String to char</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-to-charArray"><span class="nav-number">9.2.</span> <span class="nav-text">String to charArray</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#char-to-String"><span class="nav-number">9.3.</span> <span class="nav-text">char to String</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convert-String-int-char-summary"><span class="nav-number">10.</span> <span class="nav-text">Convert String, int, char summary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-Arrays-vs-java-lang-reflect-Array"><span class="nav-number">11.</span> <span class="nav-text">java.util.Arrays vs java.lang.reflect.Array</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Fill-array-with-default-values"><span class="nav-number">11.1.</span> <span class="nav-text">Fill array with default values</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int-vs-long-vs-BigInteger"><span class="nav-number">12.</span> <span class="nav-text">int vs long vs BigInteger</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-sort-a-String-in-Java"><span class="nav-number">13.</span> <span class="nav-text">How to sort a String in Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursion-vs-Iteration"><span class="nav-number">14.</span> <span class="nav-text">Recursion vs Iteration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-properly-compare-two-Integers-in-Java"><span class="nav-number">15.</span> <span class="nav-text">How to properly compare two Integers in Java?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Package-in-Java"><span class="nav-number">16.</span> <span class="nav-text">Package in Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compare-Integer-in-Java"><span class="nav-number">17.</span> <span class="nav-text">Compare Integer in Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#diamond-operator-lt-gt-in-JDK7"><span class="nav-number">18.</span> <span class="nav-text">diamond operator &lt;&gt; in JDK7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keyword-abstract"><span class="nav-number">19.</span> <span class="nav-text">keyword: abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keyword-static"><span class="nav-number">20.</span> <span class="nav-text">keyword: static</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#static-variable"><span class="nav-number">20.1.</span> <span class="nav-text">static variable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#static-method"><span class="nav-number">20.2.</span> <span class="nav-text">static method</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key-word-final"><span class="nav-number">21.</span> <span class="nav-text">key word: final</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">🍣之神</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xruan';
+      var disqus_identifier = '2018/03/12/2018-03-12-java-notes/';
+      var disqus_title = "All You Can Eat - Java";
+      var disqus_url = 'http://www.xuyiruan.com/2018/03/12/2018-03-12-java-notes/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oKoPG1XTXkC7T1oasGQwau2g-gzGzoHsz", "JFJCQtIsUKhrX6S7Gvgqdqgk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
