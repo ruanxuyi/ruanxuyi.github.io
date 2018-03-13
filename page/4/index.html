@@ -256,8 +256,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/05/Min-Stack/" itemprop="url">
-                  LC12 - Min Stack
+                <a class="post-title-link" href="/2018/01/17/backpack/" itemprop="url">
+                  LintCode92 - Backpack
                 </a>
               
             
@@ -270,8 +270,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-05T13:19:45Z" content="01-05-2017">
-              01-05-2017
+            <time itemprop="dateCreated" datetime="2018-01-17T14:57:07Z" content="01-17-2018">
+              01-17-2018
             </time>
           </span>
 
@@ -281,8 +281,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/05/Min-Stack/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/05/Min-Stack/" itemprop="commentsCount"></span>
+                <a href="/2018/01/17/backpack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/17/backpack/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -292,7 +292,7 @@
 
           
           
-             <span id="/2017/01/05/Min-Stack/" class="leancloud_visitors" data-flag-title="LC12 - Min Stack">
+             <span id="/2018/01/17/backpack/" class="leancloud_visitors" data-flag-title="LintCode92 - Backpack">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -315,15 +315,714 @@
 
       
         
-          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Implement a stack with <code>min()</code> function, which will return the smallest number in the stack.</p>
-<p>It should support push, pop and min operation all in $O(1)$ cost.</p>
-<p> <strong>Notice</strong><br>min operation will never be called if there is no number in the stack.</p>
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p><a href="http://www.lintcode.com/en/problem/backpack/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/backpack/</a></p>
+<p>Given <code>n</code> items with size $A_i$, an integer <code>m</code> denotes the size of a backpack. How full you can fill this backpack?</p>
+<p>If we have 4 items with size <code>[2, 3, 5, 7]</code>, the backpack size is <code>11</code>, we can select <code>[2, 3, 5]</code>, so that the max size we can fill this backpack is 10. If the backpack size is 12. we can select <code>[2, 3, 7]</code> so that we can fulfill the backpack.</p>
+<p>You function should return the max size we can fill in the given backpack.</p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> m: An integer m denotes the size of a backpack</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A: Given n items with size A[i]</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The maximum size</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">backPack</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span> || m == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[A.length+<span class="number">1</span>][m+<span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// initialization</span></span><br><span class="line">        <span class="comment">// for (int i = 0; i &lt; m+1; i++) &#123;</span></span><br><span class="line">        <span class="comment">//     dp[0][i] = 0;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// function</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length+<span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m+<span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &lt; A[i-<span class="number">1</span>]) &#123;</span><br><span class="line">                    dp[i][j] = dp[i-<span class="number">1</span>][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    dp[i][j] = Math.max(A[i-<span class="number">1</span>] + dp[i-<span class="number">1</span>][j-A[i-<span class="number">1</span>]], dp[i-<span class="number">1</span>][j]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// solution</span></span><br><span class="line">        <span class="keyword">return</span> dp[A.length][m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/01/17/backpack/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/08/balanced-binary-tree/" itemprop="url">
+                  LintCode 93 - Balanced Binary Tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-07-08T14:12:25Z" content="07-08-2016">
+              07-08-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/08/balanced-binary-tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/08/balanced-binary-tree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/08/balanced-binary-tree/" class="leancloud_visitors" data-flag-title="LintCode 93 - Balanced Binary Tree">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="https://leetcode.com/problems/balanced-binary-tree/description/" target="_blank" rel="noopener">110. Balanced Binary Tree</a><br><a href="http://www.lintcode.com/en/problem/balanced-binary-tree/" target="_blank" rel="noopener">93. Balanced Binary Tree</a></p>
+<h2 id="Definition-of-Height-balanced-tree"><a href="#Definition-of-Height-balanced-tree" class="headerlink" title="Definition of Height balanced tree"></a>Definition of Height balanced tree</h2><ol>
+<li>empty tree is a height balanced tree  </li>
+<li>left subtree is balanced, right subtree is balanced  </li>
+<li>left/right sub-tree’s height difference <strong>no more than 1</strong>    </li>
+</ol>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition of TreeNode:</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     public int val;</span></span><br><span class="line"><span class="comment"> *     public TreeNode left, right;</span></span><br><span class="line"><span class="comment"> *     public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.left = this.right = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> root: The root of binary tree.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: True if this Binary tree is Balanced, or false.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">return</span> findHeight(root) != -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findHeight</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">if</span> (rotot == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// progree toward base case</span></span><br><span class="line">        <span class="keyword">int</span> leftHeight = findHeight(root.left);</span><br><span class="line">        <span class="keyword">int</span> rightHeight = findHeight(root.right);</span><br><span class="line">        <span class="keyword">if</span> (leftHeight == -<span class="number">1</span> || rightHeight == -<span class="number">1</span> || Math.abs(leftHeight - rightHeight) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(leftHeight, rightHeight) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/08/balanced-binary-tree/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/21/2017-summer-intern/" itemprop="url">
+                  亚马逊实习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-08-21T22:04:20Z" content="08-21-2017">
+              08-21-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/08/21/2017-summer-intern/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/21/2017-summer-intern/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/08/21/2017-summer-intern/" class="leancloud_visitors" data-flag-title="亚马逊实习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20170802/Amazon-logo.png" alt=""></p>
+<h2 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h2><p>研究生的第一个暑假是在西雅图度过的。人生第一次实习献给了亚马逊。1月中面试开始，2月初结束面试，2月中接到offer。除了投简历到收到回复过程历时2个月，面试流程还是非常高效的。拿到offer后就要选定自己的实习小组，HR一开始给了三个跟自己背景毫不相关的小组。通过跟HR的唇枪舌剑，分到一个相对满意的小组。小组是在信息安全部门下做内部工具的研发和维护的。项目最后完成90%，经理和导师表示就差那么一点就能拿到return offer的标准。现实是残酷的，尽管最后没有拿到return offer，但收获很多，也渐渐爱上了『夏天的』西雅图。  </p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/08/21/2017-summer-intern/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/02/fix-philips-tooth-brash/" itemprop="url">
+                  Sonicare 维修记 (Fix Your Sonicare Toothbrush)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-03-02T23:24:58Z" content="03-02-2017">
+              03-02-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/02/fix-philips-tooth-brash/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/02/fix-philips-tooth-brash/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/03/02/fix-philips-tooth-brash/" class="leancloud_visitors" data-flag-title="Sonicare 维修记 (Fix Your Sonicare Toothbrush)">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>前段时间很失落。心爱的philips sonicare牙刷开始发出一些奇怪的响声，震动的感觉也和原来大不相同。症状是牙刷头的那条金属棒(shaft)开始摇摇晃晃, 松动的牙刷头导致超声波震动的效果大大降低。后来越来越松，最后完全不震动了。。160刀的牙刷说罢工就罢工了。用了4年的牙刷，难道真的是老了要退役了嘛，有点不舍。</p>
+<p>网上逛了圈，新的sonicare价格还是居高不下。心有不甘。网上搜了下，很多难兄难弟跟我同样遭遇。I am not alone! 如果你也有相似的问题，千万不要扔掉心爱的牙刷。只需要动动手，拧一拧，可以省下100多刀！</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_G1JJ6l7N0I" frameborder="0" allowfullscreen></iframe>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/02/fix-philips-tooth-brash/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/07/hash-function/" itemprop="url">
+                  LC128 - Hash Function
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-07T14:13:47Z" content="01-07-2017">
+              01-07-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/07/hash-function/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/07/hash-function/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/07/hash-function/" class="leancloud_visitors" data-flag-title="LC128 - Hash Function">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>In data structure Hash, hash function is used to convert a string(or any other type) into an integer smaller than hash size and bigger or equal to zero. The objective of designing a hash function is to “hash” the key as unreasonable as possible. A good hash function can avoid collision as less as possible. A widely used hash function algorithm is using a magic number 33, consider any string as a 33 based big integer like follow:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hashcode(&quot;abcd&quot;) = (ascii(a) * 333 + ascii(b) * 332 + ascii(c) *33 + ascii(d)) % HASH_SIZE </span><br><span class="line">                             = (97* 333 + 98 * 332 + 99 * 33 +100) % HASH_SIZE</span><br><span class="line">                             = 3595978 % HASH_SIZE</span><br></pre></td></tr></table></figure>
+<p>here <code>HASH_SIZE</code> is the capacity of the hash table (you can assume a hash table is like an array with index 0 ~ <code>HASH_SIZE</code>-1).</p>
+<p>Given a string as a key and the size of hash table, return the hash value of this key.f</p>
+<p><strong>Clarification</strong><br>For this problem, you are not necessary to design your own hash algorithm or consider any collision issue, you just need to implement the algorithm as described.</p>
+<p><strong>Example</strong><br>For <code>key=&quot;abcd&quot;</code> and <code>size=100</code>, return <code>78</code></p>
+<p><a href="http://www.lintcode.com/en/problem/hash-function/" target="_blank" rel="noopener">LC129 hash function</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><h3 id="Ver-1"><a href="#Ver-1" class="headerlink" title="Ver.1"></a>Ver.1</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> key: A String you should hash</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> HASH_SIZE: An integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">(<span class="keyword">char</span>[] key,<span class="keyword">int</span> HASH_SIZE)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> len = key.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; len; index++) &#123;</span><br><span class="line">            sum = (sum * <span class="number">33</span> + (<span class="keyword">int</span>)key[index]) % HASH_SIZE;  <span class="comment">//(int)'a' returns asiic of 'a'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/07/hash-function/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/10/largest-rectangle-in-histogram/" itemprop="url">
+                  LC122 - Largest Rectangle in Histogram
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-10T23:21:45Z" content="01-10-2017">
+              01-10-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/10/largest-rectangle-in-histogram/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/10/largest-rectangle-in-histogram/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/10/largest-rectangle-in-histogram/" class="leancloud_visitors" data-flag-title="LC122 - Largest Rectangle in Histogram">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given $n$ non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.</p>
+<p><img src="http://www.lintcode.com/media/problem/histogram1.png" alt=""></p>
+<p>Above is a histogram where width of each bar is 1, given height = <code>[2,1,5,6,2,3]</code>.</p>
+<p><img src="http://www.lintcode.com/media/problem/histogram_area.png" alt=""></p>
+<p>The largest rectangle is shown in the shaded area, which has area = <code>10</code> unit.</p>
+<p><strong>Example</strong><br>Given height = <code>[2,1,5,6,2,3]</code>,<br>return <code>10</code>.</p>
+<p><a href="http://www.lintcode.com/en/problem/largest-rectangle-in-histogram/" target="_blank" rel="noopener">LC122 largest rectangle in histogram</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> height: A list of integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The area of largest rectangle in the histogram</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= height.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> curr = i == height.length ? <span class="number">0</span> : height[i];</span><br><span class="line">            <span class="keyword">while</span> (!stack.empty() &amp;&amp; curr &lt; height[stack.peek()]) &#123;</span><br><span class="line">                <span class="keyword">int</span> right = i;</span><br><span class="line">                <span class="keyword">int</span> target = stack.pop();</span><br><span class="line">                <span class="keyword">int</span> left = stack.empty() ? -<span class="number">1</span> : stack.peek();</span><br><span class="line">                <span class="keyword">int</span> area = (right - left - <span class="number">1</span>) * height[target];</span><br><span class="line">                max = area &gt; max ? area : max;</span><br><span class="line">            &#125;</span><br><span class="line">            stack.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/10/largest-rectangle-in-histogram/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/10/implement-queue-by-two-stacks/" itemprop="url">
+                  LC40 - Implement Queue by Two Stacks
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-10T10:47:57Z" content="01-10-2017">
+              01-10-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/10/implement-queue-by-two-stacks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/10/implement-queue-by-two-stacks/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/10/implement-queue-by-two-stacks/" class="leancloud_visitors" data-flag-title="LC40 - Implement Queue by Two Stacks">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>As the title described, you should only use two stacks to implement a queue’s actions.</p>
+<p>The queue should support <code>push(element)</code>, <code>pop()</code> and <code>top()</code> where pop is pop the first(a.k.a front) element in the queue.</p>
+<p>Both pop and top methods should return the value of first element.</p>
 <p><strong>Example</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">push(1)  </span><br><span class="line">pop()   // return 1  </span><br><span class="line">push(2)</span><br><span class="line">push(3)</span><br><span class="line">min()   // return 2</span><br><span class="line">push(1)</span><br><span class="line">min()   // return 1</span><br></pre></td></tr></table></figure>
-<p><a href=""></a></p>
-<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; stack = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; min = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> minIndex = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> currIndex = -<span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// do initialize if necessary</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        stack.put(++currIndex, number);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (minIndex == -<span class="number">1</span> || number &lt;= min.get(minIndex)) &#123; <span class="comment">// bug1: num &lt;= min.get</span></span><br><span class="line">            min.put(++minIndex, number);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (stack.get(currIndex).equals(min.get(minIndex))) &#123; <span class="comment">// bug2: get return object, use .equals() instead of `==` to compare.</span></span><br><span class="line">            minIndex--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.get(currIndex--);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">return</span> min.get(minIndex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">push(1)</span><br><span class="line">pop()     // return 1</span><br><span class="line">push(2)</span><br><span class="line">push(3)</span><br><span class="line">top()     // return 2</span><br><span class="line">pop()     // return 2</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.lintcode.com/en/problem/implement-queue-by-two-stacks/" target="_blank" rel="noopener">LC40 implement queue by two stacks</a>  </p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; stack1;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; stack2;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Queue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="comment">// do initialization if necessary</span></span><br><span class="line">       stack1 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">       stack2 = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> element)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span> (!stack2.empty()) &#123;</span><br><span class="line">            stack1.push(stack2.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        stack1.push(element);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">            stack2.push(stack1.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">while</span>(!stack1.empty()) &#123;</span><br><span class="line">            stack2.push(stack1.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> !stack2.empty() ? stack2.peek() : -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/05/Min-Stack/#more" rel="contents">
+            <a class="btn" href="/2017/01/10/implement-queue-by-two-stacks/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -374,8 +1073,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/04/Subarray-Sum/" itemprop="url">
-                  LC138 - Subarray Sum
+                <a class="post-title-link" href="/2017/01/09/2016年point-miles总结/" itemprop="url">
+                  开心旅行指南
                 </a>
               
             
@@ -388,8 +1087,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-04T11:33:00Z" content="01-04-2017">
-              01-04-2017
+            <time itemprop="dateCreated" datetime="2017-01-10T01:53:18Z" content="01-10-2017">
+              01-10-2017
             </time>
           </span>
 
@@ -399,8 +1098,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/04/Subarray-Sum/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/04/Subarray-Sum/" itemprop="commentsCount"></span>
+                <a href="/2017/01/09/2016年point-miles总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/09/2016年point-miles总结/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -410,7 +1109,7 @@
 
           
           
-             <span id="/2017/01/04/Subarray-Sum/" class="leancloud_visitors" data-flag-title="LC138 - Subarray Sum">
+             <span id="/2017/01/09/2016年point-miles总结/" class="leancloud_visitors" data-flag-title="开心旅行指南">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,13 +1132,15 @@
 
       
         
-          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given an integer array, find a subarray where the sum of numbers is <strong>zero</strong>. Your code should return the index of the first number and the index of the last number.</p>
-<p> <strong>Notice</strong><br>There is at least one subarray that it’s sum equals to zero.</p>
-<p><strong>Example</strong><br>Given <code>[-3, 1, 2, -3, 4]</code>, return <code>[0, 2] or [1, 3]</code>.</p>
-<p><a href="http://www.lintcode.com/en/problem/subarray-sum/" target="_blank" rel="noopener">LC138 subarray sum</a></p>
-<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><h3 id="solution-3-n-summations"><a href="#solution-3-n-summations" class="headerlink" title="solution 3: $n$ summations"></a>solution 3: $n$ summations</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums: A list of integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: A list of integers includes the index of the first number </span></span><br><span class="line"><span class="comment">     *          and the index of the last number</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">subarraySum</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        ArrayList&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        map.put(<span class="number">0</span>, -<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(sum)) &#123;</span><br><span class="line">                res.add(<span class="number">0</span>, map.get(sum) + <span class="number">1</span>);</span><br><span class="line">                res.add(<span class="number">1</span>, i);</span><br><span class="line">                <span class="keyword">return</span> res;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// add to map</span></span><br><span class="line">            map.put(sum, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="开心旅行指南"><a href="#开心旅行指南" class="headerlink" title="开心旅行指南"></a><center>开心旅行指南</center></h1><p>2016年是我接触里程积分接近2周年。在短短的一年里从各大论坛网站向前辈们学习。通过实践和操作切身体会到了 &lt;花小钱办大事&gt; &lt;点点滴滴的积累&gt; 的力量。每一次旅行不再是充满疲惫，相反带来的是更多的惊喜和喜悦。这篇文章作为2016年的信用卡，航空和酒店的总结。希望点点滴滴的积累也能对大家的出行带来惊喜～ 更多的经验会在后续的文章中介绍～</p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20170109/2016-flight-map.png" alt=""><br>2016年飞行纪录  </p>
+<ul>
+<li>13趟本地飞行(西雅图，三藩市，洛杉矶，芝加哥，麦迪逊，迈阿密，佛罗里达，华盛顿，费城，纽约)  </li>
+<li>13趟国际旅行(香港，东京，多伦多，温哥华，北京，波多黎各)  </li>
+</ul>
+<p>2016年总共有6.6天的时间都在飞机上度过，总里程绕了地球2.5圈～ 跟里程界的前辈们比，我的这点飞行估计只能作为他们的零头哈哈。  </p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/04/Subarray-Sum/#more" rel="contents">
+            <a class="btn" href="/2017/01/09/2016年point-miles总结/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -490,8 +1191,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/04/Intersection-of-Two-Arrays/" itemprop="url">
-                  LeetCode547 - Intersection of Two Arrays
+                <a class="post-title-link" href="/2017/01/09/LC544-top-k-largest-numbers/" itemprop="url">
+                  LC544 Top K Largest Numbers
                 </a>
               
             
@@ -504,8 +1205,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-04T11:07:04Z" content="01-04-2017">
-              01-04-2017
+            <time itemprop="dateCreated" datetime="2017-01-09T15:48:23Z" content="01-09-2017">
+              01-09-2017
             </time>
           </span>
 
@@ -515,8 +1216,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/04/Intersection-of-Two-Arrays/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/04/Intersection-of-Two-Arrays/" itemprop="commentsCount"></span>
+                <a href="/2017/01/09/LC544-top-k-largest-numbers/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/09/LC544-top-k-largest-numbers/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -526,7 +1227,7 @@
 
           
           
-             <span id="/2017/01/04/Intersection-of-Two-Arrays/" class="leancloud_visitors" data-flag-title="LeetCode547 - Intersection of Two Arrays">
+             <span id="/2017/01/09/LC544-top-k-largest-numbers/" class="leancloud_visitors" data-flag-title="LC544 Top K Largest Numbers">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -549,14 +1250,12 @@
 
       
         
-          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p><a href="https://leetcode.com/problems/intersection-of-two-arrays/description/" target="_blank" rel="noopener">https://leetcode.com/problems/intersection-of-two-arrays/description/</a></p>
-<p>Given two arrays, write a function to compute their intersection.<br>Intersection指的是数学里的交集($\cap$)</p>
-<p><strong>Notice</strong><br>Each element in the result must be unique.<br>The result can be in any order.</p>
-<p><a href="http://www.lintcode.com/en/problem/intersection-of-two-arrays/" target="_blank" rel="noopener">LC547 Intersection of Two Arrays</a></p>
-<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><h3 id="Two-HashSet-O-n-m-space-O-n-m-time"><a href="#Two-HashSet-O-n-m-space-O-n-m-time" class="headerlink" title="Two HashSet O(n + m) space O(n + m) time"></a>Two HashSet O(n + m) space O(n + m) time</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums1 an integer array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums2 an integer array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span> len1 = nums1.length;</span><br><span class="line">        <span class="keyword">int</span> len2 = nums2.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span> || len2 == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// checking</span></span><br><span class="line">        HashSet&lt;Integer&gt; interset = <span class="keyword">new</span> HashSet&lt;Integer&gt;(); <span class="comment">// solution</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">            set.add(nums1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len2; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (set.contains(nums2[i])) &#123;</span><br><span class="line">                interset.add(nums2[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] sol = <span class="keyword">new</span> <span class="keyword">int</span>[interset.size()];</span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Integer num: interset) &#123;</span><br><span class="line">            sol[index++] = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Two-pointer-O-n-m-time-O-1-space"><a href="#Two-pointer-O-n-m-time-O-1-space" class="headerlink" title="Two pointer O(n + m) time, O(1) space"></a>Two pointer O(n + m) time, O(1) space</h3><p><a href="https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/</a></p>
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given an integer array, find the top k largest numbers in it.</p>
+<p><strong>Example</strong><br>Given <code>[3,10,1000,-99,4,100]</code> and <code>k = 3</code>.<br>Return <code>[1000, 100, 10]</code>.</p>
+<p><a href="http://www.lintcode.com/en/problem/top-k-largest-numbers/" target="_blank" rel="noopener">LC544 top k largest numbers</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * @param nums an integer array</span></span><br><span class="line"><span class="comment">     * @param k an integer</span></span><br><span class="line"><span class="comment">     * @return the top k largest numbers in array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] topk(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">if</span> (len &lt; k) &#123;</span><br><span class="line">            <span class="keyword">return</span> nums;</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">int</span>[] sol = <span class="keyword">new</span> <span class="keyword">int</span>[k];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            sol[i] = nums[len - <span class="number">1</span> - i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/04/Intersection-of-Two-Arrays/#more" rel="contents">
+            <a class="btn" href="/2017/01/09/LC544-top-k-largest-numbers/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -607,8 +1306,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/02/Maximum-Subarray/" itemprop="url">
-                  LC41 - Maximum Subarray
+                <a class="post-title-link" href="/2017/01/08/merge-k-sorted-arrays/" itemprop="url">
+                  LC486 - Merge K Sorted Arrays
                 </a>
               
             
@@ -621,8 +1320,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-02T15:20:18Z" content="01-02-2017">
-              01-02-2017
+            <time itemprop="dateCreated" datetime="2017-01-08T20:53:51Z" content="01-08-2017">
+              01-08-2017
             </time>
           </span>
 
@@ -632,8 +1331,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/02/Maximum-Subarray/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/02/Maximum-Subarray/" itemprop="commentsCount"></span>
+                <a href="/2017/01/08/merge-k-sorted-arrays/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/08/merge-k-sorted-arrays/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -643,7 +1342,7 @@
 
           
           
-             <span id="/2017/01/02/Maximum-Subarray/" class="leancloud_visitors" data-flag-title="LC41 - Maximum Subarray">
+             <span id="/2017/01/08/merge-k-sorted-arrays/" class="leancloud_visitors" data-flag-title="LC486 - Merge K Sorted Arrays">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -666,712 +1365,17 @@
 
       
         
-          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given an array of integers, find a contiguous subarray which has the largest sum.</p>
-<p><strong>Notice</strong><br>The subarray should contain at least one number.</p>
-<p><strong>Example</strong><br>Given the array <code>[−2,2,−3,4,−1,2,1,−5,3]</code>, the contiguous subarray <code>[4,−1,2,1]</code> has the largest <code>sum = 6</code>.</p>
-<p><a href="http://www.lintcode.com/en/problem/maximum-subarray/" target="_blank" rel="noopener">LC41 maximum subarray</a></p>
-<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums: A list of integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: A integer indicate the sum of max subarray</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code</span></span><br><span class="line">        <span class="comment">// double loop -&gt; n^2</span></span><br><span class="line">        <span class="comment">// sort? nlogn NO</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> max = Integer.MIN_VALUE; <span class="comment">// if all negative values, return the smalleset neg val</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            max = Math.max(sum, max);</span><br><span class="line">            sum = Math.max(<span class="number">0</span>, sum); <span class="comment">// if sum of prev elements less than zero, rather not taken them.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given <em>k</em> sorted integer arrays, merge them into one sorted array.</p>
+<p><strong>Example</strong><br>Given 3 sorted arrays:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [1, 3, 5, 7],</span><br><span class="line">  [2, 4, 6],</span><br><span class="line">  [0, 8, 9, 10, 11]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>return <code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]</code>.</p>
+<p><strong>Challenge</strong><br>Do it in <code>O(N log k)</code>.</p>
+<p><code>N</code> is the total number of integers.<br><code>k</code> is the number of arrays.</p>
+<p><a href="http://www.lintcode.com/en/problem/merge-k-sorted-arrays/#" target="_blank" rel="noopener">LC486 merge k sorted arrays</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><h3 id="O-nlogk-ver"><a href="#O-nlogk-ver" class="headerlink" title="O(nlogk) ver."></a>O(nlogk) ver.</h3><p>$k$ is the number of arrays. $n$ is the total number of items.<br>$O(nlogk)$ is an algorithm <strong>better/faster</strong> than $O(nlogn)$ version.  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arrays k sorted integer arrays</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> a sorted array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Group</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> row;</span><br><span class="line">        <span class="keyword">int</span> col;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Group</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.row = row;</span><br><span class="line">            <span class="keyword">this</span>.col = col;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> Comparator&lt;Group&gt; compare = <span class="keyword">new</span> Comparator&lt;Group&gt;() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Group a, Group b)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a.val - b.val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;; <span class="comment">// semicolon to end a variable declaration</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">mergekSortedArrays</span><span class="params">(<span class="keyword">int</span>[][] arrays)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        Queue&lt;Group&gt; minQueue = <span class="keyword">new</span> PriorityQueue&lt;Group&gt;(arrays.length, compare);</span><br><span class="line">        List&lt;Integer&gt; sol = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// initializaiton</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrays.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arrays[i].length == <span class="number">0</span>) <span class="keyword">return</span> sol;</span><br><span class="line">            Group curr = <span class="keyword">new</span> Group(i, <span class="number">0</span>, arrays[i][<span class="number">0</span>]);</span><br><span class="line">            minQueue.offer(curr);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// algorithm</span></span><br><span class="line">        <span class="keyword">while</span> (minQueue.peek() != <span class="keyword">null</span>) &#123;</span><br><span class="line">            Group min = minQueue.poll();</span><br><span class="line">            <span class="keyword">int</span> row = min.row;</span><br><span class="line">            <span class="keyword">int</span> col = min.col;</span><br><span class="line">            <span class="keyword">if</span> (col &lt; arrays[row].length - <span class="number">1</span>) &#123;</span><br><span class="line">                Group curr = <span class="keyword">new</span> Group(row, col+<span class="number">1</span>, arrays[row][col+<span class="number">1</span>]);</span><br><span class="line">                minQueue.offer(curr);</span><br><span class="line">            &#125;</span><br><span class="line">            sol.add(min.val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/02/Maximum-Subarray/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/02/Subarray-Sum-Closest/" itemprop="url">
-                  LC139 - Subarray Sum Closest
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-02T14:57:20Z" content="01-02-2017">
-              01-02-2017
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/02/Subarray-Sum-Closest/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/02/Subarray-Sum-Closest/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/01/02/Subarray-Sum-Closest/" class="leancloud_visitors" data-flag-title="LC139 - Subarray Sum Closest">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given an integer array, find a subarray with sum closest to zero. Return the indexes of the first number and last number.<br><strong>Example</strong><br>Given <code>[-3, 1, 1, -3, 5]</code>, return <code>[0, 2]</code>, <code>[1, 3]</code>, <code>[1, 1]</code>, <code>[2, 2]</code> or <code>[0, 4]</code>.  </p>
-<p><strong>Challenge</strong><br>O(nlogn) time</p>
-<p><a href="http://www.lintcode.com/en/problem/subarray-sum-closest/" target="_blank" rel="noopener">LC139 subarray sum closest</a></p>
-<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums: A list of integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: A list of integers includes the index of the first number </span></span><br><span class="line"><span class="comment">     *          and the index of the last number</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">NSum</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum;</span><br><span class="line">        <span class="keyword">int</span> index;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">NSum</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.sum = s;</span><br><span class="line">            <span class="keyword">this</span>.index = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] subarraySumClosest(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span> max = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        NSum[] nums_aux = <span class="keyword">new</span> NSum[len + <span class="number">1</span>];</span><br><span class="line">        nums_aux[<span class="number">0</span>] = <span class="keyword">new</span> NSum(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// get sum</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">            nums_aux[i] = <span class="keyword">new</span> NSum(nums[i-<span class="number">1</span>] + nums_aux[i-<span class="number">1</span>].sum, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// sort O(nlogn)</span></span><br><span class="line">        Arrays.sort(nums_aux, <span class="keyword">new</span> Comparator&lt;NSum&gt;()&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(NSum a, NSum b)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> a.sum - b.sum;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (Math.abs(nums_aux[i+<span class="number">1</span>].sum - nums_aux[i].sum) &lt; max) &#123;</span><br><span class="line">                max = Math.abs(nums_aux[i+<span class="number">1</span>].sum - nums_aux[i].sum);</span><br><span class="line">                res[<span class="number">0</span>] = Math.min(nums_aux[i].index, nums_aux[i+<span class="number">1</span>].index);</span><br><span class="line">                res[<span class="number">1</span>] = Math.max(nums_aux[i].index, nums_aux[i+<span class="number">1</span>].index) - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/02/Subarray-Sum-Closest/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/02/partition-array/" itemprop="url">
-                  LC31 - Partition Array
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-02T12:17:39Z" content="01-02-2017">
-              01-02-2017
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/02/partition-array/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/02/partition-array/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/01/02/partition-array/" class="leancloud_visitors" data-flag-title="LC31 - Partition Array">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given an array <code>nums</code> of integers and an int <code>k</code>, partition the array (i.e move the elements in “nums”) such that:  </p>
-<p>All elements &lt; k are moved to the <em>left</em><br>All elements &gt;= k are moved to the <em>right</em><br>Return the partitioning index, i.e the first index <em>i</em> nums[<em>i</em>] &gt;= <em>k</em>.  </p>
-<p><strong>Example</strong><br>If nums = <code>[3,2,2,1]</code> and <code>k=2</code>, a valid answer is <code>1</code>.</p>
-<p><a href="http://www.lintcode.com/en/problem/partition-array/" target="_blank" rel="noopener">LC31 - partition array</a>  </p>
-<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="comment">/** </span></span><br><span class="line"><span class="comment">     *<span class="doctag">@param</span> nums: The integer array you should partition</span></span><br><span class="line"><span class="comment">     *<span class="doctag">@param</span> k: As description</span></span><br><span class="line"><span class="comment">     *return: The index after partition</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partitionArray</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//write your code here</span></span><br><span class="line">	    <span class="keyword">if</span> (nums.length == <span class="number">0</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">	        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">	    <span class="keyword">int</span> high = nums.length-<span class="number">1</span>;</span><br><span class="line">	    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[low] &lt; k) &#123;</span><br><span class="line">	            low++;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">while</span> (low &lt;= high &amp;&amp; nums[high] &gt;= k) &#123;</span><br><span class="line">	            high--;</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="comment">// swap</span></span><br><span class="line">	        <span class="keyword">if</span> (low &lt;= high) &#123;</span><br><span class="line">	            <span class="keyword">int</span> tmp = nums[high];</span><br><span class="line">	            nums[high] = nums[low];</span><br><span class="line">	            nums[low] = tmp;</span><br><span class="line">	            <span class="comment">//low++;</span></span><br><span class="line">	            <span class="comment">//high--;</span></span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> high+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/02/partition-array/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/29/sort-colors/" itemprop="url">
-                  LC148 - Sort Colors
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-12-29T21:04:48Z" content="12-29-2016">
-              12-29-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/29/sort-colors/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/29/sort-colors/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/12/29/sort-colors/" class="leancloud_visitors" data-flag-title="LC148 - Sort Colors">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="description"><a href="#description" class="headerlink" title="description"></a><center>description</center></h2><p>Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
-<p>Here, we will use the integers <code>0</code>, <code>1</code>, and <code>2</code> to represent the color red, white, and blue respectively.</p>
-<blockquote>
-<p>Notice<br>You are not suppose to use the library’s sort function for this problem.<br>You should do it in-place (sort numbers in the original array).</p>
-</blockquote>
-<p><strong>Example</strong><br>Given <code>[1, 0, 1, 2]</code>, sort it in-place to <code>[0, 1, 1, 2]</code>.  </p>
-<p><strong>challenge</strong><br><strong>one pass</strong> algorithm with constant space ($O(1)$)</p>
-<p><a href="http://www.lintcode.com/en/problem/sort-colors/#" target="_blank" rel="noopener">LC148 sort colors</a></p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a><center>code</center></h2><h3 id="ver3-one-pass"><a href="#ver3-one-pass" class="headerlink" title="ver3 one pass"></a>ver3 one pass</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt;= <span class="number">1</span> || nums == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> curr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (curr &lt;= high) &#123; <span class="comment">// k1: curr == high 时候 high points to unchecked value</span></span><br><span class="line">        <span class="keyword">if</span> (nums[curr] == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[left]</span></span><br><span class="line">            nums[curr] = nums[low]; <span class="comment">// curr should NOT increment to prevent skipping after swap</span></span><br><span class="line">            nums[low++] = <span class="number">0</span>;</span><br><span class="line">            curr++; <span class="comment">// k2: swapped value from left pointer is checked.</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[curr] == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="comment">// swap with nums[right]</span></span><br><span class="line">            nums[curr] = nums[high];</span><br><span class="line">            nums[high--] = <span class="number">2</span>;</span><br><span class="line">            <span class="comment">// NO curr++: swaped value from right pointer is unchecked, </span></span><br><span class="line">            <span class="comment">// curr pointed value (uncheck) needed to be checked</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            curr++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/29/sort-colors/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/29/Two-Sum-Closest/" itemprop="url">
-                  LC533 - Two Sum Closest
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-12-29T19:34:50Z" content="12-29-2016">
-              12-29-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/29/Two-Sum-Closest/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/29/Two-Sum-Closest/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/12/29/Two-Sum-Closest/" class="leancloud_visitors" data-flag-title="LC533 - Two Sum Closest">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="description"><a href="#description" class="headerlink" title="description"></a><center>description</center></h2><p>Given an array <code>nums</code> of n integers, find two integers in nums such that the sum is closest to a given number, target.</p>
-<p>Return the difference between the sum of the two integers and the target.</p>
-<p><strong>Example</strong><br>Given array <code>nums = [-1, 2, 1, -4]</code>, and <code>target = 4</code>.</p>
-<p>The minimum difference is <code>1</code>. (4 - (2 + 1) = 1).</p>
-<p><a href="http://www.lintcode.com/en/problem/two-sum-closest/#" target="_blank" rel="noopener">LC533 Two Sum Closest</a></p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a><center>code</center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">twoSumCloset</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (nums.length &lt; <span class="number">2</span> || nums == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Arrays.sort(nums); <span class="comment">// o(nlogn)</span></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> minDif = Integer.MAX_VALUE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> twoSum = nums[left] + nums[right];</span><br><span class="line">        <span class="comment">//int currDif = Math.abs(target - twoSum);</span></span><br><span class="line">        <span class="comment">//minDif = currDif &lt; minDif ? currDif : minDif;</span></span><br><span class="line">        <span class="keyword">if</span> (twoSum &lt; target) &#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        minDif = Math.min(minDif, Math.abs(target - twoSum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minDif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/29/Two-Sum-Closest/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/29/2016的6个关键字/" itemprop="url">
-                  2016的6个关键字
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-12-29T12:01:08Z" content="12-29-2016">
-              12-29-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/29/2016的6个关键字/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/29/2016的6个关键字/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/12/29/2016的6个关键字/" class="leancloud_visitors" data-flag-title="2016的6个关键字">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>读了小土刀<a href="http://wdxtub.com/2015/12/31/12-keywords-2015/" target="_blank" rel="noopener">年终12个关键字</a>一文。我也决定回顾下我的2016年。经历有限，就限制6个关键词好了。</p>
-<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20161229/DSC_6077-2.jpg" alt=""></p>
-<blockquote>
-<p>大和寿司@筑地市场</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/29/2016的6个关键字/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/31/LPS/" itemprop="url">
-                  Longest Palindrome Subsequence
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-31T14:29:13Z" content="10-31-2016">
-              10-31-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/31/LPS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/31/LPS/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/31/LPS/" class="leancloud_visitors" data-flag-title="Longest Palindrome Subsequence">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Description"><a href="#Description" class="headerlink" title=" Description: "></a><center> Description: </center></h1><p><strong>[Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence</strong></p>
-<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png" alt=""></p>
-<p>A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of palindromes are all strings of length 1, <code>civic</code>, <code>racecar</code>, and <code>aibohphobia</code> (fear of palindromes).  </p>
-<p>Give an efficient algorithm to find the <strong>longest palindrome</strong> that is a <strong>subsequence</strong> of a given input string. For example, given the input character, your algorithm should return carac. What is the running time of your algorithm?   </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/31/LPS/#more" rel="contents">
+            <a class="btn" href="/2017/01/08/merge-k-sorted-arrays/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>

@@ -256,6 +256,953 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/17/two-sum/" itemprop="url">
+                  LC56 - Two Sum
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-17T23:57:34Z" content="09-17-2016">
+              09-17-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/17/two-sum/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/17/two-sum/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/17/two-sum/" class="leancloud_visitors" data-flag-title="LC56 - Two Sum">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title="description"></a>description</h2><p>Given an array of integers, find two numbers such that they add up to a specific target number.</p>
+<p>The function <code>twoSum</code> should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are NOT zero-based.</p>
+<p><strong>Example</strong><br>numbers=<code>[2, 7, 11, 15]</code>, <code>target=9</code></p>
+<p>return <code>[1, 2]</code></p>
+<p><a href="http://www.lintcode.com/en/problem/two-sum/" target="_blank" rel="noopener">LC56 Two Sum</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * @param numbers : An array of Integer</span></span><br><span class="line"><span class="comment">     * @param target : target = numbers[index1] + numbers[index2]</span></span><br><span class="line"><span class="comment">     * @return : [index1 + 1, index2 + 1] (index1 &lt; index2)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (numbers.length == <span class="number">0</span> || numbers == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        HashMap&lt;Integer, Integer&gt; hash = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hash.get(numbers[i]) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> (<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;hash.get(numbers[i])+<span class="number">1</span>, i+<span class="number">1</span>&#125;);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                hash.put(target-numbers[i], i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/17/two-sum/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/29/2016的6个关键字/" itemprop="url">
+                  2016的6个关键字
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-12-29T12:01:08Z" content="12-29-2016">
+              12-29-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/29/2016的6个关键字/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/12/29/2016的6个关键字/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/29/2016的6个关键字/" class="leancloud_visitors" data-flag-title="2016的6个关键字">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>读了小土刀<a href="http://wdxtub.com/2015/12/31/12-keywords-2015/" target="_blank" rel="noopener">年终12个关键字</a>一文。我也决定回顾下我的2016年。经历有限，就限制6个关键词好了。</p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/20161229/DSC_6077-2.jpg" alt=""></p>
+<blockquote>
+<p>大和寿司@筑地市场</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/29/2016的6个关键字/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/31/LPS/" itemprop="url">
+                  Longest Palindrome Subsequence
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-31T14:29:13Z" content="10-31-2016">
+              10-31-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/31/LPS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/31/LPS/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/31/LPS/" class="leancloud_visitors" data-flag-title="Longest Palindrome Subsequence">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Description"><a href="#Description" class="headerlink" title=" Description: "></a><center> Description: </center></h1><p><strong>[Problem 15-2, p. 405 in 3rd edition]: 15-2 Longest palindrome subsequence</strong></p>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/2016001031/lps_backtrack.png" alt=""></p>
+<p>A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples of palindromes are all strings of length 1, <code>civic</code>, <code>racecar</code>, and <code>aibohphobia</code> (fear of palindromes).  </p>
+<p>Give an efficient algorithm to find the <strong>longest palindrome</strong> that is a <strong>subsequence</strong> of a given input string. For example, given the input character, your algorithm should return carac. What is the running time of your algorithm?   </p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/31/LPS/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/10/Longest-Common-Subsequence/" itemprop="url">
+                  Longest Common Subsequence
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-10T07:51:50Z" content="10-10-2016">
+              10-10-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/10/Longest-Common-Subsequence/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/10/Longest-Common-Subsequence/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/10/Longest-Common-Subsequence/" class="leancloud_visitors" data-flag-title="Longest Common Subsequence">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/longest-common-subsequence/" target="_blank" rel="noopener">Longest Common Subsequence</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title=" Description: "></a><center> Description: </center></h2><p>Given two strings, find the <strong><a href="https://en.wikipedia.org/wiki/Longest_common_subsequence_problem" target="_blank" rel="noopener">longest common subsequence(LCS)</a></strong>.<br>Your code should return the length of LCS.</p>
+<p><strong>Example</strong><br>For <code>&quot;ABCD&quot;</code> and <code>&quot;EDCA&quot;</code>, the LCS is <code>&quot;A&quot; (or &quot;D&quot;, &quot;C&quot;),</code> return <code>1</code>.</p>
+<p>For <code>&quot;ABCD&quot;</code> and <code>&quot;EACB&quot;</code>, the LCS is <code>&quot;AC&quot;</code>, return <code>2</code>.</p>
+<h2 id="Process"><a href="#Process" class="headerlink" title=" Process: "></a><center> Process: </center></h2><h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>1.<code>lcs[m + 1][n + 1]</code><br>2.<code>lcs[i][j]</code> stores current number of LCS for <code>s1[0,i-1]</code> and <code>s2[0, j-1]</code></p>
+<h3 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h3><p>1.initialize zero-value for first col/row.  </p>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><p><code>lcs[i][j] = A.charAt(i-1) == B.charAt(j-1) ? lcs[i-1][j-1] + 1 : Math.max(lcs[i-1][j], lcs[i][j-1]);</code></p>
+<p>1.from <code>s1[0,i-1]</code> <code>s2[0,j-1]</code> to <code>s1[0,i]</code> <code>s2[0,j]</code><br>if <code>charAt(i)</code> is identical to <code>charAt(j)</code>, <code>lcs[i][j] = lcs[i-1][j-1] + 1</code> </p>
+<p>2.otherwise, <strong>adding</strong> extra irrelevant chars will not affect # of LCS.  </p>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>1.return <code>lcs[m][n]</code></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title=" Code: "></a><center> Code: </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A, B: Two strings.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The length of longest common subsequence of A and B.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestCommonSubsequence</span><span class="params">(String A, String B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A.length() == <span class="number">0</span> || B.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> m = A.length();</span><br><span class="line">        <span class="keyword">int</span> n = B.length();</span><br><span class="line">        <span class="comment">// state</span></span><br><span class="line">        <span class="keyword">int</span>[][] lcs = <span class="keyword">new</span> <span class="keyword">int</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n + <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span> || j == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="comment">// initialization</span></span><br><span class="line">                    lcs[i][j] = <span class="number">0</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// fucntion</span></span><br><span class="line">                    lcs[i][j] = A.charAt(i-<span class="number">1</span>) == B.charAt(j-<span class="number">1</span>) ? lcs[i-<span class="number">1</span>][j-<span class="number">1</span>] + <span class="number">1</span> : Math.max(lcs[i-<span class="number">1</span>][j], lcs[i][j-<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// result</span></span><br><span class="line">        <span class="keyword">return</span> lcs[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/10/Longest-Common-Subsequence/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/09/palindrome-partitioning-II/" itemprop="url">
+                  Palindrome Partitioning II
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-09T20:41:58Z" content="10-09-2016">
+              10-09-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/09/palindrome-partitioning-II/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/09/palindrome-partitioning-II/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/09/palindrome-partitioning-II/" class="leancloud_visitors" data-flag-title="Palindrome Partitioning II">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/palindrome-partitioning-ii/" target="_blank" rel="noopener">Palindrome Partitioning II</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a><center>Description:</center></h2><p>Given a string s, cut s into some substrings such that every substring is a palindrome.<br>Return the <strong>minimum</strong> cuts needed for a palindrome partitioning of s.  </p>
+<p><strong>Example</strong><br>Given <code>s = &quot;aab&quot;</code>,</p>
+<p>Return <code>1</code> since the palindrome partitioning <code>[&quot;aa&quot;, &quot;b&quot;]</code> could be produced using <code>1</code> cut.</p>
+<h2 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a><center>Thought Process:</center></h2><h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>1.<code>pal[s.length() + 1]</code></p>
+<p><code>pal[i]</code> stores minimum cuts for string <code>s[0, i-1]</code> that every substrings is an palindrome.  </p>
+<p>2.<code>dp[s.length()][s.length()]</code>  </p>
+<p><code>dp[j][i-1]</code> stores if <code>s[j, i-1]</code> a palindrome. trade <strong>space</strong> for <strong>time</strong> (dp).  </p>
+<h3 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h3><p>1.<code>pal[0] = -1</code> // set as -1 so that <code>pal[1] = 0</code>.<br>2.<code>pal[i] = Integer.MAX_VALUE</code>. // more than one way to partition a string, desire the <strong>minimum</strong> cuts.  </p>
+<p>3.<code>dp[j][i-1] = false</code>  </p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/09/palindrome-partitioning-II/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/09/Longest-Common-Substring/" itemprop="url">
+                  Longest Common Substring
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-10T01:15:21Z" content="10-10-2016">
+              10-10-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/09/Longest-Common-Substring/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/09/Longest-Common-Substring/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/09/Longest-Common-Substring/" class="leancloud_visitors" data-flag-title="Longest Common Substring">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/longest-common-substring/" target="_blank" rel="noopener">Longest Common Substring</a>  </p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description: "></a><center>Description: </center></h2><p>Given two strings, find the longest common substring.<br>Return the length of it.</p>
+<p><strong>Notice</strong><br>The characters in substring should occur continuously in original string. This is different with subsequence.</p>
+<p><strong>Example</strong><br>Given A = <code>&quot;ABCD&quot;</code>, B = <code>&quot;CBCE&quot;</code>, return <code>2</code>.</p>
+<p><strong>Challenge</strong><br><code>O(n x m)</code> time and memory.</p>
+<h2 id="Thought-Process"><a href="#Thought-Process" class="headerlink" title="Thought Process:"></a><center>Thought Process:</center></h2><p>DP:  </p>
+<h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><ul>
+<li><code>dp[i][j]</code> stores longest common substring from <code>A.substring(0,i)</code> and <code>B.substring(0,j)</code>.  </li>
+</ul>
+<h3 id="Initialzation"><a href="#Initialzation" class="headerlink" title="Initialzation"></a>Initialzation</h3><ul>
+<li><code>dp[i][j] = 0</code> for first column &amp; row.</li>
+</ul>
+<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] = A.charAt(i - <span class="number">1</span>) == B.charAt(j - <span class="number">1</span>)? dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span> : <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><ul>
+<li><code>dp[i][j]</code> has non-zero value only when substring occur <strong>continuously</strong>.  </li>
+<li><code>max</code> store global maximun of LCS.  </li>
+<li><code>return max</code>  </li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/09/Longest-Common-Substring/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/18/Clone-Graph/" itemprop="url">
+                  Clone Graph
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-18T19:21:37Z" content="09-18-2016">
+              09-18-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/18/Clone-Graph/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/18/Clone-Graph/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/18/Clone-Graph/" class="leancloud_visitors" data-flag-title="Clone Graph">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/clone-graph/#" target="_blank" rel="noopener">Clone Graph</a></p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h1 id="BFS-approach"><a href="#BFS-approach" class="headerlink" title="BFS approach"></a>BFS approach</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for undirected graph.</span></span><br><span class="line"><span class="comment"> * class UndirectedGraphNode &#123;</span></span><br><span class="line"><span class="comment"> *     int label;</span></span><br><span class="line"><span class="comment"> *     ArrayList&lt;UndirectedGraphNode&gt; neighbors;</span></span><br><span class="line"><span class="comment"> *     UndirectedGraphNode(int x) &#123; label = x; neighbors = new ArrayList&lt;UndirectedGraphNode&gt;(); &#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> node: A undirected graph node</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: A undirected graph node</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UndirectedGraphNode <span class="title">cloneGraph</span><span class="params">(UndirectedGraphNode node)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (node  == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Queue&lt;UndirectedGraphNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;UndirectedGraphNode&gt;();</span><br><span class="line">        HashMap&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map = <span class="keyword">new</span> HashMap&lt;UndirectedGraphNode, UndirectedGraphNode&gt;();</span><br><span class="line">        queue.offer(node);</span><br><span class="line">        map.put(node, <span class="keyword">new</span> UndirectedGraphNode(node.label));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (queue.peek() != <span class="keyword">null</span>) &#123;</span><br><span class="line">            UndirectedGraphNode curr = queue.poll();</span><br><span class="line">            <span class="comment">//UndirectedGraphNode currCopy = new UndirectedGraphNode(curr.label);</span></span><br><span class="line">            UndirectedGraphNode currCopy = map.get(curr); <span class="comment">// mapping ready exist, should not create new version of deep copy. </span></span><br><span class="line">            <span class="keyword">for</span> (UndirectedGraphNode n : curr.neighbors) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!map.containsKey(n)) &#123;</span><br><span class="line">                    map.put(n, <span class="keyword">new</span> UndirectedGraphNode(n.label));</span><br><span class="line">                    currCopy.neighbors.add(map.get(n));</span><br><span class="line">                    queue.offer(n);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    currCopy.neighbors.add(map.get(n));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> map.get(node);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="DFS-approach"><a href="#DFS-approach" class="headerlink" title="DFS approach"></a>DFS approach</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> node: A undirected graph node</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: A undirected graph node</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UndirectedGraphNode <span class="title">cloneGraph</span><span class="params">(UndirectedGraphNode node)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (node  == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dfs(node, <span class="keyword">new</span> HashMap&lt;UndirectedGraphNode, UndirectedGraphNode&gt;());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> UndirectedGraphNode <span class="title">dfs</span><span class="params">(UndirectedGraphNode node, HashMap&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (map.containsKey(node)) &#123;</span><br><span class="line">            <span class="keyword">return</span> map.get(node);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        UndirectedGraphNode nodeCopy = <span class="keyword">new</span> UndirectedGraphNode(node.label);</span><br><span class="line">        map.put(node, nodeCopy);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (UndirectedGraphNode n : node.neighbors) &#123;</span><br><span class="line">            nodeCopy.neighbors.add(dfs(n, map));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nodeCopy;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/18/Clone-Graph/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/13/Distinct-Subsequences/" itemprop="url">
+                  LintCode 118 - Distinct Subsequences
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-13T14:43:06Z" content="09-13-2016">
+              09-13-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/13/Distinct-Subsequences/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/13/Distinct-Subsequences/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/13/Distinct-Subsequences/" class="leancloud_visitors" data-flag-title="LintCode 118 - Distinct Subsequences">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/distinct-subsequences/" target="_blank" rel="noopener">Distinct Subsequences</a></p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h1 id="2D-array-version-O-mn-space-complexity"><a href="#2D-array-version-O-mn-space-complexity" class="headerlink" title="2D array version ($O(mn)$ space complexity)"></a>2D array version ($O(mn)$ space complexity)</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> S, T: Two string.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: Count the number of distinct subsequences</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numDistinct</span><span class="params">(String S, String T)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">// coner case</span></span><br><span class="line">        <span class="keyword">if</span> (T.length() == <span class="number">0</span>) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (S.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> m = S.length();</span><br><span class="line">        <span class="keyword">int</span> n = T.length();</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        <span class="comment">// row initialization</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; dp[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">            dp[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// column initialization</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dp.length; i++) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; dp[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; dp.length; i++) &#123;</span><br><span class="line">                dp[i][j] = dp[i-<span class="number">1</span>][j];</span><br><span class="line">                <span class="keyword">if</span> (S.charAt(i - <span class="number">1</span>) == T.charAt(j - <span class="number">1</span>)) &#123;</span><br><span class="line">                    dp[i][j] += dp[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/13/Distinct-Subsequences/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/04/Wood-Cut/" itemprop="url">
                   LintCode 183: Wood Cut
                 </a>
@@ -369,123 +1316,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/30/Sorting-Algorithms/" itemprop="url">
-                  Sorting Algorithms
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-30T22:09:38Z" content="08-30-2016">
-              08-30-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/30/Sorting-Algorithms/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/30/Sorting-Algorithms/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/30/Sorting-Algorithms/" class="leancloud_visitors" data-flag-title="Sorting Algorithms">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          bubble sortalgorithm
-start from first element, swap first two element if the value of first is larger than second  
-continue with the next pair and so
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/30/Sorting-Algorithms/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/08/22/Minimum-Path-Sum/" itemprop="url">
                   LintCode 110 - Minimum Path Sum
                 </a>
@@ -549,824 +1379,6 @@ continue with the next pair and so
 <h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h2 id="DP-approach"><a href="#DP-approach" class="headerlink" title="DP approach"></a>DP approach</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> grid: a list of lists of integers.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer, minimizes the sum of all numbers along its path</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="keyword">int</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (grid == <span class="keyword">null</span> || grid.length == <span class="number">0</span> || grid[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> M = grid.length;</span><br><span class="line">        <span class="keyword">int</span> N = grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[][] state = <span class="keyword">new</span> <span class="keyword">int</span>[M][N];</span><br><span class="line">        state[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++) &#123;</span><br><span class="line">            state[<span class="number">0</span>][i] = state[<span class="number">0</span>][i-<span class="number">1</span>] + grid[<span class="number">0</span>][i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; M; j++) &#123;</span><br><span class="line">            state[j][<span class="number">0</span>] = state[j-<span class="number">1</span>][<span class="number">0</span>] + grid[j][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; M; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; N; j++) &#123;</span><br><span class="line">                state[i][j] = grid[i][j] + Math.min(state[i-<span class="number">1</span>][j], state[i][j-<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> state[M - <span class="number">1</span>][N - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/22/Minimum-Path-Sum/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/21/Longest-Increasing-Subsequence/" itemprop="url">
-                  LintCode 76 - Longest Increasing Subsequence
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-21T11:49:07Z" content="08-21-2016">
-              08-21-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/21/Longest-Increasing-Subsequence/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/21/Longest-Increasing-Subsequence/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/21/Longest-Increasing-Subsequence/" class="leancloud_visitors" data-flag-title="LintCode 76 - Longest Increasing Subsequence">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/longest-increasing-subsequence/#" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/longest-increasing-subsequence/#</a><br><a href="https://leetcode.com/problems/longest-increasing-subsequence/description/" target="_blank" rel="noopener">https://leetcode.com/problems/longest-increasing-subsequence/description/</a></p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h2 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute Force"></a>Brute Force</h2><ul>
-<li>find ALL possible subsequence of given array $2^n$  </li>
-<li>each subsequence, we need <code>O(n)</code> to find LIS  </li>
-<li>time complexity: $O(n * 2^n)$  </li>
-<li>space complexity: $O(n)$  </li>
-</ul>
-<h2 id="Recursive-DP"><a href="#Recursive-DP" class="headerlink" title="Recursive DP"></a>Recursive DP</h2><p><a href="https://www.geeksforgeeks.org/?p=12832" target="_blank" rel="noopener">https://www.geeksforgeeks.org/?p=12832</a></p>
-<h2 id="Iterative-DP"><a href="#Iterative-DP" class="headerlink" title="Iterative DP"></a>Iterative DP</h2><ul>
-<li>time complexity: $O(n^2)$  </li>
-<li>space complexity: $O(n)$  </li>
-</ul>
-<h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><ul>
-<li>to find <code>lis[n]</code>  </li>
-<li>go through all element before <code>n</code>, find the one with <strong>max</strong> <code>lis</code> value, which value of element is also <strong>smaller</strong> than <code>nums[n]</code> and store <code>max value + 1</code> into <code>lis[n]</code>  </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLIS</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line">        <span class="keyword">int</span>[] lis = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        Arrays.fill(lis, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> largest = lis[<span class="number">0</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] &gt; nums[j]) &#123;</span><br><span class="line">                    lis[i] = Math.max(lis[i], lis[j] + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            largest = Math.max(largest, lis[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> largest;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Iterative-DP-Binary-Search-Approach"><a href="#Iterative-DP-Binary-Search-Approach" class="headerlink" title="Iterative DP + Binary Search Approach"></a>Iterative DP + Binary Search Approach</h2><p>time complexity: $O(nlogn)$  </p>
-<p><a href="https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/</a></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/21/Longest-Increasing-Subsequence/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/20/Jump-Game-II/" itemprop="url">
-                  LintCode 117 - Jump Game II
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-20T16:15:34Z" content="08-20-2016">
-              08-20-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/20/Jump-Game-II/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/20/Jump-Game-II/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/20/Jump-Game-II/" class="leancloud_visitors" data-flag-title="LintCode 117 - Jump Game II">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/jump-game-ii/" target="_blank" rel="noopener">Jump Game II</a></p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h2 id="V0-Greedy"><a href="#V0-Greedy" class="headerlink" title="V0 Greedy"></a>V0 Greedy</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A: A list of lists of integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = <span class="number">0</span>, jumps = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (end &lt; A.length - <span class="number">1</span>) &#123;</span><br><span class="line">            jumps++;</span><br><span class="line">            <span class="keyword">int</span> tempFar = end;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= end; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (A[i] + i &gt; tempFar) &#123;</span><br><span class="line">                    tempFar = A[i] + i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            start = end + <span class="number">1</span>;</span><br><span class="line">            end = tempFar;</span><br><span class="line">            <span class="comment">// if the array is not reachable to the end.</span></span><br><span class="line">            <span class="comment">// prevent infinite loop, which test case assume all array reachable</span></span><br><span class="line">            <span class="keyword">if</span> (start &gt; end) &#123; </span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> jumps;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="V1-DP"><a href="#V1-DP" class="headerlink" title="V1 DP"></a>V1 DP</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A: A list of lists of integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] steps = <span class="keyword">new</span> <span class="keyword">int</span>[A.length];</span><br><span class="line">        steps[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// DP: steps[] stores minmum steps to that location</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length; i++) &#123;</span><br><span class="line">            steps[i] = Integer.MAX_VALUE;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (steps[j] != Integer.MAX_VALUE &amp;&amp; A[j] + j &gt;= i) &#123;</span><br><span class="line">                    steps[i] = steps[j] + <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> steps[A.length - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/20/Jump-Game-II/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/19/Jump-Game/" itemprop="url">
-                  LintCode 116 - Jump Game
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-19T15:28:25Z" content="08-19-2016">
-              08-19-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/19/Jump-Game/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/19/Jump-Game/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/19/Jump-Game/" class="leancloud_visitors" data-flag-title="LintCode 116 - Jump Game">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/jump-game/#" target="_blank" rel="noopener">Jump Game</a></p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h2 id="V0-Greedy-O-n"><a href="#V0-Greedy-O-n" class="headerlink" title="V0 Greedy ($O(n)$)"></a>V0 Greedy ($O(n)$)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A: A list of integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The boolean answer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canJump</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// wirte your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> farDis = A[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length &amp;&amp; i &lt;= farDis; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] + i &gt; farDis) &#123;</span><br><span class="line">                farDis = A[i] + i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> farDis &gt;= A.length - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="V1-DP-O-n-2"><a href="#V1-DP-O-n-2" class="headerlink" title="V1 DP ($O(n^2)$)"></a>V1 DP ($O(n^2)$)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A: A list of integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The boolean answer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canJump</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// wirte your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">boolean</span>[] com = <span class="keyword">new</span> <span class="keyword">boolean</span>[A.length];</span><br><span class="line">        com[<span class="number">0</span>] = <span class="keyword">true</span>; <span class="comment">// start point always reachable</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length; i++) &#123; <span class="comment">// start point already assigned</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (com[j] &amp;&amp; A[j] + j &gt;= i) &#123;</span><br><span class="line">                    com[i] = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> com[A.length - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/19/Jump-Game/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/17/Unique-Paths-II/" itemprop="url">
-                  LintCode 115 - Unique Paths II
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-17T10:37:33Z" content="08-17-2016">
-              08-17-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/17/Unique-Paths-II/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/17/Unique-Paths-II/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/17/Unique-Paths-II/" class="leancloud_visitors" data-flag-title="LintCode 115 - Unique Paths II">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/unique-paths-ii/" target="_blank" rel="noopener">Unique Paths II</a></p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> obstacleGrid: A list of lists of integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">// dont forget check null array!</span></span><br><span class="line">        <span class="keyword">if</span> (obstacleGrid == <span class="keyword">null</span> || obstacleGrid.length == <span class="number">0</span> || obstacleGrid[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> rowSize = obstacleGrid.length;</span><br><span class="line">        <span class="keyword">int</span> colSize = obstacleGrid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span>[][] matrix = <span class="keyword">new</span> <span class="keyword">int</span>[rowSize][colSize];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; colSize; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (obstacleGrid[<span class="number">0</span>][i] != <span class="number">1</span>) &#123;</span><br><span class="line">                matrix[<span class="number">0</span>][i] = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; rowSize; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (obstacleGrid[j][<span class="number">0</span>] != <span class="number">1</span>) &#123;</span><br><span class="line">                matrix[j][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; rowSize; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; colSize; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (obstacleGrid[i][j] != <span class="number">1</span>) &#123;</span><br><span class="line">                    matrix[i][j] = matrix[i][j-<span class="number">1</span>] + matrix[i-<span class="number">1</span>][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> matrix[rowSize - <span class="number">1</span>][colSize - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/17/Unique-Paths-II/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/16/Unique-Paths/" itemprop="url">
-                  LintCode 114 - Unique Paths
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-16T14:50:53Z" content="08-16-2016">
-              08-16-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/16/Unique-Paths/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/16/Unique-Paths/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/16/Unique-Paths/" class="leancloud_visitors" data-flag-title="LintCode 114 - Unique Paths">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/unique-paths/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/unique-paths/</a><br><a href="https://leetcode.com/problems/unique-paths/description/" target="_blank" rel="noopener">https://leetcode.com/problems/unique-paths/description/</a></p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h2 id="Recursive-DP-time-out"><a href="#Recursive-DP-time-out" class="headerlink" title="Recursive DP (time out)"></a>Recursive DP (time out)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n, m: positive integer (1 &lt;= n ,m &lt;= 100)</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">return</span> findPath(<span class="number">1</span>,<span class="number">1</span>,m,n);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findPath</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">int</span> rowBound, <span class="keyword">int</span> colBound)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (row &gt; rowBound || col &gt; colBound) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (row == rowBound &amp;&amp; col == colBound) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> findPath(row, col+<span class="number">1</span>, rowBound, colBound) + findPath(row+<span class="number">1</span>, col, rowBound, colBound);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Recursive-DP-memorizations"><a href="#Recursive-DP-memorizations" class="headerlink" title="Recursive DP + memorizations"></a>Recursive DP + memorizations</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n, m: positive integer (1 &lt;= n ,m &lt;= 100)</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span>[][] paths = <span class="keyword">new</span> <span class="keyword">int</span>[m+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">return</span> findPath(<span class="number">1</span>,<span class="number">1</span>,m,n, paths);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findPath</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">int</span> rowBound, <span class="keyword">int</span> colBound, <span class="keyword">int</span>[][] paths)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (row &gt; rowBound || col &gt; colBound) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (row == rowBound &amp;&amp; col == colBound) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (paths[row][col] == <span class="number">0</span>) &#123;</span><br><span class="line">            paths[row][col] = findPath(row, col+<span class="number">1</span>, rowBound, colBound, paths) + findPath(row+<span class="number">1</span>, col, rowBound, colBound, paths);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> paths[row][col];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Iterative-DP"><a href="#Iterative-DP" class="headerlink" title="Iterative DP"></a>Iterative DP</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n, m: positive integer (1 &lt;= n ,m &lt;= 100)</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span> || n == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[][] matrix = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        <span class="comment">// only one path from start to any location at column 1/row 1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            matrix[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            matrix[<span class="number">0</span>][j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">                matrix[i][j] = matrix[i][j-<span class="number">1</span>] + matrix[i-<span class="number">1</span>][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> matrix[m-<span class="number">1</span>][n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/16/Unique-Paths/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/16/Climbing-Stairs/" itemprop="url">
-                  LintCode 111 - Climbing Stairs
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-16T11:12:48Z" content="08-16-2016">
-              08-16-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/16/Climbing-Stairs/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/16/Climbing-Stairs/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/16/Climbing-Stairs/" class="leancloud_visitors" data-flag-title="LintCode 111 - Climbing Stairs">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/climbing-stairs/" target="_blank" rel="noopener">Climbing Stairs</a></p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h2 id="Recursive-V0-time-limited-NOT-passed"><a href="#Recursive-V0-time-limited-NOT-passed" class="headerlink" title="Recursive V0 (time limited NOT passed)"></a>Recursive V0 (time limited NOT passed)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n: An integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> climbStairs(n - <span class="number">1</span>) + climbStairs(n - <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Iterative-V1"><a href="#Iterative-V1" class="headerlink" title="Iterative V1:"></a>Iterative V1:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n: An integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> last = <span class="number">1</span>, lastlast = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> current = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            current = last + lastlast;</span><br><span class="line">            lastlast = last;</span><br><span class="line">            last = current;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> current;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/16/Climbing-Stairs/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/09/Triangle/" itemprop="url">
-                  LintCode 109 - Triangle
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-09T11:55:24Z" content="08-09-2016">
-              08-09-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/09/Triangle/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/09/Triangle/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/09/Triangle/" class="leancloud_visitors" data-flag-title="LintCode 109 - Triangle">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://www.lintcode.com/en/problem/triangle/" target="_blank" rel="noopener">Triangle</a></p>
-<h1 id="V0-Code-Recursive-version-NOT-pass"><a href="#V0-Code-Recursive-version-NOT-pass" class="headerlink" title="V0 Code: Recursive version (NOT pass)"></a>V0 Code: Recursive version (NOT pass)</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> triangle: a list of lists of integers.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer, minimum path sum.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(<span class="keyword">int</span>[][] triangle)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> startRow = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> startCol = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> findMinPath(triangle, startRow, startCol);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findMinPath</span><span class="params">(<span class="keyword">int</span>[][] triangle, <span class="keyword">int</span> row, <span class="keyword">int</span> col)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> height = triangle.length;</span><br><span class="line">        <span class="keyword">if</span> (row == height - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> triangle[row][col];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> left = findMinPath(triangle, row+<span class="number">1</span>, col);</span><br><span class="line">        <span class="keyword">int</span> right = findMinPath(triangle, row+<span class="number">1</span>, col+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> Math.min(left, right) + triangle[row][col];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Recursive version works, however, it did not pass the test case where large number of data set was given.  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your code ran too much time than we expected. Check your time complexity. Time limit exceeded usually caused by infinite loop if your time complexity is the best.</span><br></pre></td></tr></table></figure>
-<p>Reasoning behind slow run time for recursion, please refer to link below:  </p>
-<p><a href="http://xuyiruan.com/2016/07/15/Recursion-vs-Iteration/" target="_blank" rel="noopener">Recursion vs. Iteration</a> </p>
-<h1 id="V1-Code-Iteration-version-O-N-2-extra-space"><a href="#V1-Code-Iteration-version-O-N-2-extra-space" class="headerlink" title="V1 Code: Iteration version($O(N^2)$ extra space)"></a>V1 Code: Iteration version($O(N^2)$ extra space)</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> triangle: a list of lists of integers.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer, minimum path sum.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(<span class="keyword">int</span>[][] triangle)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">int</span> depth = triangle.length;</span><br><span class="line">        <span class="keyword">int</span>[][] minSum = <span class="keyword">new</span> <span class="keyword">int</span>[depth][depth];</span><br><span class="line">        <span class="comment">// initialize last row, buttom up</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; triangle[depth-<span class="number">1</span>].length; i++) &#123;</span><br><span class="line">            minSum[depth-<span class="number">1</span>][i] = triangle[depth-<span class="number">1</span>][i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// loop through triangle from second last level from botton to top</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = depth-<span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= i; j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> min = minSum[i+<span class="number">1</span>][j];</span><br><span class="line">                <span class="keyword">if</span> (min &gt; minSum[i+<span class="number">1</span>][j+<span class="number">1</span>]) &#123;</span><br><span class="line">                    min = minSum[i+<span class="number">1</span>][j+<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// update current/root @ i, j of minSum with min + triangle[i][j]</span></span><br><span class="line">                minSum[i][j] = min + triangle[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// return solution</span></span><br><span class="line">        <span class="keyword">return</span> minSum[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/09/Triangle/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
