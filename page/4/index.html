@@ -256,6 +256,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/04/Edit-Distance/" itemprop="url">
+                  LintCode 119 - Edit Distance
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-04T22:27:24Z" content="09-04-2016">
+              09-04-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/04/Edit-Distance/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/04/Edit-Distance/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/04/Edit-Distance/" class="leancloud_visitors" data-flag-title="LintCode 119 - Edit Distance">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Lintcode: <a href="http://www.lintcode.com/en/problem/edit-distance/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/edit-distance/</a><br>Leetcode: <a href="https://leetcode.com/problems/edit-distance/description/" target="_blank" rel="noopener">https://leetcode.com/problems/edit-distance/description/</a></p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> word1 &amp; word2: Two string.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The minimum number of steps.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(String word1, String word2)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (word1.compareTo(word2) == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// initialization</span></span><br><span class="line">        <span class="keyword">int</span> m = word2.length(); </span><br><span class="line">        <span class="keyword">int</span> n = word1.length();</span><br><span class="line">        <span class="keyword">int</span>[][] minDis = <span class="keyword">new</span> <span class="keyword">int</span>[m+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            minDis[i][<span class="number">0</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n + <span class="number">1</span>; j++) &#123;</span><br><span class="line">            minDis[<span class="number">0</span>][j] = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// fill up the rest of 2d minDis array</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n + <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (word2.charAt(i - <span class="number">1</span>) == word1.charAt(j - <span class="number">1</span>)) &#123;</span><br><span class="line">                    minDis[i][j] = minDis[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    minDis[i][j] = <span class="number">1</span> + findMin(minDis[i-<span class="number">1</span>][j], minDis[i][j-<span class="number">1</span>], minDis[i-<span class="number">1</span>][j-<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minDis[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2, <span class="keyword">int</span> v3)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Math.min(v1, Math.min(v2, v3));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/04/Edit-Distance/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/01/17/backpack/" itemprop="url">
                   LintCode92 - Backpack
                 </a>
@@ -1285,126 +1398,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/08/merge-k-sorted-arrays/" itemprop="url">
-                  LC486 - Merge K Sorted Arrays
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-01-08T20:53:51Z" content="01-08-2017">
-              01-08-2017
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/08/merge-k-sorted-arrays/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/08/merge-k-sorted-arrays/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/01/08/merge-k-sorted-arrays/" class="leancloud_visitors" data-flag-title="LC486 - Merge K Sorted Arrays">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Given <em>k</em> sorted integer arrays, merge them into one sorted array.</p>
-<p><strong>Example</strong><br>Given 3 sorted arrays:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [1, 3, 5, 7],</span><br><span class="line">  [2, 4, 6],</span><br><span class="line">  [0, 8, 9, 10, 11]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>return <code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]</code>.</p>
-<p><strong>Challenge</strong><br>Do it in <code>O(N log k)</code>.</p>
-<p><code>N</code> is the total number of integers.<br><code>k</code> is the number of arrays.</p>
-<p><a href="http://www.lintcode.com/en/problem/merge-k-sorted-arrays/#" target="_blank" rel="noopener">LC486 merge k sorted arrays</a></p>
-<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><h3 id="O-nlogk-ver"><a href="#O-nlogk-ver" class="headerlink" title="O(nlogk) ver."></a>O(nlogk) ver.</h3><p>$k$ is the number of arrays. $n$ is the total number of items.<br>$O(nlogk)$ is an algorithm <strong>better/faster</strong> than $O(nlogn)$ version.  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arrays k sorted integer arrays</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> a sorted array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Group</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> row;</span><br><span class="line">        <span class="keyword">int</span> col;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Group</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.row = row;</span><br><span class="line">            <span class="keyword">this</span>.col = col;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> Comparator&lt;Group&gt; compare = <span class="keyword">new</span> Comparator&lt;Group&gt;() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Group a, Group b)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a.val - b.val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;; <span class="comment">// semicolon to end a variable declaration</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">mergekSortedArrays</span><span class="params">(<span class="keyword">int</span>[][] arrays)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Write your code here</span></span><br><span class="line">        Queue&lt;Group&gt; minQueue = <span class="keyword">new</span> PriorityQueue&lt;Group&gt;(arrays.length, compare);</span><br><span class="line">        List&lt;Integer&gt; sol = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// initializaiton</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrays.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arrays[i].length == <span class="number">0</span>) <span class="keyword">return</span> sol;</span><br><span class="line">            Group curr = <span class="keyword">new</span> Group(i, <span class="number">0</span>, arrays[i][<span class="number">0</span>]);</span><br><span class="line">            minQueue.offer(curr);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// algorithm</span></span><br><span class="line">        <span class="keyword">while</span> (minQueue.peek() != <span class="keyword">null</span>) &#123;</span><br><span class="line">            Group min = minQueue.poll();</span><br><span class="line">            <span class="keyword">int</span> row = min.row;</span><br><span class="line">            <span class="keyword">int</span> col = min.col;</span><br><span class="line">            <span class="keyword">if</span> (col &lt; arrays[row].length - <span class="number">1</span>) &#123;</span><br><span class="line">                Group curr = <span class="keyword">new</span> Group(row, col+<span class="number">1</span>, arrays[row][col+<span class="number">1</span>]);</span><br><span class="line">                minQueue.offer(curr);</span><br><span class="line">            &#125;</span><br><span class="line">            sol.add(min.val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sol;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/08/merge-k-sorted-arrays/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1450,7 +1443,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">93</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
