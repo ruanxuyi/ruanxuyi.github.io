@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/12/java-notes.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/03/int-string-char.png">
-<meta property="og:updated_time" content="2018-04-25T02:26:32.000Z">
+<meta property="og:updated_time" content="2018-05-01T12:20:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="All You Can Eat - Java">
 <meta name="twitter:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/12/java-notes.png">
@@ -453,7 +453,7 @@
 <p>Declaring a method abstract means that subclasses <strong>have to</strong> provide an implementation for that method.</p>
 <p>Interface should also works. Howerver, abstract classes allows classs to inherit the implementation of other <strong>(non-abstract)</strong> methods, while interface cannot</p>
 <p>Interface cannot provide any method implementations (like, <code>eat()</code>, <code>sleep()</code>)</p>
-<p>Note: A class <code>implements</code> an interface, A class <code>extends</code> an abstract class  </p>
+<p>Note: A class <code>implements</code> an interface, A class <code>extends</code> an abstract class. Java only allow class to extends ONE class, because of that, interface sometimes is more preferred when current class need to extends other class.  </p>
 </blockquote>
 <p><a href="https://stackoverflow.com/questions/6007089/how-and-when-to-use-an-abstract-class" target="_blank" rel="noopener">https://stackoverflow.com/questions/6007089/how-and-when-to-use-an-abstract-class</a></p>
 <h3 id="keyword-static"><a href="#keyword-static" class="headerlink" title="keyword: static"></a>keyword: static</h3><h4 id="static-variable"><a href="#static-variable" class="headerlink" title="static variable"></a>static variable</h4><ul>
@@ -645,7 +645,7 @@
 <li><code>poll()</code>: Retrieves and removes the head of this queue, or returns <code>null</code> if this queue is empty.  </li>
 </ul>
 <p>When we add to queue, we want to know when it is failed because of size-limited queue, hence, it is preferred to use <code>add()</code>.</p>
-<p>We use <code>poll()</code> to remove, since we always check <code>queue.isEmpty()</code> before <code>poll()</code>, hence, no requirement of throwing exception in this case.  </p>
+<p><del>We use <code>poll()</code> to remove, since we always check <code>queue.isEmpty()</code> before <code>poll()</code>, hence, no requirement of throwing exception in this case.</del> (use <code>add()</code>, and <code>remove()</code> with/ exception checking for good practice).  </p>
 <p>ref: <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Queue.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/7/docs/api/java/util/Queue.html</a></p>
 <h3 id="class-vs-public-class"><a href="#class-vs-public-class" class="headerlink" title="class vs public class"></a>class vs public class</h3><ul>
 <li>wo/ public: package default as <code>protected</code>  </li>
