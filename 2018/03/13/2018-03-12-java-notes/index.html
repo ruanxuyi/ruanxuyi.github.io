@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/12/java-notes.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/03/int-string-char.png">
-<meta property="og:updated_time" content="2018-05-07T03:17:23.000Z">
+<meta property="og:updated_time" content="2018-05-09T00:51:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="All You Can Eat - Java">
 <meta name="twitter:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/12/java-notes.png">
@@ -680,7 +680,18 @@
 </ul>
 <p><a href="https://stackoverflow.com/questions/20207969/java-textbook-the-size-of-an-array-must-be-known-at-compile-time" target="_blank" rel="noopener">https://stackoverflow.com/questions/20207969/java-textbook-the-size-of-an-array-must-be-known-at-compile-time</a></p>
 <h3 id="generate-random-number-between-a-and-b"><a href="#generate-random-number-between-a-and-b" class="headerlink" title="generate random number between a and b"></a>generate random number between a and b</h3><p><a href="https://www.mkyong.com/java/java-generate-random-integers-in-a-range/" target="_blank" rel="noopener">https://www.mkyong.com/java/java-generate-random-integers-in-a-range/</a></p>
-<h3 id="Polymorphlism"><a href="#Polymorphlism" class="headerlink" title="Polymorphlism"></a>Polymorphlism</h3><h4 id="Benefit-of-Polymorihpism-and-why-polymorphism"><a href="#Benefit-of-Polymorihpism-and-why-polymorphism" class="headerlink" title="Benefit of Polymorihpism, and why polymorphism"></a>Benefit of Polymorihpism, and why polymorphism</h4><ul>
+<h3 id="Polymorphlism"><a href="#Polymorphlism" class="headerlink" title="Polymorphlism"></a>Polymorphlism</h3><p><strong>key</strong>:<br><strong>One message</strong> invokes different methods based on object type (ex. “lets get back to work”, one message invokes different people continue working on different things)  </p>
+<p>In Java, polymorphism is possible through  </p>
+<p><strong>inheritance</strong>  </p>
+<ul>
+<li>Override <code>toString()</code> to return different values that are textual representations of that type.  </li>
+</ul>
+<p><strong>interfaces</strong>  </p>
+<ul>
+<li><code>Collections.sort(List&lt;?&gt;)</code> sends <code>compareTo</code> messages to objects that must have<br>implemented Comparable<t>  </t></li>
+</ul>
+<p>src: <a href="https://www2.cs.arizona.edu/~mercer/Presentations/OOPD/05-PolymorphismViaInterfaces.pdf" target="_blank" rel="noopener">https://www2.cs.arizona.edu/~mercer/Presentations/OOPD/05-PolymorphismViaInterfaces.pdf</a></p>
+<h4 id="Benefit-of-Polymorihpism-and-why-polymorphism"><a href="#Benefit-of-Polymorihpism-and-why-polymorphism" class="headerlink" title="Benefit of Polymorihpism, and why polymorphism"></a>Benefit of Polymorihpism, and why polymorphism</h4><ul>
 <li>解耦性 (less tightly coupled -&gt; decouple -&gt; more generic method)  </li>
 </ul>
 <p>没有Poly的时候：</p>
