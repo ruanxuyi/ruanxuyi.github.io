@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/12/java-notes.png">
 <meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/03/int-string-char.png">
-<meta property="og:updated_time" content="2018-06-03T17:01:22.000Z">
+<meta property="og:updated_time" content="2018-06-03T23:43:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="All You Can Eat - Java">
 <meta name="twitter:image" content="http://7xihzu.com1.z0.glb.clouddn.com/2018/03/12/java-notes.png">
@@ -786,13 +786,14 @@
 <h4 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h4><ul>
 <li>$O(log N)$ insert and lookup  </li>
 <li>sorted keys  </li>
-<li>implemented by <strong>Red-Black Tree</strong>  </li>
+<li>implemented by <strong>Red-Black Tree</strong> (TreeNode contains <code>key</code> and <code>value</code>)  </li>
 </ul>
 <p>ex: <a href="https://leetcode.com/problems/hand-of-straights/description/" target="_blank" rel="noopener">https://leetcode.com/problems/hand-of-straights/description/</a></p>
 <h4 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h4><ul>
 <li>$O(1)$ insert and lookup  </li>
 <li>sorted by insertion order  </li>
 <li>implemented by <strong>double-linked list + hashmap</strong>  </li>
+<li>hashmap’s value stores ListNode, (which contains key and val).  </li>
 </ul>
 <p>ex: <a href="https://leetcode.com/problems/lru-cache/description/" target="_blank" rel="noopener">https://leetcode.com/problems/lru-cache/description/</a></p>
 <h3 id="Logs"><a href="#Logs" class="headerlink" title="Logs:"></a>Logs:</h3><p>03/13/18: add static keyword for varible and method<br>03/13/18: fixed some typos<br>03/14/18: add this/super keyword<br>03/16/18: add difference between <code>final</code>, <code>finally</code>, and <code>finalize</code><br>03/16/18: add Generics in Java<br>03/16/18: add GC in Java<br>03/29/18: add discussion about Queue API choices<br>04/19/18: add more string mannipulation regard to <code>Character</code> class<br>04/19/18: add more notes (Polymorphlism, Dynamic size array, Ways to read file, random num gen, <code>class</code> vs <code>public class</code>)<br>04/19/18: add int, long, etc<br>04/19/18: add random number, wirte to file<br>04/24/18: add enum data type<br>05/01/18: add enum comparsion<br>05/03/18: add JRE, JVM, JDK<br>05/30/18: update linkedhashmap  </p>
