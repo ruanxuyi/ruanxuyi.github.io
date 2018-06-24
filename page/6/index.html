@@ -256,6 +256,124 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/05/Min-Stack/" itemprop="url">
+                  LC12 - Min Stack
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-05T13:19:45Z" content="01-05-2017">
+              01-05-2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/05/Min-Stack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/05/Min-Stack/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/05/Min-Stack/" class="leancloud_visitors" data-flag-title="LC12 - Min Stack">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="description"><a href="#description" class="headerlink" title=" description "></a><center> description </center></h2><p>Implement a stack with <code>min()</code> function, which will return the smallest number in the stack.</p>
+<p>It should support push, pop and min operation all in $O(1)$ cost.</p>
+<p> <strong>Notice</strong><br>min operation will never be called if there is no number in the stack.</p>
+<p><strong>Example</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">push(1)  </span><br><span class="line">pop()   // return 1  </span><br><span class="line">push(2)</span><br><span class="line">push(3)</span><br><span class="line">min()   // return 2</span><br><span class="line">push(1)</span><br><span class="line">min()   // return 1</span><br></pre></td></tr></table></figure>
+<p><a href=""></a></p>
+<h2 id="code"><a href="#code" class="headerlink" title=" code "></a><center> code </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; stack = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; min = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> minIndex = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> currIndex = -<span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// do initialize if necessary</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        stack.put(++currIndex, number);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (minIndex == -<span class="number">1</span> || number &lt;= min.get(minIndex)) &#123; <span class="comment">// bug1: num &lt;= min.get</span></span><br><span class="line">            min.put(++minIndex, number);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (stack.get(currIndex).equals(min.get(minIndex))) &#123; <span class="comment">// bug2: get return object, use .equals() instead of `==` to compare.</span></span><br><span class="line">            minIndex--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stack.get(currIndex--);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">return</span> min.get(minIndex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/05/Min-Stack/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/21/Java基础语法/" itemprop="url">
                   Java基础语法模块
                 </a>
@@ -1292,128 +1410,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/10/Longest-Common-Subsequence/" itemprop="url">
-                  Longest Common Subsequence
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-10T07:51:50Z" content="10-10-2016">
-              10-10-2016
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/10/Longest-Common-Subsequence/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/10/10/Longest-Common-Subsequence/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/10/Longest-Common-Subsequence/" class="leancloud_visitors" data-flag-title="Longest Common Subsequence">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Try it here:<br><a href="http://www.lintcode.com/en/problem/longest-common-subsequence/" target="_blank" rel="noopener">Longest Common Subsequence</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title=" Description: "></a><center> Description: </center></h2><p>Given two strings, find the <strong><a href="https://en.wikipedia.org/wiki/Longest_common_subsequence_problem" target="_blank" rel="noopener">longest common subsequence(LCS)</a></strong>.<br>Your code should return the length of LCS.</p>
-<p><strong>Example</strong><br>For <code>&quot;ABCD&quot;</code> and <code>&quot;EDCA&quot;</code>, the LCS is <code>&quot;A&quot; (or &quot;D&quot;, &quot;C&quot;),</code> return <code>1</code>.</p>
-<p>For <code>&quot;ABCD&quot;</code> and <code>&quot;EACB&quot;</code>, the LCS is <code>&quot;AC&quot;</code>, return <code>2</code>.</p>
-<h2 id="Process"><a href="#Process" class="headerlink" title=" Process: "></a><center> Process: </center></h2><h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>1.<code>lcs[m + 1][n + 1]</code><br>2.<code>lcs[i][j]</code> stores current number of LCS for <code>s1[0,i-1]</code> and <code>s2[0, j-1]</code></p>
-<h3 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h3><p>1.initialize zero-value for first col/row.  </p>
-<h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3><p><code>lcs[i][j] = A.charAt(i-1) == B.charAt(j-1) ? lcs[i-1][j-1] + 1 : Math.max(lcs[i-1][j], lcs[i][j-1]);</code></p>
-<p>1.from <code>s1[0,i-1]</code> <code>s2[0,j-1]</code> to <code>s1[0,i]</code> <code>s2[0,j]</code><br>if <code>charAt(i)</code> is identical to <code>charAt(j)</code>, <code>lcs[i][j] = lcs[i-1][j-1] + 1</code> </p>
-<p>2.otherwise, <strong>adding</strong> extra irrelevant chars will not affect # of LCS.  </p>
-<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>1.return <code>lcs[m][n]</code></p>
-<h2 id="Code"><a href="#Code" class="headerlink" title=" Code: "></a><center> Code: </center></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A, B: Two strings.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The length of longest common subsequence of A and B.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestCommonSubsequence</span><span class="params">(String A, String B)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A.length() == <span class="number">0</span> || B.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> m = A.length();</span><br><span class="line">        <span class="keyword">int</span> n = B.length();</span><br><span class="line">        <span class="comment">// state</span></span><br><span class="line">        <span class="keyword">int</span>[][] lcs = <span class="keyword">new</span> <span class="keyword">int</span>[m + <span class="number">1</span>][n + <span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m + <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n + <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span> || j == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="comment">// initialization</span></span><br><span class="line">                    lcs[i][j] = <span class="number">0</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// fucntion</span></span><br><span class="line">                    lcs[i][j] = A.charAt(i-<span class="number">1</span>) == B.charAt(j-<span class="number">1</span>) ? lcs[i-<span class="number">1</span>][j-<span class="number">1</span>] + <span class="number">1</span> : Math.max(lcs[i-<span class="number">1</span>][j], lcs[i][j-<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// result</span></span><br><span class="line">        <span class="keyword">return</span> lcs[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/10/Longest-Common-Subsequence/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1459,7 +1455,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">98</span>
+              <span class="site-state-item-count">99</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1476,7 +1472,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">77</span>
+                <span class="site-state-item-count">80</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
