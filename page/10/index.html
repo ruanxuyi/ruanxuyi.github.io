@@ -256,6 +256,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/28/Search-in-a-Big-Sorted-Array/" itemprop="url">
+                  Lintcode 447 - Search in a Big Sorted Array
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-28T11:57:06Z" content="06-28-2016">
+              06-28-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/28/Search-in-a-Big-Sorted-Array/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/28/Search-in-a-Big-Sorted-Array/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/28/Search-in-a-Big-Sorted-Array/" class="leancloud_visitors" data-flag-title="Lintcode 447 - Search in a Big Sorted Array">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/search-in-a-big-sorted-array/" target="_blank" rel="noopener">Search in a Big Sorted Array</a>  </p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchBigSortedArray</span><span class="params">(ArrayReader reader, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (reader == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = target;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  second tries added</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">while</span> (reader.get(high) &lt; target) &#123;</span><br><span class="line">        high += target;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">        mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (target &lt;= reader.get(mid)) &#123;</span><br><span class="line">            high = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            low = mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (reader.get(low) == target) &#123;</span><br><span class="line">        <span class="keyword">return</span> low;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (reader.get(high) == target) &#123;</span><br><span class="line">        <span class="keyword">return</span> high;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/28/Search-in-a-Big-Sorted-Array/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/28/Search-Insert-Position/" itemprop="url">
                   Lintcode 60 - Search Insert Position
                 </a>
@@ -1051,7 +1164,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" rel="gallery_cjit1m1pf00ae3ipkiwbnoxeu"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" rel="gallery_cjiul76u1009355pkfc86wopa"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" itemprop="contentUrl"/>
               </a>
@@ -1059,7 +1172,7 @@
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" rel="gallery_cjit1m1pf00ae3ipkiwbnoxeu"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" rel="gallery_cjiul76u1009355pkfc86wopa"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" itemprop="contentUrl"/>
               </a>
@@ -1067,7 +1180,7 @@
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" rel="gallery_cjit1m1pf00ae3ipkiwbnoxeu"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" rel="gallery_cjiul76u1009355pkfc86wopa"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" itemprop="contentUrl"/>
               </a>
@@ -1075,7 +1188,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" rel="gallery_cjit1m1pf00ae3ipkiwbnoxeu"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" rel="gallery_cjiul76u1009355pkfc86wopa"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" itemprop="contentUrl"/>
               </a>
@@ -1083,7 +1196,7 @@
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" rel="gallery_cjit1m1pf00ae3ipkiwbnoxeu"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" rel="gallery_cjiul76u1009355pkfc86wopa"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" itemprop="contentUrl"/>
               </a>
@@ -1442,7 +1555,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">99</span>
+              <span class="site-state-item-count">100</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

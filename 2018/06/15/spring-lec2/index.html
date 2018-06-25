@@ -1,0 +1,1000 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Bree Serif:300,300italic,400,400italic,700,700italic|Arimo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,Spring,SpringBoot,Microservice," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/sushi.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Key terms Eureka Server: service discovery, microservices (client) register with service registory (server)   Single point of failure: part of system that, if it fails, will stop the entire system   O">
+<meta name="keywords" content="Java,Spring,SpringBoot,Microservice">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Cloud - Lec 2">
+<meta property="og:url" content="http://www.xuyiruan.com/2018/06/15/spring-lec2/index.html">
+<meta property="og:site_name" content="阮先生de小窝">
+<meta property="og:description" content="Key terms Eureka Server: service discovery, microservices (client) register with service registory (server)   Single point of failure: part of system that, if it fails, will stop the entire system   O">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://7xihzu.com1.z0.glb.clouddn.com/eureka-registry-success.png">
+<meta property="og:updated_time" content="2018-06-25T18:08:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Cloud - Lec 2">
+<meta name="twitter:description" content="Key terms Eureka Server: service discovery, microservices (client) register with service registory (server)   Single point of failure: part of system that, if it fails, will stop the entire system   O">
+<meta name="twitter:image" content="http://7xihzu.com1.z0.glb.clouddn.com/eureka-registry-success.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> Spring Cloud - Lec 2 | 阮先生de小窝 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">阮先生de小窝</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">多读书 多思考 少吃零食 多睡觉</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Spring Cloud - Lec 2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-06-15T08:35:09-04:00" content="06-15-2018">
+              06-15-2018
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/06/15/spring-lec2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/15/spring-lec2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/06/15/spring-lec2/" class="leancloud_visitors" data-flag-title="Spring Cloud - Lec 2">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Key-terms"><a href="#Key-terms" class="headerlink" title="Key terms"></a>Key terms</h1><ul>
+<li><strong>Eureka Server</strong>: service discovery, microservices (client) register with service registory (server)  </li>
+<li><strong>Single point of failure</strong>: part of system that, if it fails, will stop the entire system  </li>
+<li><strong>Object-relational mapping (ORM):</strong> Map Java objects to database tables and vice versa  </li>
+<li><strong>The Java Persistence API (JPA)</strong>: One possible <strong>approach/standard</strong> for ORM  </li>
+<li><strong>Java Database Conectivity (JDBC)</strong>: an interface to communicate with DB, based on DB types (SQL, Oracle, MySQL, etc)  </li>
+<li><strong>Entity</strong>: class which maps to database table should be marked with <code>@Entity</code> notation  </li>
+<li><strong>Data access object (DAO)</strong>: an interface to access and manipulate database content  </li>
+<li><strong>Java-SE</strong>: Standard Edition, contains all of the libraries and APIs that any Java programmer should learn (java.lang, java.io, java.math, java.net, java.util, etc…)  </li>
+<li><strong>Java-EE</strong>: Enterprise Edition, adds libraries which provide functionality to deploy fault-tolerant, distributed, multi-tier Java software  </li>
+<li><strong>Heroku</strong>: cloud server, similiar to AWS  </li>
+<li><strong>SourceTree</strong>: GIT virtualization application  </li>
+<li><strong><code>Optional&lt;T&gt;</code></strong>: wrapper for class object to prevents from null pointer exception  </li>
+<li><strong>Hibernate</strong>: one of JPA implementations  </li>
+</ul>
+<p>SE vs EE src: <a href="https://stackoverflow.com/questions/2857376/difference-between-java-se-ee-me" target="_blank" rel="noopener">https://stackoverflow.com/questions/2857376/difference-between-java-se-ee-me</a></p>
+<h1 id="Key-annotations"><a href="#Key-annotations" class="headerlink" title="Key annotations"></a>Key annotations</h1><ul>
+<li><code>@EnableEurekaClient</code>: only works for eureka  </li>
+<li><code>@EnableDiscoveryClient</code>: picks any implementation on CLASSPATH  </li>
+<li><code>@GeneratedValue</code>: primary key generatation type  </li>
+<li><code>@Entity</code>: class to table in <strong>backend</strong> DB layer  </li>
+<li><code>@Table</code>: allows to specify the details of the table (ex. table name)  </li>
+<li><code>@AutoWired</code>: setter/getter not required for annotated varaible  </li>
+</ul>
+<a id="more"></a>
+<h1 id="Lec2"><a href="#Lec2" class="headerlink" title="Lec2"></a>Lec2</h1><h2 id="Eureka-Server"><a href="#Eureka-Server" class="headerlink" title="Eureka Server"></a>Eureka Server</h2><ul>
+<li>service discovery pattern implementation (microservice registered, client contacts Eureka server for an active server, linked a load balancer)  </li>
+<li>help to find out <strong>hostname/IP</strong> of particualr services (ex. payment)  </li>
+<li>since in reality all serveers/services use dynamic IPs for autoscaling to add/remove <strong>active servers</strong> based on need (on-demand)  </li>
+<li>upon finish, client send <strong>shutdown signal</strong> to Eureka server to release the microservice resource  </li>
+</ul>
+<h3 id="Single-point-of-failure-SPOF"><a href="#Single-point-of-failure-SPOF" class="headerlink" title="Single point of failure (SPOF)"></a>Single point of failure (SPOF)</h3><ul>
+<li>one Eureka server is NOT SPOF safe  </li>
+<li>use multple Eureka servers  </li>
+<li>run behind a load balancer (TODO: graph)  </li>
+</ul>
+<h2 id="Java-Persistent-API-JPA"><a href="#Java-Persistent-API-JPA" class="headerlink" title="Java Persistent API (JPA)"></a>Java Persistent API (JPA)</h2><ul>
+<li><strong>Map</strong>, <strong>store</strong>, <strong>update</strong> and <strong>retrieve</strong> data from database tables to Java objects and vice versa.</li>
+</ul>
+<h3 id="Why-JPA"><a href="#Why-JPA" class="headerlink" title="Why JPA?"></a>Why JPA?</h3><p>Traditional way to interact with database: <strong>JDBC + SQL</strong>  </p>
+<ul>
+<li>lots of code  </li>
+<li>mapping data types to SQL data types  </li>
+<li>logic mixed with SQL ??  </li>
+</ul>
+<h3 id="JPA-Implementations"><a href="#JPA-Implementations" class="headerlink" title="JPA Implementations"></a>JPA Implementations</h3><ol>
+<li><strong>Spring Hibernate</strong>  </li>
+<li>EclipseLink  </li>
+<li>Apache OpenJPA  </li>
+</ol>
+<blockquote>
+<p>Note: under the hood, all implmentations are writing <strong>SQL</strong> and use <strong>JDBC</strong> to map object to DB  </p>
+</blockquote>
+<h3 id="JPA-vs-JDBC"><a href="#JPA-vs-JDBC" class="headerlink" title="JPA vs JDBC"></a>JPA vs JDBC</h3><p><strong>JPA</strong>:  </p>
+<ul>
+<li>Java Persistence API: <strong>Java Object/instance to SQL</strong>  </li>
+<li>direct manipulation on <strong>Java object/instance</strong> will effectly changed corresponding data in DB  </li>
+</ul>
+<p><strong>JDBC</strong>:  </p>
+<ul>
+<li>Java Data Base Connectivity: <strong>SQL to corresponded Database</strong>  </li>
+<li>set up database connection  </li>
+<li>execute SQL command (Java API to different type of DB)  </li>
+</ul>
+<p>src : <a href="http://wenda.chinabaike.com/z/shenghuo/20131226/728642.html" target="_blank" rel="noopener">http://wenda.chinabaike.com/z/shenghuo/20131226/728642.html</a></p>
+<h3 id="Entity"><a href="#Entity" class="headerlink" title="Entity"></a>Entity</h3><ul>
+<li>A class which should be persisted in a database and it should be annotated with <code>@Entity</code>  </li>
+<li>each instance of the class will be represented as one row in the table  </li>
+</ul>
+<h3 id="Entity-Field"><a href="#Entity-Field" class="headerlink" title="Entity Field"></a>Entity Field</h3><ul>
+<li>JPA access entity field using either <strong>instance variables (fields)</strong> or <strong>getter/setter</strong> to access the fields  </li>
+<li>each <strong>field</strong> is mapped to a <strong>column</strong> in table with the name of the field  </li>
+<li>default column name changed via <code>@Column(name=&quot;newColumnName&quot;)</code>  </li>
+</ul>
+<h3 id="Primary-Key-Generation-Strategies"><a href="#Primary-Key-Generation-Strategies" class="headerlink" title="Primary Key Generation Strategies"></a>Primary Key Generation Strategies</h3><ul>
+<li><code>id</code> is the <strong>primary key</strong> of a table, it automatically increment with one of the three strategies in spring boot  </li>
+<li><code>GenerationType.AUTO</code>: default generation strategy (choose one from three) based on underlying database  </li>
+</ul>
+<ol>
+<li><strong>GenerationType.IDENTITY</strong>: Primary key will be generated by the database itself using an identity column  </li>
+<li><strong>GenerationType.SEQUENCE</strong>: (specify sequence generator)  </li>
+<li><strong>GenerationType.TABLE</strong>:  </li>
+</ol>
+<h3 id="Data-access-object-DAO"><a href="#Data-access-object-DAO" class="headerlink" title="Data access object (DAO)"></a>Data access object (DAO)</h3><ul>
+<li>an <strong>object</strong> or an <strong>interface</strong> that provides access/manipulation to an underlying <strong>database</strong> or other persistence storage  </li>
+<li>simple DAO interface includes: <code>findAll()</code>, <code>findById()</code>, <code>findByName()</code> etc.  </li>
+<li>concrete implementation has to be provided for that interface to deal with SQL server  </li>
+</ul>
+<p>src: <a href="https://stackoverflow.com/questions/19154202/data-access-object-dao-in-java" target="_blank" rel="noopener">https://stackoverflow.com/questions/19154202/data-access-object-dao-in-java</a>  </p>
+<h2 id="Heroku"><a href="#Heroku" class="headerlink" title="Heroku"></a>Heroku</h2><ul>
+<li>what is Heroku? cloud server similiar to AWS  </li>
+<li>why need Heroku? easy to deploy (git push instance deploy) and configure  </li>
+<li>remote deply to Heroku  </li>
+</ul>
+<p>src: <a href="https://www.zhihu.com/question/19983570" target="_blank" rel="noopener">https://www.zhihu.com/question/19983570</a><br><a href="https://codeday.me/bug/20170617/26225.html" target="_blank" rel="noopener">https://codeday.me/bug/20170617/26225.html</a>  </p>
+<h3 id="GitHub-vs-Bitbucket"><a href="#GitHub-vs-Bitbucket" class="headerlink" title="GitHub vs Bitbucket"></a>GitHub vs Bitbucket</h3><ul>
+<li>GitHub as code sample  </li>
+<li>Bitbucket as private repo  </li>
+</ul>
+<p>src: <a href="https://www.zhihu.com/question/20053312" target="_blank" rel="noopener">https://www.zhihu.com/question/20053312</a></p>
+<h3 id="SourceTree"><a href="#SourceTree" class="headerlink" title="SourceTree"></a>SourceTree</h3><ul>
+<li>virtualization of Git  </li>
+<li>how to understand GIT virtualzation <a href="https://segmentfault.com/q/1010000007376119" target="_blank" rel="noopener">https://segmentfault.com/q/1010000007376119</a><h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2></li>
+<li>classpath?  </li>
+</ul>
+<h1 id="HW2"><a href="#HW2" class="headerlink" title="HW2"></a>HW2</h1><h2 id="Set-up-Eureka"><a href="#Set-up-Eureka" class="headerlink" title="Set up Eureka"></a>Set up Eureka</h2><h3 id="Server-Eureka-Service-Registry"><a href="#Server-Eureka-Service-Registry" class="headerlink" title="Server (Eureka Service Registry)"></a>Server (Eureka Service Registry)</h3><ul>
+<li>add <code>eureka-server</code> dependency to <code>pom.xml</code>  </li>
+<li>annotates Application class with <code>@EnableEurekaServer</code>  </li>
+<li>add configuration files (<code>application.yml</code>)  </li>
+</ul>
+<h4 id="Mutiple-Eureka-Services"><a href="#Mutiple-Eureka-Services" class="headerlink" title="Mutiple Eureka Services"></a>Mutiple Eureka Services</h4><ul>
+<li><code>register-with-eureka: true</code>: allows eureka server to <strong>register itself as a client</strong> to sync with the its peers  </li>
+<li><code>fetch-registry: true</code>: allows eureka server to register itself as a service in the service registry  </li>
+<li><code>defaultZone</code> should include all eureka servers addresses. ex. <code>http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/</code>  </li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8761</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">Discovery-Server</span></span><br><span class="line"></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  instance:</span></span><br><span class="line"><span class="attr">    appname:</span> <span class="string">Eureka-Server-1</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    register-with-eureka:</span> <span class="literal">true</span> <span class="string">//</span> <span class="string">required</span> <span class="string">to</span> <span class="string">set</span> <span class="literal">true</span> <span class="string">if</span> <span class="string">requires</span> <span class="string">multiple</span> <span class="string">eureka</span> <span class="string">services</span></span><br><span class="line"><span class="attr">    fetch-registry:</span> <span class="literal">true</span> <span class="string">//</span> <span class="string">set</span> <span class="literal">false</span> <span class="string">if</span> <span class="string">not</span> <span class="string">want</span> <span class="string">to</span> <span class="string">be</span> <span class="string">appeared</span> <span class="string">as</span> <span class="string">a</span> <span class="string">service</span> <span class="string">in</span> <span class="string">the</span> <span class="string">registory</span></span><br><span class="line"><span class="attr">    service-url:</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/</span></span><br></pre></td></tr></table></figure>
+<p>src: <a href="https://dzone.com/articles/microservice-spring-cloud-eureka-server-configurat" target="_blank" rel="noopener">https://dzone.com/articles/microservice-spring-cloud-eureka-server-configurat</a></p>
+<h3 id="Client-DiscoveryClient"><a href="#Client-DiscoveryClient" class="headerlink" title="Client (DiscoveryClient)"></a>Client (DiscoveryClient)</h3><ul>
+<li>add <code>eureka-client</code> dependency to <code>pom.xml</code>  </li>
+<li>annotates Application class with <code>@EnableDiscoveryClient</code>  </li>
+<li>add configuration files (<code>application.yml</code>, <code>bootstrap.yml</code>)  </li>
+</ul>
+<h3 id="application-yml"><a href="#application-yml" class="headerlink" title="application.yml"></a>application.yml</h3><ul>
+<li>In production, <strong>more than one</strong> instance of the registry is required. For our simple purposes, however, it sufficies to <strong>disable</strong> the relevant logging  </li>
+<li>By default, the registry will also attempt to <strong>register itself</strong>, so you’ll need to <strong>disable</strong> that, as well  </li>
+<li>It’s a good convention to put this registry on a <strong>separate port</strong> when using it locally.</li>
+</ul>
+<p>src: <a href="https://spring.io/guides/gs/service-registration-and-discovery/" target="_blank" rel="noopener">https://spring.io/guides/gs/service-registration-and-discovery/</a></p>
+<h3 id="EnableDiscoveryClient-cannot-be-resolved"><a href="#EnableDiscoveryClient-cannot-be-resolved" class="headerlink" title="@EnableDiscoveryClient cannot be resolved"></a>@EnableDiscoveryClient cannot be resolved</h3><p>Eureka requires to change repository to below</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>spring-milestones<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Spring Milestones<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://repo.spring.io/libs-milestone<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="EnableDiscoveryClient"><a href="#EnableDiscoveryClient" class="headerlink" title="@EnableDiscoveryClient"></a>@EnableDiscoveryClient</h3><ul>
+<li>registers itself with the registry  </li>
+<li>interrogate the registry for it’s own host and port  </li>
+<li>activates the Netflix Eureka <code>DiscoveryClient</code> implementation</li>
+</ul>
+<h3 id="Table"><a href="#Table" class="headerlink" title="@Table"></a>@Table</h3><ul>
+<li>allows to specify the details of the table (ex. table name)  </li>
+<li>if no <code>@Table</code> is specific, then default values (default table name is the entity name) will be used  </li>
+</ul>
+<p>src: <a href="https://stackoverflow.com/questions/37729770/what-is-the-use-of-table-annotation-in-jpa" target="_blank" rel="noopener">https://stackoverflow.com/questions/37729770/what-is-the-use-of-table-annotation-in-jpa</a></p>
+<h3 id="Server-configurations-bootstrap-yml-vs-application-yml"><a href="#Server-configurations-bootstrap-yml-vs-application-yml" class="headerlink" title="Server configurations (bootstrap.yml vs application.yml)"></a>Server configurations (bootstrap.yml vs application.yml)</h3><ul>
+<li>under <strong>resources</strong> folder  </li>
+<li>bootstrap.yml is loaded <strong>before</strong> application.yml  </li>
+<li><code>spring.application.name</code> and <code>spring.cloud.config.server.git.uri</code> specifies inside <code>bootstrap.yml</code>  </li>
+</ul>
+<p>src: <a href="https://stackoverflow.com/questions/32997352/what-is-the-difference-between-putting-a-property-on-application-yml-or-bootstra" target="_blank" rel="noopener">https://stackoverflow.com/questions/32997352/what-is-the-difference-between-putting-a-property-on-application-yml-or-bootstra</a></p>
+<p><strong>clientside</strong>: </p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">application.yml</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8091</span></span><br><span class="line"></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    serviceUrl:</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://localhost:8761/eureka/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">bootstrap.yml</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="string">application.name:</span> <span class="string">location-service</span></span><br></pre></td></tr></table></figure>
+<p><strong>serverside</strong>:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">application.yml</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">eureka-server</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8761</span></span><br><span class="line"></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    registerWithEureka:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    fetchRegistry:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  server:</span></span><br><span class="line"><span class="attr">    waitTimeInMsWhenSyncEmpty:</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="attr">logging:</span></span><br><span class="line"><span class="attr">  level:</span></span><br><span class="line">    <span class="string">com.netflix:</span> <span class="string">'WARN'</span></span><br><span class="line">    <span class="string">org.springframework.cloud:</span> <span class="string">'WARN'</span></span><br></pre></td></tr></table></figure>
+<h3 id="Test-Eureka-Server-Client"><a href="#Test-Eureka-Server-Client" class="headerlink" title="Test Eureka Server/Client"></a>Test Eureka Server/Client</h3><ul>
+<li>run Eureka Registry  </li>
+<li>run Eureka Client  </li>
+<li>go to registry’s namehost <code>http://localhost:8761/</code>  </li>
+<li>check registered service under [Instances currently registered with Eureka] section  </li>
+</ul>
+<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/eureka-registry-success.png" alt=""></p>
+<h2 id="AutoWired"><a href="#AutoWired" class="headerlink" title="@AutoWired"></a>@AutoWired</h2><ul>
+<li>this annotation can be applied to variable, method, constructor  </li>
+<li>if apply to member variable, content will be auto injected by PostProcessor, hence, setter/getter for that variable is <strong>NOT</strong> required  </li>
+</ul>
+<p>src: <a href="https://blog.csdn.net/heyutao007/article/details/5981555" target="_blank" rel="noopener">https://blog.csdn.net/heyutao007/article/details/5981555</a></p>
+<h2 id="deploy-Eureka-Server-to-Heroku"><a href="#deploy-Eureka-Server-to-Heroku" class="headerlink" title="deploy Eureka Server to Heroku"></a>deploy Eureka Server to Heroku</h2><h3 id="deploy-w-git"><a href="#deploy-w-git" class="headerlink" title="deploy w/ git"></a>deploy w/ git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;initial commit&quot;</span><br><span class="line">#Creates a Heroku application with random name (and domain)</span><br><span class="line">#Creates a remote repository for your account, and set alias `heroku` points to it</span><br><span class="line">heroku create</span><br><span class="line">#Pushes the source code to the Heroku Git repo, so Heroku can build and deploy it</span><br><span class="line">git push heroku master</span><br><span class="line">#opens our app in a browser </span><br><span class="line">heroku open</span><br></pre></td></tr></table></figure>
+<p>src: <a href="https://dzone.com/articles/spring-boot-heroku-and-cicd" target="_blank" rel="noopener">https://dzone.com/articles/spring-boot-heroku-and-cicd</a></p>
+<h3 id="deploy-w-jar"><a href="#deploy-w-jar" class="headerlink" title="deploy w/ jar"></a>deploy w/ jar</h3><ul>
+<li>update <code>application.yml</code> file:  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: $&#123;PORT:8761&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>note</strong>: <code>${port:8282}</code> is the environment variable <a href="https://www.concretepage.com/spring-boot/spring-boot-change-default-server-port" target="_blank" rel="noopener">https://www.concretepage.com/spring-boot/spring-boot-change-default-server-port</a>  </p>
+<ul>
+<li>add <code>Procfile</code> to app root  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Procfile</span><br><span class="line">java $JAVA_OPTS -jar target/eureka-service-1.0-SNAPSHOT.jar --server.port=$PORT $JAR_OPTS</span><br></pre></td></tr></table></figure>
+<ul>
+<li>rebuild app.jar  </li>
+<li>run  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heroku deploy:jar -j target/eureka-service-1.0-SNAPSHOT.jar -i Procfile --app stark-anchorage-17254</span><br></pre></td></tr></table></figure>
+<p>src: <a href="https://dzone.com/articles/spring-boot-heroku-and-cicd" target="_blank" rel="noopener">https://dzone.com/articles/spring-boot-heroku-and-cicd</a></p>
+<p>How does <code>git push heroku master</code> know where to push to and how to push to a different repo?  </p>
+<ul>
+<li><code>git push &lt;remote-repo&gt; &lt;branch&gt;</code>  </li>
+<li><code>heroku</code> is the <strong>alias</strong> points to the unique remote repo (ex. <code>git@heroku.com:stark-fog-398.git</code>) for your own heroku account, which was set up during <code>heroku create</code> cmd  </li>
+</ul>
+<p>src: <a href="https://stackoverflow.com/a/17353609" target="_blank" rel="noopener">https://stackoverflow.com/a/17353609</a>  </p>
+<h3 id="open-app-and-check-log"><a href="#open-app-and-check-log" class="headerlink" title="open app and check log"></a>open app and check log</h3><ul>
+<li><code>heroku open --app stark-anchorage-17254</code>  </li>
+<li><code>heroku logs --app stark-anchorage-17254</code></li>
+</ul>
+<h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><h1 id="Questions-1"><a href="#Questions-1" class="headerlink" title="Questions"></a>Questions</h1><ul>
+<li>what is <code>dependencyManagement</code>? <a href="https://stackoverflow.com/questions/2619598/differences-between-dependencymanagement-and-dependencies-in-maven" target="_blank" rel="noopener">https://stackoverflow.com/questions/2619598/differences-between-dependencymanagement-and-dependencies-in-maven</a>  </li>
+<li>JPA 和 DAO的区别  </li>
+</ul>
+<h1 id="Resolved"><a href="#Resolved" class="headerlink" title="Resolved"></a>Resolved</h1><h1 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h1><ul>
+<li>XCodeCareerService Spring Cloud: <a href="https://quip.com/XPGSAX98Gb2q" target="_blank" rel="noopener">https://quip.com/XPGSAX98Gb2q</a>  </li>
+</ul>
+<h1 id="Logs"><a href="#Logs" class="headerlink" title="Logs"></a>Logs</h1><ul>
+<li>06/24/18: initial post  </li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/Spring/" rel="tag">#Spring</a>
+          
+            <a href="/tags/SpringBoot/" rel="tag">#SpringBoot</a>
+          
+            <a href="/tags/Microservice/" rel="tag">#Microservice</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/14/spring-lec1/" rel="next" title="Spring Cloud - Lec 1">
+                <i class="fa fa-chevron-left"></i> Spring Cloud - Lec 1
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.jpg"
+               alt="🍣之神" />
+          <p class="site-author-name" itemprop="name">🍣之神</p>
+          <p class="site-description motion-element" itemprop="description">阮先生’s blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">100</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">80</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ruanxuyi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/xuyiruan/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/xuyi-ruan-a728a889" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mszhuchinese.com" title="MsZhuChinese" target="_blank">MsZhuChinese</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.winniebabe.com" title="WinnieBabe" target="_blank">WinnieBabe</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suncuss.me" title="BossSun" target="_blank">BossSun</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Key-terms"><span class="nav-number">1.</span> <span class="nav-text">Key terms</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Key-annotations"><span class="nav-number">2.</span> <span class="nav-text">Key annotations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lec2"><span class="nav-number">3.</span> <span class="nav-text">Lec2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Eureka-Server"><span class="nav-number">3.1.</span> <span class="nav-text">Eureka Server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Single-point-of-failure-SPOF"><span class="nav-number">3.1.1.</span> <span class="nav-text">Single point of failure (SPOF)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Persistent-API-JPA"><span class="nav-number">3.2.</span> <span class="nav-text">Java Persistent API (JPA)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-JPA"><span class="nav-number">3.2.1.</span> <span class="nav-text">Why JPA?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JPA-Implementations"><span class="nav-number">3.2.2.</span> <span class="nav-text">JPA Implementations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JPA-vs-JDBC"><span class="nav-number">3.2.3.</span> <span class="nav-text">JPA vs JDBC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Entity"><span class="nav-number">3.2.4.</span> <span class="nav-text">Entity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Entity-Field"><span class="nav-number">3.2.5.</span> <span class="nav-text">Entity Field</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Primary-Key-Generation-Strategies"><span class="nav-number">3.2.6.</span> <span class="nav-text">Primary Key Generation Strategies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-access-object-DAO"><span class="nav-number">3.2.7.</span> <span class="nav-text">Data access object (DAO)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heroku"><span class="nav-number">3.3.</span> <span class="nav-text">Heroku</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-vs-Bitbucket"><span class="nav-number">3.3.1.</span> <span class="nav-text">GitHub vs Bitbucket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SourceTree"><span class="nav-number">3.3.2.</span> <span class="nav-text">SourceTree</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Questions"><span class="nav-number">3.4.</span> <span class="nav-text">Questions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HW2"><span class="nav-number">4.</span> <span class="nav-text">HW2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-up-Eureka"><span class="nav-number">4.1.</span> <span class="nav-text">Set up Eureka</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Server-Eureka-Service-Registry"><span class="nav-number">4.1.1.</span> <span class="nav-text">Server (Eureka Service Registry)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mutiple-Eureka-Services"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">Mutiple Eureka Services</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Client-DiscoveryClient"><span class="nav-number">4.1.2.</span> <span class="nav-text">Client (DiscoveryClient)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#application-yml"><span class="nav-number">4.1.3.</span> <span class="nav-text">application.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EnableDiscoveryClient-cannot-be-resolved"><span class="nav-number">4.1.4.</span> <span class="nav-text">@EnableDiscoveryClient cannot be resolved</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EnableDiscoveryClient"><span class="nav-number">4.1.5.</span> <span class="nav-text">@EnableDiscoveryClient</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Table"><span class="nav-number">4.1.6.</span> <span class="nav-text">@Table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Server-configurations-bootstrap-yml-vs-application-yml"><span class="nav-number">4.1.7.</span> <span class="nav-text">Server configurations (bootstrap.yml vs application.yml)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Eureka-Server-Client"><span class="nav-number">4.1.8.</span> <span class="nav-text">Test Eureka Server/Client</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AutoWired"><span class="nav-number">4.2.</span> <span class="nav-text">@AutoWired</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deploy-Eureka-Server-to-Heroku"><span class="nav-number">4.3.</span> <span class="nav-text">deploy Eureka Server to Heroku</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#deploy-w-git"><span class="nav-number">4.3.1.</span> <span class="nav-text">deploy w/ git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deploy-w-jar"><span class="nav-number">4.3.2.</span> <span class="nav-text">deploy w/ jar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-app-and-check-log"><span class="nav-number">4.3.3.</span> <span class="nav-text">open app and check log</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-amp-A"><span class="nav-number">5.</span> <span class="nav-text">Q&amp;A</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Questions-1"><span class="nav-number">6.</span> <span class="nav-text">Questions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Resolved"><span class="nav-number">7.</span> <span class="nav-text">Resolved</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">8.</span> <span class="nav-text">References:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logs"><span class="nav-number">9.</span> <span class="nav-text">Logs</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">🍣之神</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xruan';
+      var disqus_identifier = '2018/06/15/spring-lec2/';
+      var disqus_title = "Spring Cloud - Lec 2";
+      var disqus_url = 'http://www.xuyiruan.com/2018/06/15/spring-lec2/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oKoPG1XTXkC7T1oasGQwau2g-gzGzoHsz", "JFJCQtIsUKhrX6S7Gvgqdqgk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
