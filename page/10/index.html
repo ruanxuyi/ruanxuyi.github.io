@@ -256,6 +256,119 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/29/Find-Peak-Element/" itemprop="url">
+                  LintCode 75 - Find Peak Element
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-29T10:31:10Z" content="06-29-2016">
+              06-29-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/29/Find-Peak-Element/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/29/Find-Peak-Element/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/29/Find-Peak-Element/" class="leancloud_visitors" data-flag-title="LintCode 75 - Find Peak Element">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="http://www.lintcode.com/en/problem/find-peak-element/#" target="_blank" rel="noopener">Find Peak Element</a>  </p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code:"></a>Code:</h1><h2 id="Binary-Search-Version-O-Log-N"><a href="#Binary-Search-Version-O-Log-N" class="headerlink" title="Binary Search Version (O(Log(N)))"></a>Binary Search Version (O(Log(N)))</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findPeak</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (A.length == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> high = A.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (low + <span class="number">1</span> &lt; high) &#123;</span><br><span class="line">        mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (A[mid] &lt; A[mid - <span class="number">1</span>]) &#123; <span class="comment">// 6 5 4 当发现有descend的时候, 将high index 往左缩进。</span></span><br><span class="line">            high = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">// 4 5 6 其他的时候，因为最后array最后肯定有peak, 因此update low index 往右缩进。</span></span><br><span class="line">            low = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// since A[0] &lt; A[1] &amp;&amp; A[A.length - 2] &gt; A[A.length - 1].</span></span><br><span class="line">        <span class="comment">// therefore, there must be a peak in at the end of the array. </span></span><br><span class="line">        <span class="comment">// that is the reason we set low = mid;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (low &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[low] &gt; A[low - <span class="number">1</span>] &amp;&amp; A[low] &gt; A[low + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> low;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (high &lt; (A.length - <span class="number">1</span>)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[high] &gt; A[high - <span class="number">1</span>] &amp;&amp; A[high] &gt; A[high + <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> high;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/29/Find-Peak-Element/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/28/Search-for-a-range/" itemprop="url">
                   Lintcode 61 - Search for a Range
                 </a>
@@ -1277,7 +1390,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" rel="gallery_cjizcck5r00aecvpkw0fr74m9"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" rel="gallery_cjj7kjscn00902qpk7lkz6di5"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/  .jpg" itemprop="contentUrl"/>
               </a>
@@ -1285,7 +1398,7 @@
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" rel="gallery_cjizcck5r00aecvpkw0fr74m9"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" rel="gallery_cjj7kjscn00902qpk7lkz6di5"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/2012033194618780_347_o.jpg" itemprop="contentUrl"/>
               </a>
@@ -1293,7 +1406,7 @@
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" rel="gallery_cjizcck5r00aecvpkw0fr74m9"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" rel="gallery_cjj7kjscn00902qpk7lkz6di5"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/7cb2f2e4gw1ecd8ofl54oj209o0780t2.jpg" itemprop="contentUrl"/>
               </a>
@@ -1301,7 +1414,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" rel="gallery_cjizcck5r00aecvpkw0fr74m9"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" rel="gallery_cjj7kjscn00902qpk7lkz6di5"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/U4940P1DT20140120124849.jpg" itemprop="contentUrl"/>
               </a>
@@ -1309,7 +1422,7 @@
           
             
               <a class="post-gallery-img fancybox"
-                 href="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" rel="gallery_cjizcck5r00aecvpkw0fr74m9"
+                 href="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" rel="gallery_cjj7kjscn00902qpk7lkz6di5"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://7xihzu.com1.z0.glb.clouddn.com/eda40cf431adcbef4c03b113afaf2edda3cc9ff2.jpg" itemprop="contentUrl"/>
               </a>
@@ -1329,138 +1442,6 @@
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/04/09/photoPost/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/14/my-first-android-app/" itemprop="url">
-                  StopWatch - Andriod
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-09-14T14:17:17Z" content="09-14-2015">
-              09-14-2015
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MoblieApplication/" itemprop="url" rel="index">
-                    <span itemprop="name">MoblieApplication</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/14/my-first-android-app/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/14/my-first-android-app/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/09/14/my-first-android-app/" class="leancloud_visitors" data-flag-title="StopWatch - Andriod">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a><strong>Description:</strong></h2><p>This mini lab is designed to get familiar with the programming language - Java - for android studio. This mini lab also get you chance to explorer the idea of <code>Runnerable</code>, <code>Multli-threads application</code>,<code>Handler</code>, as well as <code>OnClickListener</code></p>
-<p><img src="http://7xihzu.com1.z0.glb.clouddn.com/myBlog.firstAndroidApp2.png" alt="running app" style="width:600px"></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/14/my-first-android-app/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1535,7 +1516,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">101</span>
+              <span class="site-state-item-count">102</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1552,7 +1533,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">81</span>
+                <span class="site-state-item-count">83</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
