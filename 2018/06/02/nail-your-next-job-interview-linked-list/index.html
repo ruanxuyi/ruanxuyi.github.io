@@ -1,0 +1,880 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Bree Serif:300,300italic,400,400italic,700,700italic|Arimo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JobInterview,Linked List," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/sushi.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="keywords" content="JobInterview,Linked List">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nail Your Next Job Interview - Linked List">
+<meta property="og:url" content="http://www.xuyiruan.com/2018/06/02/nail-your-next-job-interview-linked-list/index.html">
+<meta property="og:site_name" content="阮先生de小窝">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-06-02-cycle-linked-list.png">
+<meta property="og:image" content="http://www.xuyiruan.com/2018/06/02/nail-your-next-job-interview-linked-list/7xihzu.com1.z0.glb.clouddn.com/lc143-reorder-list.jpeg">
+<meta property="og:updated_time" content="2018-07-15T17:38:49.534Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nail Your Next Job Interview - Linked List">
+<meta name="twitter:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-06-02-cycle-linked-list.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> Nail Your Next Job Interview - Linked List | 阮先生de小窝 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">阮先生de小窝</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">多读书 多思考 少吃零食 多睡觉</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Nail Your Next Job Interview - Linked List
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-06-02T06:58:28-04:00" content="06-02-2018">
+              06-02-2018
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/06/02/nail-your-next-job-interview-linked-list/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/02/nail-your-next-job-interview-linked-list/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/06/02/nail-your-next-job-interview-linked-list/" class="leancloud_visitors" data-flag-title="Nail Your Next Job Interview - Linked List">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://s3.amazonaws.com/images.xuyiruan.com/2018-06-02-cycle-linked-list.png" alt=""></p>
+<a id="more"></a>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>Reverse Linked List  </li>
+<li>Reverse Linked List II  </li>
+<li>Palindrome Linked List  </li>
+<li>Merge Two Sorted Lists  </li>
+<li>Remove Linked List Elements  </li>
+<li>Delete Node in a Linked List  </li>
+<li>Merge k Sorted Lists  </li>
+<li>Reorder List  </li>
+<li>Linked List Cycle   </li>
+<li>Linked List Cycle II  </li>
+<li>Add Two Numbers  </li>
+</ul>
+<h2 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h2><h3 id="206-Reverse-Linked-List"><a href="#206-Reverse-Linked-List" class="headerlink" title="206. Reverse Linked List"></a>206. Reverse Linked List</h3><ul>
+<li>think about it graphically  </li>
+</ul>
+<p><a href="https://leetcode.com/problems/reverse-linked-list/description/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-linked-list/description/</a></p>
+<h4 id="Iterative"><a href="#Iterative" class="headerlink" title="Iterative"></a>Iterative</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 1 -&gt; 2 -&gt; 3 -&gt; 4</span></span><br><span class="line">        <span class="comment">// head</span></span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">            ListNode tmp = head.next;</span><br><span class="line">            head.next = pre;</span><br><span class="line">            pre = head;</span><br><span class="line">            head = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Recursive"><a href="#Recursive" class="headerlink" title="Recursive"></a>Recursive</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// recursive to last node in linked list</span></span><br><span class="line">        ListNode pre = reverseList(head.next); </span><br><span class="line">        <span class="comment">// where 'pre' always point to the end node, which was pass back into recursive call</span></span><br><span class="line">        head.next.next = head;</span><br><span class="line">        head.next = <span class="keyword">null</span>; </span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="92-Reverse-Linked-List-II"><a href="#92-Reverse-Linked-List-II" class="headerlink" title="92. Reverse Linked List II"></a>92. Reverse Linked List II</h3><ul>
+<li>[TODO] add graph  </li>
+<li>[TODO] add step  </li>
+</ul>
+<p><a href="https://leetcode.com/problems/reverse-linked-list-ii/description/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-linked-list-ii/description/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseBetween</span><span class="params">(ListNode head, <span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummy.next = head;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// get node at m</span></span><br><span class="line">        ListNode curr = head;</span><br><span class="line">        ListNode start = dummy;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (curr != <span class="keyword">null</span> &amp;&amp; count &lt; m) &#123;</span><br><span class="line">            start = curr;</span><br><span class="line">            curr = curr.next;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ListNode end = curr; <span class="comment">// curr become end</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 1 -&gt; 2 -&gt; 3 -&gt; 4</span></span><br><span class="line">        <span class="comment">// head</span></span><br><span class="line">        <span class="comment">// count = 2</span></span><br><span class="line">        ListNode pre = <span class="keyword">null</span>; <span class="comment">// first node become the end node, set end.next = null</span></span><br><span class="line">        <span class="keyword">while</span> (count &lt;= n) &#123; <span class="comment">// key: count == n is the last reverse</span></span><br><span class="line">            ListNode tmp = curr.next;</span><br><span class="line">            curr.next = pre;</span><br><span class="line">            pre = curr;</span><br><span class="line">            curr = tmp;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// </span></span><br><span class="line">        start.next = pre;</span><br><span class="line">        end.next = curr;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="234-Palindrome-Linked-List"><a href="#234-Palindrome-Linked-List" class="headerlink" title="234. Palindrome Linked List"></a>234. Palindrome Linked List</h2><ul>
+<li>slow fast pointer find mid  </li>
+<li>reverse second half of linked list  </li>
+<li>scan through element in left and right half, not palindrome if element check fails    </li>
+</ul>
+<p><a href="https://leetcode.com/problems/palindrome-linked-list/description/" target="_blank" rel="noopener">https://leetcode.com/problems/palindrome-linked-list/description/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        ListNode fast = head.next;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// middle of linkedlist</span></span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// reverse 2nd half</span></span><br><span class="line">        slow.next = reverse(slow.next);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// check palindrome</span></span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = head;</span><br><span class="line">        <span class="keyword">while</span> (slow != <span class="keyword">null</span>) &#123; <span class="comment">// slow scan through second half, hence mid node in ODD case will not be visited</span></span><br><span class="line">            <span class="keyword">if</span> (slow.val != fast.val) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">            ListNode tmp = head.next;</span><br><span class="line">            head.next = pre;</span><br><span class="line">            pre = head;</span><br><span class="line">            head = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="21-Merge-Two-Sorted-Lists"><a href="#21-Merge-Two-Sorted-Lists" class="headerlink" title="21. Merge Two Sorted Lists"></a>21. Merge Two Sorted Lists</h2><ul>
+<li>use <code>dummy</code> node to generalize special case handling. (use dummy to eliminate special case handling, perform general algorithm directly)</li>
+</ul>
+<p><a href="https://leetcode.com/problems/merge-two-sorted-lists/description/" target="_blank" rel="noopener">https://leetcode.com/problems/merge-two-sorted-lists/description/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode lastNode = dummy;</span><br><span class="line">        <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> (l2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (l1 != <span class="keyword">null</span> &amp;&amp; l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1.val &lt; l2.val) &#123;</span><br><span class="line">                lastNode.next = l1;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                lastNode.next = l2;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            lastNode = lastNode.next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            lastNode.next = l2;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            lastNode.next = l1;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Remove-List-Node-s"><a href="#Remove-List-Node-s" class="headerlink" title="Remove List Node/s"></a>Remove List Node/s</h2><h3 id="203-Remove-Linked-List-Elements-X"><a href="#203-Remove-Linked-List-Elements-X" class="headerlink" title="203. Remove Linked List Elements [X]"></a>203. Remove Linked List Elements [X]</h3><ul>
+<li>multiple remove (<strong>duplicates</strong>)  </li>
+<li>dummy node  </li>
+<li>corner case:  <code>[1,1]</code> remove <code>1</code>  </li>
+</ul>
+<p><a href="https://leetcode.com/problems/remove-linked-list-elements/description/" target="_blank" rel="noopener">https://leetcode.com/problems/remove-linked-list-elements/description/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeElements</span><span class="params">(ListNode head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// assume no node w/ val=-1</span></span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">        dummy.next = head;</span><br><span class="line">        </span><br><span class="line">        ListNode curr = head;</span><br><span class="line">        ListNode pre = dummy;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// remove head OR tail</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (curr != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (curr.val == val) &#123;</span><br><span class="line">                pre.next = curr.next; <span class="comment">// remove curr </span></span><br><span class="line">                <span class="comment">// if remove curr, pre stay, curr update [X]</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// if NOT remove curr, both pre and curr update</span></span><br><span class="line">                pre = pre.next;</span><br><span class="line">            &#125;</span><br><span class="line">            curr = curr.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="237-Delete-Node-in-a-Linked-List"><a href="#237-Delete-Node-in-a-Linked-List" class="headerlink" title="237. Delete Node in a Linked List"></a>237. Delete Node in a Linked List</h3><ul>
+<li>delete a list node only given that node  </li>
+</ul>
+<p><a href="https://leetcode.com/problems/delete-node-in-a-linked-list/description/" target="_blank" rel="noopener">https://leetcode.com/problems/delete-node-in-a-linked-list/description/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode next = node.next;</span><br><span class="line">        <span class="keyword">while</span> (next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            node.val = next.val;</span><br><span class="line">            <span class="keyword">if</span> (next.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">                node.next = <span class="keyword">null</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                node = node.next;</span><br><span class="line">            &#125;</span><br><span class="line">            next = next.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="23-Merge-k-Sorted-Lists"><a href="#23-Merge-k-Sorted-Lists" class="headerlink" title="23. Merge k Sorted Lists"></a>23. Merge k Sorted Lists</h2><ul>
+<li>maintains $O(logK)$ heap  </li>
+</ul>
+<p><a href="https://leetcode.com/problems/merge-k-sorted-lists/description/" target="_blank" rel="noopener">https://leetcode.com/problems/merge-k-sorted-lists/description/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeKLists</span><span class="params">(ListNode[] lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lists == <span class="keyword">null</span> || lists.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode tail = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode dummy = tail;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// override comparator in prioirty queue        </span></span><br><span class="line">        <span class="comment">// override compare method requires 1. size, 2, new Comparator</span></span><br><span class="line">        </span><br><span class="line">        PriorityQueue&lt;ListNode&gt; queue = <span class="keyword">new</span> PriorityQueue&lt;ListNode&gt;(lists.length, <span class="keyword">new</span> Comparator&lt;ListNode&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(ListNode o1, ListNode o2)</span></span>&#123;</span><br><span class="line">                <span class="comment">// method 1: </span></span><br><span class="line">                <span class="keyword">if</span> (o1.val &lt; o2.val) &#123;</span><br><span class="line">                    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (o1.val == o2.val) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// method2: return Integer.compare(o1.val, o2.val);</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">// method 3: if for sure no overflow</span></span><br><span class="line">                <span class="comment">// return o1.val - o2.val;</span></span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// add k nodes to queue</span></span><br><span class="line">        <span class="keyword">for</span> (ListNode node : lists) &#123;</span><br><span class="line">            <span class="keyword">if</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">                queue.offer(node);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// connect node when queue is not empty</span></span><br><span class="line">        <span class="keyword">while</span> (queue.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            tail.next = queue.poll();</span><br><span class="line">            tail = tail.next;</span><br><span class="line">            <span class="keyword">if</span> (tail.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">                queue.offer(tail.next); <span class="comment">// IMPORT: queue offer null -&gt; NullPointerException</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="143-Reorder-List-X"><a href="#143-Reorder-List-X" class="headerlink" title="143. Reorder List [X]"></a>143. Reorder List [X]</h2><ul>
+<li>find mid: slow fast pointer  </li>
+<li>reverse second half of linked list  </li>
+<li>intertwiningly combine first and second half  </li>
+</ul>
+<p><img src="http:7xihzu.com1.z0.glb.clouddn.com/lc143-reorder-list.jpeg" alt=""></p>
+<p><a href="https://leetcode.com/problems/reorder-list/description/" target="_blank" rel="noopener">https://leetcode.com/problems/reorder-list/description/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for ListNode.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.next = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> head: The head of linked list.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reorderList</span><span class="params">(ListNode head)</span> </span>&#123;  </span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123; <span class="comment">//bug1 : head.next == null, do nothing -&gt; return</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummy.next = head;</span><br><span class="line">        ListNode mid;</span><br><span class="line">        ListNode right;</span><br><span class="line">        ListNode left = head;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// traverse to the middle point</span></span><br><span class="line">        mid = findMid(head);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// reverse second half of the linked list</span></span><br><span class="line">        mid.next = reverseList(mid.next);</span><br><span class="line">        </span><br><span class="line">        right = mid.next;</span><br><span class="line">        mid.next = <span class="keyword">null</span>; <span class="comment">// mid is the last node</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// combine first half and send half intertwiningly</span></span><br><span class="line">        <span class="keyword">while</span> (right != <span class="keyword">null</span>) &#123;</span><br><span class="line">            ListNode tmp = right.next;</span><br><span class="line">            right.next = left.next;</span><br><span class="line">            left.next = right;</span><br><span class="line">            right = tmp;</span><br><span class="line">            left = left.next.next; <span class="comment">// left partition is 'in order' after above ops</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> ListNode <span class="title">reverseList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (head !=  <span class="keyword">null</span>) &#123;</span><br><span class="line">            ListNode tmp = head.next;</span><br><span class="line">            head.next = pre;</span><br><span class="line">            pre = head;</span><br><span class="line">            head = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> ListNode <span class="title">findMid</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        ListNode fast = head.next;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Detect-Cycle"><a href="#Detect-Cycle" class="headerlink" title="Detect Cycle"></a>Detect Cycle</h2><ul>
+<li>use <code>fast = head</code> (<code>fast = head.next</code> will cause bug in circle linked list case, TODO)  </li>
+</ul>
+<h3 id="141-Linked-List-Cycle-X"><a href="#141-Linked-List-Cycle-X" class="headerlink" title="141. Linked List Cycle [X]"></a>141. Linked List Cycle [X]</h3><p><a href="https://leetcode.com/problems/linked-list-cycle/description/" target="_blank" rel="noopener">https://leetcode.com/problems/linked-list-cycle/description/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        ListNode fast = head;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            <span class="keyword">if</span> (slow == fast) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="142-Linked-List-Cycle-II-X"><a href="#142-Linked-List-Cycle-II-X" class="headerlink" title="142. Linked List Cycle II [X]"></a>142. Linked List Cycle II [X]</h3><p><a href="https://leetcode.com/problems/linked-list-cycle-ii/description/" target="_blank" rel="noopener">https://leetcode.com/problems/linked-list-cycle-ii/description/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">detectCycle</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        ListNode fast = head;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            <span class="keyword">if</span> (slow == fast) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (fast == <span class="keyword">null</span> || fast.next == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        slow = head;</span><br><span class="line">        <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fast;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Add-Two-Numbers-X"><a href="#2-Add-Two-Numbers-X" class="headerlink" title="2. Add Two Numbers [X]"></a>2. Add Two Numbers [X]</h2><ul>
+<li>iterative and recursive approach  </li>
+<li>TODO: try other version  </li>
+</ul>
+<p><a href="https://leetcode.com/problems/add-two-numbers/description/" target="_blank" rel="noopener">https://leetcode.com/problems/add-two-numbers/description/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> takeSum(l1, l2, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">takeSum</span><span class="params">(ListNode l1, ListNode l2, <span class="keyword">int</span> carry)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l1 == <span class="keyword">null</span> &amp;&amp; l2 == <span class="keyword">null</span> &amp;&amp; carry == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> value = carry;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (l1 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            value += l1.val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            value += l2.val;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode result = <span class="keyword">new</span> ListNode(value % <span class="number">10</span>);</span><br><span class="line">        result.next = takeSum(l1 != <span class="keyword">null</span> ? l1.next : <span class="keyword">null</span>, l2 != <span class="keyword">null</span> ? l2.next : <span class="keyword">null</span>, value &gt;= <span class="number">10</span> ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="109-Convert-Sorted-List-to-Binary-Search-Tree-X"><a href="#109-Convert-Sorted-List-to-Binary-Search-Tree-X" class="headerlink" title="109. Convert Sorted List to Binary Search Tree [X]"></a>109. Convert Sorted List to Binary Search Tree [X]</h2><p><a href="https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/" target="_blank" rel="noopener">https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for ListNode.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.next = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> * Definition of TreeNode:</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     public int val;</span></span><br><span class="line"><span class="comment"> *     public TreeNode left, right;</span></span><br><span class="line"><span class="comment"> *     public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.left = this.right = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> head: The first node of linked list.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: a tree node</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">sortedListToBST</span><span class="params">(ListNode head)</span> </span>&#123;  </span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> insertBST(head);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">findMid</span> <span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// find the middle of the linked list</span></span><br><span class="line">        ListNode slow, fast, prev;</span><br><span class="line">        slow = head;</span><br><span class="line">        prev = slow;</span><br><span class="line">        fast = head.next;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="keyword">null</span> &amp;&amp; fast.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            prev = slow;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> prev;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">insertBST</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// bug2: added</span></span><br><span class="line">        <span class="keyword">if</span> (head.next == <span class="keyword">null</span>) &#123; <span class="comment">// single node left</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> TreeNode(head.val);</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode prev = findMid(head);</span><br><span class="line">        ListNode mid = prev.next;</span><br><span class="line">        <span class="comment">// bug1:</span></span><br><span class="line">        <span class="comment">// bst.val = mid.val;</span></span><br><span class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(mid.val);</span><br><span class="line">        root.right = insertBST(mid.next);</span><br><span class="line">        prev.next = <span class="keyword">null</span>;</span><br><span class="line">        root.left = insertBST(head);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Logs"><a href="#Logs" class="headerlink" title="Logs"></a>Logs</h2><ul>
+<li>06/03/2018: init post  </li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JobInterview/" rel="tag">#JobInterview</a>
+          
+            <a href="/tags/Linked-List/" rel="tag">#Linked List</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/29/nail-your-next-job-interview-tree/" rel="next" title="Nail Your Next Job Interview - Tree">
+                <i class="fa fa-chevron-left"></i> Nail Your Next Job Interview - Tree
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/02/nail-your-next-job-interview-graph/" rel="prev" title="Nail Your Next Job Interview - Graph">
+                Nail Your Next Job Interview - Graph <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.jpg"
+               alt="🍣之神" />
+          <p class="site-author-name" itemprop="name">🍣之神</p>
+          <p class="site-description motion-element" itemprop="description">阮先生’s blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ruanxuyi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/xuyiruan/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/xuyi-ruan-a728a889" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mszhuchinese.com" title="MsZhuChinese" target="_blank">MsZhuChinese</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.winniebabe.com" title="WinnieBabe" target="_blank">WinnieBabe</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suncuss.me" title="BossSun" target="_blank">BossSun</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">1.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reverse-Linked-List"><span class="nav-number">2.</span> <span class="nav-text">Reverse Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#206-Reverse-Linked-List"><span class="nav-number">2.1.</span> <span class="nav-text">206. Reverse Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Iterative"><span class="nav-number">2.1.1.</span> <span class="nav-text">Iterative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recursive"><span class="nav-number">2.1.2.</span> <span class="nav-text">Recursive</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#92-Reverse-Linked-List-II"><span class="nav-number">2.2.</span> <span class="nav-text">92. Reverse Linked List II</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#234-Palindrome-Linked-List"><span class="nav-number">3.</span> <span class="nav-text">234. Palindrome Linked List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21-Merge-Two-Sorted-Lists"><span class="nav-number">4.</span> <span class="nav-text">21. Merge Two Sorted Lists</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remove-List-Node-s"><span class="nav-number">5.</span> <span class="nav-text">Remove List Node/s</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#203-Remove-Linked-List-Elements-X"><span class="nav-number">5.1.</span> <span class="nav-text">203. Remove Linked List Elements [X]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#237-Delete-Node-in-a-Linked-List"><span class="nav-number">5.2.</span> <span class="nav-text">237. Delete Node in a Linked List</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-Merge-k-Sorted-Lists"><span class="nav-number">6.</span> <span class="nav-text">23. Merge k Sorted Lists</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#143-Reorder-List-X"><span class="nav-number">7.</span> <span class="nav-text">143. Reorder List [X]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Detect-Cycle"><span class="nav-number">8.</span> <span class="nav-text">Detect Cycle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#141-Linked-List-Cycle-X"><span class="nav-number">8.1.</span> <span class="nav-text">141. Linked List Cycle [X]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#142-Linked-List-Cycle-II-X"><span class="nav-number">8.2.</span> <span class="nav-text">142. Linked List Cycle II [X]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Add-Two-Numbers-X"><span class="nav-number">9.</span> <span class="nav-text">2. Add Two Numbers [X]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#109-Convert-Sorted-List-to-Binary-Search-Tree-X"><span class="nav-number">10.</span> <span class="nav-text">109. Convert Sorted List to Binary Search Tree [X]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logs"><span class="nav-number">11.</span> <span class="nav-text">Logs</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">🍣之神</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xruan';
+      var disqus_identifier = '2018/06/02/nail-your-next-job-interview-linked-list/';
+      var disqus_title = "Nail Your Next Job Interview - Linked List";
+      var disqus_url = 'http://www.xuyiruan.com/2018/06/02/nail-your-next-job-interview-linked-list/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oKoPG1XTXkC7T1oasGQwau2g-gzGzoHsz", "JFJCQtIsUKhrX6S7Gvgqdqgk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

@@ -1,0 +1,925 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Bree Serif:300,300italic,400,400italic,700,700italic|Arimo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Algorithm,Sorting," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/sushi.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="bubble sortalgorithm start from first element, swap first two element if the value of first is larger than second   continue with the next pair and so on    repeat first two step unitl all element in">
+<meta name="keywords" content="Algorithm,Sorting">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sorting Algorithms">
+<meta property="og:url" content="http://www.xuyiruan.com/2016/08/30/Sorting-Algorithms/index.html">
+<meta property="og:site_name" content="阮先生de小窝">
+<meta property="og:description" content="bubble sortalgorithm start from first element, swap first two element if the value of first is larger than second   continue with the next pair and so on    repeat first two step unitl all element in">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2016-08-30-merge-sort.jpg">
+<meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2016-08-30-quickSort.jpg">
+<meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2016-08-30-insertionSort.jpg">
+<meta property="og:updated_time" content="2018-07-15T17:32:20.906Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sorting Algorithms">
+<meta name="twitter:description" content="bubble sortalgorithm start from first element, swap first two element if the value of first is larger than second   continue with the next pair and so on    repeat first two step unitl all element in">
+<meta name="twitter:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2016-08-30-merge-sort.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> Sorting Algorithms | 阮先生de小窝 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">阮先生de小窝</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">多读书 多思考 少吃零食 多睡觉</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Sorting Algorithms
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-30T18:09:38-04:00" content="08-30-2016">
+              08-30-2016
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/30/Sorting-Algorithms/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/30/Sorting-Algorithms/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/30/Sorting-Algorithms/" class="leancloud_visitors" data-flag-title="Sorting Algorithms">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="bubble-sort"><a href="#bubble-sort" class="headerlink" title="bubble sort"></a><center>bubble sort</center></h1><h2 id="algorithm"><a href="#algorithm" class="headerlink" title="algorithm"></a>algorithm</h2><ul>
+<li>start from <strong>first</strong> element, swap first two element if the value of first is larger than second  </li>
+<li>continue with the <strong>next</strong> pair and so on   </li>
+<li>repeat first two step unitl all element in list is sorted  </li>
+<li>in doing so, the <strong>smaller/larger</strong> item slowly “bubble” up/down to the <strong>front/back</strong> of the list  </li>
+</ul>
+<h2 id="complexity"><a href="#complexity" class="headerlink" title="complexity"></a>complexity</h2><ul>
+<li><strong>Time</strong> $O(n^2)$  </li>
+<li><strong>Space</strong> $O(1)$  </li>
+</ul>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sorting;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xruan</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * key idea:</span></span><br><span class="line"><span class="comment"> * - two for loops (O(n^2))</span></span><br><span class="line"><span class="comment"> * - each inner loop from start to end, compare and swap if a[i] &gt; a[j]</span></span><br><span class="line"><span class="comment"> * - each inner loop will put current largest element of the sub-array to the end (1 element sorted)</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * example:</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 1, 1, 3, 10, 3, 4, 2, 5 O(n)</span></span><br><span class="line"><span class="comment"> * 1, 1, 3, 3, 4, 2, 5, [10] O(n)</span></span><br><span class="line"><span class="comment"> * 1, 1, 3, 3, 2, 4, [5, 10] O(n)</span></span><br><span class="line"><span class="comment"> * 1, 1, 3, 2, 3, [4, 5, 10] O(n)</span></span><br><span class="line"><span class="comment"> * 1, 1, 2, 3, [3, 4, 5, 10] O(n)</span></span><br><span class="line"><span class="comment"> * 1, 1, 2, [3, 3, 4, 5, 10] O(n)</span></span><br><span class="line"><span class="comment"> * break // less than O(n*n) with break check </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * pesudo code:</span></span><br><span class="line"><span class="comment"> * for i in range(0, len - 1):</span></span><br><span class="line"><span class="comment"> * 		for j in range(0, len - 1 - i):</span></span><br><span class="line"><span class="comment"> * 			if a[j] &gt; a[j+1]:</span></span><br><span class="line"><span class="comment"> * 				swap</span></span><br><span class="line"><span class="comment"> * 		if no swap: // already in sorted order</span></span><br><span class="line"><span class="comment"> * 			break</span></span><br><span class="line"><span class="comment"> * 			</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BubbleSort</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] array = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span>[] sortedArray = sort(array);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sortedArray.length; i++) &#123;</span><br><span class="line">			System.out.print(sortedArray[i]);</span><br><span class="line">			<span class="keyword">if</span> (i != sortedArray.length - <span class="number">1</span>) &#123;</span><br><span class="line">				System.out.print(<span class="string">", "</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] sort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">		<span class="comment">// [4, 3, 2, 1]</span></span><br><span class="line">		<span class="keyword">int</span> length = array.length;</span><br><span class="line">		<span class="keyword">boolean</span> swapped = <span class="keyword">false</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; length - i - <span class="number">1</span>; j++) &#123; </span><br><span class="line">				<span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">					<span class="keyword">int</span> temp = array[j];</span><br><span class="line">					array[j] = array[j + <span class="number">1</span>];</span><br><span class="line">					array[j + <span class="number">1</span>] = temp;</span><br><span class="line">					swapped = <span class="keyword">true</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (swapped == <span class="keyword">false</span>) &#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> array;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="selection-sort"><a href="#selection-sort" class="headerlink" title="selection sort"></a><center>selection sort</center></h1><h2 id="algorithm-1"><a href="#algorithm-1" class="headerlink" title="algorithm"></a>algorithm</h2><ul>
+<li>find the <strong>smallest</strong> element using linear scan and move it to the front (via swapping)  </li>
+<li>find the second smallest with same process and move it to the next postion  </li>
+<li>repeat above steps unitl array is sorted   </li>
+</ul>
+<h2 id="complexity-1"><a href="#complexity-1" class="headerlink" title="complexity"></a>complexity</h2><ul>
+<li><strong>Time</strong>:  $O(n^2)$  </li>
+<li><strong>Spcae</strong>: $O(1)$ no extra space required</li>
+</ul>
+<h2 id="code-1"><a href="#code-1" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selSort</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (array.length == <span class="number">0</span> || array.length == <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> len = array.length;</span><br><span class="line">	<span class="keyword">int</span> sorted = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> min = i;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; len; j++) &#123;</span><br><span class="line">			min = array[j] &lt; array[min] ? j : min;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// swap min to sorted</span></span><br><span class="line">		<span class="keyword">int</span> tmp = array[min];</span><br><span class="line">		array[min] = array[sorted];</span><br><span class="line">		array[sorted] = tmp;</span><br><span class="line">		sorted++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="merge-sort"><a href="#merge-sort" class="headerlink" title="merge sort"></a><center>merge sort</center></h1><p><img src="https://s3.amazonaws.com/images.xuyiruan.com/2016-08-30-merge-sort.jpg" alt=""></p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><ul>
+<li>break down the entire array until it has single.   </li>
+<li>compare and merge the elements in the same group (activation record).  </li>
+<li>after the last merge, you will get a sorted array.  </li>
+</ul>
+<h2 id="complexity-2"><a href="#complexity-2" class="headerlink" title="complexity"></a>complexity</h2><ul>
+<li>Time: $O(nlog(n))$ in worst case.  </li>
+<li>Space: $O(n)$ auxiliary. </li>
+</ul>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MergeSort</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">int</span>[] array = &#123;<span class="number">5</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">5</span>&#125;;</span><br><span class="line">	    <span class="keyword">int</span>[] sorted = <span class="keyword">new</span> <span class="keyword">int</span>[array.length];</span><br><span class="line">	    System.out.println(<span class="string">"Original Array: "</span>);</span><br><span class="line">	    String sep = <span class="string">""</span>;</span><br><span class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> n : array) &#123;</span><br><span class="line">	    	System.out.print(sep + n);</span><br><span class="line">	    	sep = <span class="string">","</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	    mergeSort(array, <span class="number">0</span>, array.length -<span class="number">1</span>, sorted);</span><br><span class="line">	    System.out.println(<span class="string">"\nSorted Array: "</span>);</span><br><span class="line">	    sep = <span class="string">""</span>;</span><br><span class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">	    	System.out.print(sep + array[i]);</span><br><span class="line">	    	sep = <span class="string">","</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> start, <span class="keyword">int</span> end, <span class="keyword">int</span>[] sorted)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">if</span> (end - start &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">	         <span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">	         mergeSort(array, start, mid, sorted);</span><br><span class="line">	         mergeSort(array, mid+<span class="number">1</span>, end, sorted);</span><br><span class="line">	         merge(array, start, mid, end, sorted);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> start, <span class="keyword">int</span> mid, <span class="keyword">int</span> end, <span class="keyword">int</span>[] sorted)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">int</span> i = start;</span><br><span class="line">	    <span class="keyword">int</span> j = mid+<span class="number">1</span>;</span><br><span class="line">	    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">	    <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= end) &#123;</span><br><span class="line">	        <span class="keyword">if</span> (array[i] &lt;= array[j]) &#123;</span><br><span class="line">	            sorted[k++] = array[i++];</span><br><span class="line">	        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	            sorted[k++] = array[j++];</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125; </span><br><span class="line">	    <span class="keyword">while</span> (i &lt;= mid) &#123;</span><br><span class="line">	        sorted[k++] = array[i++];</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">while</span> (j &lt;= end) &#123;</span><br><span class="line">	        sorted[k++] = array[j++];</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; k; v++) &#123;</span><br><span class="line">	        array[v+start] = sorted[v];</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="quick-sort"><a href="#quick-sort" class="headerlink" title="quick sort"></a><center>quick sort</center></h1><p><img src="https://s3.amazonaws.com/images.xuyiruan.com/2016-08-30-quickSort.jpg" alt=""></p>
+<h2 id="key-idea"><a href="#key-idea" class="headerlink" title="key idea"></a>key idea</h2><ul>
+<li>each operation takes $O(n)$ in worst case (at first step, every value compare to piviot)  </li>
+<li>the height of the tree is $O(N)$ in worst case (either piviot is <strong>smallest</strong>/<strong>largest</strong> value), and $O(logN)$ in best case.  </li>
+<li>hence, total time complexity is $O(N^2)$ in worst case, $Nlog(N)$ in best case.  </li>
+</ul>
+<h2 id="How-to-choose-the-piviot-element"><a href="#How-to-choose-the-piviot-element" class="headerlink" title="How to choose the piviot element?"></a>How to choose the piviot element?</h2><ul>
+<li>why not choosing pivot randomly?</li>
+</ul>
+<blockquote>
+<p>randomly select pivot will work, however, the worst case time complexity of the algorithm will become $O(n^2)$.  </p>
+</blockquote>
+<h2 id="Time-Complexity-Analysis"><a href="#Time-Complexity-Analysis" class="headerlink" title="Time Complexity Analysis"></a>Time Complexity Analysis</h2><ul>
+<li><strong>Worst case $O(n^2)$:</strong><br>everytimes pivit picked is either the smallest or the largest elements of the array. From $n-&gt;n-1-&gt;n-2-&gt; \dots -&gt; 1$</li>
+<li><strong>Average/best case</strong> $O(nlog(n))$:<br>pivit split array evenly so the number of steps is less. From $n -&gt; n/2-&gt;n/4 \dots$. Note: $O(nlog(n))$ is the height of the tree.  </li>
+</ul>
+<h2 id="Algorithm-1"><a href="#Algorithm-1" class="headerlink" title="Algorithm"></a>Algorithm</h2><ul>
+<li>select the middle value as the <code>pivot</code>.  </li>
+<li>maintain two pointers <code>left</code> and <code>right</code>.  </li>
+<li><code>left</code> pointer traverse from left to right until found element <strong>larger than</strong> <code>pivot</code>.  </li>
+<li><code>right</code> pointer traverse from right to left until found element <strong>smaller than</strong> <code>pivot</code>.  </li>
+<li>swap element at index <code>left</code> with <code>right</code>.  </li>
+<li>continue until <code>left</code> &gt; <code>right</code>.  </li>
+<li>recursively <code>quickSort</code> the part <strong>smaller</strong> than <code>pivot</code> and the part <strong>larger</strong> than <code>pivot</code>.  </li>
+</ul>
+<h2 id="Code-Short-Version"><a href="#Code-Short-Version" class="headerlink" title="Code Short Version"></a>Code Short Version</h2><ul>
+<li><a href="https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme" target="_blank" rel="noopener">Hoare partition scheme</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Random rand;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortIntegers2</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">    rand = <span class="keyword">new</span> Random();</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">    quickSort(A, <span class="number">0</span>, A.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (start &lt; end) &#123;</span><br><span class="line">        <span class="keyword">int</span> p = partition(A, start, end);</span><br><span class="line">        quickSort(A, start, p);</span><br><span class="line">        quickSort(A, p + <span class="number">1</span>, end);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;	</span><br><span class="line">	<span class="comment">// key1: rand.nextInt(2) returns [0, 1]</span></span><br><span class="line">    <span class="keyword">int</span> index = rand.nextInt(end - start + <span class="number">1</span>) + start;</span><br><span class="line">    <span class="comment">// int index = start + ((end - start) &gt;&gt; 1);</span></span><br><span class="line">    <span class="comment">// key2: pivot is A[index]</span></span><br><span class="line">    <span class="keyword">int</span> pivot = A[index];</span><br><span class="line">    <span class="keyword">int</span> left = start;</span><br><span class="line">    <span class="keyword">int</span> right = end;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// key3: NOT left &lt; right</span></span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">    	 <span class="comment">// key4: NOT A[left] &lt;= pivot</span></span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right &amp;&amp; A[left] &lt; pivot) &#123; <span class="comment">// left &lt;= right is required to prevent indexOutOfBound exception by `A[left]`</span></span><br><span class="line">            left++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right &amp;&amp; A[right] &gt; pivot) &#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = A[left];</span><br><span class="line">            A[left] = A[right];</span><br><span class="line">            A[right] = temp;</span><br><span class="line">            </span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> right;</span><br><span class="line">    <span class="comment">// // A[start... right] </span></span><br><span class="line">    <span class="comment">// quickSort(A, start, right);</span></span><br><span class="line">    <span class="comment">// // A[left ... end]</span></span><br><span class="line">    <span class="comment">// quickSort(A, left, end);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Algorithm-2"><a href="#Algorithm-2" class="headerlink" title="Algorithm"></a>Algorithm</h2><ul>
+<li>similar process as the version above.  </li>
+<li>instead of randomly choosing <code>pivot</code> from the middle value.(which could possible be the largest/smallest, to lead to worst time performance [<code>quickSort</code> not able to break into even workload to utilize the parallelism.])   </li>
+<li>we choose following three values: <code>array[low]</code>, <code>array[mid]</code>, <code>array[high]</code>.  </li>
+<li>return the median of three as <code>pivot</code>.  </li>
+<li>re-value <code>array[0]</code> with <code>smallest</code>, <code>array[length - 1] = largest</code>, <code>array[mid] = array[length - 2]</code>, finally move <code>pivot</code> to <code>array[length - 2]</code>.  </li>
+</ul>
+<h2 id="Code-Faster-Version"><a href="#Code-Faster-Version" class="headerlink" title="Code Faster Version"></a>Code Faster Version</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] A = &#123;<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">6</span>, -<span class="number">1</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">15</span>, <span class="number">23</span>, <span class="number">18</span>, <span class="number">0</span>, <span class="number">2</span>&#125;;</span><br><span class="line">		quickSort(A, <span class="number">0</span>, A.length - <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.length; i++) &#123;</span><br><span class="line">			System.out.print(A[i] + <span class="string">", "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// pick pivot</span></span><br><span class="line">		<span class="keyword">if</span> (low &lt; high) &#123;</span><br><span class="line">			<span class="keyword">int</span> pivot = partion(array, low, high);</span><br><span class="line">			quickSort(array, low, pivot);</span><br><span class="line">			quickSort(array, pivot+<span class="number">2</span>, high);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partion</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> pivot = medianOfThree(A, low, high);</span><br><span class="line">		<span class="keyword">int</span> left = low + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> right = high - <span class="number">2</span>;</span><br><span class="line">		<span class="comment">// partition</span></span><br><span class="line">		<span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">			<span class="keyword">while</span> (A[left] &lt; pivot) left++;</span><br><span class="line">			<span class="keyword">while</span> (A[right] &gt; pivot) right--;</span><br><span class="line">			<span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">				swap(A, left, right);</span><br><span class="line">				left++;</span><br><span class="line">				right--;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		swap(A, right + <span class="number">1</span>, high - <span class="number">1</span>);;</span><br><span class="line">		<span class="keyword">return</span> right;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> temp = array[high];</span><br><span class="line">		array[high] = array[low];</span><br><span class="line">		array[low] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Choose median from array[low], array[high], array[(high + low)/2] as pivot</span></span><br><span class="line"><span class="comment">	 * Rearrange value high, low, pivot</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> array</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> low</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> high</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> pivot value</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">medianOfThree</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> left = array[low];</span><br><span class="line">		<span class="keyword">int</span> right = array[high];</span><br><span class="line">		<span class="keyword">int</span> mid = array[low + (high - low)/<span class="number">2</span>];</span><br><span class="line">		<span class="comment">// initialization: reorder three elements</span></span><br><span class="line">		array[low] = Math.min(Math.min(left, right), mid);  		array[high] = Math.max(Math.max(left, right), mid);</span><br><span class="line">		array[low + (high - low)/<span class="number">2</span>] = array[high - <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">int</span> pivot = Math.max(Math.min(left,right), Math.min(Math.max(left,right),mid));</span><br><span class="line">		<span class="comment">// special case for array less than 3 elements</span></span><br><span class="line">		<span class="keyword">if</span> (high - low + <span class="number">1</span> &gt; <span class="number">2</span>) &#123;</span><br><span class="line">			array[high - <span class="number">1</span>] = pivot;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> pivot;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="radix-bucket-sort"><a href="#radix-bucket-sort" class="headerlink" title="radix/bucket sort"></a><center>radix/bucket sort</center></h1><h2 id="key-idea-1"><a href="#key-idea-1" class="headerlink" title="key idea"></a>key idea</h2><ul>
+<li>integer has finite bit  </li>
+<li>during each pass, order of lower bit <strong>perserve</strong> while new pass for higher bit is performing  </li>
+<li>list in sort order once <strong>all bits</strong> are passed once  </li>
+</ul>
+<h2 id="algorithms"><a href="#algorithms" class="headerlink" title="algorithms"></a>algorithms</h2><ul>
+<li>find <strong>largest</strong> element, ex. 100  </li>
+<li>number of passes <code>k</code>, determine by the number of digit of largest element, in this example, <code>k=3</code>  </li>
+<li><strong>zero pad</strong> all smaller values with less than <code>k</code> bit  </li>
+<li>prepare <strong>10 buckets</strong> (queue, for example, since need to retrive value from buttom after each pass)  </li>
+<li>each pass, put value with corresponding digit into corresponding bucket.  </li>
+</ul>
+<p>for example <code>23, 12, 100</code>. At first pass:   </p>
+<ul>
+<li><code>23</code> will put into bucket 3  </li>
+<li><code>12</code> puts into bucket 2  </li>
+<li><code>100</code> put into bucket 0  </li>
+</ul>
+<p>repeat above process for all <code>k</code> passes will result in sorted order  </p>
+<p><a href="https://www.youtube.com/watch?v=YXFI4osELGU" target="_blank" rel="noopener">https://www.youtube.com/watch?v=YXFI4osELGU</a></p>
+<h2 id="complexity-3"><a href="#complexity-3" class="headerlink" title="complexity"></a>complexity</h2><p>time: $O(kn)$<br>space: $O(1)$  </p>
+<h1 id="Insertion-Sort"><a href="#Insertion-Sort" class="headerlink" title="Insertion Sort"></a><center>Insertion Sort</center></h1><p><img src="https://s3.amazonaws.com/images.xuyiruan.com/2016-08-30-insertionSort.jpg" alt=""></p>
+<h2 id="Algorithm-3"><a href="#Algorithm-3" class="headerlink" title="Algorithm"></a>Algorithm</h2><ul>
+<li>start from $i = 1$  </li>
+<li>move every elements that is larger than <code>currKey</code> to its right until postion found to insert <code>currKey</code>.  </li>
+<li>insert <code>currKey</code> to $j+1$ index, where index $j$ is the last postion check that not meet the requirement (either $j \leq 0$ or <code>currKey</code> $&lt; A[j]$)  </li>
+</ul>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><ul>
+<li>worst case complexity $O(n^2)$</li>
+</ul>
+<h2 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] A = &#123;<span class="number">10</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> currKey = A[i];</span><br><span class="line">		<span class="keyword">int</span> j = i - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; currKey &lt; A[j]) &#123;</span><br><span class="line">			A[j+<span class="number">1</span>] = A[j];</span><br><span class="line">			j--;</span><br><span class="line">		&#125;</span><br><span class="line">		A[j+<span class="number">1</span>] = currKey;</span><br><span class="line">	&#125;</span><br><span class="line">	print(A);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">		System.out.print(array[i] + <span class="string">","</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// descending version</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] A = &#123;<span class="number">10</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>&#125;;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> currKey = A[i];</span><br><span class="line">			<span class="keyword">int</span> j = i - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; currKey &gt; A[j]) &#123;</span><br><span class="line">				A[j+<span class="number">1</span>] = A[j];</span><br><span class="line">				j--;</span><br><span class="line">			&#125;</span><br><span class="line">			A[j+<span class="number">1</span>] = currKey;</span><br><span class="line">		&#125;</span><br><span class="line">		print(A);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">			System.out.print(array[i] + <span class="string">","</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Heap-Sort"><a href="#Heap-Sort" class="headerlink" title="Heap Sort"></a><center>Heap Sort</center></h1><ul>
+<li>Sort algorithm based on heap data structure  </li>
+<li>Heapsort is an <strong>in-place</strong> algorithm, but it is NOT a <strong>stable sort</strong>.  </li>
+</ul>
+<h2 id="Algorithm-4"><a href="#Algorithm-4" class="headerlink" title="Algorithm"></a>Algorithm</h2><ul>
+<li>repeatedly <strong>swaps</strong> the first value(max) of the list with the last value  </li>
+<li>decreases the range of values considered in the heap operation by one (so that prev max will not be reheapify to top)  </li>
+</ul>
+<h2 id="complexity-4"><a href="#complexity-4" class="headerlink" title="complexity"></a>complexity</h2><p>time: $O(nlogn)$ for both best &amp; worst case<br>space: $O(1)$ in place sort  </p>
+<p>ref: <a href="https://en.wikipedia.org/wiki/Heapsort#Algorithm" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Heapsort#Algorithm</a></p>
+<h1 id="logs"><a href="#logs" class="headerlink" title="logs"></a>logs</h1><ul>
+<li>created on 08/30/2016</li>
+<li>updated quick sort 01/02/2017</li>
+<li>added selection sort  </li>
+<li>01/23/18 add bubble sort  </li>
+<li>01/23/18 add radix/bucket sort  </li>
+<li>01/23/18 add “key idea” for quicksort  </li>
+<li>02/08/18 refactored code for quicksort short version  </li>
+<li>03/18/18 update quicksort key idea  </li>
+<li>05/05/18 add heap sort idea  </li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h1><p><a href="http://www.cnblogs.com/kkun/archive/2011/11/23/merge_sort.html" target="_blank" rel="noopener">经典排序算法 - 归并排序Merge sort</a><br><a href="https://www.youtube.com/watch?v=f8hXR_Hvybo" target="_blank" rel="noopener">Selection Sort</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
+          
+            <a href="/tags/Sorting/" rel="tag">#Sorting</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/25/Hashtable-Hashmap-Hashset-linkedhashmap/" rel="next" title="Hashtable vs Hashmap vs Hashset">
+                <i class="fa fa-chevron-left"></i> Hashtable vs Hashmap vs Hashset
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/04/my-tool-box/" rel="prev" title="Algorithmic Toolbox">
+                Algorithmic Toolbox <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.jpg"
+               alt="🍣之神" />
+          <p class="site-author-name" itemprop="name">🍣之神</p>
+          <p class="site-description motion-element" itemprop="description">阮先生’s blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ruanxuyi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/xuyiruan/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/xuyi-ruan-a728a889" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mszhuchinese.com" title="MsZhuChinese" target="_blank">MsZhuChinese</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.winniebabe.com" title="WinnieBabe" target="_blank">WinnieBabe</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suncuss.me" title="BossSun" target="_blank">BossSun</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bubble-sort"><span class="nav-number">1.</span> <span class="nav-text">bubble sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm"><span class="nav-number">1.1.</span> <span class="nav-text">algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity"><span class="nav-number">1.2.</span> <span class="nav-text">complexity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">1.3.</span> <span class="nav-text">code</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#selection-sort"><span class="nav-number">2.</span> <span class="nav-text">selection sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithm-1"><span class="nav-number">2.1.</span> <span class="nav-text">algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity-1"><span class="nav-number">2.2.</span> <span class="nav-text">complexity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code-1"><span class="nav-number">2.3.</span> <span class="nav-text">code</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#merge-sort"><span class="nav-number">3.</span> <span class="nav-text">merge sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">3.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity-2"><span class="nav-number">3.2.</span> <span class="nav-text">complexity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.3.</span> <span class="nav-text">Code</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#quick-sort"><span class="nav-number">4.</span> <span class="nav-text">quick sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#key-idea"><span class="nav-number">4.1.</span> <span class="nav-text">key idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-choose-the-piviot-element"><span class="nav-number">4.2.</span> <span class="nav-text">How to choose the piviot element?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Time-Complexity-Analysis"><span class="nav-number">4.3.</span> <span class="nav-text">Time Complexity Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-1"><span class="nav-number">4.4.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Short-Version"><span class="nav-number">4.5.</span> <span class="nav-text">Code Short Version</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-2"><span class="nav-number">4.6.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Faster-Version"><span class="nav-number">4.7.</span> <span class="nav-text">Code Faster Version</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#radix-bucket-sort"><span class="nav-number">5.</span> <span class="nav-text">radix/bucket sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#key-idea-1"><span class="nav-number">5.1.</span> <span class="nav-text">key idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#algorithms"><span class="nav-number">5.2.</span> <span class="nav-text">algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity-3"><span class="nav-number">5.3.</span> <span class="nav-text">complexity</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Insertion-Sort"><span class="nav-number">6.</span> <span class="nav-text">Insertion Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-3"><span class="nav-number">6.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">6.2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-1"><span class="nav-number">6.3.</span> <span class="nav-text">Code</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Heap-Sort"><span class="nav-number">7.</span> <span class="nav-text">Heap Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-4"><span class="nav-number">7.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#complexity-4"><span class="nav-number">7.2.</span> <span class="nav-text">complexity</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#logs"><span class="nav-number">8.</span> <span class="nav-text">logs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">9.</span> <span class="nav-text">Reference:</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">🍣之神</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xruan';
+      var disqus_identifier = '2016/08/30/Sorting-Algorithms/';
+      var disqus_title = "Sorting Algorithms";
+      var disqus_url = 'http://www.xuyiruan.com/2016/08/30/Sorting-Algorithms/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oKoPG1XTXkC7T1oasGQwau2g-gzGzoHsz", "JFJCQtIsUKhrX6S7Gvgqdqgk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

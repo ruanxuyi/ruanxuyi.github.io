@@ -1,0 +1,850 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Bree Serif:300,300italic,400,400italic,700,700italic|Arimo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Algorithm,Divide&Conquer," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/sushi.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="keywords" content="Algorithm,Divide&amp;Conquer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Top 5 Frequently Used Algorithms: #1 Divide and Conquer">
+<meta property="og:url" content="http://www.xuyiruan.com/2018/02/24/five-most-frequent-use-alogrithms-1-divide-and-conquer/index.html">
+<meta property="og:site_name" content="阮先生de小窝">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-02-24-db9d172fc33b90e905c1213b8cce660c228bb99c.png">
+<meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-02-24-DandCvsTraverse.png">
+<meta property="og:updated_time" content="2018-07-15T17:35:29.734Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Top 5 Frequently Used Algorithms: #1 Divide and Conquer">
+<meta name="twitter:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-02-24-db9d172fc33b90e905c1213b8cce660c228bb99c.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> Top 5 Frequently Used Algorithms: #1 Divide and Conquer | 阮先生de小窝 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">阮先生de小窝</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">多读书 多思考 少吃零食 多睡觉</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Top 5 Frequently Used Algorithms: #1 Divide and Conquer
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-02-24T04:50:10-05:00" content="02-24-2018">
+              02-24-2018
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/02/24/five-most-frequent-use-alogrithms-1-divide-and-conquer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/24/five-most-frequent-use-alogrithms-1-divide-and-conquer/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/02/24/five-most-frequent-use-alogrithms-1-divide-and-conquer/" class="leancloud_visitors" data-flag-title="Top 5 Frequently Used Algorithms: #1 Divide and Conquer">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://s3.amazonaws.com/images.xuyiruan.com/2018-02-24-db9d172fc33b90e905c1213b8cce660c228bb99c.png" alt=""></p>
+<a id="more"></a>
+<h2 id="basic-concept"><a href="#basic-concept" class="headerlink" title="basic concept"></a>basic concept</h2><p>Given a complex problem, we can break it down into <strong>two</strong> or more subproblems of <strong>same kind</strong>, we can further divide the subproblem into even smaller smaller ones… The subproblem eventully is small enough to have a direct result/solution. Finally we <strong>combine</strong> all results of simple form from subproblems to get the solution for original complex problem.  </p>
+<h2 id="key-insights"><a href="#key-insights" class="headerlink" title="key insights:"></a>key insights:</h2><ul>
+<li>for sort problem, when <code>n = 1</code>, no sort is required. when <code>n = 2</code>, one comparison done. when <code>n = 3</code>, we need three comparisions. However, when <code>n</code> become very large, it becomes a hard problem at first glance.  </li>
+<li>subproblem is <strong>smaller</strong> size of big problem, but problem format remain the <strong>same</strong>  </li>
+<li>we apply divide and conqure technique, until problem size get small enough that we can directly achieve the solution  </li>
+<li>since subproblem always have the <strong>same format</strong>, <strong>recursion</strong> becoome the most <strong>intitutive</strong> way for divide and conqure technique.  </li>
+<li>hence, recurrsion and dvide and conqure is like <strong>brother and sisiter</strong>  </li>
+</ul>
+<p>A <strong>graphical</strong> view of what divide and conquer looks like by <a href="https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms" target="_blank" rel="noopener">khanacademy.org</a>:</p>
+<h2 id="when-to-use"><a href="#when-to-use" class="headerlink" title="when to use?"></a>when to use?</h2><p>A problem which can be solved by divide and conquer usually has following four properties:  </p>
+<ol>
+<li>subproblem can be <strong>easily solved</strong> when size is <strong>small</strong>  </li>
+<li>the problem can be easily divided into <strong>subproblem</strong> of <strong>same kind</strong> with <strong>smaller</strong> size  </li>
+<li>solution to subproblems can be <strong>easily combined</strong> into <strong>solution</strong> for the complex one  </li>
+<li>subproblem is <strong>independent</strong> to each other (no <strong>overlap</strong> between subproblem)  </li>
+</ol>
+<p>The <strong>third property</strong> is the key. If a complex problem fulfill property 1 and 2 but NOT 3, we should consider <strong><a href="">greedy alogrithm</a></strong> or <strong><a href="">dynamic programming</a></strong> instead.  </p>
+<p>The <strong>forth property</strong> is usally not strictly enforced. Overlap in subproblem could be solved by divide conquer, however, using <strong>dynamic programming</strong> is preferred when overlap exists in subproblems. </p>
+<h2 id="classic-problems-with-divide-and-conquer"><a href="#classic-problems-with-divide-and-conquer" class="headerlink" title="classic problems with divide and conquer"></a>classic problems with divide and conquer</h2><p>六、可使用分治法求解的一些经典问题</p>
+<ol>
+<li>binary search</li>
+<li>large integer mutiplication  </li>
+<li>streassen matrix multiplication  </li>
+<li>chess board coverage  </li>
+<li>merge sort  </li>
+<li>quick sort  </li>
+<li>linear time choice  </li>
+<li>Tower of Hanoi  </li>
+</ol>
+<p>这些经典问题的特性是: 将complex problem break down后都能形成一个[树状]的分解图。因而在此类问题使用dfs 的 divide conquer是合理的。</p>
+<h2 id="divide-and-conquer-VS-traverse"><a href="#divide-and-conquer-VS-traverse" class="headerlink" title="divide and conquer VS traverse"></a>divide and conquer VS traverse</h2><p><img src="https://s3.amazonaws.com/images.xuyiruan.com/2018-02-24-DandCvsTraverse.png" alt=""></p>
+<p><strong>Traverse vs Divide Conquer</strong>  </p>
+<ul>
+<li>They are both Recursion Algorithm  </li>
+<li>Result in parameter vs Result in return value  </li>
+<li>Top down vs Bottom up  </li>
+<li>Merge Sort / Quick Sort  </li>
+<li>90% Binary Tree Problems!  </li>
+</ul>
+<p>The difference of traverse and divide conquer in code can refer to:<br><a href="http://www.jiuzhang.com/solutions/binary-tree-preorder-traversal/#tag-highlight" target="_blank" rel="noopener">http://www.jiuzhang.com/solutions/binary-tree-preorder-traversal/#tag-highlight</a></p>
+<p>Other thoughs help to understand their difference:<br>“遍历”是一个小人带着一本记事本游走整个二叉树。<br>“分治”是一个大王呆着两个小弟，让两个小弟分别去搞定左右子树的结果汇报给大王，大王做最后的整理和拍板。<br><a href="https://www.jiuzhang.com/qa/723/" target="_blank" rel="noopener">https://www.jiuzhang.com/qa/723/</a>  </p>
+<p><a href="https://www.jiuzhang.com/qa/1244/" target="_blank" rel="noopener">https://www.jiuzhang.com/qa/1244/</a></p>
+<h2 id="difference-between-iteration-and-recurrsion"><a href="#difference-between-iteration-and-recurrsion" class="headerlink" title="difference between iteration and recurrsion?"></a>difference between iteration and recurrsion?</h2><p>why manual stack is better than recursion (callstack):</p>
+<p>非递归其实是模拟递归用的stack</p>
+<p>为什么自己模拟的可以, 调用计算机的就不行呢?</p>
+<p>因为我们new出来的stack在heap memory里面, 能用的空间≈ memory size</p>
+<p>stack memory ≈ process memory是计算机分给每个程序的一个很小的独占的空间,所以递归的深度太深,就不够用了</p>
+<p><a href="https://stomachache007.wordpress.com/2017/03/12/九章算法笔记-3-binary-tree-divide-conquer/" target="_blank" rel="noopener">https://stomachache007.wordpress.com/2017/03/12/九章算法笔记-3-binary-tree-divide-conquer/</a></p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p>img: <a href="https://ka-perseus-images.s3.amazonaws.com/db9d172fc33b90e905c1213b8cce660c228bb99c.png" target="_blank" rel="noopener">https://ka-perseus-images.s3.amazonaws.com/db9d172fc33b90e905c1213b8cce660c228bb99c.png</a></p>
+<p>五大常用算法之一：分治算法<br><a href="http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741370.html" target="_blank" rel="noopener">http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741370.html</a><br>Recurssion image:<br><a href="https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms" target="_blank" rel="noopener">https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms</a><br>JiuZhang Algorithm  </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
+          
+            <a href="/tags/Divide-Conquer/" rel="tag">#Divide&Conquer</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/18/big-o-time-complexity/" rel="next" title="Time Complexity (Big-O)">
+                <i class="fa fa-chevron-left"></i> Time Complexity (Big-O)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/24/five-most-frequent-use-algorithms-2-dp/" rel="prev" title="Top 5 Frequently Used Algorithms: #2 Dynamic Programming">
+                Top 5 Frequently Used Algorithms: #2 Dynamic Programming <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.jpg"
+               alt="🍣之神" />
+          <p class="site-author-name" itemprop="name">🍣之神</p>
+          <p class="site-description motion-element" itemprop="description">阮先生’s blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ruanxuyi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/xuyiruan/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/xuyi-ruan-a728a889" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mszhuchinese.com" title="MsZhuChinese" target="_blank">MsZhuChinese</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.winniebabe.com" title="WinnieBabe" target="_blank">WinnieBabe</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suncuss.me" title="BossSun" target="_blank">BossSun</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-concept"><span class="nav-number">1.</span> <span class="nav-text">basic concept</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#key-insights"><span class="nav-number">2.</span> <span class="nav-text">key insights:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#when-to-use"><span class="nav-number">3.</span> <span class="nav-text">when to use?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#classic-problems-with-divide-and-conquer"><span class="nav-number">4.</span> <span class="nav-text">classic problems with divide and conquer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#divide-and-conquer-VS-traverse"><span class="nav-number">5.</span> <span class="nav-text">divide and conquer VS traverse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#difference-between-iteration-and-recurrsion"><span class="nav-number">6.</span> <span class="nav-text">difference between iteration and recurrsion?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text">reference</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">🍣之神</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xruan';
+      var disqus_identifier = '2018/02/24/five-most-frequent-use-alogrithms-1-divide-and-conquer/';
+      var disqus_title = "Top 5 Frequently Used Algorithms: #1 Divide and Conquer";
+      var disqus_url = 'http://www.xuyiruan.com/2018/02/24/five-most-frequent-use-alogrithms-1-divide-and-conquer/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oKoPG1XTXkC7T1oasGQwau2g-gzGzoHsz", "JFJCQtIsUKhrX6S7Gvgqdqgk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

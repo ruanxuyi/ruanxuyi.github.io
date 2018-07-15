@@ -1,0 +1,934 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Bree Serif:300,300italic,400,400italic,700,700italic|Arimo:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="DataStrucutre," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/sushi.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="keywords" content="DataStrucutre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basic Datastructure Toolbox">
+<meta property="og:url" content="http://www.xuyiruan.com/2018/03/15/Basic-Datastructure-Toolbox/index.html">
+<meta property="og:site_name" content="阮先生de小窝">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-data-structure-cover.png">
+<meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-shape-examples.gif">
+<meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-order-examples.gif">
+<meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-array.gif">
+<meta property="og:updated_time" content="2018-07-15T17:38:07.724Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Basic Datastructure Toolbox">
+<meta name="twitter:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-data-structure-cover.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> Basic Datastructure Toolbox | 阮先生de小窝 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">阮先生de小窝</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">多读书 多思考 少吃零食 多睡觉</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Basic Datastructure Toolbox
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-03-15T06:26:44-04:00" content="03-15-2018">
+              03-15-2018
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/03/15/Basic-Datastructure-Toolbox/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/15/Basic-Datastructure-Toolbox/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/03/15/Basic-Datastructure-Toolbox/" class="leancloud_visitors" data-flag-title="Basic Datastructure Toolbox">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">visitors </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-data-structure-cover.png" alt=""></p>
+<a id="more"></a>
+<h2 id="Hash-Table"><a href="#Hash-Table" class="headerlink" title=" Hash Table "></a><center> Hash Table </center></h2><h3 id="Collision-resolution"><a href="#Collision-resolution" class="headerlink" title="Collision resolution:"></a>Collision resolution:</h3><h4 id="1-Chaining-wtih-LinkedList"><a href="#1-Chaining-wtih-LinkedList" class="headerlink" title="1. Chaining wtih LinkedList"></a>1. Chaining wtih LinkedList</h4><ul>
+<li>$O(N)$ worst case  </li>
+<li>most common approach  </li>
+</ul>
+<h4 id="2-Chaining-with-BST"><a href="#2-Chaining-with-BST" class="headerlink" title="2. Chaining with BST"></a>2. Chaining with BST</h4><ul>
+<li>$O(logN)$ worst case  </li>
+<li>take more space than linked list  </li>
+<li>hence, rarely used unless we had extremely nonuniform distribution  </li>
+</ul>
+<h4 id="3-Open-Addressing-with-Linear-Probing"><a href="#3-Open-Addressing-with-Linear-Probing" class="headerlink" title="3. Open Addressing with Linear Probing"></a>3. Open Addressing with Linear Probing</h4><ul>
+<li>idea: move to next cloest closed open spot  </li>
+<li>no bucket chaining, total entries limited by array size  </li>
+<li>issue of clustering because of linear probing  </li>
+<li>worst case query time <code>get()</code> is $O(N)$  </li>
+</ul>
+<h4 id="4-Quadratic-Probing-and-Double-Hashing"><a href="#4-Quadratic-Probing-and-Double-Hashing" class="headerlink" title="4. Quadratic Probing and Double Hashing"></a>4. Quadratic Probing and Double Hashing</h4><ul>
+<li>instead of probing linear as in approach 3, we prob quadratically  </li>
+<li>or use second hash function to random determine prob distance (reduce chance of clustering)  </li>
+</ul>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMapOOD</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> DEFAULT_CAP = <span class="number">100</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> EMPTY_SIZE = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> LOAD_FACTOR = <span class="number">70</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> mapSize = DEFAULT_CAP;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> currentSize;</span><br><span class="line">	<span class="keyword">private</span> KeyValue[] map; </span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">HashMapOOD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		currentSize = <span class="number">0</span>;</span><br><span class="line">		map = <span class="keyword">new</span> KeyValue[DEFAULT_CAP];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TOOD: load factor, expand</span></span><br><span class="line">		<span class="keyword">int</span> index = hash(key);</span><br><span class="line">		<span class="keyword">if</span> (map[index] == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="comment">// create new node</span></span><br><span class="line">			map[index] = <span class="keyword">new</span> KeyValue(key, val);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">// add/update new node</span></span><br><span class="line">			KeyValue node = <span class="keyword">new</span> KeyValue(key, val);</span><br><span class="line">			addOrUpdateNode(map[index], node);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> index = hash(key);</span><br><span class="line">		KeyValue node = map[index];</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (node.key == key) &#123;</span><br><span class="line">				<span class="keyword">return</span> node.val;</span><br><span class="line">			&#125;</span><br><span class="line">			node = node.next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> index = hash(key);</span><br><span class="line">		KeyValue head = map[index];</span><br><span class="line">		KeyValue dummy = <span class="keyword">new</span> KeyValue(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">		dummy.next = head;</span><br><span class="line">		KeyValue pre = dummy;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (head.key == key) &#123;</span><br><span class="line">				pre.next = head.next;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			pre = head;</span><br><span class="line">			head = head.next;</span><br><span class="line">		&#125;</span><br><span class="line">		map[index] = dummy.next;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> index = hash(key);</span><br><span class="line">		KeyValue node = map[index];</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (node.key == key) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			node = node.next;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> currentSize == EMPTY_SIZE;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> currentSize;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * expand() is NOT accessible to instance directly</span></span><br><span class="line"><span class="comment">	 * hence, use static key word</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">expand</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// private limits to only current class, not accessible for user side</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123; <span class="comment">// IMPORT: static method cannot access non-static variable.</span></span><br><span class="line">		<span class="keyword">return</span> key % mapSize;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addOrUpdateNode</span><span class="params">(KeyValue head, KeyValue node)</span> </span>&#123;</span><br><span class="line">		KeyValue prev = head;</span><br><span class="line">		<span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (head.key == node.key) &#123;</span><br><span class="line">				head.val = node.val;</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			prev = head;</span><br><span class="line">			head = head.next;</span><br><span class="line">		&#125;</span><br><span class="line">		prev.next = node;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ref: <a href="https://discuss.leetcode.com/topic/102606/design-a-hashmap" target="_blank" rel="noopener">https://discuss.leetcode.com/topic/102606/design-a-hashmap</a></p>
+<h2 id="Trie"><a href="#Trie" class="headerlink" title=" Trie "></a><center> Trie </center></h2><h3 id="Why-Trie"><a href="#Why-Trie" class="headerlink" title="Why Trie?"></a>Why Trie?</h3><ul>
+<li>hashing search, insert, delete takes $O(L)$ (for <code>hash()</code> opeartion) in average, but need to handle collision  </li>
+<li>Trie: insert and serach string in $O(L)$, where $L$ is the length of string, no need to handle collision  </li>
+<li>prefix search &amp; autocomplete  </li>
+</ul>
+<p><a href="https://www.geeksforgeeks.org/advantages-trie-data-structure/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/advantages-trie-data-structure/</a></p>
+<h3 id="Implementation1-Array"><a href="#Implementation1-Array" class="headerlink" title="Implementation1: Array"></a>Implementation1: Array</h3><ul>
+<li>fixed sized array, limited to lower case letters  </li>
+<li>use <code>c - &#39;a&#39;</code> to index array for character <code>c</code></li>
+<li>waste of unused space  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span> </span>&#123; <span class="comment">// nested class</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">boolean</span> isWord;</span><br><span class="line">    <span class="keyword">public</span> TrieNode[] childrenMap = <span class="keyword">new</span> TrieNode[<span class="number">26</span>]; <span class="comment">// for letters only</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Implementation2-HashMap"><a href="#Implementation2-HashMap" class="headerlink" title="Implementation2: HashMap"></a>Implementation2: HashMap</h3><ul>
+<li>slower query/search than array (time for hash(), etc)  </li>
+<li>saves spaces, only store the children nodes we need  </li>
+<li>more flexible in functionality (suppoert upper-cases letter, or TrieNode could store words in hiericy, Quantcast OA JSON storage &amp; query)  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span> </span>&#123; <span class="comment">// nested class</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">boolean</span> isWord;</span><br><span class="line">    <span class="keyword">public</span> Map&lt;Character, TrieNode&gt; childrenMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Trie-w-implementation2"><a href="#Trie-w-implementation2" class="headerlink" title="Trie w/ implementation2"></a>Trie w/ implementation2</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">    <span class="comment">// nested class TrieNode can also access private varaible within Trie class</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span> </span>&#123; <span class="comment">// nested class, used as "helper classes", only serving class Trie,</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">boolean</span> isWord;</span><br><span class="line">        <span class="keyword">public</span> Map&lt;Character, TrieNode&gt; children = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    <span class="keyword">private</span> TrieNode root; <span class="comment">// why private? limitd within Trie class only</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Trie</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.root = <span class="keyword">new</span> TrieNode();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Inserts a word into the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">        TrieNode curr = <span class="keyword">this</span>.root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = word.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (!curr.children.containsKey(c)) &#123;</span><br><span class="line">                curr.children.put(c, <span class="keyword">new</span> TrieNode());</span><br><span class="line">            &#125;</span><br><span class="line">            curr = curr.children.get(c);</span><br><span class="line">        &#125;</span><br><span class="line">        curr.isWord = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Returns if the word is in the trie. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">        TrieNode curr = searchPrefix(word);</span><br><span class="line">        <span class="keyword">return</span> curr != <span class="keyword">null</span> &amp;&amp; curr.isWord;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Returns if there is any word in the trie that starts with the given prefix. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">startsWith</span><span class="params">(String prefix)</span> </span>&#123;</span><br><span class="line">        TrieNode curr = searchPrefix(prefix);</span><br><span class="line">        <span class="keyword">return</span> curr != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// static method only when:</span></span><br><span class="line">    <span class="comment">// 1. call method not require an instance of the class</span></span><br><span class="line">    <span class="comment">// 2. only if it makes sense to call this method even no object/instance has been created</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// searchPrefix violates second rule, hence no static</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> TrieNode <span class="title">searchPrefix</span><span class="params">(String prefix)</span> </span>&#123;</span><br><span class="line">        TrieNode curr = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; prefix.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = prefix.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (!curr.children.containsKey(c)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            curr = curr.children.get(c);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> curr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Trie object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Trie obj = new Trie();</span></span><br><span class="line"><span class="comment"> * obj.insert(word);</span></span><br><span class="line"><span class="comment"> * boolean param_2 = obj.search(word);</span></span><br><span class="line"><span class="comment"> * boolean param_3 = obj.startsWith(prefix);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>ref: <a href="https://leetcode.com/explore/learn/card/trie/" target="_blank" rel="noopener">https://leetcode.com/explore/learn/card/trie/</a></p>
+<h2 id="Binary-Search-Tree-BST"><a href="#Binary-Search-Tree-BST" class="headerlink" title=" Binary Search Tree (BST) "></a><center> Binary Search Tree (BST) </center></h2><p>ref: <a href="http://pages.cs.wisc.edu/~paton/readings/Binary-Search-Trees/" target="_blank" rel="noopener">http://pages.cs.wisc.edu/~paton/readings/Binary-Search-Trees/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span>&lt;<span class="title">K</span>&gt; </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> K key;</span><br><span class="line">	<span class="keyword">private</span> TreeNode&lt;K&gt; left, right;</span><br><span class="line">	</span><br><span class="line">	TreeNode () &#123;&#125;;</span><br><span class="line">	TreeNode (K key) &#123;</span><br><span class="line">		<span class="keyword">this</span>.key = key;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	TreeNode (TreeNode&lt;K&gt; left, TreeNode&lt;K&gt; right, K key) &#123;</span><br><span class="line">		<span class="keyword">this</span>.key = key;</span><br><span class="line">		<span class="keyword">this</span>.left = left;</span><br><span class="line">		<span class="keyword">this</span>.right = right;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// accessors</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> K <span class="title">getKey</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> key;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> TreeNode&lt;K&gt; <span class="title">getLeft</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> left;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> TreeNode&lt;K&gt; <span class="title">getRight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> right;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isLeaf</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.getLeft() == <span class="keyword">null</span> &amp;&amp; <span class="keyword">this</span>.getRight() == <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// mutators</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLeft</span><span class="params">(TreeNode&lt;K&gt; node)</span> </span>&#123;</span><br><span class="line">		left = node;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRight</span><span class="params">(TreeNode&lt;K&gt; node)</span> </span>&#123;</span><br><span class="line">		right = node;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setKey</span><span class="params">(K newKey)</span> </span>&#123;</span><br><span class="line">		key = newKey;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BST</span>&lt;<span class="title">K</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">K</span>&gt;&gt; </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> TreeNode&lt;K&gt; root;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line">	</span><br><span class="line">	BST() &#123;</span><br><span class="line">		root = <span class="keyword">null</span>;</span><br><span class="line">		size = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(K key)</span> </span>&#123;</span><br><span class="line">		TreeNode&lt;K&gt; curr = root;</span><br><span class="line">		<span class="keyword">if</span> (curr == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="comment">// if root == null, new node</span></span><br><span class="line">			root = <span class="keyword">new</span> TreeNode&lt;K&gt;(key);</span><br><span class="line">			size++;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		curr = travereTree(curr, key);</span><br><span class="line">		<span class="keyword">if</span> (curr == <span class="keyword">null</span>) <span class="keyword">return</span>; <span class="comment">// duplicate key found, exit</span></span><br><span class="line">		<span class="keyword">if</span> (key.compareTo(curr.getKey()) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">			curr.setLeft(<span class="keyword">new</span> TreeNode&lt;K&gt;(key));</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			curr.setRight(<span class="keyword">new</span> TreeNode&lt;K&gt;(key));</span><br><span class="line">		&#125;</span><br><span class="line">		size++;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">lookup</span><span class="params">(K key)</span> </span>&#123;</span><br><span class="line">		TreeNode&lt;K&gt; node = root;</span><br><span class="line">		<span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (key.compareTo(node.getKey()) == <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="comment">// if duplicate node, return null</span></span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (key.compareTo(node.getKey()) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">				node = node.getLeft();</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				node = node.getRight();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> TreeNode&lt;K&gt; <span class="title">travereTree</span><span class="params">(TreeNode&lt;K&gt; node, K key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (key.compareTo(node.getKey()) == <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="comment">// if duplicate node, return null</span></span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (key.compareTo(node.getKey()) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (node.getLeft() == <span class="keyword">null</span>) &#123;</span><br><span class="line">					<span class="keyword">return</span> node;</span><br><span class="line">				&#125;</span><br><span class="line">				node = node.getLeft();</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">if</span> (node.getRight() == <span class="keyword">null</span>) &#123;</span><br><span class="line">					<span class="keyword">return</span> node;</span><br><span class="line">				&#125;</span><br><span class="line">				node = node.getRight();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> node;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// <span class="doctag">TODO:</span> </span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> size;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Test program:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BSTTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		BST&lt;Integer&gt; tree = <span class="keyword">new</span> BST&lt;Integer&gt;();</span><br><span class="line">		tree.insert(<span class="number">1</span>);</span><br><span class="line">		tree.insert(<span class="number">2</span>);</span><br><span class="line">		tree.insert(<span class="number">2</span>);</span><br><span class="line">		tree.insert(<span class="number">3</span>);</span><br><span class="line">		tree.insert(<span class="number">3</span>);</span><br><span class="line">		</span><br><span class="line">		System.out.println(tree.lookup(<span class="number">3</span>));</span><br><span class="line">		System.out.println(tree.lookup(<span class="number">2</span>));</span><br><span class="line">		System.out.println(tree.lookup(<span class="number">1</span>));</span><br><span class="line">		System.out.println(tree.lookup(<span class="number">4</span>));</span><br><span class="line">		System.out.println(tree.size());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ref:<br>数据结构：二叉搜索树（BST）的基本操作<br><a href="http://blog.csdn.net/lemon_tree12138/article/details/50366993" target="_blank" rel="noopener">http://blog.csdn.net/lemon_tree12138/article/details/50366993</a><br>用java源代码学数据结构&lt;七&gt;: BST<br><a href="http://blog.csdn.net/wanghao109/article/details/13508357" target="_blank" rel="noopener">http://blog.csdn.net/wanghao109/article/details/13508357</a><br>二叉查找树 (C#)<br><a href="http://www.cnblogs.com/gaochundong/p/binary_search_tree.html" target="_blank" rel="noopener">http://www.cnblogs.com/gaochundong/p/binary_search_tree.html</a><br>你曾实现过二叉树吗 (C#)<br><a href="http://www.cnblogs.com/gaochundong/archive/2013/04/24/csharp_binary_tree.html" target="_blank" rel="noopener">http://www.cnblogs.com/gaochundong/archive/2013/04/24/csharp_binary_tree.html</a>  </p>
+<h2 id="Stack"><a href="#Stack" class="headerlink" title=" Stack "></a><center> Stack </center></h2><h3 id="Using-Array"><a href="#Using-Array" class="headerlink" title="Using Array"></a>Using Array</h3><ul>
+<li>works, however, array has fixed size, space used <strong>NOT</strong> proportional to number of items in list.  </li>
+<li>require expansion $O(n)$ extra time complexity for each expandsion, but $O(1)$ amortized/average time  </li>
+<li>OR better always $O(1)$ for <code>push()</code> w/ a <a href="https://stackoverflow.com/questions/12300854/what-is-a-shadow-array" target="_blank" rel="noopener">shadow array</a>.  </li>
+</ul>
+<h3 id="Using-LinkedList-Preferred"><a href="#Using-LinkedList-Preferred" class="headerlink" title="Using LinkedList (Preferred)"></a>Using LinkedList (Preferred)</h3><ul>
+<li>dynamically size, space used <strong>proportional</strong> to number of items in list, no expansion required.  </li>
+<li>extra space to store <code>next</code> pointer for each of the value (Array no such extra pointer)  </li>
+<li>insert to <strong>head</strong>, remove from <strong>head</strong> (difference to Queue)  </li>
+</ul>
+<h3 id="LinkedList-implementation"><a href="#LinkedList-implementation" class="headerlink" title="LinkedList implementation"></a>LinkedList implementation</h3><p>ref: <a href="http://pages.cs.wisc.edu/~paton/readings/Stacks-and-Queues/" target="_blank" rel="noopener">http://pages.cs.wisc.edu/~paton/readings/Stacks-and-Queues/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ListNode class</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> val;</span><br><span class="line">	ListNode next;</span><br><span class="line">	</span><br><span class="line">	ListNode() &#123;&#125;</span><br><span class="line">	ListNode(<span class="keyword">int</span> val) &#123;</span><br><span class="line">		<span class="keyword">this</span>.val = val;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Stack class</span></span><br><span class="line"><span class="keyword">import</span> java.util.EmptyStackException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackOOD</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> ListNode head;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line">	StackOOD () &#123;</span><br><span class="line">		head = <span class="keyword">null</span>;</span><br><span class="line">		size = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">		ListNode dummy = <span class="keyword">new</span> ListNode();</span><br><span class="line">		ListNode newNode = <span class="keyword">new</span> ListNode(val);</span><br><span class="line">		dummy.next = newNode;</span><br><span class="line">		newNode.next = head;</span><br><span class="line">		head = dummy.next;</span><br><span class="line">		size++;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();</span><br><span class="line">		<span class="keyword">int</span> val = head.val;</span><br><span class="line">		head = head.next;</span><br><span class="line">		size--;</span><br><span class="line">		<span class="keyword">return</span> val;	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> size;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> size == <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Test Program:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackOODTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		StackOOD stack = <span class="keyword">new</span> StackOOD();</span><br><span class="line">		stack.push(<span class="number">1</span>);</span><br><span class="line">		stack.push(<span class="number">2</span>);</span><br><span class="line">		stack.push(<span class="number">2</span>);</span><br><span class="line">		stack.push(<span class="number">2</span>);</span><br><span class="line">		stack.push(<span class="number">1</span>);</span><br><span class="line">		stack.push(<span class="number">2</span>);</span><br><span class="line">		stack.push(<span class="number">2</span>);</span><br><span class="line">		stack.push(<span class="number">2</span>);</span><br><span class="line">		System.out.println(<span class="string">"Is stack empty: "</span> + stack.isEmpty());</span><br><span class="line">		System.out.println(stack.pop());</span><br><span class="line">		System.out.println(<span class="string">"current size: "</span> + stack.size());</span><br><span class="line">		System.out.println(stack.pop());</span><br><span class="line">		System.out.println(<span class="string">"current size: "</span> + stack.size());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title=" Queue "></a><center> Queue </center></h2><ul>
+<li>trade of between Array and LinkedList is similar to Stack  </li>
+<li>i used LinkedList for implementation  </li>
+<li>insert to <strong>tail</strong>, remove from <strong>head</strong> (difference to Stack)  </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ood;</span><br><span class="line"><span class="keyword">import</span> java.util.EmptyStackException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueOOD</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> ListNode head;</span><br><span class="line">	<span class="keyword">private</span> ListNode tail;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line">	</span><br><span class="line">	QueueOOD() &#123;</span><br><span class="line">		size = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">offer</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">		ListNode newNode = <span class="keyword">new</span> ListNode(val);</span><br><span class="line">		size++;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">			head = newNode;</span><br><span class="line">			tail = newNode;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		tail.next = newNode;</span><br><span class="line">		tail = newNode;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">poll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();</span><br><span class="line">		<span class="keyword">int</span> value = head.val;</span><br><span class="line">		head = head.next;</span><br><span class="line">		size--;</span><br><span class="line">		<span class="keyword">return</span> value;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> size;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> size == <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Test Program:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueOODTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		QueueOOD queue = <span class="keyword">new</span> QueueOOD();</span><br><span class="line">		queue.offer(<span class="number">1</span>);</span><br><span class="line">		queue.offer(<span class="number">2</span>);</span><br><span class="line">		queue.offer(<span class="number">3</span>);</span><br><span class="line">		queue.offer(<span class="number">4</span>);</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"size: "</span> + queue.size());</span><br><span class="line">		System.out.println(queue.poll());</span><br><span class="line">		System.out.println(queue.poll());</span><br><span class="line">		System.out.println(queue.poll());</span><br><span class="line">		System.out.println(queue.poll());</span><br><span class="line">		System.out.println(<span class="string">"size: "</span> + queue.size());</span><br><span class="line">		System.out.println(queue.poll());</span><br><span class="line">		queue.offer(<span class="number">100</span>);</span><br><span class="line">		System.out.println(<span class="string">"size: "</span> + queue.size());</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Heap"><a href="#Heap" class="headerlink" title=" Heap "></a><center> Heap </center></h2><h3 id="Heap-Property"><a href="#Heap-Property" class="headerlink" title="Heap Property"></a>Heap Property</h3><ul>
+<li>Heap is a a binary tree with <strong>two</strong> special properties:  </li>
+<li>Heap is always maintain a <strong>complete</strong> binary tree!  </li>
+<li>Hence we could use array as representation of a heap  </li>
+<li>All examples given in this section are <strong>max-heap</strong>, min-heap is similiar  </li>
+</ul>
+<p><strong>The ORDER property:</strong></p>
+<p>For every node n, the value in n is <strong>greater than or equal to</strong> the values in its children (and thus is also greater than or equal to all of the values in its subtrees).  </p>
+<p><strong>The SHAPE property:</strong></p>
+<p>All leaves are either at depth d or d-1 (for some value d).<br>All of the leaves at depth d-1 are to the right of the leaves at depth d.<br>a) There is at most 1 node with just 1 child.<br>b) That child is the left child of its parent, and<br>c) it is the rightmost leaf at depth d.  </p>
+<p><strong>The SHAPE property Examples:</strong><br><img src="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-shape-examples.gif" alt=""></p>
+<blockquote>
+<p>Image from uwmadion cs367 webpage</p>
+</blockquote>
+<p><strong>The ORDER property Examples:</strong><br><img src="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-order-examples.gif" alt=""></p>
+<blockquote>
+<p>Image from uwmadion cs367 webpage</p>
+</blockquote>
+<h3 id="Implementing-priority-queues-using-heaps"><a href="#Implementing-priority-queues-using-heaps" class="headerlink" title="Implementing priority queues using heaps"></a>Implementing priority queues using heaps</h3><ul>
+<li>Array or ArrayList  </li>
+<li>Starts at <strong>position 1</strong> (instead of 0)  </li>
+<li>The root of the heap is always in <code>array[1]</code>.   </li>
+<li>In general, if a node is in <code>array[k]</code>, then its <strong>left child</strong> is in <code>array[k*2]</code>, and its <strong>right child</strong> is in <code>array[k*2 + 1]</code>.  </li>
+<li>If a node is in <code>array[k]</code>, then its parent is in <code>array[k/2]</code> (using integer division, so that if k is odd, then the result is truncated; e.g., <code>3/2 = 1</code>).  </li>
+</ul>
+<p><img src="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-array.gif" alt=""></p>
+<blockquote>
+<p>Image from uwmadion cs367 webpage</p>
+</blockquote>
+<h3 id="Insert-operation"><a href="#Insert-operation" class="headerlink" title="Insert() operation"></a>Insert() operation</h3><ul>
+<li>insert to the end of the array (the right most leave to tree)  </li>
+<li>swap with its parent if it is larger than its parent value  </li>
+<li>recursively perform step two until hit root OR step 2 fails  </li>
+</ul>
+<h3 id="removeMax-operation"><a href="#removeMax-operation" class="headerlink" title="removeMax() operation"></a>removeMax() operation</h3><ul>
+<li>swap root with last element in array, and pop the last element  </li>
+<li>swap new root with its larger childern  </li>
+<li>recursively perform step two util its fails  </li>
+</ul>
+<p>source: <a href="http://pages.cs.wisc.edu/~vernon/cs367/notes/11.PRIORITY-Q.html" target="_blank" rel="noopener">http://pages.cs.wisc.edu/~vernon/cs367/notes/11.PRIORITY-Q.html</a></p>
+<h2 id="Graph"><a href="#Graph" class="headerlink" title=" Graph "></a><center> Graph </center></h2><p><strong>Graph</strong> consisits of:  </p>
+<ul>
+<li>finite set of vertices called <strong>nodes</strong>  </li>
+<li>finite set of vertice pair $(u, v)$ called <strong>edges</strong>  </li>
+<li>two types of graph: <strong>directed graph</strong> and <strong>undirected graph</strong>  </li>
+<li>two types of graph representation: <strong>adjacency matrix</strong> and <strong>adjacency list</strong>  </li>
+<li>undirected graph has <strong>symmetric</strong> adjacency matrix  </li>
+</ul>
+<p>[TODO] X-code PPT<br><a href="https://goo.gl/pd5XDK" target="_blank" rel="noopener">https://goo.gl/pd5XDK</a><br><a href="https://goo.gl/hciJzA" target="_blank" rel="noopener">https://goo.gl/hciJzA</a>  </p>
+<p>updated: 05/30/2018</p>
+<p>How to clone a graph (visited list to detect cycle)  </p>
+<ul>
+<li><code>clones</code> map serves as both a visited list, as well as a dict for cycle pointers  </li>
+</ul>
+<p><a href="https://leetcode.com/problems/clone-graph/description/" target="_blank" rel="noopener">https://leetcode.com/problems/clone-graph/description/</a>  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> UndirectedGraphNode <span class="title">cloneGraph</span><span class="params">(UndirectedGraphNode node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> cloneHelper(node, <span class="keyword">new</span> HashMap&lt;UndirectedGraphNode, UndirectedGraphNode&gt;());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> UndirectedGraphNode <span class="title">cloneHelper</span><span class="params">(UndirectedGraphNode node, Map&lt;UndirectedGraphNode, UndirectedGraphNode&gt; clones)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        UndirectedGraphNode clone = clones.get(node);</span><br><span class="line">        <span class="keyword">if</span> (clone != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> clone;</span><br><span class="line">        &#125;</span><br><span class="line">        clone = <span class="keyword">new</span> UndirectedGraphNode(node.label);</span><br><span class="line">        clones.put(node, clone);</span><br><span class="line">        <span class="keyword">for</span> (UndirectedGraphNode neighbor : node.neighbors) &#123;</span><br><span class="line">            clone.neighbors.add(cloneHelper(neighbor, clones));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> clone;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Logs"><a href="#Logs" class="headerlink" title=" Logs "></a><center> Logs </center></h2><ul>
+<li>03/15/2018 - add Trie  </li>
+<li>03/15/2018 - add Hash table  </li>
+<li>03/16/2018 - add BST  </li>
+<li>03/16/2018 - add Stack &amp; Queue  </li>
+<li>05/07/2018 - add heap  </li>
+<li>05/30/2018 - add Graph  </li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DataStrucutre/" rel="tag">#DataStrucutre</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/13/2018-03-12-java-notes/" rel="next" title="All You Can Eat - Java">
+                <i class="fa fa-chevron-left"></i> All You Can Eat - Java
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/25/cache/" rel="prev" title="All You Can Eat - Cache">
+                All You Can Eat - Cache <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/author.jpg"
+               alt="🍣之神" />
+          <p class="site-author-name" itemprop="name">🍣之神</p>
+          <p class="site-description motion-element" itemprop="description">阮先生’s blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ruanxuyi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/xuyiruan/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/xuyi-ruan-a728a889" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mszhuchinese.com" title="MsZhuChinese" target="_blank">MsZhuChinese</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.winniebabe.com" title="WinnieBabe" target="_blank">WinnieBabe</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://suncuss.me" title="BossSun" target="_blank">BossSun</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hash-Table"><span class="nav-number">1.</span> <span class="nav-text"> Hash Table </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collision-resolution"><span class="nav-number">1.1.</span> <span class="nav-text">Collision resolution:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Chaining-wtih-LinkedList"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. Chaining wtih LinkedList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Chaining-with-BST"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. Chaining with BST</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Open-Addressing-with-Linear-Probing"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. Open Addressing with Linear Probing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Quadratic-Probing-and-Double-Hashing"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. Quadratic Probing and Double Hashing</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-number">1.2.</span> <span class="nav-text">Code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trie"><span class="nav-number">2.</span> <span class="nav-text"> Trie </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-Trie"><span class="nav-number">2.1.</span> <span class="nav-text">Why Trie?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implementation1-Array"><span class="nav-number">2.2.</span> <span class="nav-text">Implementation1: Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implementation2-HashMap"><span class="nav-number">2.3.</span> <span class="nav-text">Implementation2: HashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trie-w-implementation2"><span class="nav-number">2.4.</span> <span class="nav-text">Trie w/ implementation2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Search-Tree-BST"><span class="nav-number">3.</span> <span class="nav-text"> Binary Search Tree (BST) </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack"><span class="nav-number">4.</span> <span class="nav-text"> Stack </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Array"><span class="nav-number">4.1.</span> <span class="nav-text">Using Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-LinkedList-Preferred"><span class="nav-number">4.2.</span> <span class="nav-text">Using LinkedList (Preferred)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList-implementation"><span class="nav-number">4.3.</span> <span class="nav-text">LinkedList implementation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">5.</span> <span class="nav-text"> Queue </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heap"><span class="nav-number">6.</span> <span class="nav-text"> Heap </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Heap-Property"><span class="nav-number">6.1.</span> <span class="nav-text">Heap Property</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implementing-priority-queues-using-heaps"><span class="nav-number">6.2.</span> <span class="nav-text">Implementing priority queues using heaps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insert-operation"><span class="nav-number">6.3.</span> <span class="nav-text">Insert() operation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#removeMax-operation"><span class="nav-number">6.4.</span> <span class="nav-text">removeMax() operation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph"><span class="nav-number">7.</span> <span class="nav-text"> Graph </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logs"><span class="nav-number">8.</span> <span class="nav-text"> Logs </span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">🍣之神</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'xruan';
+      var disqus_identifier = '2018/03/15/Basic-Datastructure-Toolbox/';
+      var disqus_title = "Basic Datastructure Toolbox";
+      var disqus_url = 'http://www.xuyiruan.com/2018/03/15/Basic-Datastructure-Toolbox/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("oKoPG1XTXkC7T1oasGQwau2g-gzGzoHsz", "JFJCQtIsUKhrX6S7Gvgqdqgk");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
