@@ -106,7 +106,7 @@
 <meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-shape-examples.gif">
 <meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-order-examples.gif">
 <meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-array.gif">
-<meta property="og:updated_time" content="2018-07-15T17:38:07.724Z">
+<meta property="og:updated_time" content="2018-11-05T16:05:46.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Basic Datastructure Toolbox">
 <meta name="twitter:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-data-structure-cover.png">
@@ -386,15 +386,23 @@
 <p>Test Program:  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueOODTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		QueueOOD queue = <span class="keyword">new</span> QueueOOD();</span><br><span class="line">		queue.offer(<span class="number">1</span>);</span><br><span class="line">		queue.offer(<span class="number">2</span>);</span><br><span class="line">		queue.offer(<span class="number">3</span>);</span><br><span class="line">		queue.offer(<span class="number">4</span>);</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"size: "</span> + queue.size());</span><br><span class="line">		System.out.println(queue.poll());</span><br><span class="line">		System.out.println(queue.poll());</span><br><span class="line">		System.out.println(queue.poll());</span><br><span class="line">		System.out.println(queue.poll());</span><br><span class="line">		System.out.println(<span class="string">"size: "</span> + queue.size());</span><br><span class="line">		System.out.println(queue.poll());</span><br><span class="line">		queue.offer(<span class="number">100</span>);</span><br><span class="line">		System.out.println(<span class="string">"size: "</span> + queue.size());</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Heap"><a href="#Heap" class="headerlink" title=" Heap "></a><center> Heap </center></h2><h3 id="Heap-Property"><a href="#Heap-Property" class="headerlink" title="Heap Property"></a>Heap Property</h3><ul>
-<li>Heap is a a binary tree with <strong>two</strong> special properties:  </li>
-<li>Heap is always maintain a <strong>complete</strong> binary tree!  </li>
+<li>Heap is a tree-based datastructure with <strong>two</strong> special properties:<ul>
+<li>ORDER property</li>
+<li>SHAPE property   </li>
+</ul>
+</li>
+<li>A common implementation of a heap is the binary heap, in which the tree is a binary tree (<strong>complete</strong> binary tree)</li>
 <li>Hence we could use array as representation of a heap  </li>
 <li>All examples given in this section are <strong>max-heap</strong>, min-heap is similiar  </li>
 </ul>
 <p><strong>The ORDER property:</strong></p>
 <p>For every node n, the value in n is <strong>greater than or equal to</strong> the values in its children (and thus is also greater than or equal to all of the values in its subtrees).  </p>
 <p><strong>The SHAPE property:</strong></p>
-<p>All leaves are either at depth d or d-1 (for some value d).<br>All of the leaves at depth d-1 are to the right of the leaves at depth d.<br>a) There is at most 1 node with just 1 child.<br>b) That child is the left child of its parent, and<br>c) it is the rightmost leaf at depth d.  </p>
+<ul>
+<li>All leaves are either at depth d or d-1 (for some value d).  </li>
+<li>All of the leaves at depth d-1 are to the right of the leaves at depth d.  </li>
+<li>There is at most 1 node with just 1 child, that child is the left child of its parent, and it is the rightmost leaf at depth. </li>
+</ul>
 <p><strong>The SHAPE property Examples:</strong><br><img src="https://s3.amazonaws.com/images.xuyiruan.com/2018-03-15-shape-examples.gif" alt=""></p>
 <blockquote>
 <p>Image from uwmadion cs367 webpage</p>
@@ -564,24 +572,17 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">categories</span>
-              
-            </div>
-          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -680,7 +681,7 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

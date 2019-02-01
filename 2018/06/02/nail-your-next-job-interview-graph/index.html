@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Graph,Topological Sort,JobInterview," />
+  <meta name="keywords" content="JobInterview,Graph,Topological Sort," />
 
 
 
@@ -96,14 +96,14 @@
 
 
 
-<meta name="keywords" content="Graph,Topological Sort,JobInterview">
+<meta name="keywords" content="JobInterview,Graph,Topological Sort">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nail Your Next Job Interview - Graph">
 <meta property="og:url" content="http://www.xuyiruan.com/2018/06/02/nail-your-next-job-interview-graph/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Directed_graph%2C_cyclic.svg/500px-Directed_graph%2C_cyclic.svg.png">
-<meta property="og:updated_time" content="2018-09-08T19:54:17.815Z">
+<meta property="og:updated_time" content="2018-09-25T14:35:45.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nail Your Next Job Interview - Graph">
 <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Directed_graph%2C_cyclic.svg/500px-Directed_graph%2C_cyclic.svg.png">
@@ -383,7 +383,17 @@
 <li>DFS/BFS</li>
 <li>topolocial sort</li>
 </ul>
-<h3 id="Undirected-Graph"><a href="#Undirected-Graph" class="headerlink" title="Undirected Graph"></a>Undirected Graph</h3><h2 id="BFS-vs-DFS"><a href="#BFS-vs-DFS" class="headerlink" title="BFS vs DFS"></a>BFS vs DFS</h2><ul>
+<h3 id="Undirected-Graph"><a href="#Undirected-Graph" class="headerlink" title="Undirected Graph"></a>Undirected Graph</h3><ul>
+<li>DFS<ul>
+<li>for edge <code>v -&gt; u</code></li>
+<li>1) if node <code>u</code> already seen in <code>visited</code></li>
+<li>2) and <code>u</code> is not parent of <code>v</code></li>
+<li>then, cycle exists</li>
+</ul>
+</li>
+</ul>
+<p>src: <a href="https://www.geeksforgeeks.org/detect-cycle-undirected-graph/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/detect-cycle-undirected-graph/</a></p>
+<h2 id="BFS-vs-DFS"><a href="#BFS-vs-DFS" class="headerlink" title="BFS vs DFS"></a>BFS vs DFS</h2><ul>
 <li>BFS: solution is not far from the root of the tree, less space efficient when tree is complete/balanced.</li>
 <li>DFS: more space efficient $O(logN)$ where complete balacned tree BFS has $O(N)$ space complexity</li>
 </ul>
@@ -412,11 +422,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/JobInterview/" rel="tag">#JobInterview</a>
+          
             <a href="/tags/Graph/" rel="tag">#Graph</a>
           
             <a href="/tags/Topological-Sort/" rel="tag">#Topological Sort</a>
-          
-            <a href="/tags/JobInterview/" rel="tag">#JobInterview</a>
           
         </div>
       
@@ -510,24 +520,17 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">categories</span>
-              
-            </div>
-          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -626,7 +629,7 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
