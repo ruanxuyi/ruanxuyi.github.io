@@ -104,7 +104,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-02-24-db9d172fc33b90e905c1213b8cce660c228bb99c.png">
 <meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-02-24-DandCvsTraverse.png">
-<meta property="og:updated_time" content="2018-07-15T17:35:29.734Z">
+<meta property="og:updated_time" content="2019-02-05T20:59:50.439Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Top 5 Frequently Used Algorithms: #1 Divide and Conquer">
 <meta name="twitter:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-02-24-db9d172fc33b90e905c1213b8cce660c228bb99c.png">
@@ -353,7 +353,17 @@
 <li>90% Binary Tree Problems!  </li>
 </ul>
 <p>The difference of traverse and divide conquer in code can refer to:<br><a href="http://www.jiuzhang.com/solutions/binary-tree-preorder-traversal/#tag-highlight" target="_blank" rel="noopener">http://www.jiuzhang.com/solutions/binary-tree-preorder-traversal/#tag-highlight</a></p>
-<p>Other thoughs help to understand their difference:<br>“遍历”是一个小人带着一本记事本游走整个二叉树。<br>“分治”是一个大王呆着两个小弟，让两个小弟分别去搞定左右子树的结果汇报给大王，大王做最后的整理和拍板。<br><a href="https://www.jiuzhang.com/qa/723/" target="_blank" rel="noopener">https://www.jiuzhang.com/qa/723/</a>  </p>
+<p>Other thoughs help to understand their difference:  </p>
+<ul>
+<li>“遍历”是一个小人带着一本记事本游走整个二叉树。</li>
+<li>“分治”是一个大王呆着两个小弟，让两个小弟分别去搞定左右子树的结果汇报给大王，大王做最后的整理和拍板。</li>
+</ul>
+<p>From implementation prospective:</p>
+<ul>
+<li>“遍历”使用global var (大王的笔记本)</li>
+<li>“分治”不使用global var (结果在小弟们那，最后才收集起来)</li>
+</ul>
+<p><a href="https://www.jiuzhang.com/qa/723/" target="_blank" rel="noopener">https://www.jiuzhang.com/qa/723/</a>  </p>
 <p><a href="https://www.jiuzhang.com/qa/1244/" target="_blank" rel="noopener">https://www.jiuzhang.com/qa/1244/</a></p>
 <h2 id="difference-between-iteration-and-recurrsion"><a href="#difference-between-iteration-and-recurrsion" class="headerlink" title="difference between iteration and recurrsion?"></a>difference between iteration and recurrsion?</h2><p>why manual stack is better than recursion (callstack):</p>
 <p>非递归其实是模拟递归用的stack</p>
@@ -361,6 +371,9 @@
 <p>因为我们new出来的stack在heap memory里面, 能用的空间≈ memory size</p>
 <p>stack memory ≈ process memory是计算机分给每个程序的一个很小的独占的空间,所以递归的深度太深,就不够用了</p>
 <p><a href="https://stomachache007.wordpress.com/2017/03/12/九章算法笔记-3-binary-tree-divide-conquer/" target="_blank" rel="noopener">https://stomachache007.wordpress.com/2017/03/12/九章算法笔记-3-binary-tree-divide-conquer/</a></p>
+<h2 id="Logs"><a href="#Logs" class="headerlink" title="Logs"></a>Logs</h2><ul>
+<li>02/05/2019: add note for pure divide conquer has no global var</li>
+</ul>
 <h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p>img: <a href="https://ka-perseus-images.s3.amazonaws.com/db9d172fc33b90e905c1213b8cce660c228bb99c.png" target="_blank" rel="noopener">https://ka-perseus-images.s3.amazonaws.com/db9d172fc33b90e905c1213b8cce660c228bb99c.png</a></p>
 <p>五大常用算法之一：分治算法<br><a href="http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741370.html" target="_blank" rel="noopener">http://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741370.html</a><br>Recurssion image:<br><a href="https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms" target="_blank" rel="noopener">https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms</a><br>JiuZhang Algorithm  </p>
 
@@ -480,7 +493,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -490,7 +503,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -570,7 +583,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-concept"><span class="nav-number">1.</span> <span class="nav-text">basic concept</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#key-insights"><span class="nav-number">2.</span> <span class="nav-text">key insights:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#when-to-use"><span class="nav-number">3.</span> <span class="nav-text">when to use?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#classic-problems-with-divide-and-conquer"><span class="nav-number">4.</span> <span class="nav-text">classic problems with divide and conquer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#divide-and-conquer-VS-traverse"><span class="nav-number">5.</span> <span class="nav-text">divide and conquer VS traverse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#difference-between-iteration-and-recurrsion"><span class="nav-number">6.</span> <span class="nav-text">difference between iteration and recurrsion?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text">reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-concept"><span class="nav-number">1.</span> <span class="nav-text">basic concept</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#key-insights"><span class="nav-number">2.</span> <span class="nav-text">key insights:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#when-to-use"><span class="nav-number">3.</span> <span class="nav-text">when to use?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#classic-problems-with-divide-and-conquer"><span class="nav-number">4.</span> <span class="nav-text">classic problems with divide and conquer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#divide-and-conquer-VS-traverse"><span class="nav-number">5.</span> <span class="nav-text">divide and conquer VS traverse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#difference-between-iteration-and-recurrsion"><span class="nav-number">6.</span> <span class="nav-text">difference between iteration and recurrsion?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logs"><span class="nav-number">7.</span> <span class="nav-text">Logs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">8.</span> <span class="nav-text">reference</span></a></li></ol></div>
             
           </div>
         </section>

@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BFS,DFS,Tree,LeetCode," />
+  <meta name="keywords" content="DFS,Tree,LintCode,02-07," />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="DescriptionInvert a binary tree. Input: 123456789101112     4   /   \  2     7 / \   / \1   3 6   9Output:     4   /   \  7     2 / \   / \9   6 3   1 Trivia:This problem was inspired by this original">
-<meta name="keywords" content="BFS,DFS,Tree,LeetCode">
+<meta name="description" content="DescriptionGiven a binary tree, find the subtree with minimum sum. Return the root of the subtree. Example Example 1: 123456Input:     1   /   \ -5     2 / \   /  \0   2 -4  -5 Output:1 Example 2: 12I">
+<meta name="keywords" content="DFS,Tree,LintCode,02-07">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] LC226 - Invert Binary Tree">
-<meta property="og:url" content="http://www.xuyiruan.com/2019/02/03/leet226-Invert-Binary-Tree/index.html">
+<meta property="og:title" content="Lint596. Minimum Subtree">
+<meta property="og:url" content="http://www.xuyiruan.com/2019/02/05/lint596-Minimum-Subtree/index.html">
 <meta property="og:site_name" content="阮先生de小窝">
-<meta property="og:description" content="DescriptionInvert a binary tree. Input: 123456789101112     4   /   \  2     7 / \   / \1   3 6   9Output:     4   /   \  7     2 / \   / \9   6 3   1 Trivia:This problem was inspired by this original">
+<meta property="og:description" content="DescriptionGiven a binary tree, find the subtree with minimum sum. Return the root of the subtree. Example Example 1: 123456Input:     1   /   \ -5     2 / \   /  \0   2 -4  -5 Output:1 Example 2: 12I">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-04T02:54:00.968Z">
+<meta property="og:updated_time" content="2019-02-05T21:10:45.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] LC226 - Invert Binary Tree">
-<meta name="twitter:description" content="DescriptionInvert a binary tree. Input: 123456789101112     4   /   \  2     7 / \   / \1   3 6   9Output:     4   /   \  7     2 / \   / \9   6 3   1 Trivia:This problem was inspired by this original">
+<meta name="twitter:title" content="Lint596. Minimum Subtree">
+<meta name="twitter:description" content="DescriptionGiven a binary tree, find the subtree with minimum sum. Return the root of the subtree. Example Example 1: 123456Input:     1   /   \ -5     2 / \   /  \0   2 -4  -5 Output:1 Example 2: 12I">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title> [LeetCode] LC226 - Invert Binary Tree | 阮先生de小窝 </title>
+  <title> Lint596. Minimum Subtree | 阮先生de小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -255,7 +255,7 @@
             
             
               
-                [LeetCode] LC226 - Invert Binary Tree
+                Lint596. Minimum Subtree
               
             
           </h1>
@@ -267,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2019-02-03T15:57:34-05:00" content="02-03-2019">
-              02-03-2019
+            <time itemprop="dateCreated" datetime="2019-02-05T10:41:32-05:00" content="02-05-2019">
+              02-05-2019
             </time>
           </span>
 
@@ -278,8 +278,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2019/02/03/leet226-Invert-Binary-Tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/03/leet226-Invert-Binary-Tree/" itemprop="commentsCount"></span>
+                <a href="/2019/02/05/lint596-Minimum-Subtree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/05/lint596-Minimum-Subtree/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -289,7 +289,7 @@
 
           
           
-             <span id="/2019/02/03/leet226-Invert-Binary-Tree/" class="leancloud_visitors" data-flag-title="[LeetCode] LC226 - Invert Binary Tree">
+             <span id="/2019/02/05/lint596-Minimum-Subtree/" class="leancloud_visitors" data-flag-title="Lint596. Minimum Subtree">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -311,35 +311,28 @@
       
 
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Invert a binary tree.</p>
-<p>Input:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">     4</span><br><span class="line">   /   \</span><br><span class="line">  2     7</span><br><span class="line"> / \   / \</span><br><span class="line">1   3 6   9</span><br><span class="line">Output:</span><br><span class="line"></span><br><span class="line">     4</span><br><span class="line">   /   \</span><br><span class="line">  7     2</span><br><span class="line"> / \   / \</span><br><span class="line">9   6 3   1</span><br></pre></td></tr></table></figure>
-<p><strong>Trivia</strong>:<br>This problem was inspired by this <a href="https://twitter.com/mxcl/status/608682016205344768" target="_blank" rel="noopener">original tweet</a> by Max Howell:</p>
-<blockquote>
-<p>Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so f<em>*</em> off.</p>
-</blockquote>
-<p><a href="https://leetcode.com/problems/invert-binary-tree/description/" target="_blank" rel="noopener">&gt; Solve problem here</a> </p>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a binary tree, find the subtree with minimum sum. Return the root of the subtree.</p>
+<p><strong>Example</strong></p>
+<p><strong>Example 1</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">     1</span><br><span class="line">   /   \</span><br><span class="line"> -5     2</span><br><span class="line"> / \   /  \</span><br><span class="line">0   2 -4  -5</span><br></pre></td></tr></table></figure>
+<p>Output:1</p>
+<p><strong>Example 2</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">   1</span><br></pre></td></tr></table></figure>
+<p>Output:1</p>
+<p><a href="https://www.lintcode.com/problem/minimum-subtree/description" target="_blank" rel="noopener">&gt; Solve problem here</a> </p>
 <a id="more"></a>
-<h2 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h2><p>I was not able to solve this problem at the begining. I felt myself so stupid after seeing the DFS approach for just 5 lines. After two weeks from previous submission. I was able to recall all three different approaches. </p>
-<h3 id="Recursive-DFS-Top-down"><a href="#Recursive-DFS-Top-down" class="headerlink" title="Recursive DFS (Top-down)"></a>Recursive DFS (Top-down)</h3><p>Recursive DFS is acutally very straight forward. For each node, swap its left &amp; right child. Recursively call <code>invertTree(left)</code> to the rest of the tree. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// recursive dfs, top-down, might cause stack overflow</span></span><br><span class="line"><span class="comment">// time: O(n)</span></span><br><span class="line"><span class="comment">// space: O(logn) for recursive stack</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">invertTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> root;</span><br><span class="line">    TreeNode left = root.left;</span><br><span class="line">    root.left = root.right;</span><br><span class="line">    root.right = left;</span><br><span class="line">    invertTree(root.left);</span><br><span class="line">    invertTree(root.right);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Recursive-DFS-Bottom-up"><a href="#Recursive-DFS-Bottom-up" class="headerlink" title="Recursive DFS (Bottom-up)"></a>Recursive DFS (Bottom-up)</h3><p>The above approach recursive dfs use <strong>top-down</strong> approach, where swap is performed along the way from top to bottom. The <strong>bottom-up</strong> approach is also possible.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// recurive dfs, bottom-up, might cause stack overflow </span></span><br><span class="line"><span class="comment">// time: O(n)</span></span><br><span class="line"><span class="comment">// space: O(logn) for recursive stack</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">invertTree_dfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> root;</span><br><span class="line">    TreeNode left = root.left, right = root.right;</span><br><span class="line">    root.left = invertTree_dfs(right);</span><br><span class="line">    root.right = invertTree_dfs(left);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The <strong>bottom-up</strong> approach first go down to the far left node in the left subtree. Then swap start from there and its right subtree and return <code>node</code> to upper level. The process is very similiar to <strong>pre-order traversal</strong>.</p>
-<h3 id="Iterative-DFS"><a href="#Iterative-DFS" class="headerlink" title="Iterative DFS"></a>Iterative DFS</h3><p>Both recursive dfs approach might cause stack overflow if tree is extremely unbalanced, hence the height of tree might be large to cause stack overflow. Let’s take a look at the iterative approach with <code>Stack</code> data structure.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iterative dfs no stack overflow</span></span><br><span class="line"><span class="comment">// time: O(n)</span></span><br><span class="line"><span class="comment">// space: O(logn) for user stack</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">invertTree_dfs2</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> root;</span><br><span class="line">    Deque&lt;TreeNode&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">    stack.push(root);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">        TreeNode node = stack.pop();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// swap</span></span><br><span class="line">        TreeNode left = node.left;</span><br><span class="line">        node.left = node.right;</span><br><span class="line">        node.right = left;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// add to queue, level order process</span></span><br><span class="line">        <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) stack.push(node.left);</span><br><span class="line">        <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) stack.push(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>As we can see, iteative dfs, indeed, is very similiar to recursive top-down approach. The recursive top-down approach uses an <strong>implicit</strong> <code>Stack</code> and iterative dfs uses an <strong>explicit</strong> <code>Stack</code>.</p>
-<h3 id="Iterative-BFS"><a href="#Iterative-BFS" class="headerlink" title="Iterative BFS"></a>Iterative BFS</h3><p>Benefit from the nature of this problem, we can also use BFS to solve it.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BFS, change stack to queue</span></span><br><span class="line"><span class="comment">// time: O(n)</span></span><br><span class="line"><span class="comment">// space: O(n) for user queue (last layer of complete binary tree n/2 nodes)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">invertTree_bfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> root;</span><br><span class="line">    Deque&lt;TreeNode&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">    stack.offer(root);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">        TreeNode node = stack.poll();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// swap</span></span><br><span class="line">        TreeNode left = node.left;</span><br><span class="line">        node.left = node.right;</span><br><span class="line">        node.right = left;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// add to queue, level order process</span></span><br><span class="line">        <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) stack.offer(node.left);</span><br><span class="line">        <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) stack.offer(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>BFS approach uses level order traversal to push node and swap them in order. The overall strcture is very similiar to the iterative dfs version. </p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary:"></a>Summary:</h2><ul>
-<li>DFS recurisve (top-down)</li>
-<li>DFS recurisve (bottom-up, preorder traversal)</li>
-<li>DFS iterative (stack)</li>
-<li>BFS iterative (queue, level-order traversal)</li>
+<h2 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h2><p>Since it is a tree type problem, we can use BFS or DFS to solve it. Since it is looking for sum of subtree, hence, DFS is more appropriated. Lets use divide and conquer approch and recursive dfs to solve it first.</p>
+<h3 id="DFS-recurisve-divide-and-conquer-w-global-vars-traverse"><a href="#DFS-recurisve-divide-and-conquer-w-global-vars-traverse" class="headerlink" title="DFS recurisve + divide and conquer (w/ global vars, traverse)"></a>DFS recurisve + divide and conquer (w/ global vars, traverse)</h3><blockquote>
+<p>Note: traverse is because we are using global var (拿着笔记本走整颗树记录最小值)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition of TreeNode:</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     public int val;</span></span><br><span class="line"><span class="comment"> *     public TreeNode left, right;</span></span><br><span class="line"><span class="comment"> *     public TreeNode(int val) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.left = this.right = null;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> root: the root of binary tree</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: the root of the minimum subtree</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> minSum;</span><br><span class="line">    <span class="keyword">private</span> TreeNode;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">findSubtree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        minSum = Integer.MAX_VALUE;</span><br><span class="line">        minRoot = root;</span><br><span class="line">        <span class="comment">// divide n conquer</span></span><br><span class="line">        getSum(root);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> minRoot;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSum</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> left = getSum(node.left);</span><br><span class="line">        <span class="keyword">int</span> right = getSum(node.right);</span><br><span class="line">        <span class="keyword">int</span> sum = left + right + node.val;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> ( sum &lt; minSum ) &#123;</span><br><span class="line">            minSum = sum;</span><br><span class="line">            minRoot = node;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The above solution is not pure divide and conquer since it uses global variable. To make it pure divide and conquer, we can wrap global variables into a wrapper <code>ResultType</code></p>
+<h3 id="DFS-recursive-pure-divide-and-conquer"><a href="#DFS-recursive-pure-divide-and-conquer" class="headerlink" title="DFS recursive + pure divide and conquer"></a>DFS recursive + pure divide and conquer</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> root: the root of binary tree</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: the root of the minimum subtree</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ResultType</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> sum;</span><br><span class="line">        <span class="keyword">private</span> TreeNode node;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ResultType</span><span class="params">(<span class="keyword">int</span> sum, TreeNode node)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.sum = sum;</span><br><span class="line">            <span class="keyword">this</span>.node = node;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">findSubtree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">// divide n conquer</span></span><br><span class="line">        ResultType res = <span class="keyword">new</span> ResultType(Integer.MAX_VALUE, root);</span><br><span class="line">        getSum(root, res);</span><br><span class="line">        <span class="keyword">return</span> res.node;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSum</span><span class="params">(TreeNode node, ResultType min)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> left = getSum(node.left, min);</span><br><span class="line">        <span class="keyword">int</span> right = getSum(node.right, min);</span><br><span class="line">        <span class="keyword">int</span> sum = left + right + node.val;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> ( sum &lt; min.sum ) &#123;</span><br><span class="line">            min.sum = sum;</span><br><span class="line">            min.node = node;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>divide and conquer (wo/ global vars 大王派小弟) VS traversal (w/ global vars 带着笔记本)</li>
 </ul>
 <h2 id="Logs"><a href="#Logs" class="headerlink" title="Logs"></a>Logs</h2><ul>
-<li>02/03/2019 Add solutions</li>
+<li>02/05/2019: add solutions</li>
 </ul>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2>
       
@@ -362,13 +355,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/BFS/" rel="tag">#BFS</a>
-          
             <a href="/tags/DFS/" rel="tag">#DFS</a>
           
             <a href="/tags/Tree/" rel="tag">#Tree</a>
           
-            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+            <a href="/tags/LintCode/" rel="tag">#LintCode</a>
+          
+            <a href="/tags/02-07/" rel="tag">#02-07</a>
           
         </div>
       
@@ -377,17 +370,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/30/lint-611-Knight-Shortest-Path/" rel="next" title="[LintCode] LC611 - Knight Shortest Path">
-                <i class="fa fa-chevron-left"></i> [LintCode] LC611 - Knight Shortest Path
+              <a href="/2019/02/05/lint597-Subtree-with-Maximum-Average/" rel="next" title="Lint597. Subtree With Maximum Average">
+                <i class="fa fa-chevron-left"></i> Lint597. Subtree With Maximum Average
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/04/leet98-Validate-Binary-Search-Tree/" rel="prev" title="[LeetCode] LC98 - Validate Binary Search Tree">
-                [LeetCode] LC98 - Validate Binary Search Tree <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -552,7 +541,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thoughts"><span class="nav-number">2.</span> <span class="nav-text">Thoughts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-DFS-Top-down"><span class="nav-number">2.1.</span> <span class="nav-text">Recursive DFS (Top-down)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-DFS-Bottom-up"><span class="nav-number">2.2.</span> <span class="nav-text">Recursive DFS (Bottom-up)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterative-DFS"><span class="nav-number">2.3.</span> <span class="nav-text">Iterative DFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterative-BFS"><span class="nav-number">2.4.</span> <span class="nav-text">Iterative BFS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">3.</span> <span class="nav-text">Summary:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logs"><span class="nav-number">4.</span> <span class="nav-text">Logs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thoughts"><span class="nav-number">2.</span> <span class="nav-text">Thoughts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS-recurisve-divide-and-conquer-w-global-vars-traverse"><span class="nav-number">2.1.</span> <span class="nav-text">DFS recurisve + divide and conquer (w/ global vars, traverse)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS-recursive-pure-divide-and-conquer"><span class="nav-number">2.2.</span> <span class="nav-text">DFS recursive + pure divide and conquer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">3.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logs"><span class="nav-number">4.</span> <span class="nav-text">Logs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
           </div>
         </section>
@@ -672,9 +661,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'xruan';
-      var disqus_identifier = '2019/02/03/leet226-Invert-Binary-Tree/';
-      var disqus_title = "[LeetCode] LC226 - Invert Binary Tree";
-      var disqus_url = 'http://www.xuyiruan.com/2019/02/03/leet226-Invert-Binary-Tree/';
+      var disqus_identifier = '2019/02/05/lint596-Minimum-Subtree/';
+      var disqus_title = "Lint596. Minimum Subtree";
+      var disqus_url = 'http://www.xuyiruan.com/2019/02/05/lint596-Minimum-Subtree/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
