@@ -106,7 +106,7 @@
 <meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-02-04-iterative.jpg">
 <meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-02-04-recursive.jpg">
 <meta property="og:image" content="https://img-blog.csdn.net/20140612150001687">
-<meta property="og:updated_time" content="2018-11-26T15:31:34.845Z">
+<meta property="og:updated_time" content="2019-04-28T18:21:54.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithmic Toolbox">
 <meta name="twitter:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2018-02-04-java-tools.jpg">
@@ -375,6 +375,7 @@
 <p><strong>key observation</strong>: the distance d1, from location where <code>slow</code> and <code>fast</code> pointer meet to the start of the cycle is exactly the same distance d2, from <code>head</code> to the begining of the cycle. why? TODO:</p>
 </blockquote>
 <h2 id="Search-Algorithms"><a href="#Search-Algorithms" class="headerlink" title="Search Algorithms"></a><center>Search Algorithms</center></h2><ul>
+<li>sorted array only</li>
 <li>time: $O(logN)$   </li>
 <li>space: $O(1)$  </li>
 </ul>
@@ -500,15 +501,15 @@
 <li><code>IndexOutOfBoundsException</code></li>
 </ul>
 <p>throw exception</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (numStudents &lt;= <span class="number">0</span>) &#123;	<span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(“Number of “ + “ students is <span class="number">0</span>”);&#125;avgGrade = total / numStudents;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (numStudents &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(“Number of “ + “ students is <span class="number">0</span>”);</span><br><span class="line">&#125;</span><br><span class="line">avgGrade = total / numStudents;</span><br></pre></td></tr></table></figure>
 <p>try/catch block</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">   ...</span><br><span class="line">   </span><br><span class="line">&#125;<span class="keyword">catch</span>(IllegalArgumentException e) &#123;	e.printStackTrace(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">   ...</span><br><span class="line">   </span><br><span class="line">&#125;<span class="keyword">catch</span>(IllegalArgumentException e) &#123;</span><br><span class="line">	e.printStackTrace(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>finally block  </p>
 <ul>
 <li>The statements present in this block will <strong>always</strong> execute regardless of whether exception occurs or not.  </li>
 <li>usually put clean-up code within <code>finally</code> block (etc, close IO, close a connection, etc).  </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">   ...</span><br><span class="line">   </span><br><span class="line">&#125; <span class="keyword">catch</span> (IllegalArgumentException e) &#123;	e.printStackTrace(); </span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">	<span class="comment">// clean-up code goes where</span></span><br><span class="line">	<span class="comment">// always got execute disregard of whether or not error occour.  </span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">   ...</span><br><span class="line">   </span><br><span class="line">&#125; <span class="keyword">catch</span> (IllegalArgumentException e) &#123;</span><br><span class="line">	e.printStackTrace(); </span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">	<span class="comment">// clean-up code goes where</span></span><br><span class="line">	<span class="comment">// always got execute disregard of whether or not error occour.  </span></span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="checked-vs-unchecked-exception"><a href="#checked-vs-unchecked-exception" class="headerlink" title="checked vs unchecked exception"></a>checked vs unchecked exception</h3><p><strong>checked exception</strong>: </p>
 <ul>
 <li>type of exception programmer <strong>must</strong> handle, otherwise, it will NOT compiled  </li>
@@ -677,7 +678,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
