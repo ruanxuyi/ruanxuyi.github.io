@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2016-08-30-merge-sort.jpg">
 <meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2016-08-30-quickSort.jpg">
 <meta property="og:image" content="https://s3.amazonaws.com/images.xuyiruan.com/2016-08-30-insertionSort.jpg">
-<meta property="og:updated_time" content="2019-02-17T20:59:42.055Z">
+<meta property="og:updated_time" content="2019-05-04T01:54:31.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sorting Algorithms">
 <meta name="twitter:description" content="bubble sortalgorithm start from left to right, inspect two adjacent elements, swap two element if the value of first is larger than second   continue with the next pair until reaching the end of the a">
@@ -361,7 +361,7 @@
 </blockquote>
 <h2 id="Time-Complexity-Analysis"><a href="#Time-Complexity-Analysis" class="headerlink" title="Time Complexity Analysis"></a>Time Complexity Analysis</h2><ul>
 <li><strong>Worst case $O(n^2)$:</strong><br>everytimes pivit picked is either the smallest or the largest elements of the array. From $n-&gt;n-1-&gt;n-2-&gt; \dots -&gt; 1$</li>
-<li><strong>Average/best case</strong> $O(nlog(n))$:<br>pivit split array evenly so the number of steps is less. From $n -&gt; n/2-&gt;n/4 \dots$. Note: $O(nlog(n))$ is the height of the tree.  </li>
+<li><strong>Average/best case</strong> $O(nlog(n))$:<br>pivit split array evenly so the number of steps is less. From $n -&gt; 2<em> n/2-&gt;4</em> n/4 \dots$. The height of the tree is $log(n)$ Hence, $O(nlog(n))$.</li>
 </ul>
 <h2 id="Algorithm-1"><a href="#Algorithm-1" class="headerlink" title="Algorithm"></a>Algorithm</h2><ul>
 <li>select the middle value as the <code>pivot</code>.  </li>

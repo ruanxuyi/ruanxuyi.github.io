@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="阮先生de小窝">
 <meta property="og:description" content="Important concepts:  [] square bracket, is a character class. Character class stands for “or”. Hence, [abc] means it matches a OR b OR c. [abc] is equavalaent to [a-c] or (a|b|c)   append \ in the fro">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-10T21:10:54.778Z">
+<meta property="og:updated_time" content="2019-05-04T17:13:10.390Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Regex Cheatsheet">
 <meta name="twitter:description" content="Important concepts:  [] square bracket, is a character class. Character class stands for “or”. Hence, [abc] means it matches a OR b OR c. [abc] is equavalaent to [a-c] or (a|b|c)   append \ in the fro">
@@ -317,12 +317,27 @@
 <li>append <code>\</code> in the front of the character, if it is part of the regex (ex. <code>\d</code> match digits, we excape <code>\d</code> as <code>\\d</code>  </li>
 </ul>
 <h2 id="Characters"><a href="#Characters" class="headerlink" title="Characters"></a>Characters</h2><p><code>\s</code> empty space<br><code>\s+</code> one or more empty spaces<br><code>\p{Punct}</code> punctutation<br><code>\d</code> digit<br><code>[^]</code> <code>^</code> inside square bracket means not  </p>
+<h3 id="public-String-split-String-regex"><a href="#public-String-split-String-regex" class="headerlink" title="public String[] split(String regex)"></a>public String[] split(String regex)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"String[] ops = s.split("</span><span class="string">"regex"</span><span class="string">")</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\d  // any digits, short for [0-9]</span><br><span class="line">\D // a non-digit, short for [^0-9]</span><br><span class="line">\s // a whitespace character</span><br><span class="line">\S // a non-whitespace character</span><br><span class="line">\w // a word character, sort for [a-zA-Z0-9_], word char conatins underscore(_)</span><br><span class="line">\W // a non-word character [^\w]</span><br><span class="line">\S+ // one or more non-whitespace characters</span><br></pre></td></tr></table></figure>
+<p>ref: <a href="https://www.vogella.com/tutorials/JavaRegularExpressions/article.html" target="_blank" rel="noopener">https://www.vogella.com/tutorials/JavaRegularExpressions/article.html</a></p>
+<p>Examples:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String[] nums = s.split(&quot;&quot;[-+*/]&quot;&quot;); // split on any math operator</span><br><span class="line">String[] ops = s.split(&quot;&quot;[0-9]+&quot;&quot;); // split on any digit</span><br><span class="line">String[] ops = s.split(&quot;&quot;\\s+&quot;&quot;); // split one or more space</span><br><span class="line">String[] ops = s.split(&quot;&quot;\\W+&quot;&quot;); // split one or more non-word character</span><br></pre></td></tr></table></figure>
+<h3 id="public-String-split-String-regex-int-limit"><a href="#public-String-split-String-regex-int-limit" class="headerlink" title="public String[] split(String regex, int limit)"></a>public String[] split(String regex, int limit)</h3><ul>
+<li><strong>limit</strong> parameter controls the number of times the pattern is applied</li>
+<li><code>split(String regex, n)</code></li>
+<li><strong>if n = 0:</strong> pattern will be applied as many time as possible, ALL trailing empty strings (eg. “”) will be removed</li>
+<li><strong>if n &lt; 0:</strong> pattern will be applied as many time as possible</li>
+<li><strong>if n &gt; 0:</strong> pattern will be applied at most n - 1 times</li>
+</ul>
 <h2 id="Quantifiers"><a href="#Quantifiers" class="headerlink" title="Quantifiers"></a>Quantifiers</h2><ul>
 <li><code>+</code> one or more  </li>
 <li><code>*</code> zero or more  </li>
 <li><code>{3}</code> exactly three times  </li>
 </ul>
 <h2 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h2><p>Stackoverflow: square brackets: <a href="https://stackoverflow.com/a/26565735" target="_blank" rel="noopener">https://stackoverflow.com/a/26565735</a><br>cheat sheet <a href="https://www.rexegg.com/regex-quickstart.html" target="_blank" rel="noopener">https://www.rexegg.com/regex-quickstart.html</a><br>Java regular expressions cheat sheet <a href="https://zeroturnaround.com/rebellabs/java-regular-expressions-cheat-sheet/" target="_blank" rel="noopener">https://zeroturnaround.com/rebellabs/java-regular-expressions-cheat-sheet/</a>  </p>
+<h2 id="Logs"><a href="#Logs" class="headerlink" title="Logs"></a>Logs</h2><ul>
+<li>05/04/2019: update split() example + more regex example</li>
+</ul>
 
       
     </div>
@@ -530,7 +545,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Characters"><span class="nav-number">1.</span> <span class="nav-text">Characters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quantifiers"><span class="nav-number">2.</span> <span class="nav-text">Quantifiers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">3.</span> <span class="nav-text">References:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Characters"><span class="nav-number">1.</span> <span class="nav-text">Characters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#public-String-split-String-regex"><span class="nav-number">1.1.</span> <span class="nav-text">public String[] split(String regex)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#public-String-split-String-regex-int-limit"><span class="nav-number">1.2.</span> <span class="nav-text">public String[] split(String regex, int limit)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quantifiers"><span class="nav-number">2.</span> <span class="nav-text">Quantifiers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">3.</span> <span class="nav-text">References:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logs"><span class="nav-number">4.</span> <span class="nav-text">Logs</span></a></li></ol></div>
             
           </div>
         </section>
